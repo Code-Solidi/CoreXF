@@ -26,9 +26,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extension4", "Demos\Extensions\Extension4\Extension4.csproj", "{5835B374-09F6-482C-9E66-18D919B6D3ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{3EBAF453-D287-4CF2-A226-F38FBFAE9362}"
-	ProjectSection(SolutionItems) = preProject
-		..\Readme.md = ..\Readme.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F79D3306-2D64-4D43-B1BF-A90FDDB7BF9C}"
 	ProjectSection(SolutionItems) = preProject
@@ -88,41 +85,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D088720-A349-41E3-AC67-7203C07EB67E}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://achristov.visualstudio.com/
-		SccProjectUniqueName0 = Abstractions\\CoreXF.Abstractions.csproj
-		SccProjectName0 = Abstractions
-		SccLocalPath0 = Abstractions
-		SccProjectUniqueName1 = Framework\\CoreXF.Framework.csproj
-		SccProjectName1 = Framework
-		SccLocalPath1 = Framework
-		SccLocalPath2 = .
-		SccProjectUniqueName3 = Demos\\Extensions\\Extension1\\Extension1.csproj
-		SccProjectTopLevelParentUniqueName3 = CoreXF.sln
-		SccProjectName3 = Demos/Extensions/Extension1
-		SccLocalPath3 = Demos\\Extensions\\Extension1
-		SccProjectUniqueName4 = Demos\\Extensions\\Extension2\\Extension2.csproj
-		SccProjectTopLevelParentUniqueName4 = CoreXF.sln
-		SccProjectName4 = Demos/Extensions/Extension2
-		SccLocalPath4 = Demos\\Extensions\\Extension2
-		SccProjectUniqueName5 = Demos\\Extensions\\Extension3\\Extension3.csproj
-		SccProjectTopLevelParentUniqueName5 = CoreXF.sln
-		SccProjectName5 = Demos/Extensions/Extension3
-		SccLocalPath5 = Demos\\Extensions\\Extension3
-		SccProjectUniqueName6 = Demos\\Extensions\\Extension4\\Extension4.csproj
-		SccProjectTopLevelParentUniqueName6 = CoreXF.sln
-		SccProjectName6 = Demos/Extensions/Extension4
-		SccLocalPath6 = Demos\\Extensions\\Extension4
-		SccProjectUniqueName7 = Demos\\HostApp\\HostApp.csproj
-		SccProjectTopLevelParentUniqueName7 = CoreXF.sln
-		SccProjectName7 = Demos/HostApp
-		SccLocalPath7 = Demos\\HostApp
-		SccProjectUniqueName8 = Spikes\\PartsWebApp\\PartsWebApp.csproj
-		SccProjectTopLevelParentUniqueName8 = CoreXF.sln
-		SccProjectName8 = Spikes/PartsWebApp
-		SccLocalPath8 = Spikes\\PartsWebApp
 	EndGlobalSection
 EndGlobal
