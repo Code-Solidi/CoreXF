@@ -1,5 +1,5 @@
 # CoreXF
-**CoreX**F is a ASP.NET **Core** e**X**tensibility **F**ramework. It defines interfaces and classes required to convert .NET Core MVC applications as well as .NET Core class libraries into .NET Core MVC extensions.
+**CoreXF** is a ASP.NET **Core** e**X**tensibility **F**ramework. It defines interfaces and classes required to convert .NET Core MVC applications as well as .NET Core class libraries into .NET Core MVC extensions.
 
 **WARNING:** The project is in very early stage of develpment (experimental phase) therefore it is not suitable for production environments. Use it on your own risk.
 
