@@ -1,0 +1,37 @@
+﻿@model PartsWebApp.Models.FeaturesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>FeaturesViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <h2>Controllers</h2>
+        @foreach (var c in Model.Controllers)
+        {
+            <p>@c.FullName</p>
+        }
+
+        <h2>Metadata References</h2>
+        @foreach (var m in Model.MetadataReferences)
+        {
+            <p>@m.Display</p>
+        }
+
+        <h2>Tag Helpers</h2>
+        @foreach (var t in Model.TagHelpers)
+        {
+            <p>@t.FullName</p>
+        }
+
+        <h2>View Components</h2>
+        @foreach (var v in Model.ViewComponents)
+        {
+            <p>@v.FullName</p>
+        }
+    </dl>
+</div>

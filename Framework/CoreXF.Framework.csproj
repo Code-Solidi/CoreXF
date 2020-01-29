@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Code Solidi Ltd.</Authors>
+    <Company>Code Solidi Ltd.</Company>
+    <Product>CoreXF</Product>
+    <Description>CoreXF is a .NET Core eXtensibility Framework. It defines interfaces and classes required to convert .NET Core MVC applications as well as .NET Core class libraries into .NET Core MVC extensions.</Description>
+    <Copyright>Copyright (c) Code Solidi Ltd. 2016-2018.</Copyright>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://achristov.visualstudio.com/CoreXF</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExtensionsMetadataReferenceFeatureProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ExtensionsMetadataReferenceFeatureProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstractions\CoreXF.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.FileProviders.Embedded">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.fileproviders.embedded\2.1.1\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

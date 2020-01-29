@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CoreXF.Abstractions</id>
+    <version>1.0.1</version>
+    <title>CoreFX Abstractions</title>
+    <authors>Code Solidi Ltd.</authors>
+    <owners>Code Solidi Ltd.</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <description>.NET Core Extensibility Framework</description>
+    <summary>.NET Core Extensibility Framework</summary>
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.1">
+        <dependency id="Microsoft.Extensions.FileProviders.Abstractions" version="2.1.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\netcoreapp2.1\CoreXF.Abstractions.dll" target="lib\netcoreapp2.1\CoreXF.Abstractions.dll" />
+  </files>
+</package>
