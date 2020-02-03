@@ -1,12 +1,14 @@
 ﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-using CoreXF.Abstractions;
-using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
+
+using CoreXF.Abstractions;
+
+using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Framework
 {
@@ -28,7 +30,7 @@ namespace CoreXF.Framework
             var registry = new ExtensionsRegistry(factory);
             var excludes = new[] { Assembly.GetAssembly(typeof(ExtensionBase)).FullName };
             var location = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            var manager = new ExtensionsLoader(factory, registry).Discover(location, excludes);
+            _ = new ExtensionsLoader(factory, registry).Discover(location, excludes);
             return registry;
         }
 
@@ -41,12 +43,12 @@ namespace CoreXF.Framework
                 {
                     var types = assembly?.GetTypes();
                     var type = types?.SingleOrDefault(x => typeof(IExtension).IsAssignableFrom(x));
-                    if (type != null && type.IsAbstract == false)
+                    if (type?.IsAbstract == false)
                     {
                         try
                         {
                             var instance = Activator.CreateInstance(type) as IExtension;
-                            (this.registry as ExtensionsRegistry).Register(instance);
+                            (this.registry as ExtensionsRegistry)?.Register(instance);
                         }
                         catch (Exception x)
                         {
@@ -63,9 +65,9 @@ namespace CoreXF.Framework
         {
             try
             {
-                // load dependent assemlies:
+                // load dependent assemblies:
                 // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
-                var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded its forever!
+                var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
                 return assembly;
             }
             catch (Exception x)

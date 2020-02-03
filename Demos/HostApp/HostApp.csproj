@@ -27,6 +27,7 @@
     <ProjectReference Include="..\Extensions\Extension1\Extension1.csproj" />
     <ProjectReference Include="..\Extensions\Extension2\Extension2.csproj" />
     <ProjectReference Include="..\Extensions\Extension3\Extension3.csproj" />
+    <ProjectReference Include="..\Extensions\ServiceExporter\ServiceExporter.csproj" />
   </ItemGroup>
 
 </Project>
