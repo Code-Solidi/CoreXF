@@ -37,14 +37,14 @@ namespace CoreXF.Framework
             var provider = services.BuildServiceProvider();
 
             var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
-            loggerFactory.AddConsole(configuration).AddDebug();
+            //loggerFactory.AddConsole(configuration).AddDebug();
 
             var hostingEnvironment = provider.GetRequiredService<IHostingEnvironment>();
 
             var registry = ExtensionsLoader.DiscoverExtensions(loggerFactory);
             services.AddSingleton<IExtensionsRegistry>(registry);
 
-            // make extensions available to MVC app
+            // make extensions available to MVC application
             ExtensionsConfigurator.AddApplicationParts(builder, registry);
 
             // replace controller feature provider

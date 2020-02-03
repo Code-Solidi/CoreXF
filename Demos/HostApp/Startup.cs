@@ -5,20 +5,18 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace HostApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration/*, IHostingEnvironment env*/)
+        public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
-            //this.HostingEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
-
-        //public IHostingEnvironment HostingEnvironment { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -36,12 +34,10 @@ namespace HostApp
             //var factory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
             //services.AddSingleton<IExtensionsManager>(ExtensionsManager.Discover(factory));
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddCoreXF(services, this.Configuration);
+            services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -52,15 +48,18 @@ namespace HostApp
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //app.UseExtCore();
-
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseCookiePolicy(); //!!
+
             //app.UseCoreXF();
-            app.UseMvc(routes =>
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute(name: "areas", template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
