@@ -19,15 +19,6 @@ namespace CoreXF.Framework
 {
     public static class ExtensionsConfigurator
     {
-        private static void AddApplicationParts(IMvcBuilder mvcBuilder, IExtensionsRegistry registry)
-        {
-            foreach (var extension in (registry as ExtensionsRegistry).Extensions)
-            {
-                var assembly = extension.GetType().Assembly;
-                mvcBuilder.AddApplicationPart(assembly);
-            }
-        }
-
         public static IMvcBuilder AddCoreXF(this IMvcBuilder builder, IServiceCollection services, IConfiguration configuration)
         {
             // add services
@@ -77,6 +68,15 @@ namespace CoreXF.Framework
         public static IApplicationBuilder UseCoreXF(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<ExtensionsMiddleware>();
+        }
+
+        private static void AddApplicationParts(IMvcBuilder mvcBuilder, IExtensionsRegistry registry)
+        {
+            foreach (var extension in (registry as ExtensionsRegistry)?.Extensions)
+            {
+                var assembly = extension.GetType().Assembly;
+                mvcBuilder.AddApplicationPart(assembly);
+            }
         }
     }
 }
