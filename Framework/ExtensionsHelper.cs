@@ -1,8 +1,10 @@
 ﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 using System;
+using System.Collections.Generic;
 using System.Reflection;
-
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreXF.Framework
@@ -66,5 +68,13 @@ namespace CoreXF.Framework
         //        logger.LogTrace($"'{asm.FullName}'.");
         //    }
         //}
+
+        public static IList<Func<RequestDelegate, RequestDelegate>> Components(this IApplicationBuilder app)
+        {
+            var type = app.GetType();
+            var field = type.GetField("_components", BindingFlags.Instance | BindingFlags.NonPublic);
+            return (IList<Func<RequestDelegate, RequestDelegate>>)field.GetValue(app);
+        }
+
     }
 }

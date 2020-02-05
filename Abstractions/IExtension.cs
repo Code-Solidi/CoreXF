@@ -1,5 +1,8 @@
 ﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace CoreXF.Abstractions
 {
     /// <summary>
@@ -21,5 +24,9 @@ namespace CoreXF.Abstractions
 
         /// <summary>The authors of the extension, comma separated.</summary>
         string Authors { get; }
+
+        void ConfigureServices(IServiceCollection services, IConfiguration configuration);
+
+        void ConfigureMiddleware(IExtensionsApplicationBuilder app);
     }
 }

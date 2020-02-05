@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Linq;
+using CoreXF.Abstractions;
+using Extension2.Middlewares;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -50,6 +53,19 @@ namespace Extension2
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        public void ConfigureMiddleware(IExtensionsApplicationBuilder app)
+        {
+            var shims = app.GetShims().ToArray();
+            var shim = shims[1];
+
+            var xp = app.ExpansionPoint(shim);
+            xp.UseRequestCulture();
+
+            // simulate getting xp again
+            xp = app.ExpansionPoint(shim);
+            xp.UseMiddleware<LoggerMiddleware>();
         }
     }
 }

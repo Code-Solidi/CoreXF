@@ -47,14 +47,7 @@ namespace CoreXF.Framework
                 {
                     var assembly = extension.GetType().Assembly;
                     mvcBuilder.AddApplicationPart(assembly);
-
-                    var startUpName = $"{assembly.GetName().Name}.Startup";
-                    var startup = assembly.GetType(startUpName);
-                    if (startup != null)
-                    {
-                        dynamic instance = Activator.CreateInstance(startup, configuration);
-                        instance.ConfigureServices(services);
-                    }
+                    extension.ConfigureServices(services, configuration);
                 }
             }
 
@@ -95,6 +88,7 @@ namespace CoreXF.Framework
                     , hostingEnvironment.ContentRootFileProvider).Composite;
             }
 
+            // here we go...
             services.AddOptions();
             services.Configure<CoreXfOptions>(configuration.GetSection("CoreXF"));
 
@@ -102,6 +96,17 @@ namespace CoreXF.Framework
             services.AddSingleton<IActionDescriptorChangeProvider>(actionDescriptorChangeProvider);
 
             var loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
+
+            //services.AddSingleton<IExtensionsApplicationBuilder, ExtensionsApplicationBuilder>();   // NB: always singleton!!
+
+            // NB: always singleton!!
+            //services.AddSingleton<IExtensionsApplicationBuilder>(factory => 
+            //{
+            //    var app = services.BuildServiceProvider().GetRequiredService<IApplicationBuilder>();
+            //    return new ExtensionsApplicationBuilder(app);
+            //});   
+
+            services.AddSingleton<IExtensionsApplicationBuilderFactory, ExtensionsApplicationBuilderFactory>();  
 
             var registry = AddRegistry(services);
 
@@ -124,7 +129,16 @@ namespace CoreXF.Framework
 
         public static IApplicationBuilder UseCoreXF(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<ExtensionsMiddleware>();
+            var services = builder.ApplicationServices;
+            var registry = services.GetRequiredService<IExtensionsRegistry>();
+            var factory = services.GetRequiredService<IExtensionsApplicationBuilderFactory>();
+            var app = factory.CreateBuilder(builder);
+            foreach (var extension in (registry as ExtensionsRegistry)?.Extensions)
+            {
+                extension.ConfigureMiddleware(app);
+            }
+
+            return builder;
         }
     }
 }

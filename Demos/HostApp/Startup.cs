@@ -1,4 +1,5 @@
-﻿using CoreXF.Framework;
+﻿using CoreXF.Abstractions;
+using CoreXF.Framework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,8 +38,10 @@ namespace HostApp
             services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder /*app*/original, IExtensionsApplicationBuilderFactory factory, IWebHostEnvironment env)
         {
+            var app = factory.CreateBuilder(original);
+            //app.SetOriginal(original);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -53,14 +56,14 @@ namespace HostApp
             app.UseAuthorization();
             app.UseCookiePolicy(); //!!
 
-            //app.UseCoreXF();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.Populate(original.UseCoreXF());
         }
     }
 }

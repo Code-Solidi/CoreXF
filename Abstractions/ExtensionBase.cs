@@ -1,5 +1,9 @@
 ﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace CoreXF.Abstractions
 {
     /// <summary>A default implementation of <see cref="CoreXF.Abstractions.IExtension">IExtension</see>.</summary>
@@ -19,5 +23,21 @@ namespace CoreXF.Abstractions
 
         /// <summary>The authors of the extension, comma separated.</summary>
         public virtual string Authors => "Code Solidi Ltd.";
+
+        public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
+        {
+        }
+
+        public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            var assembly = this.GetType().Assembly;
+            var startUpName = $"{assembly.GetName().Name}.Startup";
+            var startup = assembly.GetType(startUpName);
+            if (startup != null)
+            {
+                dynamic instance = Activator.CreateInstance(startup, configuration);
+                instance.ConfigureServices(services);
+            }
+        }
     }
 }
