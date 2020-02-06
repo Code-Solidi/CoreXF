@@ -1,6 +1,6 @@
 ﻿using System;
 
-using CoreXF.Abstractions;
+using CoreXF.Abstractions.Attributes;
 
 using DateTimeService;
 

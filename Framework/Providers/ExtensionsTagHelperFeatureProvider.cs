@@ -1,15 +1,21 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-using CoreXF.Abstractions;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
-using Microsoft.Extensions.Logging;
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace CoreXF.Framework
+using CoreXF.Abstractions.Attributes;
+using CoreXF.Abstractions.Base;
+
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
+using Microsoft.Extensions.Logging;
+
+namespace CoreXF.Framework.Providers
 {
     public class ExtensionsTagHelperFeatureProvider : IApplicationFeatureProvider<TagHelperFeature>
     {

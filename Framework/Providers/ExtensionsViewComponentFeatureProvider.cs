@@ -1,30 +1,34 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using CoreXF.Abstractions;
-
+using CoreXF.Abstractions.Attributes;
+using CoreXF.Abstractions.Base;
+using CoreXF.Framework.Settings;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using Microsoft.AspNetCore.Mvc.Controllers;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Logging;
 
-namespace CoreXF.Framework
+namespace CoreXF.Framework.Providers
 {
-    public class ExtensionsControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
+    public class ExtensionsViewComponentFeatureProvider : IApplicationFeatureProvider<ViewComponentFeature>
     {
-        private readonly ILogger<ExtensionsControllerFeatureProvider> logger;
+        private readonly ILogger<ExtensionsViewComponentFeatureProvider> logger;
 
-        public ExtensionsControllerFeatureProvider(ILoggerFactory loggerFactory)
+        public ExtensionsViewComponentFeatureProvider(ILoggerFactory loggerFactory)
         {
-            this.logger = loggerFactory.CreateLogger<ExtensionsControllerFeatureProvider>();
+            this.logger = loggerFactory.CreateLogger<ExtensionsViewComponentFeatureProvider>();
         }
 
         public IDictionary<string, IList<TypeInfo>> Areas { get; } = new Dictionary<string, IList<TypeInfo>>();
 
-        public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
+        public void PopulateFeature(IEnumerable<ApplicationPart> parts, ViewComponentFeature feature)
         {
             if (feature == null)
             {
@@ -34,7 +38,7 @@ namespace CoreXF.Framework
             var appParts = parts?.OfType<IApplicationPartTypeProvider>() ?? throw new ArgumentNullException(nameof(parts));
             foreach (var part in appParts)
             {
-                var types = part.Types.Where(t => ExtensionsHelper.IsController(t) && feature.Controllers.Contains(t) == false);
+                var types = part.Types.Where(t => ExtensionsHelper.IsViewComponent(t) && feature.ViewComponents.Contains(t) == false);
                 foreach (var type in types)
                 {
                     if (this.IsExtension(type.Assembly))
@@ -50,17 +54,17 @@ namespace CoreXF.Framework
                             }
 
                             this.Areas[area].Add(type);
-                            feature.Controllers.Add(type);
-                            this.logger.LogInformation($"Controller '{type.AsType().FullName}' has been registered and is accessible.");
+                            feature.ViewComponents.Add(type);
+                            this.logger.LogInformation($"View Component '{type.AsType().FullName}' has been registered and is accessible.");
                         }
                         else
                         {
-                            this.logger.LogWarning($"Controller '{type.AsType().FullName}' is inaccessible. Decorate it with '{nameof(ExportAttribute)}' if you want to access it.");
+                            this.logger.LogWarning($"View Component '{type.AsType().FullName}' is inaccessible. Decorate it with '{nameof(ExportAttribute)}' if you want to access it.");
                         }
                     }
                     else
                     {
-                        feature.Controllers.Add(type);
+                        feature.ViewComponents.Add(type);
                     }
                 }
             }

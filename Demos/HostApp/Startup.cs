@@ -1,5 +1,5 @@
-﻿using CoreXF.Abstractions;
-using CoreXF.Framework;
+﻿using CoreXF.Abstractions.Builder;
+using CoreXF.Framework.Registry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,10 +38,9 @@ namespace HostApp
             services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
         }
 
-        public void Configure(IApplicationBuilder /*app*/original, IExtensionsApplicationBuilderFactory factory, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder original, IExtensionsApplicationBuilderFactory factory, IWebHostEnvironment env)
         {
             var app = factory.CreateBuilder(original);
-            //app.SetOriginal(original);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

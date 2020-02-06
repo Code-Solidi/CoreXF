@@ -1,4 +1,4 @@
-﻿namespace CoreXF.Framework
+﻿namespace CoreXF.Framework.Settings
 {
     public class CoreXfOptions
     {

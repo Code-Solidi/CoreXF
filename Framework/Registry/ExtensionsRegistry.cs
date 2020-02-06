@@ -1,11 +1,17 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-using CoreXF.Abstractions;
-using Microsoft.Extensions.Logging;
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CoreXF.Framework
+using CoreXF.Abstractions.Base;
+using CoreXF.Abstractions.Registry;
+
+using Microsoft.Extensions.Logging;
+
+namespace CoreXF.Framework.Registry
 {
     internal class ExtensionsRegistry : IExtensionsRegistry
     {

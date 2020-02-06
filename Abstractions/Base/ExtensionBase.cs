@@ -1,12 +1,16 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System;
+using CoreXF.Abstractions.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CoreXF.Abstractions
+namespace CoreXF.Abstractions.Base
 {
-    /// <summary>A default implementation of <see cref="CoreXF.Abstractions.IExtension">IExtension</see>.</summary>
+    /// <summary>A default implementation of <see cref="IExtension">IExtension</see>.</summary>
     public class ExtensionBase : IExtension
     {
         /// <summary>The name of the extension. As a convention use the name of the assembly.</summary>

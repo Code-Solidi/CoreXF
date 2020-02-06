@@ -32,7 +32,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="ExtensionsMetadataReferenceFeatureProvider.cs" />
+    <None Include="Providers\ExtensionsMetadataReferenceFeatureProvider.cs" />
     <None Include="LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

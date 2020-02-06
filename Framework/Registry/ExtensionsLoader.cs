@@ -1,16 +1,20 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
 
-using CoreXF.Abstractions;
+using CoreXF.Abstractions.Base;
+using CoreXF.Abstractions.Registry;
 
 using Microsoft.Extensions.Logging;
 
-namespace CoreXF.Framework
+namespace CoreXF.Framework.Registry
 {
     internal class ExtensionsLoader
     {

@@ -1,9 +1,13 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
+using CoreXF.Abstractions.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CoreXF.Abstractions
+namespace CoreXF.Abstractions.Base
 {
     /// <summary>
     /// Defines properties of an extensions. This interface must be implemented in order to define an extension.

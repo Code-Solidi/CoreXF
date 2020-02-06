@@ -26,13 +26,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F79D3306-2D64-4D43-B1BF-A90FDDB7BF9C}"
 	ProjectSection(SolutionItems) = preProject
 		Common\CoreXF.png = Common\CoreXF.png
+		CoreXF.sln.licenseheader = CoreXF.sln.licenseheader
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceExporter", "Demos\Extensions\ServiceExporter\ServiceExporter.csproj", "{7BF10992-F796-4573-ACD6-450872159DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceExporter", "Demos\Extensions\ServiceExporter\ServiceExporter.csproj", "{7BF10992-F796-4573-ACD6-450872159DA7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{76063571-A968-4210-AA4A-83D065675D6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeService", "Common\DateTimeService\DateTimeService.csproj", "{379ED7FF-7C8B-435D-91A5-E97C9936CF4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimeService", "Common\DateTimeService\DateTimeService.csproj", "{379ED7FF-7C8B-435D-91A5-E97C9936CF4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

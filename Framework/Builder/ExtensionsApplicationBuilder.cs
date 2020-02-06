@@ -1,17 +1,21 @@
-﻿using System;
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
-using CoreXF.Abstractions;
-
+using CoreXF.Abstractions.Builder;
+using CoreXF.Framework.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace CoreXF.Framework
+namespace CoreXF.Framework.Builder
 {
-    public class ExtensionsApplicationBuilder : IExtensionsApplicationBuilder
+    public partial class ExtensionsApplicationBuilder : IExtensionsApplicationBuilder
     {
         private IApplicationBuilder appBuilder;
         private readonly IList<Func<RequestDelegate, RequestDelegate>> middlewares;
@@ -107,54 +111,6 @@ namespace CoreXF.Framework
             internal bool IsUsed() => this.builder != null;
 
             internal IEnumerable<Func<RequestDelegate, RequestDelegate>> GetComponents() => this.builder?.Components();
-        }
-
-        public interface IIdentityGenerator
-        {
-            string GetId(string current = null);
-        }
-
-        public class NaiveShimIdentityGenerator : IIdentityGenerator
-        {
-            private readonly int number;
-            private const string template = "Shim-{0}";
-            private const string pattern = @"\d+";
-
-            public NaiveShimIdentityGenerator(int number)
-            {
-                this.number = number;
-            }
-
-            public string GetId(string current = null)
-            {
-                var next = this.number;
-                if (string.IsNullOrEmpty(current) == false)
-                {
-                    var regex = new Regex(pattern);
-                    var match = regex.Match(current);
-                    if (match.Success)
-                    {
-                        next = Convert.ToInt32(match.Value) + 1;
-                    }
-                }
-
-                return string.Format(template, next);
-            }
-        }
-    }
-
-    public class ExtensionsApplicationBuilderFactory : IExtensionsApplicationBuilderFactory
-    {
-        private static IExtensionsApplicationBuilder builder;   // NB: consider Lazy<T>
-
-        public IExtensionsApplicationBuilder CreateBuilder(IApplicationBuilder builder)
-        {
-            if (ExtensionsApplicationBuilderFactory.builder == null)
-            {
-                ExtensionsApplicationBuilderFactory.builder = new ExtensionsApplicationBuilder(builder);
-            }
-
-            return ExtensionsApplicationBuilderFactory.builder;
         }
     }
 }

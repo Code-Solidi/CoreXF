@@ -1,14 +1,15 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
+using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CoreXF.Framework
+namespace CoreXF.Framework.Registry
 {
     public class ExtensionsMiddleware
     {
@@ -34,6 +35,5 @@ namespace CoreXF.Framework
 
             await this.next.Invoke(httpContext);
         }
-
     }
 }

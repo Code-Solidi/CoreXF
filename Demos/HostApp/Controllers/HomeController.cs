@@ -1,4 +1,4 @@
-﻿using CoreXF.Abstractions;
+﻿using CoreXF.Abstractions.Registry;
 using Extension1;
 using HostApp.Models;
 using Microsoft.AspNetCore.Mvc;

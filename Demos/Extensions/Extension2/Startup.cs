@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using CoreXF.Abstractions;
+using CoreXF.Abstractions.Builder;
 using Extension2.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

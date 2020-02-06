@@ -1,15 +1,19 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using Microsoft.AspNetCore.Mvc.Razor.Compilation;
-using Microsoft.CodeAnalysis;
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 
-namespace CoreXF.Framework
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+using Microsoft.CodeAnalysis;
+
+namespace CoreXF.Framework.Providers
 {
     public class ExtensionsMetadataReferenceFeatureProvider : IApplicationFeatureProvider<MetadataReferenceFeature>
     {
@@ -41,7 +45,7 @@ namespace CoreXF.Framework
                     {
                         try
                         {
-                            var metadataReference = ExtensionsMetadataReferenceFeatureProvider.CreateMetadataReference(path);
+                            var metadataReference = CreateMetadataReference(path);
                             feature.MetadataReferences.Add(metadataReference);
                         }
                         catch (Exception x)

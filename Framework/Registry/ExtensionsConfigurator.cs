@@ -1,10 +1,15 @@
-﻿// Copyright (c) Code Solidi Ltd. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-using System;
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
 using System.Linq;
 
-using CoreXF.Abstractions;
-
+using CoreXF.Abstractions.Builder;
+using CoreXF.Abstractions.Registry;
+using CoreXF.Framework.Builder;
+using CoreXF.Framework.Providers;
+using CoreXF.Framework.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
@@ -17,7 +22,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace CoreXF.Framework
+namespace CoreXF.Framework.Registry
 {
     public static class ExtensionsConfigurator
     {
@@ -97,16 +102,7 @@ namespace CoreXF.Framework
 
             var loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
 
-            //services.AddSingleton<IExtensionsApplicationBuilder, ExtensionsApplicationBuilder>();   // NB: always singleton!!
-
-            // NB: always singleton!!
-            //services.AddSingleton<IExtensionsApplicationBuilder>(factory => 
-            //{
-            //    var app = services.BuildServiceProvider().GetRequiredService<IApplicationBuilder>();
-            //    return new ExtensionsApplicationBuilder(app);
-            //});   
-
-            services.AddSingleton<IExtensionsApplicationBuilderFactory, ExtensionsApplicationBuilderFactory>();  
+            services.AddSingleton<IExtensionsApplicationBuilderFactory, ExtensionsApplicationBuilderFactory>();
 
             var registry = AddRegistry(services);
 
@@ -130,9 +126,10 @@ namespace CoreXF.Framework
         public static IApplicationBuilder UseCoreXF(this IApplicationBuilder builder)
         {
             var services = builder.ApplicationServices;
+
             var registry = services.GetRequiredService<IExtensionsRegistry>();
-            var factory = services.GetRequiredService<IExtensionsApplicationBuilderFactory>();
-            var app = factory.CreateBuilder(builder);
+            var app = services.GetRequiredService<IExtensionsApplicationBuilderFactory>().CreateBuilder(builder);
+
             foreach (var extension in (registry as ExtensionsRegistry)?.Extensions)
             {
                 extension.ConfigureMiddleware(app);

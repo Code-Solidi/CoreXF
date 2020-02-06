@@ -1,4 +1,4 @@
-﻿using CoreXF.Abstractions;
+﻿using CoreXF.Abstractions.Base;
 
 namespace ServiceExporter
 {

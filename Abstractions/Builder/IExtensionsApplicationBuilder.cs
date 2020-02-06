@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ */
+
+using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Builder;
 
-namespace CoreXF.Abstractions
+namespace CoreXF.Abstractions.Builder
 {
     public interface IExtensionsApplicationBuilder : IApplicationBuilder
     {
