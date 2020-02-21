@@ -30,13 +30,11 @@ namespace CoreXF.Framework.Providers
 
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ViewComponentFeature feature)
         {
-            if (feature == null)
-            {
-                throw new ArgumentNullException(nameof(feature));
-            }
-
+            _  = feature ?? throw new ArgumentNullException(nameof(feature));
             var appParts = parts?.OfType<IApplicationPartTypeProvider>() ?? throw new ArgumentNullException(nameof(parts));
-            foreach (var part in appParts)
+
+            // inspect all but those parts coming from CoreXF.Framework (fails with an ReflectionTypeLoadException)
+            foreach (var part in appParts.Where(x => (x as ApplicationPart)?.Name != Assembly.GetAssembly(typeof(Registry.ExtensionsLoader)).GetName().Name))
             {
                 var types = part.Types.Where(t => ExtensionsHelper.IsViewComponent(t) && feature.ViewComponents.Contains(t) == false);
                 foreach (var type in types)

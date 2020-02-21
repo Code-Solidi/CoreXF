@@ -1,8 +1,10 @@
-﻿using CoreXF.Abstractions.Registry;
+﻿using System.Diagnostics;
+
+using CoreXF.Abstractions.Registry;
+
 using Extension1;
-using HostApp.Models;
+using Extension3.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace HostApp.Controllers
 {

@@ -32,7 +32,12 @@ namespace CoreXF.Framework.Registry
         public static IExtensionsRegistry DiscoverExtensions(ILoggerFactory factory)
         {
             var registry = new ExtensionsRegistry(factory);
-            var excludes = new[] { Assembly.GetAssembly(typeof(ExtensionBase)).FullName };
+            var excludes = new[] 
+            {
+                Assembly.GetAssembly(typeof(ExtensionBase)).FullName,       // CoreXF.Abstractions
+                Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
+            };
+
             var location = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             _ = new ExtensionsLoader(factory, registry).Discover(location, excludes);
             return registry;
@@ -43,7 +48,7 @@ namespace CoreXF.Framework.Registry
             foreach (var path in Directory.GetFiles(location, "*.dll"))
             {
                 var assembly = this.LoadAssembly(path);
-                if (excludes.Any(x => x != assembly?.FullName))
+                if (excludes.Any(x => x == assembly?.FullName) == false)
                 {
                     var types = assembly?.GetTypes();
                     var type = types?.SingleOrDefault(x => typeof(IExtension).IsAssignableFrom(x));

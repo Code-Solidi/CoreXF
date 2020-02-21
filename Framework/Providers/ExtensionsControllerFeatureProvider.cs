@@ -11,6 +11,7 @@ using System.Reflection;
 using CoreXF.Abstractions.Attributes;
 using CoreXF.Abstractions.Base;
 using CoreXF.Framework.Settings;
+
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Logging;
@@ -30,13 +31,12 @@ namespace CoreXF.Framework.Providers
 
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
         {
-            if (feature == null)
-            {
-                throw new ArgumentNullException(nameof(feature));
-            }
+            _ = feature ?? throw new ArgumentNullException(nameof(feature));
 
             var appParts = parts?.OfType<IApplicationPartTypeProvider>() ?? throw new ArgumentNullException(nameof(parts));
-            foreach (var part in appParts)
+
+            // inspect all but those parts coming from CoreXF.Framework (fails with an ReflectionTypeLoadException)
+            foreach (var part in appParts.Where(x => (x as ApplicationPart)?.Name != Assembly.GetAssembly(typeof(Registry.ExtensionsLoader)).GetName().Name))
             {
                 var types = part.Types.Where(t => ExtensionsHelper.IsController(t) && feature.Controllers.Contains(t) == false);
                 foreach (var type in types)
