@@ -340,3 +340,4 @@ ASALocalRun/
 healthchecksdb
 /Demos/HostApp/LogFiles
 /Docs/Docs.zip
+*.zip
