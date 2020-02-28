@@ -1,4 +1,4 @@
-Welcome to CoreXF documentation
+# Welcome to CoreXF documentation
 
 This is version 1.x of the CoreXF framework. The main goal of the framework is to help modularizing existing ASP.NET Core 2.x (or higher) applications as well as to assist in building new ones as extensible software pieces.
 
