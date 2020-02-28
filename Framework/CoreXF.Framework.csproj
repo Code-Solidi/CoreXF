@@ -47,10 +47,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Abstractions\CoreXF.Abstractions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Microsoft.Extensions.FileProviders.Embedded">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.fileproviders.embedded\2.1.1\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.dll</HintPath>
     </Reference>
