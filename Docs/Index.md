@@ -5,23 +5,23 @@ This is version 1.x of the CoreXF framework. The main goal of the framework is t
 These are the main topics which, hopefully, will help in determining if it suits ones needs, how to get started with the framework, using it the best way, requesting new features, and reporting bugs.
 
 # Contents
-[Quickstart Guide](Quickstart-Guide)
-- [Interface implementation](Interface-implementation)
-- [MVC application as an extension](MVC-application-as-an-extension)
-- [Exporting ViewComponents](Exporting-ViewComponents)
-- [Extending with TagHelpers](Extending-with-TagHelpers)
+[Quickstart Guide](Docs/Quickstart-Guide.md)
+- [Interface implementation](Docs/Interface-implementation.md)
+- [MVC application as an extension](Docs/MVC-application-as-an-extension.md)
+- [Exporting ViewComponents](Docs/Exporting-ViewComponents.md)
+- [Extending with TagHelpers](Docs/Extending-with-TagHelpers.md)
 
-[Demo Projects](Demo-Projects)
+[Demo Projects](Docs/Demo-Projects.md)
 
-[Architecture Overview](Architecture-Overview) (yet to come)
+[Architecture Overview](Docs/Architecture-Overview.md) (yet to come)
 
-[Advanced Topics](Advanced-Topics) (incomplete, expected to change)
+[Advanced Topics](Docs/Advanced-Topics.md) (incomplete, expected to change)
 
-[Roadmap](Roadmap) (incomplete, expected to change)
+[Roadmap](Docs/Roadmap.md) (incomplete, expected to change)
 
-[Feedback](Feedback) 
+[Feedback](Docs/Feedback.md) 
 
-[Known limitations](Known-limitations)
+[Known limitations](Docs/Known-limitations.md)
 
 **NuGet Packages**
 
