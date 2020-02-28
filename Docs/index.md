@@ -5,23 +5,23 @@ This is version 1.x of the CoreXF framework. The main goal of the framework is t
 These are the main topics which, hopefully, will help in determining if it suits ones needs, how to get started with the framework, using it the best way, requesting new features, and reporting bugs.
 
 # Contents
-[Quickstart Guide](https://github.com/achristov/CoreXF/blob/master/Docs/Quickstart-Guide.md)
-- [Interface implementation](https://github.com/achristov/CoreXF/blob/master/Docs/Interface-implementation.md)
-- [MVC application as an extension](https://github.com/achristov/CoreXF/blob/master/Docs/MVC-application-as-an-extension.md)
-- [Exporting ViewComponents](https://github.com/achristov/CoreXF/blob/master/Docs/Exporting-ViewComponents.md)
-- [Extending with TagHelpers](https://github.com/achristov/CoreXF/blob/master/Docs/Extending-with-TagHelpers.md)
+[Quickstart Guide](https://github.com/achristov/CoreXF/Docs/Quickstart-Guide)
+- [Interface implementation](https://github.com/achristov/CoreXF/Docs/Interface-implementation)
+- [MVC application as an extension](https://github.com/achristov/CoreXF/Docs/MVC-application-as-an-extension)
+- [Exporting ViewComponents](https://github.com/achristov/CoreXF/Docs/Exporting-ViewComponents)
+- [Extending with TagHelpers](https://github.com/achristov/CoreXF/Docs/Extending-with-TagHelpers)
 
-[Demo Projects](https://github.com/achristov/CoreXF/blob/master/Docs/Demo-Projects.md)
+[Demo Projects](https://github.com/achristov/CoreXF/Docs/Demo-Projects)
 
-[Architecture Overview](https://github.com/achristov/CoreXF/blob/master/Docs/Architecture-Overview.md) (yet to come)
+[Architecture Overview](https://github.com/achristov/CoreXF/Docs/Architecture-Overview) (yet to come)
 
-[Advanced Topics](https://github.com/achristov/CoreXF/blob/master/Docs/Advanced-Topics.md) (incomplete, expected to change)
+[Advanced Topics](https://github.com/achristov/CoreXF/Docs/Advanced-Topics) (incomplete, expected to change)
 
-[Roadmap](https://github.com/achristov/CoreXF/blob/master/Docs/Roadmap.md) (incomplete, expected to change)
+[Roadmap](https://github.com/achristov/CoreXF/Docs/Roadmap) (incomplete, expected to change)
 
-[Feedback](https://github.com/achristov/CoreXF/blob/master/Docs/Feedback.md) 
+[Feedback](https://github.com/achristov/CoreXF/Docs/Feedback) 
 
-[Known limitations](https://github.com/achristov/CoreXF/blob/master/Docs/Known-limitations.md)
+[Known limitations](https://github.com/achristov/CoreXF/Docs/Known-limitations)
 
 **NuGet Packages**
 
