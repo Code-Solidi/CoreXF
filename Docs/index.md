@@ -1,27 +1,27 @@
-Welcome to the CoreXF wiki!
+Welcome to CoreXF!
 
 This is version 1.x of the CoreXF framework. The main goal of the framework is to help modularizing existing ASP.NET Core 2.x (or higher) applications as well as to assist in building new ones as extensible software pieces.
 
 These are the main topics which, hopefully, will help in determining if it suits ones needs, how to get started with the framework, using it the best way, requesting new features, and reporting bugs.
 
 # Contents
-[Quickstart Guide](https://github.com/achristov/CoreXF/wiki/Quickstart-Guide)
-- [Interface implementation](https://github.com/achristov/CoreXF/wiki/Interface-implementation)
-- [MVC application as an extension](https://github.com/achristov/CoreXF/wiki/MVC-application-as-an-extension)
-- [Exporting ViewComponents](https://github.com/achristov/CoreXF/wiki/Exporting-ViewComponents)
-- [Extending with TagHelpers](https://github.com/achristov/CoreXF/wiki/Extending-with-TagHelpers)
+[Quickstart Guide](https://github.com/achristov/CoreXF/Docs/Quickstart-Guide)
+- [Interface implementation](https://github.com/achristov/CoreXF/Docs/Interface-implementation)
+- [MVC application as an extension](https://github.com/achristov/CoreXF/Docs/MVC-application-as-an-extension)
+- [Exporting ViewComponents](https://github.com/achristov/CoreXF/Docs/Exporting-ViewComponents)
+- [Extending with TagHelpers](https://github.com/achristov/CoreXF/Docs/Extending-with-TagHelpers)
 
-[Demo Projects](https://github.com/achristov/CoreXF/wiki/Demo-Projects)
+[Demo Projects](https://github.com/achristov/CoreXF/Docs/Demo-Projects)
 
-[Architecture Overview](https://github.com/achristov/CoreXF/wiki/Architecture-Overview) (yet to come)
+[Architecture Overview](https://github.com/achristov/CoreXF/Docs/Architecture-Overview) (yet to come)
 
-[Advanced Topics](https://github.com/achristov/CoreXF/wiki/Advanced-Topics) (incomplete, expected to change)
+[Advanced Topics](https://github.com/achristov/CoreXF/Docs/Advanced-Topics) (incomplete, expected to change)
 
-[Roadmap](https://github.com/achristov/CoreXF/wiki/Roadmap) (incomplete, expected to change)
+[Roadmap](https://github.com/achristov/CoreXF/Docs/Roadmap) (incomplete, expected to change)
 
-[Feedback](https://github.com/achristov/CoreXF/wiki/Feedback) 
+[Feedback](https://github.com/achristov/CoreXF/Docs/Feedback) 
 
-[Known limitations](https://github.com/achristov/CoreXF/wiki/Known-limitations)
+[Known limitations](https://github.com/achristov/CoreXF/Docs/Known-limitations)
 
 **NuGet Packages**
 
