@@ -35,8 +35,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimeService", "Common\D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotAnExtensionWebApp", "Demos\Extensions\NotAnExtensionWebApp\NotAnExtensionWebApp.csproj", "{EF2DC5C1-541A-42A2-B9ED-DB08427DE2FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostApp31", "Demos\HostApp31\HostApp31.csproj", "{44A961E7-EDA5-4726-A467-18FAD0F7C050}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{708B0784-097F-4A21-B5B7-F369B9F48275}"
 	ProjectSection(SolutionItems) = preProject
 		Docs\index.md = Docs\index.md
