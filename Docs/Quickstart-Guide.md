@@ -14,7 +14,7 @@ services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
 
 In general, any of the extensions that can be used to configure `IServiceCollection` and that returns `IMvcBuilder` would do.
 
-For "using" CoreXF see [Registering middleware from extensions](https://github.com/achristov/CoreXF/wiki/Registering-middleware-from-extensions).
+For "using" CoreXF see [Registering middleware from extensions](Registering-middleware-from-extensions.md).
 
 Please, note that it has to be called just before the call to `UseMvc()`.
 
@@ -61,10 +61,10 @@ public class ExtensionBase : IExtension
 }
 ```
 An application or library in which only such a class is defined despite being an extension is still of no use &ndash; it has to export some functionality. This functionality may be classified as:
-- [implementation of an interface known to both the host and the extension](https://github.com/achristov/CoreXF/wiki/Interface-implementation),
-- [one or more controllers with their models and views](https://github.com/achristov/CoreXF/wiki/MVC-application-as-an-extension),
-- [one or more view components (`ViewComponent`) with their models and views](https://github.com/achristov/CoreXF/wiki/Exporting-ViewComponents),
-- [one or more tag helpers (`TagHelper`)](https://github.com/achristov/CoreXF/wiki/Extending-with-TagHelpers).
+- [implementation of an interface known to both the host and the extension](Interface-implementation.md),
+- [one or more controllers with their models and views](MVC-application-as-an-extension.md),
+- [one or more view components (`ViewComponent`) with their models and views](Exporting-ViewComponents.md),
+- [one or more tag helpers (`TagHelper`)](Extending-with-TagHelpers.md).
  
 ## Making extensions available to host application
 
