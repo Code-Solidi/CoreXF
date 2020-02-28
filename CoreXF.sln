@@ -36,6 +36,23 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotAnExtensionWebApp", "Demos\Extensions\NotAnExtensionWebApp\NotAnExtensionWebApp.csproj", "{EF2DC5C1-541A-42A2-B9ED-DB08427DE2FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{708B0784-097F-4A21-B5B7-F369B9F48275}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Advanced-Topics.md = Docs\Advanced-Topics.md
+		Docs\Architecture-Overview.md = Docs\Architecture-Overview.md
+		Docs\Demo-Projects.md = Docs\Demo-Projects.md
+		Docs\Exporting-ViewComponents.md = Docs\Exporting-ViewComponents.md
+		Docs\Extending-with-TagHelpers.md = Docs\Extending-with-TagHelpers.md
+		Docs\Feedback.md = Docs\Feedback.md
+		Docs\Home.md = Docs\Home.md
+		index.md = index.md
+		Docs\Interface-implementation.md = Docs\Interface-implementation.md
+		Docs\Known-limitations.md = Docs\Known-limitations.md
+		Docs\MVC-application-as-an-extension.md = Docs\MVC-application-as-an-extension.md
+		Docs\Quickstart-Guide.md = Docs\Quickstart-Guide.md
+		Docs\Registering-middleware-from-extensions.md = Docs\Registering-middleware-from-extensions.md
+		Docs\Roadmap.md = Docs\Roadmap.md
+		Docs\Sharing-DI-container-from-the-host-application.md = Docs\Sharing-DI-container-from-the-host-application.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
