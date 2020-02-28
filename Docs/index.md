@@ -5,7 +5,7 @@ This is version 1.x of the CoreXF framework. The main goal of the framework is t
 These are the main topics which, hopefully, will help in determining if it suits ones needs, how to get started with the framework, using it the best way, requesting new features, and reporting bugs.
 
 # Contents
-[Quickstart Guide](https://github.com/achristov/CoreXF/Docs/Quickstart-Guide)
+[Quickstart Guide](/achristov/CoreXF/Docs/Quickstart-Guide)
 - [Interface implementation](https://github.com/achristov/CoreXF/Docs/Interface-implementation)
 - [MVC application as an extension](https://github.com/achristov/CoreXF/Docs/MVC-application-as-an-extension)
 - [Exporting ViewComponents](https://github.com/achristov/CoreXF/Docs/Exporting-ViewComponents)
