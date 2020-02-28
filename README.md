@@ -1,7 +1,7 @@
 # CoreXF
 CoreXF is a ASP.NET **Core** e**X**tensibility **F**ramework. 
 
-<!--To get started read the [documentation](http://achristov.viewdocs.io/corexf).-->
+To get started read the [documentation](https://achristov.github.io/CoreXF/).
 <!--To get started read the [documentation](https://github.com/achristov/CoreXF/wiki).-->
 
 This is version 1.x of the CoreXF framework. The main goal of the framework is to help modularizing existing ASP.NET Core 2.x (or higher) applications as well as to assist in building new ones as extensible software pieces.
