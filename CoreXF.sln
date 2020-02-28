@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extension3", "Demos\Extensi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extension4", "Demos\Extensions\Extension4\Extension4.csproj", "{5835B374-09F6-482C-9E66-18D919B6D3ED}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{3EBAF453-D287-4CF2-A226-F38FBFAE9362}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F79D3306-2D64-4D43-B1BF-A90FDDB7BF9C}"
 	ProjectSection(SolutionItems) = preProject
 		Common\CoreXF.png = Common\CoreXF.png
@@ -35,9 +33,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{760635
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimeService", "Common\DateTimeService\DateTimeService.csproj", "{379ED7FF-7C8B-435D-91A5-E97C9936CF4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotAnExtensionWebApp", "Demos\Extensions\NotAnExtensionWebApp\NotAnExtensionWebApp.csproj", "{EF2DC5C1-541A-42A2-B9ED-DB08427DE2FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotAnExtensionWebApp", "Demos\Extensions\NotAnExtensionWebApp\NotAnExtensionWebApp.csproj", "{EF2DC5C1-541A-42A2-B9ED-DB08427DE2FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostApp31", "Demos\HostApp31\HostApp31.csproj", "{44A961E7-EDA5-4726-A467-18FAD0F7C050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostApp31", "Demos\HostApp31\HostApp31.csproj", "{44A961E7-EDA5-4726-A467-18FAD0F7C050}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{708B0784-097F-4A21-B5B7-F369B9F48275}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\index.md = Docs\index.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
