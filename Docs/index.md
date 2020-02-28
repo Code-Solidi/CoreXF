@@ -11,7 +11,7 @@ These are the main topics which, hopefully, will help in determining if it suits
 - [Exporting ViewComponents](https://github.com/achristov/CoreXF/blob/master/Docs/Exporting-ViewComponents.md)
 - [Extending with TagHelpers](https://github.com/achristov/CoreXF/blob/master/Docs/Extending-with-TagHelpers.md)
 
-[Demo Projects](https://github.com/achristov/CoreXF/blob/master/Docs/Demo-Projects.md)
+[Demo Projects](https://github.com/achristov/CoreXF/Docs/Demo-Projects)
 
 [Architecture Overview](https://github.com/achristov/CoreXF/blob/master/Docs/Architecture-Overview.md) (yet to come)
 
