@@ -6,22 +6,22 @@ These are the main topics which, hopefully, will help in determining if it suits
 
 # Contents
 [Quickstart Guide](Quickstart-Guide)
-- [Interface implementation](Interface-implementation)
-- [MVC application as an extension](MVC-application-as-an-extension)
-- [Exporting ViewComponents](Exporting-ViewComponents)
-- [Extending with TagHelpers](Extending-with-TagHelpers)
+- [Interface implementation](https://github.com/achristov/CoreXF/Docs/Interface-implementation)
+- [MVC application as an extension](https://github.com/achristov/CoreXF/Docs/MVC-application-as-an-extension)
+- [Exporting ViewComponents](https://github.com/achristov/CoreXF/Docs/Exporting-ViewComponents)
+- [Extending with TagHelpers](https://github.com/achristov/CoreXF/Docs/Extending-with-TagHelpers)
 
-[Demo Projects](Demo-Projects)
+[Demo Projects](https://github.com/achristov/CoreXF/Docs/Demo-Projects)
 
-[Architecture Overview](Architecture-Overview) (yet to come)
+[Architecture Overview](https://github.com/achristov/CoreXF/Docs/Architecture-Overview) (yet to come)
 
-[Advanced Topics](Advanced-Topics) (incomplete, expected to change)
+[Advanced Topics](https://github.com/achristov/CoreXF/Docs/Advanced-Topics) (incomplete, expected to change)
 
-[Roadmap](Roadmap) (incomplete, expected to change)
+[Roadmap](https://github.com/achristov/CoreXF/Docs/Roadmap) (incomplete, expected to change)
 
-[Feedback](Feedback) 
+[Feedback](https://github.com/achristov/CoreXF/Docs/Feedback) 
 
-[Known limitations](Known-limitations)
+[Known limitations](https://github.com/achristov/CoreXF/Docs/Known-limitations)
 
 **NuGet Packages**
 
