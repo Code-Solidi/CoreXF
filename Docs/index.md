@@ -5,23 +5,23 @@ This is version 1.x of the CoreXF framework. The main goal of the framework is t
 These are the main topics which, hopefully, will help in determining if it suits ones needs, how to get started with the framework, using it the best way, requesting new features, and reporting bugs.
 
 # Contents
-[Quickstart Guide](Quickstart Guide)
-- [Interface implementation](Interface implementation)
-- [MVC application as an extension](MVC application as an extension)
-- [Exporting ViewComponents](https://github.com/achristov/CoreXF/Docs/Exporting-ViewComponents)
-- [Extending with TagHelpers](https://github.com/achristov/CoreXF/Docs/Extending-with-TagHelpers)
+[Quickstart Guide](Quickstart-Guide)
+- [Interface implementation](Interface-implementation)
+- [MVC application as an extension](MVC-application-as-an-extension)
+- [Exporting ViewComponents](Exporting-ViewComponents)
+- [Extending with TagHelpers](Extending-with-TagHelpers)
 
-[Demo Projects](https://github.com/achristov/CoreXF/Docs/Demo-Projects)
+[Demo Projects](Demo-Projects)
 
-[Architecture Overview](https://github.com/achristov/CoreXF/Docs/Architecture-Overview) (yet to come)
+[Architecture Overview](Architecture-Overview) (yet to come)
 
-[Advanced Topics](https://github.com/achristov/CoreXF/Docs/Advanced-Topics) (incomplete, expected to change)
+[Advanced Topics](Advanced-Topics) (incomplete, expected to change)
 
-[Roadmap](https://github.com/achristov/CoreXF/Docs/Roadmap) (incomplete, expected to change)
+[Roadmap](Roadmap) (incomplete, expected to change)
 
-[Feedback](https://github.com/achristov/CoreXF/Docs/Feedback) 
+[Feedback](Feedback) 
 
-[Known limitations](https://github.com/achristov/CoreXF/Docs/Known-limitations)
+[Known limitations](Known-limitations)
 
 **NuGet Packages**
 
