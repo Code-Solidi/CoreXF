@@ -20,7 +20,7 @@
     <PackageIcon>CoreXF.png</PackageIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryUrl></RepositoryUrl>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
