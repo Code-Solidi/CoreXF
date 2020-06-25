@@ -9,4 +9,4 @@ Packaged as two NuGet packages:
 1. **CoreXF.Abstractions**, use the command 'Install-Package CoreXF.Abstractions -Version 1.1.1'.
 2. **CoreXF.Framework**, use the command 'Install-Package CoreXF.Framework -Version 1.1.1'.
 
-**NB:** You may install the framework *only*, it requires the abstractions.
+**NB:** You may install the framework *only*, it references the abstractions.
