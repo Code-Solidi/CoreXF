@@ -1,6 +1,9 @@
 ﻿using System.Linq;
+
 using CoreXF.Abstractions.Builder;
+
 using Extension2.Middlewares;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,7 +31,6 @@ namespace Extension2
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
             services.AddControllersWithViews();
         }
 
@@ -46,6 +48,8 @@ namespace Extension2
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {

@@ -22,7 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\Abstractions\CoreXF.Abstractions.csproj" />
         <ProjectReference Include="..\..\..\Common\DateTimeService\DateTimeService.csproj" />
     </ItemGroup>
 
@@ -40,6 +39,10 @@
 
     <ItemGroup>
       <Folder Include="Middlewares\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CoreXF.Abstractions" Version="1.1.2" />
     </ItemGroup>
 
 </Project>
