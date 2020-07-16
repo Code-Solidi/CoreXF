@@ -1,12 +1,20 @@
 # CoreXF
+
+### Description
 CoreXF is a ASP.NET **Core** e**X**tensibility **F**ramework. 
 
+### Getting Started
 To get started read the [documentation](https://code-solidi.github.io/CoreXF/).
 
-If you like **CoreXF** give it a **star** <g-emoji class="g-emoji" alias="star" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png">⭐</g-emoji>.
-
 Packaged as two NuGet packages: 
-1. [CoreXF.Abstractions](https://www.nuget.org/packages/CoreXF.Abstractions/), in PMC use the command **Install-Package CoreXF.Abstractions -Version 1.1.1**.
-2. [CoreXF.Framework](https://www.nuget.org/packages/CoreXF.Framework/), in PMC use the command **Install-Package CoreXF.Framework -Version 1.1.1**.
+1. [CoreXF.Abstractions](https://www.nuget.org/packages/CoreXF.Abstractions/), in PMC use the command **Install-Package CoreXF.Abstractions -Version 1.1.2**.
+2. [CoreXF.Framework](https://www.nuget.org/packages/CoreXF.Framework/), in PMC use the command **Install-Package CoreXF.Framework -Version 1.1.2**.
+
+### Change in 1.1.2.
+
+Debugging packages' source code is **enabled** in latest release (1.1.2.). Just select Tools -> Options -> Debugging -> Symbols in VC2019 and add https://symbols.nuget.org/download/symbols to Symbol file (.pdb) locations.
+Don't forget to **Enable source server support** and **Enable Source Link support** in ... ->  Debugging -> General.
+
+If you like **CoreXF** give it a **star** <g-emoji class="g-emoji" alias="star" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png">⭐</g-emoji>.
 
 **NB:** You may install the framework *only*, it references the abstractions. Abstractions (w/o the Framework) are helpful in creating a plugin.
