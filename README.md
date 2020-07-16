@@ -1,13 +1,16 @@
 # CoreXF
+
+### Description
 CoreXF is a ASP.NET **Core** e**X**tensibility **F**ramework. 
 
+### Getting Started
 To get started read the [documentation](https://code-solidi.github.io/CoreXF/).
 
 Packaged as two NuGet packages: 
 1. [CoreXF.Abstractions](https://www.nuget.org/packages/CoreXF.Abstractions/), in PMC use the command **Install-Package CoreXF.Abstractions -Version 1.1.2**.
 2. [CoreXF.Framework](https://www.nuget.org/packages/CoreXF.Framework/), in PMC use the command **Install-Package CoreXF.Framework -Version 1.1.2**.
 
-Change in 1.1.2.
+### Change in 1.1.2.
 
 Debugging packages' source code is **enabled** in latest release (1.1.2.). Just select Tools -> Options -> Debugging -> Symbols in VC2019 and add https://symbols.nuget.org/download/symbols to Symbol file (.pdb) locations.
 Don't forget to **Enable source server support** and **Enable Source Link support** in ... ->  Debugging -> General.
