@@ -1,15 +1,14 @@
 ﻿/*
- * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2017-2020 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
-
-using System.Linq;
 
 using CoreXF.Abstractions.Builder;
 using CoreXF.Abstractions.Registry;
 using CoreXF.Framework.Builder;
 using CoreXF.Framework.Providers;
 using CoreXF.Framework.Settings;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
@@ -21,6 +20,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+
+using System.Linq;
 
 namespace CoreXF.Framework.Registry
 {
@@ -36,11 +37,11 @@ namespace CoreXF.Framework.Registry
         public static IMvcBuilder AddCoreXF(this IMvcBuilder builder, IServiceCollection services, IConfiguration configuration)
         {
             // add registry as a service
-            static IExtensionsRegistry AddRegistry(IServiceCollection services)
+            static IExtensionsRegistry AddRegistry(IServiceCollection services, string location)
             {
                 var provider = services.BuildServiceProvider();
                 var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
-                var registry = ExtensionsLoader.DiscoverExtensions(loggerFactory);
+                var registry = ExtensionsLoader.DiscoverExtensions(loggerFactory, location);
                 services.AddSingleton(registry);
                 return registry;
             }
@@ -95,7 +96,8 @@ namespace CoreXF.Framework.Registry
 
             // here we go...
             services.AddOptions();
-            services.Configure<CoreXfOptions>(configuration.GetSection("CoreXF"));
+            var options2 = configuration.GetSection("CoreXF");
+            services.Configure<CoreXfOptions>(options2);
 
             var actionDescriptorChangeProvider = new ExtensionsActionDescriptorChangeProvider();
             services.AddSingleton<IActionDescriptorChangeProvider>(actionDescriptorChangeProvider);
@@ -104,14 +106,16 @@ namespace CoreXF.Framework.Registry
 
             services.AddSingleton<IExtensionsApplicationBuilderFactory, ExtensionsApplicationBuilderFactory>();
 
-            var registry = AddRegistry(services);
+            //var registry = AddRegistry(services, options2);
 
-            AddApplicationParts(builder, registry, services, configuration);
+            //AddApplicationParts(builder, registry, services, configuration);
 
             ReplaceControllerFeatureProvider(services, loggerFactory);
 
             var provider = services.BuildServiceProvider();
             var options = provider.GetRequiredService<IOptionsMonitor<CoreXfOptions>>().CurrentValue;
+            var registry = AddRegistry(services, options.Location);
+            AddApplicationParts(builder, registry, services, configuration);
 
             // NB: what options were to do doesn't work! No time to explore details.
             if (options.UseViewComponents) { ReplaceViewComponentFeatureProvider(services, loggerFactory); }

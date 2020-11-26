@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2017-2020 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
@@ -15,7 +15,7 @@ namespace CoreXF.Framework.Registry
 {
     internal class ExtensionsRegistry : IExtensionsRegistry
     {
-        private readonly List<IExtension> extensions = new List<IExtension>();
+        private readonly List<IExtension> extensions = new();
         private readonly ILogger logger;
 
         public IEnumerable<IExtension> Extensions => this.extensions;
@@ -42,6 +42,11 @@ namespace CoreXF.Framework.Registry
             {
                 this.extensions.Add(extension);
             }
+        }
+
+        public IExtension GetExtension(string name)
+        {
+            return this.extensions.SingleOrDefault(x => x.Name == name);
         }
     }
 }

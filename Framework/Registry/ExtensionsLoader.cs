@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2017-2020 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
@@ -12,6 +12,7 @@ using System.Runtime.Loader;
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Framework.Registry
@@ -29,7 +30,7 @@ namespace CoreXF.Framework.Registry
             this.registry = registry;
         }
 
-        public static IExtensionsRegistry DiscoverExtensions(ILoggerFactory factory)
+        public static IExtensionsRegistry DiscoverExtensions(ILoggerFactory factory, string location)
         {
             var registry = new ExtensionsRegistry(factory);
             var excludes = new[] 
@@ -38,14 +39,27 @@ namespace CoreXF.Framework.Registry
                 Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
             };
 
-            var location = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            //var location = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             _ = new ExtensionsLoader(factory, registry).Discover(location, excludes);
             return registry;
         }
 
         private ExtensionsLoader Discover(string location, string[] excludes)
         {
-            foreach (var path in Directory.GetFiles(location, "*.dll"))
+            var files = Array.Empty<string>();
+            try
+            {
+                location = location.Trim(' ', '\t', '\\', '/');
+                location = Path.Combine(Environment.CurrentDirectory, location);
+                files = Directory.GetFiles(location, "*.dll");
+            }
+            catch (Exception x)
+            {
+                this.logger.LogError(x.Message);
+                throw;
+            }
+
+            foreach (var path in files)
             {
                 var assembly = this.LoadAssembly(path);
                 if (excludes.Any(x => x == assembly?.FullName) == false)

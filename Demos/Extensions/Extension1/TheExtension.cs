@@ -4,6 +4,6 @@ namespace Extension1
 {
     public class TheExtension : ExtensionBase
     {
-        public override string Name => "Some name";
+        public override string Name => nameof(Extension1);
     }
 }

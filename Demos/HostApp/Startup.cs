@@ -28,13 +28,6 @@ namespace HostApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //var env = this.HostingEnvironment;
-
-            //var extensionsPath = Path.Combine(env.ContentRootPath + this.Configuration["Extensions:Path"]);
-            //services.AddExtCore(extensionsPath);
-            //var factory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
-            //services.AddSingleton<IExtensionsManager>(ExtensionsManager.Discover(factory));
-
             services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
         }
 

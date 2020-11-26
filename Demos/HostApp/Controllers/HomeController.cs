@@ -1,7 +1,9 @@
 ﻿using CoreXF.Abstractions.Registry;
-using Extension1;
+
 using HostApp.Models;
+
 using Microsoft.AspNetCore.Mvc;
+
 using System.Diagnostics;
 
 namespace HostApp.Controllers
@@ -17,8 +19,8 @@ namespace HostApp.Controllers
 
         public IActionResult Index()
         {
-            var extension = this.registry.GetExtension<TheExtension>();
-            this.ViewBag.ExtName = extension?.Name;
+            var extension = this.registry.GetExtension("Extension1");
+            this.ViewBag.ExtName = extension?.Name ?? "Extension1 has not been registered";
             return this.View();
         }
 
