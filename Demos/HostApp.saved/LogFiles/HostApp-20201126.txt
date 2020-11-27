@@ -1,1 +1,0 @@
-2020-11-26 07:41:42.878 +02:00 [Error] CoreXF.Framework.Registry.ExtensionsLoader: Could not find a part of the path 'D:\Github\CoreXF\Demos\HostApp\Extensions'.

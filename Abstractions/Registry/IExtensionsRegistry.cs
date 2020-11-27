@@ -5,10 +5,14 @@
 
 using CoreXF.Abstractions.Base;
 
+using System.Collections.Generic;
+
 namespace CoreXF.Abstractions.Registry
 {
     public interface IExtensionsRegistry
     {
+        IEnumerable<IExtension> Extensions { get; }
+
         T GetExtension<T>() where T : IExtension;
 
         IExtension GetExtension(string name);

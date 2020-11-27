@@ -4,6 +4,6 @@ namespace WebApiExt1
 {
     public class Extension : ExtensionBase
     {
-        public override string Name => nameof(WebApiExt1);
+        public override string Name => "WeatherForecast";
     }
 }
