@@ -1,0 +1,395 @@
+2020-02-05 15:16:43.130 +02:00 [Information] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.DefaultController' has been registered and is accessible.
+2020-02-05 15:16:43.145 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:16:43.148 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:16:43.159 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:16:43.162 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:19:40.798 +02:00 [Information] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.DefaultController' has been registered and is accessible.
+2020-02-05 15:19:40.812 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:19:40.816 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:19:40.824 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:19:40.827 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 15:21:52.310 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-05 15:21:55.517 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 15:21:55.545 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:55.578 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 15:21:55.628 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 15:21:55.739 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 15:21:56.505 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 776.5197ms.
+2020-02-05 15:21:56.529 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 892.3188ms
+2020-02-05 15:21:56.552 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 15:21:56.624 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 1083.8687ms 200 text/html; charset=utf-8
+2020-02-05 15:21:57.001 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/site.css  
+2020-02-05 15:21:57.004 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+2020-02-05 15:21:57.008 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 15:21:57.011 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js  
+2020-02-05 15:21:57.014 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.js  
+2020-02-05 15:21:57.018 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 15:21:57.018 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.022 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.037 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.049 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.051 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.056 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.080 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 61.516ms 404 
+2020-02-05 15:21:57.154 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/js/site.js'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\js\site.js'
+2020-02-05 15:21:57.154 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/css/site.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\css\site.css'
+2020-02-05 15:21:57.160 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+2020-02-05 15:21:57.245 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 191.3215ms 200 text/css
+2020-02-05 15:21:57.262 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2020-02-05 15:21:57.271 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner2.svg  
+2020-02-05 15:21:57.283 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 258.5574ms 200 application/javascript
+2020-02-05 15:21:57.291 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 244.0064ms 200 application/javascript
+2020-02-05 15:21:57.304 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner3.svg  
+2020-02-05 15:21:57.308 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 299.2014ms 200 text/css
+2020-02-05 15:21:57.325 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner1.svg  
+2020-02-05 15:21:57.329 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.336 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.345 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.379 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2  
+2020-02-05 15:21:57.396 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.417 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/images/banner2.svg'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\images\banner2.svg'
+2020-02-05 15:21:57.451 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/images/banner3.svg'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\images\banner3.svg'
+2020-02-05 15:21:57.467 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 189.4498ms 200 image/svg+xml
+2020-02-05 15:21:57.479 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/images/banner1.svg'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\images\banner1.svg'
+2020-02-05 15:21:57.489 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2'
+2020-02-05 15:21:57.498 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 197.0642ms 200 image/svg+xml
+2020-02-05 15:21:57.507 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 192.5096ms 200 image/svg+xml
+2020-02-05 15:21:57.536 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 140.9924ms 200 font/woff2
+2020-02-05 15:21:57.545 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\jquery\dist\jquery.js'
+2020-02-05 15:21:57.576 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 564.5136ms 200 application/javascript
+2020-02-05 15:21:57.715 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2020-02-05 15:21:57.719 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 15:21:57.739 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\favicon.ico'
+2020-02-05 15:21:57.749 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 31.4042ms 200 image/x-icon
+2020-02-05 16:08:36.684 +02:00 [Information] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.DefaultController' has been registered and is accessible.
+2020-02-05 16:08:36.697 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:08:36.701 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:08:36.710 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:08:36.713 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:09:27.694 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-05 16:09:31.384 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:09:31.428 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:09:31.501 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:09:31.609 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:09:31.742 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:09:32.225 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 503.8549ms.
+2020-02-05 16:09:32.239 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 621.8469ms
+2020-02-05 16:09:32.258 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:09:32.294 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 907.074ms 200 text/html; charset=utf-8
+2020-02-05 16:09:32.617 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/site.css  
+2020-02-05 16:09:32.623 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:09:32.626 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:09:32.641 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:09:32.694 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 16:09:32.727 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:09:32.728 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 66.977ms 404 
+2020-02-05 16:09:32.775 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/css/site.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\css\site.css'
+2020-02-05 16:09:32.781 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 166.0164ms 200 text/css
+2020-02-05 16:09:32.799 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2020-02-05 16:09:32.823 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 160.0882ms 200 text/css
+2020-02-05 16:09:32.905 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2  
+2020-02-05 16:09:32.910 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:09:32.946 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2'
+2020-02-05 16:09:33.020 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 80.8181ms 200 font/woff2
+2020-02-05 16:09:33.088 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2020-02-05 16:09:33.094 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:09:33.112 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\favicon.ico'
+2020-02-05 16:09:33.175 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 39.9471ms 200 image/x-icon
+2020-02-05 16:10:21.549 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:10:21.566 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.572 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:21.579 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:21.585 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:21.612 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 28.2416ms.
+2020-02-05 16:10:21.617 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 33.5503ms
+2020-02-05 16:10:21.622 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:21.635 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 84.9413ms 200 text/html; charset=utf-8
+2020-02-05 16:10:21.698 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/site.css  
+2020-02-05 16:10:21.701 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 16:10:21.712 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:21.712 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.713 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.716 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js  
+2020-02-05 16:10:21.731 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.js  
+2020-02-05 16:10:21.745 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+2020-02-05 16:10:21.745 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.745 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.747 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.755 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+2020-02-05 16:10:21.760 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/jquery/dist/jquery.js was not modified
+2020-02-05 16:10:21.774 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/css/site.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\css\site.css'
+2020-02-05 16:10:21.777 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 53.1272ms 304 application/javascript
+2020-02-05 16:10:21.817 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 75.783ms 404 
+2020-02-05 16:10:21.844 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 120.9064ms 200 text/css
+2020-02-05 16:10:21.858 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 108.9275ms 304 application/javascript
+2020-02-05 16:10:21.866 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.885 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /js/site.js was not modified
+2020-02-05 16:10:21.905 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2020-02-05 16:10:21.928 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner1.svg  
+2020-02-05 16:10:21.938 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner3.svg  
+2020-02-05 16:10:21.943 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.950 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 195.3455ms 304 application/javascript
+2020-02-05 16:10:21.956 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 245.1212ms 200 text/css
+2020-02-05 16:10:21.965 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner2.svg  
+2020-02-05 16:10:21.976 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner1.svg was not modified
+2020-02-05 16:10:21.986 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:21.995 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner3.svg was not modified
+2020-02-05 16:10:22.014 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 102.5578ms 304 image/svg+xml
+2020-02-05 16:10:22.020 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:22.033 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 104.9205ms 304 image/svg+xml
+2020-02-05 16:10:22.040 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner2.svg was not modified
+2020-02-05 16:10:22.058 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 139.0027ms 304 image/svg+xml
+2020-02-05 16:10:23.175 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:10:23.180 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.188 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:23.195 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:23.203 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:23.248 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 46.0922ms.
+2020-02-05 16:10:23.254 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 53.5879ms
+2020-02-05 16:10:23.258 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:23.274 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 94.9979ms 200 text/html; charset=utf-8
+2020-02-05 16:10:23.332 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 16:10:23.334 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js  
+2020-02-05 16:10:23.337 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+2020-02-05 16:10:23.339 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.341 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/site.css  
+2020-02-05 16:10:23.344 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:23.347 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.js  
+2020-02-05 16:10:23.351 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.352 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+2020-02-05 16:10:23.359 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /js/site.js was not modified
+2020-02-05 16:10:23.361 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.367 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+2020-02-05 16:10:23.367 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.374 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/jquery/dist/jquery.js was not modified
+2020-02-05 16:10:23.376 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.380 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 41.6941ms 304 application/javascript
+2020-02-05 16:10:23.386 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /css/site.css was not modified
+2020-02-05 16:10:23.397 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 45.3823ms 304 application/javascript
+2020-02-05 16:10:23.424 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 93.0069ms 304 application/javascript
+2020-02-05 16:10:23.429 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.451 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 116.7442ms 304 text/css
+2020-02-05 16:10:23.462 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 136.3368ms 304 text/css
+2020-02-05 16:10:23.493 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 157.6941ms 404 
+2020-02-05 16:10:23.514 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner1.svg  
+2020-02-05 16:10:23.518 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner2.svg  
+2020-02-05 16:10:23.527 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner3.svg  
+2020-02-05 16:10:23.532 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.542 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner1.svg was not modified
+2020-02-05 16:10:23.562 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.572 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner3.svg was not modified
+2020-02-05 16:10:23.581 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:23.588 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner2.svg was not modified
+2020-02-05 16:10:23.608 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 99.8986ms 304 image/svg+xml
+2020-02-05 16:10:23.627 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 102.2401ms 304 image/svg+xml
+2020-02-05 16:10:23.639 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 127.3473ms 304 image/svg+xml
+2020-02-05 16:10:24.715 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:10:24.719 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.724 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:24.729 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:24.737 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:24.763 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 27.9079ms.
+2020-02-05 16:10:24.768 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 34.7318ms
+2020-02-05 16:10:24.777 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:24.803 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 82.8848ms 200 text/html; charset=utf-8
+2020-02-05 16:10:24.846 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/site.css  
+2020-02-05 16:10:24.851 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 16:10:24.853 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.855 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.js  
+2020-02-05 16:10:24.859 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:24.863 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+2020-02-05 16:10:24.867 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js  
+2020-02-05 16:10:24.867 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.872 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /css/site.css was not modified
+2020-02-05 16:10:24.876 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.876 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+2020-02-05 16:10:24.878 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.882 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.882 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /js/site.js was not modified
+2020-02-05 16:10:24.886 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+2020-02-05 16:10:24.892 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 42.0601ms 304 text/css
+2020-02-05 16:10:24.899 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 51.1265ms 404 
+2020-02-05 16:10:24.914 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 63.1083ms 304 application/javascript
+2020-02-05 16:10:24.914 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.925 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/jquery/dist/jquery.js was not modified
+2020-02-05 16:10:24.934 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 70.7532ms 304 application/javascript
+2020-02-05 16:10:24.938 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner2.svg  
+2020-02-05 16:10:24.945 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner1.svg  
+2020-02-05 16:10:24.954 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 96.8574ms 304 application/javascript
+2020-02-05 16:10:24.962 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 75.5071ms 304 text/css
+2020-02-05 16:10:24.972 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/images/banner3.svg  
+2020-02-05 16:10:24.985 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.990 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:24.993 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner1.svg was not modified
+2020-02-05 16:10:24.998 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner2.svg was not modified
+2020-02-05 16:10:25.014 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:25.024 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /images/banner3.svg was not modified
+2020-02-05 16:10:25.031 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 90.5153ms 304 image/svg+xml
+2020-02-05 16:10:25.037 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 99.4589ms 304 image/svg+xml
+2020-02-05 16:10:25.063 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 130.5765ms 304 image/svg+xml
+2020-02-05 16:10:26.268 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/Default  
+2020-02-05 16:10:26.273 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:26.277 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'Extension2.Controllers.DefaultController.Index (Extension2)'
+2020-02-05 16:10:26.290 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Default"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Extension2.Controllers.DefaultController (Extension2).
+2020-02-05 16:10:26.303 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:26.323 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 22.4531ms.
+2020-02-05 16:10:26.328 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action Extension2.Controllers.DefaultController.Index (Extension2) in 33.4616ms
+2020-02-05 16:10:26.333 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'Extension2.Controllers.DefaultController.Index (Extension2)'
+2020-02-05 16:10:26.352 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 78.1068ms 200 text/html; charset=utf-8
+2020-02-05 16:10:26.404 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:26.410 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:26.415 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 15.9191ms 404 
+2020-02-05 16:10:28.746 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/Default  
+2020-02-05 16:10:28.750 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.754 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'Extension2.Controllers.DefaultController.Index (Extension2)'
+2020-02-05 16:10:28.759 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Default"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Extension2.Controllers.DefaultController (Extension2).
+2020-02-05 16:10:28.764 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:28.781 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 13.5457ms.
+2020-02-05 16:10:28.796 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action Extension2.Controllers.DefaultController.Index (Extension2) in 22.1032ms
+2020-02-05 16:10:28.805 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'Extension2.Controllers.DefaultController.Index (Extension2)'
+2020-02-05 16:10:28.828 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 80.9859ms 200 text/html; charset=utf-8
+2020-02-05 16:10:28.868 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 16:10:28.873 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js  
+2020-02-05 16:10:28.875 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.877 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/site.css  
+2020-02-05 16:10:28.882 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+2020-02-05 16:10:28.884 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.887 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.js  
+2020-02-05 16:10:28.891 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:28.895 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/jquery/dist/jquery.js was not modified
+2020-02-05 16:10:28.896 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.899 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+2020-02-05 16:10:28.901 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.904 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /css/site.css was not modified
+2020-02-05 16:10:28.911 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /js/site.js was not modified
+2020-02-05 16:10:28.921 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 55.4884ms 304 application/javascript
+2020-02-05 16:10:28.953 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 89.6921ms 304 text/css
+2020-02-05 16:10:28.955 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.961 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+2020-02-05 16:10:28.971 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:28.974 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 93.2324ms 304 application/javascript
+2020-02-05 16:10:28.983 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 123.2052ms 304 text/css
+2020-02-05 16:10:28.990 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 122.7963ms 304 application/javascript
+2020-02-05 16:10:29.009 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 142.2159ms 404 
+2020-02-05 16:10:30.060 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:10:30.064 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:30.070 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:30.076 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:30.082 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:30.112 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 27.3497ms.
+2020-02-05 16:10:30.124 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 41.7762ms
+2020-02-05 16:10:30.133 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:30.152 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 88.1648ms 200 text/html; charset=utf-8
+2020-02-05 16:10:30.202 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:30.206 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:30.217 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 11.3985ms 404 
+2020-02-05 16:10:38.431 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:10:38.437 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:38.441 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:38.446 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:38.453 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:38.476 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 21.813ms.
+2020-02-05 16:10:38.481 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 29.9002ms
+2020-02-05 16:10:38.491 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:38.515 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 83.2927ms 200 text/html; charset=utf-8
+2020-02-05 16:10:38.549 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:38.558 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:38.580 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 20.3211ms 404 
+2020-02-05 16:10:39.355 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:10:39.362 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:39.367 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:39.372 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:39.379 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:39.403 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 24.946ms.
+2020-02-05 16:10:39.410 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 32.1199ms
+2020-02-05 16:10:39.415 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:10:39.435 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 73.6616ms 200 text/html; charset=utf-8
+2020-02-05 16:10:39.486 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:39.492 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:39.513 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 20.9013ms 404 
+2020-02-05 16:10:40.385 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/Home/About  
+2020-02-05 16:10:40.395 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:40.401 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.About (HostApp)'
+2020-02-05 16:10:40.412 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "About", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult About() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:40.422 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view About.
+2020-02-05 16:10:40.437 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view About executed in 17.1335ms.
+2020-02-05 16:10:40.445 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.About (HostApp) in 24.7931ms
+2020-02-05 16:10:40.450 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.About (HostApp)'
+2020-02-05 16:10:40.476 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 75.1698ms 200 text/html; charset=utf-8
+2020-02-05 16:10:40.522 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:40.526 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:40.565 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 40.3261ms 404 
+2020-02-05 16:10:41.796 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/Home/Contact  
+2020-02-05 16:10:41.803 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:41.811 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Contact (HostApp)'
+2020-02-05 16:10:41.821 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Contact", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Contact() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:10:41.829 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Contact.
+2020-02-05 16:10:41.847 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Contact executed in 18.7943ms.
+2020-02-05 16:10:41.854 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Contact (HostApp) in 25.9716ms
+2020-02-05 16:10:41.860 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Contact (HostApp)'
+2020-02-05 16:10:41.878 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 76.8266ms 200 text/html; charset=utf-8
+2020-02-05 16:10:41.934 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:41.937 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:41.943 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 9.0212ms 404 
+2020-02-05 16:10:42.925 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/Default  
+2020-02-05 16:10:42.928 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:42.933 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'Extension2.Controllers.DefaultController.Index (Extension2)'
+2020-02-05 16:10:42.940 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Default"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Extension2.Controllers.DefaultController (Extension2).
+2020-02-05 16:10:42.945 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:10:42.956 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 8.8573ms.
+2020-02-05 16:10:42.962 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action Extension2.Controllers.DefaultController.Index (Extension2) in 16.0482ms
+2020-02-05 16:10:42.968 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'Extension2.Controllers.DefaultController.Index (Extension2)'
+2020-02-05 16:10:42.993 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 65.7335ms 200 text/html; charset=utf-8
+2020-02-05 16:10:43.069 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:10:43.074 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:10:43.079 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 25.3738ms 404 
+2020-02-05 16:13:47.421 +02:00 [Information] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.DefaultController' has been registered and is accessible.
+2020-02-05 16:13:47.434 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:13:47.437 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:13:47.445 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension2.Controllers.SkippedController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:13:47.449 +02:00 [Warning] CoreXF.Framework.ExtensionsControllerFeatureProvider: Controller 'Extension3.Controllers.HomeController' is inaccessible. Decorate it with 'ExportAttribute' if you want to access it.
+2020-02-05 16:13:54.471 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-05 16:13:56.987 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-02-05 16:13:56.996 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: Before RequestCultureMiddleware
+2020-02-05 16:13:57.018 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: Before LoggerMiddleware
+2020-02-05 16:13:57.021 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:13:57.065 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:13:57.129 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HostApp.Controllers.HomeController (HostApp).
+2020-02-05 16:13:57.219 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Index.
+2020-02-05 16:13:57.572 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Index executed in 366.9866ms.
+2020-02-05 16:13:57.580 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action HostApp.Controllers.HomeController.Index (HostApp) in 446.4856ms
+2020-02-05 16:13:57.583 +02:00 [Information] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'HostApp.Controllers.HomeController.Index (HostApp)'
+2020-02-05 16:13:57.586 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: After LoggerMiddleware
+2020-02-05 16:13:57.588 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: After RequestCultureMiddleware
+2020-02-05 16:13:57.596 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 610.4365ms 200 text/html; charset=utf-8
+2020-02-05 16:13:57.956 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/css/extension2.css  
+2020-02-05 16:13:57.960 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: Before RequestCultureMiddleware
+2020-02-05 16:13:57.966 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: Before LoggerMiddleware
+2020-02-05 16:13:57.966 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:13:57.973 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.css  
+2020-02-05 16:13:57.976 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: Before RequestCultureMiddleware
+2020-02-05 16:13:57.983 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: Before LoggerMiddleware
+2020-02-05 16:13:57.983 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:13:57.995 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: After LoggerMiddleware
+2020-02-05 16:13:57.999 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: After RequestCultureMiddleware
+2020-02-05 16:13:58.002 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 46.2472ms 404 
+2020-02-05 16:13:58.026 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2020-02-05 16:13:58.030 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: After LoggerMiddleware
+2020-02-05 16:13:58.034 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: After RequestCultureMiddleware
+2020-02-05 16:13:58.037 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 66.0219ms 200 text/css
+2020-02-05 16:13:58.123 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2  
+2020-02-05 16:13:58.127 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: Before RequestCultureMiddleware
+2020-02-05 16:13:58.131 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: Before LoggerMiddleware
+2020-02-05 16:13:58.132 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:13:58.135 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2020-02-05 16:13:58.139 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: Before RequestCultureMiddleware
+2020-02-05 16:13:58.145 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: Before LoggerMiddleware
+2020-02-05 16:13:58.145 +02:00 [Information] Extension2.Middlewares.LoggerMiddleware: 
+2020-02-05 16:13:58.150 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2'
+2020-02-05 16:13:58.154 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: After LoggerMiddleware
+2020-02-05 16:13:58.158 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Github\CoreXF\Demos\HostApp\wwwroot\favicon.ico'
+2020-02-05 16:13:58.161 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: After RequestCultureMiddleware
+2020-02-05 16:13:58.165 +02:00 [Trace] Extension2.Middlewares.LoggerMiddleware: After LoggerMiddleware
+2020-02-05 16:13:58.173 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 48.5761ms 200 font/woff2
+2020-02-05 16:13:58.176 +02:00 [Trace] Extension2.Middlewares.RequestCultureMiddleware: After RequestCultureMiddleware
+2020-02-05 16:13:58.185 +02:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished in 44.0801ms 200 image/x-icon
