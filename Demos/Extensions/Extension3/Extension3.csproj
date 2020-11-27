@@ -25,4 +25,8 @@
         <Pack>$(IncludeRazorContentInPack)</Pack>
       </Content>
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="md &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;&#xD;&#xA;copy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;" />
+    </Target>
 </Project>

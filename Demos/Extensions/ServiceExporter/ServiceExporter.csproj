@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\..\Common\DateTimeService\DateTimeService.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="md &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;" />
+  </Target>
+
 </Project>

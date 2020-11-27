@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\Abstractions\CoreXF.Abstractions.csproj" />
         <ProjectReference Include="..\..\..\Common\DateTimeService\DateTimeService.csproj" />
     </ItemGroup>
 
@@ -41,8 +42,8 @@
       <Folder Include="Middlewares\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="CoreXF.Abstractions" Version="1.1.2" />
-    </ItemGroup>
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="md &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;" />
+    </Target>
 
 </Project>

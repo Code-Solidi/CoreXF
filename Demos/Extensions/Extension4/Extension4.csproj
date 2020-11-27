@@ -11,4 +11,8 @@
       <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="md &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;&#xD;&#xA;copy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)Demos\HostApp\Extensions\$(ProjectName)&quot;" />
+  </Target>
+
 </Project>

@@ -30,6 +30,8 @@ namespace CoreXF.Abstractions.Base
         /// <summary>The authors of the extension, comma separated.</summary>
         public virtual string Authors => "Code Solidi Ltd.";
 
+        public string Location { get; set; }
+
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
         {
         }

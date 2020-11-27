@@ -33,7 +33,7 @@ namespace CoreXF.Framework.Registry
         public static IExtensionsRegistry DiscoverExtensions(ILoggerFactory factory, string location)
         {
             var registry = new ExtensionsRegistry(factory);
-            var excludes = new[] 
+            var excludes = new[]
             {
                 Assembly.GetAssembly(typeof(ExtensionBase)).FullName,       // CoreXF.Abstractions
                 Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
@@ -51,7 +51,7 @@ namespace CoreXF.Framework.Registry
             {
                 location = location.Trim(' ', '\t', '\\', '/');
                 location = Path.Combine(Environment.CurrentDirectory, location);
-                files = Directory.GetFiles(location, "*.dll");
+                files = Directory.GetFiles(location, "*.dll", SearchOption.AllDirectories);
             }
             catch (Exception x)
             {
@@ -61,22 +61,31 @@ namespace CoreXF.Framework.Registry
 
             foreach (var path in files)
             {
-                var assembly = this.LoadAssembly(path);
+                var assembly = ExtensionsLoader.LoadAssembly(path, this.logger);
+                this.logger.LogDebug($"Inspecting {assembly.Location}.");
                 if (excludes.Any(x => x == assembly?.FullName) == false)
                 {
-                    var types = assembly?.GetTypes();
-                    var type = types?.SingleOrDefault(x => typeof(IExtension).IsAssignableFrom(x));
-                    if (type?.IsAbstract == false)
+                    try
                     {
-                        try
+                        var types = assembly?.GetTypes();
+                        var type = types?.SingleOrDefault(x => typeof(IExtension).IsAssignableFrom(x));
+                        if (type?.IsAbstract == false)
                         {
-                            var instance = Activator.CreateInstance(type) as IExtension;
-                            (this.registry as ExtensionsRegistry)?.Register(instance);
+                            try
+                            {
+                                var instance = Activator.CreateInstance(type) as IExtension;
+                                instance.Location = Path.GetDirectoryName(path);
+                                (this.registry as ExtensionsRegistry)?.Register(instance);
+                            }
+                            catch (Exception x)
+                            {
+                                this.logger.LogError(x.InnerException?.Message ?? x.Message);
+                            }
                         }
-                        catch (Exception x)
-                        {
-                            this.logger.LogError(x.Message);
-                        }
+                    }
+                    catch (ReflectionTypeLoadException x)
+                    {
+                        this.logger.LogError(x.InnerException?.Message ?? x.Message);
                     }
                 }
             }
@@ -84,7 +93,7 @@ namespace CoreXF.Framework.Registry
             return this;
         }
 
-        private Assembly LoadAssembly(string assemblyPath)
+        internal static Assembly LoadAssembly(string assemblyPath, ILogger logger)
         {
             try
             {
@@ -95,7 +104,7 @@ namespace CoreXF.Framework.Registry
             }
             catch (Exception x)
             {
-                this.logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
+                logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
                 return null;
             }
         }

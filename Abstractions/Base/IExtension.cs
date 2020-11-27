@@ -4,6 +4,7 @@
  */
 
 using CoreXF.Abstractions.Builder;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,6 +29,11 @@ namespace CoreXF.Abstractions.Base
 
         /// <summary>The authors of the extension, comma separated.</summary>
         string Authors { get; }
+
+        /// <summary>
+        /// The deployment location of the extension, usually a dedicated folder in the "Extensions" folder in host app
+        /// </summary>
+        string Location { get; set; }
 
         void ConfigureServices(IServiceCollection services, IConfiguration configuration);
 

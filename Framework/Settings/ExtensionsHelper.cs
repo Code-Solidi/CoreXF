@@ -5,11 +5,15 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+
+using CoreXF.Abstractions.Base;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Framework.Settings
 {
@@ -34,6 +38,20 @@ namespace CoreXF.Framework.Settings
                 typeInfo.IsDefined(typeof(ControllerAttribute));
 
             return result;
+        }
+
+        public static bool IsCompiledView(TypeInfo typeInfo)
+        {
+            //const string ViewComponentTypeNameSuffix = nameof(ViewComponent);
+
+            //var result = typeInfo.IsClass && typeInfo.IsAbstract == false;
+
+            //// public top-level non-nested (regardless of visibility) classes
+            //result &= typeInfo.IsPublic && typeInfo.ContainsGenericParameters == false;
+            //result &= typeInfo.Name.EndsWith(ViewComponentTypeNameSuffix, StringComparison.OrdinalIgnoreCase);
+
+            //return result;
+            return true;
         }
 
         public static bool IsViewComponent(TypeInfo typeInfo)
@@ -78,6 +96,21 @@ namespace CoreXF.Framework.Settings
             var type = app.GetType();
             var field = type.GetField("_components", BindingFlags.Instance | BindingFlags.NonPublic);
             return (IList<Func<RequestDelegate, RequestDelegate>>)field.GetValue(app);
+        }
+
+        internal static bool IsExtension(Assembly assembly, ILogger logger)
+        {
+            try
+            {
+                var type = assembly?.GetTypes().SingleOrDefault(t => typeof(IExtension).IsAssignableFrom(t));
+                var extension = type != null ? (IExtension)Activator.CreateInstance(type) : null;
+                return extension != null;
+            }
+            catch (Exception x)
+            {
+                logger?.LogError(x.InnerException?.Message ?? x.Message);
+                return false;
+            }
         }
     }
 }

@@ -3,6 +3,7 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
+using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Builder;
 using CoreXF.Abstractions.Registry;
 using CoreXF.Framework.Builder;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +23,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace CoreXF.Framework.Registry
 {
@@ -47,12 +51,23 @@ namespace CoreXF.Framework.Registry
             }
 
             // make extensions available to MVC application, configures extensions and configures extension services (SRP, split?)
-            static void AddApplicationParts(IMvcBuilder mvcBuilder, IExtensionsRegistry registry, IServiceCollection services, IConfiguration configuration)
+            static void AddApplicationParts(IMvcBuilder mvcBuilder, IExtensionsRegistry registry, IServiceCollection services, IConfiguration configuration, ILoggerFactory loggerFactory)
             {
                 foreach (var extension in (registry as ExtensionsRegistry)?.Extensions)
                 {
                     var assembly = extension.GetType().Assembly;
                     mvcBuilder.AddApplicationPart(assembly);
+
+                    if (extension is IExtensionWithViews)
+                    {
+                        // load compiled views 
+                        var directory = extension.Location;
+                        var viewsAssemblyName = (extension as IExtensionWithViews).Views;
+                        var logger = loggerFactory.CreateLogger(nameof(ExtensionsConfigurator));
+                        var viewsAssembly = ExtensionsLoader.LoadAssembly(Path.Combine(directory, viewsAssemblyName), logger);
+                        mvcBuilder.AddApplicationPart(viewsAssembly);
+                    }
+
                     extension.ConfigureServices(services, configuration);
                 }
             }
@@ -115,7 +130,7 @@ namespace CoreXF.Framework.Registry
             var provider = services.BuildServiceProvider();
             var options = provider.GetRequiredService<IOptionsMonitor<CoreXfOptions>>().CurrentValue;
             var registry = AddRegistry(services, options.Location);
-            AddApplicationParts(builder, registry, services, configuration);
+            AddApplicationParts(builder, registry, services, configuration, loggerFactory);
 
             // NB: what options were to do doesn't work! No time to explore details.
             if (options.UseViewComponents) { ReplaceViewComponentFeatureProvider(services, loggerFactory); }

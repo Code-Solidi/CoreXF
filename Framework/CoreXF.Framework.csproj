@@ -24,12 +24,14 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Version>1.1.2</Version>
     </PropertyGroup>
 
     <ItemGroup>
         <Compile Remove="ExtensionsMetadataReferenceFeatureProvider.cs" />
+        <Compile Remove="Providers\ExtensionsMetadataReferenceFeatureProvider.cs" />
+        <Compile Remove="Providers\ExtensionsViewsFeatureProvider.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -37,11 +39,11 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-        <None Include="Providers\ExtensionsMetadataReferenceFeatureProvider.cs" />
         <None Include="LICENSE.txt">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
+        <None Include="Providers\ExtensionsViewsFeatureProvider.cs" />
     </ItemGroup>
 
     <ItemGroup>

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Builder;
 
 namespace Extension2
 {
-    public class Extension : ExtensionBase
+    public class Extension : ExtensionBaseWithViews
     {
         public override string Name => nameof(Extension2);
+
+        public override string Views => $"{typeof(Extension).Assembly.GetName().Name}.Views.dll";
 
         public override void ConfigureMiddleware(IExtensionsApplicationBuilder app)
         {

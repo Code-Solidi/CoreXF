@@ -3,17 +3,17 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
 using CoreXF.Abstractions.Attributes;
-using CoreXF.Abstractions.Base;
+using CoreXF.Framework.Settings;
 
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace CoreXF.Framework.Providers
 {
@@ -41,7 +41,7 @@ namespace CoreXF.Framework.Providers
                 var types = part.Types.Where(t => /*ExtensionsHelper.IsController(t) && */feature.TagHelpers.Contains(t) == false);
                 foreach (var type in types)
                 {
-                    if (this.IsExtension(type.Assembly))
+                    if (ExtensionsHelper.IsExtension(type.Assembly, this.logger))
                     {
                         // should be one or more, First/OrDefault() doesn't work instead
                         var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is ExportAttribute);
@@ -70,19 +70,19 @@ namespace CoreXF.Framework.Providers
             }
         }
 
-        private bool IsExtension(Assembly assembly)
-        {
-            try
-            {
-                var type = assembly?.GetTypes().SingleOrDefault(t => typeof(IExtension).IsAssignableFrom(t));
-                var extension = type != null ? (IExtension)Activator.CreateInstance(type) : null;
-                return extension != null;
-            }
-            catch (Exception x)
-            {
-                this.logger?.LogError(x.Message);
-                return false;
-            }
-        }
+        //private bool IsExtension(Assembly assembly)
+        //{
+        //    try
+        //    {
+        //        var type = assembly?.GetTypes().SingleOrDefault(t => typeof(IExtension).IsAssignableFrom(t));
+        //        var extension = type != null ? (IExtension)Activator.CreateInstance(type) : null;
+        //        return extension != null;
+        //    }
+        //    catch (Exception x)
+        //    {
+        //        this.logger?.LogError(x.Message);
+        //        return false;
+        //    }
+        //}
     }
 }

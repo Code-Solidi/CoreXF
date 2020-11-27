@@ -39,7 +39,7 @@ namespace CoreXF.Framework.Providers
                 var types = part.Types.Where(t => ExtensionsHelper.IsViewComponent(t) && feature.ViewComponents.Contains(t) == false);
                 foreach (var type in types)
                 {
-                    if (this.IsExtension(type.Assembly))
+                    if (ExtensionsHelper.IsExtension(type.Assembly, this.logger))
                     {
                         // should be one or more, First/OrDefault() doesn't work instead
                         var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is ExportAttribute);
@@ -68,19 +68,19 @@ namespace CoreXF.Framework.Providers
             }
         }
 
-        private bool IsExtension(Assembly assembly)
-        {
-            try
-            {
-                var type = assembly?.GetTypes().SingleOrDefault(t => typeof(IExtension).IsAssignableFrom(t));
-                var extension = type != null ? (IExtension)Activator.CreateInstance(type) : null;
-                return extension != null;
-            }
-            catch (Exception x)
-            {
-                this.logger?.LogError(x.Message);
-                return false;
-            }
-        }
+        //private bool IsExtension(Assembly assembly)
+        //{
+        //    try
+        //    {
+        //        var type = assembly?.GetTypes().SingleOrDefault(t => typeof(IExtension).IsAssignableFrom(t));
+        //        var extension = type != null ? (IExtension)Activator.CreateInstance(type) : null;
+        //        return extension != null;
+        //    }
+        //    catch (Exception x)
+        //    {
+        //        this.logger?.LogError(x.Message);
+        //        return false;
+        //    }
+        //}
     }
 }
