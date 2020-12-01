@@ -76,8 +76,7 @@ namespace CoreXF.Framework.Registry
 
             // here we go...
             services.AddOptions();
-            var options2 = configuration.GetSection("CoreXF");
-            services.Configure<CoreXfOptions>(options2);
+            services.Configure<CoreXfOptions>(configuration.GetSection("CoreXF"));
 
             var actionDescriptorChangeProvider = new ExtensionsActionDescriptorChangeProvider();
             services.AddSingleton<IActionDescriptorChangeProvider>(actionDescriptorChangeProvider);
