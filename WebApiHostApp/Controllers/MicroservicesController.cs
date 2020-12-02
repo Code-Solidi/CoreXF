@@ -1,12 +1,11 @@
 ﻿using CoreXF.Abstractions.Registry;
-
-using HostApp.Models;
+using CoreXF.WebApiHostApp.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
 using System.Collections.Generic;
 
-namespace HostApp.Controllers
+namespace CoreXF.WebApiHostApp.Controllers
 {
     public class MicroservicesController : Controller
     {

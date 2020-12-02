@@ -9,7 +9,7 @@
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="md &quot;$(SolutionDir)Demos\HostApp\Extensions\$(TargetName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Demos\HostApp\Extensions\$(TargetName)&quot;" />
+        <Exec Command="md &quot;$(SolutionDir)WebApiHostApp\Extensions\$(TargetName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)WebApiHostApp\Extensions\$(TargetName)&quot;" />
     </Target>
 
     <ItemGroup>

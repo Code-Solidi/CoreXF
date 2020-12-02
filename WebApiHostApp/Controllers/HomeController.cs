@@ -1,15 +1,11 @@
-﻿using HostApp.Models;
+﻿using CoreXF.WebApiHostApp.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace HostApp.Controllers
+namespace CoreXF.WebApiHostApp.Controllers
 {
     public class HomeController : Controller
     {

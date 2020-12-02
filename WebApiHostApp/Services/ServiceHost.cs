@@ -3,7 +3,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HostApp.Services
+namespace CoreXF.WebApiHostApp.Services
 {
     public class ServiceHost : IHostedService
     {

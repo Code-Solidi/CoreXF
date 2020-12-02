@@ -1,6 +1,4 @@
-using System;
-
-namespace HostApp.Models
+namespace CoreXF.WebApiHostApp.Models
 {
     public class ErrorViewModel
     {

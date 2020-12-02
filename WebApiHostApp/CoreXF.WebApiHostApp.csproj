@@ -35,11 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\WebAPI\CoreXF.WebAPI.csproj" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <ProjectReference Include="..\WebAPI\CoreXF.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>

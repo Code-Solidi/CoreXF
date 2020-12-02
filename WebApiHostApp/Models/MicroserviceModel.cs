@@ -1,4 +1,4 @@
-﻿namespace HostApp.Models
+﻿namespace CoreXF.WebApiHostApp.Models
 {
     public class MicroserviceModel
     {

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace HostApp
+namespace CoreXF.WebApiHostApp
 {
     public class Program
     {
@@ -24,13 +24,14 @@ namespace HostApp
                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"))//.AddConsole().AddDebug()
                         .AddFile(options =>
                         {
-                            options.FileName = $"{nameof(HostApp)}-";           // log file prefix
-                            options.FileSizeLimit = 1024 * 1024;                // IMB rolling limit
-                            options.LogDirectory = "LogFiles";                  //
-                            options.RetainedFileCountLimit = 10;                // keep up to 10 files
+                            options.FileName = $"{nameof(CoreXF.WebApiHostApp)}-";  // log file prefix
+                            options.FileSizeLimit = 1024 * 1024;                    // IMB rolling limit
+                            options.LogDirectory = "LogFiles";                      //
+                            options.RetainedFileCountLimit = 10;                    // keep up to 10 files
                         })
                         .AddFilter("File", LogLevel.Warning);
                 });
+
         //.UseStartup<Startup>();
     }
 }

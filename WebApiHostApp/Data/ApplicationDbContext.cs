@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HostApp.Data
+namespace CoreXF.WebApiHostApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

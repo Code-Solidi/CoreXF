@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 using System;
 
-namespace HostApp.Data.Migrations
+namespace CoreXF.WebApiHostApp.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
