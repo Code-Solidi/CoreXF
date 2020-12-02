@@ -13,7 +13,7 @@ using System;
 namespace CoreXF.Abstractions.Base
 {
     /// <summary>A default implementation of <see cref="IExtension">IExtension</see>.</summary>
-    public class ExtensionBase : IExtension
+    public class ExtensionBase : IExtension, IBackingService
     {
         /// <summary>The name of the extension. As a convention use the name of the assembly.</summary>
         public virtual string Name => nameof(ExtensionBase);

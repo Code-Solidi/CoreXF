@@ -3,9 +3,10 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Events;
+using Eventing;
+using Eventing.Abstractions;
 
-namespace CoreXF.Framework.Events
+namespace Eventing
 {
     public static class EventAggregatorExtensions
     {

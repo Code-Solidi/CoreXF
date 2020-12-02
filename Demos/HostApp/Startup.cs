@@ -2,6 +2,7 @@ using CoreXF.Abstractions.Builder;
 using CoreXF.Framework.Registry;
 
 using HostApp.Data;
+using HostApp.Services;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +37,8 @@ namespace HostApp
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(x => x.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "CoreXF APIs", Version = "v1" }));
+
+            services.AddHostedService<ServiceHost>();
         }
 
         public void Configure(IApplicationBuilder original, IExtensionsApplicationBuilderFactory factory, IWebHostEnvironment env)

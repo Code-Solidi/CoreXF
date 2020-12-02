@@ -6,7 +6,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CoreXF.Abstractions.Events
+namespace Eventing.Abstractions
 {
     public interface IEventAggregator
     {

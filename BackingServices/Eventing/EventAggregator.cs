@@ -3,14 +3,14 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
+using Eventing.Abstractions;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-using CoreXF.Abstractions.Events;
-
-namespace CoreXF.Framework.Events
+namespace Eventing
 {
     public class EventAggregator : IEventAggregator
     {
