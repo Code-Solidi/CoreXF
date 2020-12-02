@@ -19,17 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreXF.Abstractions", "Abst
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreXF.WebAPI", "WebAPI\CoreXF.WebAPI.csproj", "{9CC65F37-801F-4FE5-A660-6941BDDE0334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostApp", "Demos\HostApp\HostApp.csproj", "{FED52265-92E5-41F0-8CB0-BF394988315B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostApp", "Demos\HostApp\HostApp.csproj", "{FED52265-92E5-41F0-8CB0-BF394988315B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiExt1", "Demos\Extensions\WebAPIext1\WebApiExt1.csproj", "{8BC53A33-111F-4E6A-99B7-4E0C3E5F9D80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiExt1", "Demos\Extensions\WebAPIext1\WebApiExt1.csproj", "{8BC53A33-111F-4E6A-99B7-4E0C3E5F9D80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAplExt2", "Demos\Extensions\WebAplExt2\WebAplExt2.csproj", "{C5383C50-2520-4E97-9D28-BE43559082B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAplExt2", "Demos\Extensions\WebAplExt2\WebAplExt2.csproj", "{C5383C50-2520-4E97-9D28-BE43559082B8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackingServices", "BackingServices", "{BDFAC94E-C6D9-49EF-A529-3A79901E2C3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventing", "BackingServices\Eventing\Eventing.csproj", "{E23216F9-29DC-4C4D-906A-BF2EFBA7A142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventing", "BackingServices\Eventing\Eventing.csproj", "{E23216F9-29DC-4C4D-906A-BF2EFBA7A142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventing.Abstractions", "BackingServices\Eventing.Abstractions\Eventing.Abstractions.csproj", "{866AD482-D461-46E0-8197-D8C60C1B3795}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventing.Abstractions", "BackingServices\Eventing.Abstractions\Eventing.Abstractions.csproj", "{866AD482-D461-46E0-8197-D8C60C1B3795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
