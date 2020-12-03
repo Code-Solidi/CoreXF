@@ -1,9 +1,0 @@
-﻿@model Extension3.Models.MainMenuModel
-    
-@if (Model != null && Model.MenuItems != null && Model.MenuItems.Any())
-{
-    foreach (var menuitem in Model.MenuItems)
-    {
-        <a asp-area="@menuitem.Area" asp-controller="@menuitem.Controller" asp-action="@menuitem.Action">@menuitem.DisplayText</a>
-    }
-}

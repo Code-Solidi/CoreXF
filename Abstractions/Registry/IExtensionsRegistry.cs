@@ -3,12 +3,16 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Base;
+using CoreXF.WebAPI.Abstractions.Base;
 
-namespace CoreXF.Abstractions.Registry
+using System.Collections.Generic;
+
+namespace CoreXF.WebAPI.Abstractions.Registry
 {
     public interface IExtensionsRegistry
     {
+        IEnumerable<IExtension> Extensions { get; }
+
         T GetExtension<T>() where T : IExtension;
 
         IExtension GetExtension(string name);

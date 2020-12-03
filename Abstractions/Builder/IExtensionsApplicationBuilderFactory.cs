@@ -5,7 +5,7 @@
 
 using Microsoft.AspNetCore.Builder;
 
-namespace CoreXF.Abstractions.Builder
+namespace CoreXF.WebAPI.Abstractions.Builder
 {
     public interface IExtensionsApplicationBuilderFactory
     {

@@ -5,7 +5,7 @@
 
 using System;
 
-namespace CoreXF.Abstractions.Attributes
+namespace CoreXF.WebAPI.Abstractions.Attributes
 {
     /// <summary>Decorates a controller as belonging to an extension.</summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
