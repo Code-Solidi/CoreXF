@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Abstractions\CoreXF.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
     <ProjectReference Include="..\Eventing.Abstractions\Eventing.Abstractions.csproj" />
   </ItemGroup>
 

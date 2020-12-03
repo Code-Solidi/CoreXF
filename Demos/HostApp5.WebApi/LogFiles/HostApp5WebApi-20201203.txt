@@ -1,5 +1,0 @@
-2020-12-03 07:28:07.945 +02:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5001
-2020-12-03 07:28:07.952 +02:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5000
-2020-12-03 07:28:07.954 +02:00 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
-2020-12-03 07:28:07.957 +02:00 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
-2020-12-03 07:28:07.961 +02:00 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\Github\CoreXF\Demos\HostApp5.WebApi

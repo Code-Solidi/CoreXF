@@ -4,16 +4,12 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\..\..\Abstractions\CoreXF.Abstractions.csproj" />
-    </ItemGroup>
-
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <Exec Command="md &quot;$(SolutionDir)Demos\HostApp5.WebApi\Extensions\$(TargetName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Demos\HostApp5.WebApi\Extensions\$(TargetName)&quot;" />
     </Target>
 
     <ItemGroup>
-        <!--<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />-->
+      <PackageReference Include="CoreXF.Abstractions" Version="2.0.0" />
     </ItemGroup>
 
 </Project>
