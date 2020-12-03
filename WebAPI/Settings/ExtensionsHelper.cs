@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using CoreXF.Abstractions.Base;
+using CoreXF.WebAPI.Abstractions.Base;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

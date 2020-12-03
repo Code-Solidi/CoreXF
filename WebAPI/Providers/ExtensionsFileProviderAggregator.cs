@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 
-using CoreXF.Abstractions.Base;
+using CoreXF.WebAPI.Abstractions.Base;
 
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;

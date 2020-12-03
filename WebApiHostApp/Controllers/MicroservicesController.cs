@@ -1,4 +1,4 @@
-﻿using CoreXF.Abstractions.Registry;
+﻿using CoreXF.WebAPI.Abstractions.Registry;
 using CoreXF.WebApiHostApp.Models;
 
 using Microsoft.AspNetCore.Mvc;

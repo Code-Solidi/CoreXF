@@ -1,4 +1,4 @@
-﻿using CoreXF.Abstractions.Base;
+﻿using CoreXF.WebAPI.Abstractions.Base;
 
 namespace WebApiExt1
 {

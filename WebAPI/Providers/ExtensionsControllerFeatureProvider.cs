@@ -3,18 +3,17 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-using CoreXF.Abstractions.Attributes;
-using CoreXF.Abstractions.Base;
 using CoreXF.Framework.Settings;
+using CoreXF.WebAPI.Abstractions.Attributes;
 
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Logging;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace CoreXF.Framework.Providers
 {

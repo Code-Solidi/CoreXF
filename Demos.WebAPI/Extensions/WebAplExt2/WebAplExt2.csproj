@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Abstractions\CoreXF.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Abstractions\CoreXF.WebAPI.Abstractions.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

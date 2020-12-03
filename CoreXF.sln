@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F79D33
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{76063571-A968-4210-AA4A-83D065675D6F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreXF.Abstractions", "Abstractions\CoreXF.Abstractions.csproj", "{0A6FBE88-4733-4243-AFB5-D75034F1FF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreXF.WebAPI.Abstractions", "Abstractions\CoreXF.WebAPI.Abstractions.csproj", "{0A6FBE88-4733-4243-AFB5-D75034F1FF7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreXF.WebAPI", "WebAPI\CoreXF.WebAPI.csproj", "{9CC65F37-801F-4FE5-A660-6941BDDE0334}"
 EndProject

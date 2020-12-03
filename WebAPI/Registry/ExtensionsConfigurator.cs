@@ -3,11 +3,11 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Builder;
-using CoreXF.Abstractions.Registry;
 using CoreXF.Framework.Builder;
 using CoreXF.Framework.Providers;
 using CoreXF.Framework.Settings;
+using CoreXF.WebAPI.Abstractions.Builder;
+using CoreXF.WebAPI.Abstractions.Registry;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

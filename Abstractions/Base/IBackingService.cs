@@ -1,4 +1,4 @@
-﻿namespace CoreXF.Abstractions.Base
+﻿namespace CoreXF.WebAPI.Abstractions.Base
 {
     /// <summary>
     /// Marker interface for backing services

@@ -3,8 +3,8 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Base;
-using CoreXF.Abstractions.Registry;
+using CoreXF.WebAPI.Abstractions.Base;
+using CoreXF.WebAPI.Abstractions.Registry;
 
 using Microsoft.Extensions.Logging;
 

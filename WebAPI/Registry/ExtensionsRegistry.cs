@@ -6,8 +6,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using CoreXF.Abstractions.Base;
-using CoreXF.Abstractions.Registry;
+using CoreXF.WebAPI.Abstractions.Base;
+using CoreXF.WebAPI.Abstractions.Registry;
 
 using Microsoft.Extensions.Logging;
 

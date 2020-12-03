@@ -1,4 +1,4 @@
-﻿using CoreXF.Abstractions.Attributes;
+﻿using CoreXF.WebAPI.Abstractions.Attributes;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
