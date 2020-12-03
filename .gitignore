@@ -343,3 +343,4 @@ healthchecksdb
 *.zip
 /NuGet/Annotation 2020-04-27 104526.jpg
 /Docs/StarButton.png
+/Demos/HostApp5/LogFiles
