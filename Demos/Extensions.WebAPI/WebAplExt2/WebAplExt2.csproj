@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="md &quot;$(SolutionDir)Demos\HostApp5.WebApi\Extensions\$(TargetName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Demos\HostApp5.WebApi\Extensions\$(TargetName)&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Abstractions\CoreXF.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

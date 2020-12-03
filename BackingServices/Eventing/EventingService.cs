@@ -1,4 +1,4 @@
-﻿using CoreXF.WebAPI.Abstractions.Base;
+﻿using CoreXF.Abstractions.Base;
 
 namespace Eventing
 {

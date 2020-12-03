@@ -3,11 +3,11 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using CoreXF.WebAPI.Abstractions.Base;
+using CoreXF.Abstractions.Base;
 
 using System.Collections.Generic;
 
-namespace CoreXF.WebAPI.Abstractions.Registry
+namespace CoreXF.Abstractions.Registry
 {
     public interface IExtensionsRegistry
     {

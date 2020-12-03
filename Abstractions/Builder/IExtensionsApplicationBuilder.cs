@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Builder;
 
-namespace CoreXF.WebAPI.Abstractions.Builder
+namespace CoreXF.Abstractions.Builder
 {
     public interface IExtensionsApplicationBuilder : IApplicationBuilder
     {
