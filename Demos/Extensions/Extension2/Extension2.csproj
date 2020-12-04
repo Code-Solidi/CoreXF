@@ -22,10 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\Common\DateTimeService\DateTimeService.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
         <Content Update="Views\Shared\_Layout.cshtml">
             <Pack>$(IncludeRazorContentInPack)</Pack>
         </Content>
@@ -43,6 +39,10 @@
 
     <ItemGroup>
       <PackageReference Include="CoreXF.Abstractions" Version="2.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\DateTimeService\DateTimeService.csproj" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">

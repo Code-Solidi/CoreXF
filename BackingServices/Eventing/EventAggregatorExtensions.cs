@@ -1,12 +1,11 @@
 ﻿/*
- * Copyright (c) 2017-2020 Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2016-2020 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using Eventing;
-using Eventing.Abstractions;
+using CoreXF.Eventing.Abstractions;
 
-namespace Eventing
+namespace CoreXF.Eventing
 {
     public static class EventAggregatorExtensions
     {

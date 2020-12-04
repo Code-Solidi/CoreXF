@@ -3,17 +3,17 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
+using CoreXF.Abstractions.Base;
+using CoreXF.Abstractions.Registry;
+
+using Microsoft.Extensions.Logging;
+
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-
-using CoreXF.Abstractions.Base;
-using CoreXF.Abstractions.Registry;
-
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Framework.Registry
 {
@@ -59,9 +59,8 @@ namespace CoreXF.Framework.Registry
                 throw;
             }
 
-            foreach (var path in files)
+            foreach (var assembly in this.LoadAssemblies(files))
             {
-                var assembly = ExtensionsLoader.LoadAssembly(path, this.logger);
                 this.logger.LogDebug($"Inspecting {assembly.Location}.");
                 if (excludes.Any(x => x == assembly?.FullName) == false)
                 {
@@ -74,7 +73,7 @@ namespace CoreXF.Framework.Registry
                             try
                             {
                                 var instance = Activator.CreateInstance(type) as IExtension;
-                                instance.Location = Path.GetDirectoryName(path);
+                                instance.Location = Path.GetDirectoryName(assembly.Location);
                                 (this.registry as ExtensionsRegistry)?.Register(instance);
                             }
                             catch (Exception x)
@@ -103,9 +102,24 @@ namespace CoreXF.Framework.Registry
             }
             catch (Exception x)
             {
-                logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
+                //logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
                 return null;
             }
+        }
+
+        private List<Assembly> LoadAssemblies(string[] files)
+        {
+            var assemblyList = new List<Assembly>();
+            foreach (var path in files)
+            {
+                var assembly = ExtensionsLoader.LoadAssembly(path, this.logger);
+                if (assembly != default)
+                {
+                    assemblyList.Add(assembly);
+                }
+            }
+
+            return assemblyList;
         }
     }
 }
