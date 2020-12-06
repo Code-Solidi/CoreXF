@@ -80,7 +80,6 @@ namespace CoreXF.Framework.Registry
                 partManager.FeatureProviders.Add(new ExtensionsControllerFeatureProvider(loggerFactory));
             }
 
-            // replace view component feature provider
             static void ReplaceViewComponentFeatureProvider(IServiceCollection services, ILoggerFactory loggerFactory)
             {
                 var partManager = services.BuildServiceProvider().GetRequiredService<ApplicationPartManager>();
@@ -89,7 +88,7 @@ namespace CoreXF.Framework.Registry
                 partManager.FeatureProviders.Add(new ExtensionsViewComponentFeatureProvider(loggerFactory));
             }
 
-            // replace tag helper feature provider (PopulateFeature() does not get called!?)
+            // todo: PopulateFeature() does not get called!? find out why!!
             static void ReplaceTagHelperFeatureProvider(IServiceCollection services, ILoggerFactory loggerFactory)
             {
                 var partManager = services.BuildServiceProvider().GetRequiredService<ApplicationPartManager>();

@@ -78,13 +78,13 @@ namespace CoreXF.Framework.Registry
                             }
                             catch (Exception x)
                             {
-                                this.logger.LogError(x.InnerException?.Message ?? x.Message);
+                                this.logger.LogDebug(x.InnerException?.Message ?? x.Message);
                             }
                         }
                     }
                     catch (ReflectionTypeLoadException x)
                     {
-                        this.logger.LogError(x.InnerException?.Message ?? x.Message);
+                        this.logger.LogDebug(x.InnerException?.Message ?? x.Message);
                     }
                 }
             }
