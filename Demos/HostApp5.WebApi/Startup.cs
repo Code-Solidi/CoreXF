@@ -1,5 +1,6 @@
 using CoreXF.Abstractions.Builder;
 using CoreXF.Framework.Registry;
+using CoreXF.WebApiHost;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -68,6 +69,7 @@ namespace HostApp5.WebApi
             });
 
             app.Populate(original.UseCoreXF());
+            app.UseCoreXFHost(env);
         }
     }
 }

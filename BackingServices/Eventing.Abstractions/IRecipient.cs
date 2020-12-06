@@ -9,6 +9,10 @@ namespace CoreXF.Eventing.Abstractions
     {
         string Name { get; }
 
+        void Subscribe<TMessage>(IEventAggregator eventAggregator) where TMessage : IMessage;
+
+        void Unsubscribe<TMessage>(IEventAggregator eventAggregator) where TMessage : IMessage;
+
         void Handle(ISender sender, IMessage message);
     }
 }

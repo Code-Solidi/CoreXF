@@ -8,5 +8,7 @@ namespace CoreXF.Eventing.Abstractions
     public interface ISender
     {
         string Name { get; }
+
+        void Publish<TMessage>(TMessage message, IEventAggregator eventAggregator) where TMessage : IMessage;
     }
 }

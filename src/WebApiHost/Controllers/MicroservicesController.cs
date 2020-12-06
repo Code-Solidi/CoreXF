@@ -4,14 +4,13 @@
  */
 
 using CoreXF.Abstractions.Registry;
-
-using HostApp5WebApi.Models;
+using CoreXF.WebApiHost.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
 using System.Collections.Generic;
 
-namespace HostApp5WebApi.Controllers
+namespace CoreXF.WebApiHost.Controllers
 {
     public class MicroservicesController : Controller
     {

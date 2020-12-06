@@ -3,14 +3,14 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using HostApp5WebApi.Models;
+using CoreXF.WebApiHost.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using System.Diagnostics;
 
-namespace HostApp5WebApi.Controllers
+namespace CoreXF.WebApiHost.Controllers
 {
     public class HomeController : Controller
     {
