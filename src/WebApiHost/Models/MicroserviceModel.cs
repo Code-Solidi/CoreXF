@@ -3,6 +3,8 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
+using static CoreXF.Abstractions.Base.IExtension;
+
 namespace CoreXF.WebApiHost.Models
 {
     public class MicroserviceModel
@@ -11,7 +13,7 @@ namespace CoreXF.WebApiHost.Models
 
         public string Description { get; set; }
 
-        public MsStatus Status { get; set; }
+        public ExtensionStatus Status { get; set; }
 
         public string Version { get; set; }
 
@@ -20,10 +22,5 @@ namespace CoreXF.WebApiHost.Models
         public string Authors { get; set; }
 
         public string Location { get; set; }
-
-        public enum MsStatus
-        {
-            Ready, Starting, Running, Stopped
-        }
     }
 }

@@ -1,8 +1,21 @@
-﻿using CoreXF.Abstractions.Builder;
+﻿using CoreXF.Abstractions.Base;
+using CoreXF.Abstractions.Builder;
+using CoreXF.Abstractions.Registry;
 using CoreXF.WebApiHost.Controllers;
 
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.FileProviders;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace CoreXF.WebApiHost
 {
@@ -13,7 +26,57 @@ namespace CoreXF.WebApiHost
             var currentProvider = env.WebRootFileProvider;
             var embeddedProvider = new EmbeddedFileProvider(typeof(HomeController).Assembly, $"{nameof(CoreXF)}.{nameof(WebApiHost)}.wwwroot");
             env.WebRootFileProvider = new CompositeFileProvider(embeddedProvider, currentProvider);
+            app.UseMiddleware<RequestMiddleware>();
             return app;
+        }
+    }
+
+    /// <summary>
+    /// Should be called right before dispatching to any of the controllers/actions
+    /// </summary>
+    public class RequestMiddleware
+    {
+        private readonly RequestDelegate next;
+        private readonly IExtensionsRegistry registry;
+        private readonly Dictionary<string, IExtension> routes;
+
+        public RequestMiddleware(RequestDelegate next, IExtensionsRegistry registry, IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
+        {
+            this.next = next;
+            this.registry = registry;
+
+            this.routes = new Dictionary<string, IExtension>();
+            var extAssemblyNames = this.registry.Extensions.Select(t => Path.GetFileName(t.Location));
+            var extensionControllers = actionDescriptorCollectionProvider.ActionDescriptors.Items.Where(x =>
+            {
+                var parts = x.DisplayName.Split('.');
+                var extensionAssemblyFileName = parts.Length > 0 ? parts[0] : string.Empty;
+                if (extAssemblyNames.Any(t => t == extensionAssemblyFileName))
+                {
+                    var route = $"/{x.AttributeRouteInfo?.Template}";
+                    var extension = this.registry.Extensions.SingleOrDefault(x => Path.GetFileName(x.Location) == extensionAssemblyFileName);
+                    this.routes.Add(route, extension);
+                }
+
+                return true;
+            }).ToArray();
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            var path = context.Request.Path.Value;
+            if (routes.ContainsKey(path))
+            {
+                var extension = routes[path];
+                if (extension.Status == IExtension.ExtensionStatus.Stopped)
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    await context.Response.WriteAsync("Stopped");
+                    return;
+                }
+            }
+
+            await this.next(context);
         }
     }
 }

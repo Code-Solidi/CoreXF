@@ -17,7 +17,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Version>2.0.0-alpha-1</Version>
     </PropertyGroup>
 
@@ -38,7 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CoreXF.Eventing.Abstractions" Version="2.0.0-alpha-1" />
+      <ProjectReference Include="..\Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">

@@ -2,6 +2,8 @@
   Copyright (c) 2016-2020 Code Solidi Ltd. All rights reserved.
   Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 -->
+@addTagHelper *, CoreXF.WebApiHost
+
 @model IEnumerable<MicroserviceModel>
 
 @{
@@ -31,44 +33,60 @@
             <th>
                 @Html.DisplayNameFor(model => model.Authors)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-            @*<td class="font-weight-bold">*@
-                <a href="/swagger">@Html.DisplayFor(modelItem => item.Name)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Version)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Authors)
-            </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>*@
-            @*<td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>*@
-        </tr>
+            <tr>
+                <td>
+                    <a href="/swagger">@Html.DisplayFor(modelItem => item.Name)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <status current="@item.Status" item="@item.Name" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Authors)
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+@section Styles {
+    <link href="lib/font-awesome/css/all.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+<script>
+    $(function () {
+        var getItemName = function (e) {
+            e.preventDefault();
+            var item = e.currentTarget;
+            var itemName = $(item).attr('data-item-name');
+            return itemName;
+        }
+
+        $('.play').on('click', function (e) {
+            $.post('microservices/play', { item: getItemName(e) }, function (data) {
+                window.location.reload(false);
+            });
+        });
+        $('.pause').on('click', function (e) {
+            $.post('microservices/pause', { item: getItemName(e) }, function (data) {
+                window.location.reload(false);
+            });
+        });
+    });
+</script>
+}

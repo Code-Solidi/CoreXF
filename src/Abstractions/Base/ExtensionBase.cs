@@ -5,10 +5,15 @@
 
 using CoreXF.Abstractions.Builder;
 
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using System;
+using System.Linq;
+
+using static CoreXF.Abstractions.Base.IExtension;
 
 namespace CoreXF.Abstractions.Base
 {
@@ -30,7 +35,22 @@ namespace CoreXF.Abstractions.Base
         /// <summary>The authors of the extension, comma separated.</summary>
         public virtual string Authors => "Code Solidi Ltd.";
 
+        /// <summary>
+        /// The assembly location (folder) from which the extension is discovered and loaded
+        /// </summary>
         public string Location { get; set; }
+
+        public ExtensionStatus Status { get; private set; } = ExtensionStatus.Running;
+
+        //public bool CanServe(string uri, ApplicationPartManager partManager)
+        //{
+        //    var controllerFeature = new ControllerFeature();
+        //    partManager.PopulateFeature<ControllerFeature>(controllerFeature);
+        //    var controllers = controllerFeature.Controllers;
+        //    var thisControllers = controllers.Where(x => x.Assembly == this.GetType().Assembly);
+
+        //    return true;
+        //}
 
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
         {
@@ -46,6 +66,16 @@ namespace CoreXF.Abstractions.Base
                 dynamic instance = Activator.CreateInstance(startup, configuration);
                 instance.ConfigureServices(services);
             }
+        }
+
+        public void Start()
+        {
+            this.Status = ExtensionStatus.Running;
+        }
+
+        public void Stop()
+        {
+            this.Status = ExtensionStatus.Stopped;
         }
     }
 }

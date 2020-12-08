@@ -15,6 +15,8 @@ namespace CoreXF.Abstractions.Base
     /// </summary>
     public interface IExtension
     {
+        public enum ExtensionStatus { Stopped, Running }
+
         /// <summary>The name of the extension. As a convention use the name of the assembly.</summary>
         string Name { get; }
 
@@ -35,8 +37,16 @@ namespace CoreXF.Abstractions.Base
         /// </summary>
         string Location { get; set; }
 
+        ExtensionStatus Status { get; }
+
         void ConfigureServices(IServiceCollection services, IConfiguration configuration);
 
         void ConfigureMiddleware(IExtensionsApplicationBuilder app);
+
+        void Start();
+
+        void Stop();
+
+        //bool CanServe(string uri);
     }
 }

@@ -9,6 +9,7 @@ using CoreXF.WebApiHost.Models;
 using Microsoft.AspNetCore.Mvc;
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CoreXF.WebApiHost.Controllers
 {
@@ -30,7 +31,7 @@ namespace CoreXF.WebApiHost.Controllers
                 {
                     Name = extension.Name,
                     Description = extension.Description,
-                    Status = MicroserviceModel.MsStatus.Running,
+                    Status = extension.Status,
                     Version = extension.Version,
                     Url = extension.Url,
                     Authors = extension.Authors,
@@ -41,6 +42,20 @@ namespace CoreXF.WebApiHost.Controllers
             };
 
             return View(model);
+        }
+
+        public IActionResult Pause(string item)
+        {
+            var extension = this.extensionsRegistry.Extensions.SingleOrDefault(x => x.Name.Equals(item, System.StringComparison.OrdinalIgnoreCase));
+            extension?.Stop();
+            return Ok(extension?.Status);
+        }
+
+        public IActionResult Play(string item)
+        {
+            var extension = this.extensionsRegistry.Extensions.SingleOrDefault(x => x.Name.Equals(item, System.StringComparison.OrdinalIgnoreCase));
+            extension?.Start();
+            return Ok(extension?.Status);
         }
     }
 }

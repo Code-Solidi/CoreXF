@@ -61,6 +61,7 @@ namespace HostApp5.WebApi
             app.UseAuthorization();
             app.UseCookiePolicy(); //!!
 
+            app.UseCoreXFHost(env);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -69,7 +70,7 @@ namespace HostApp5.WebApi
             });
 
             app.Populate(original.UseCoreXF());
-            app.UseCoreXFHost(env);
+            //app.UseCoreXFHost(env);
         }
     }
 }
