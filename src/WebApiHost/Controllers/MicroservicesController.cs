@@ -47,15 +47,18 @@ namespace CoreXF.WebApiHost.Controllers
         public IActionResult Pause(string item)
         {
             var extension = this.extensionsRegistry.Extensions.SingleOrDefault(x => x.Name.Equals(item, System.StringComparison.OrdinalIgnoreCase));
+            var status = extension?.Status;
             extension?.Stop();
-            return Ok(extension?.Status);
+            //return Ok(status != extension?.Status);
+            return Ok(new { result = status != extension?.Status, status = extension?.Status });
         }
 
         public IActionResult Play(string item)
         {
             var extension = this.extensionsRegistry.Extensions.SingleOrDefault(x => x.Name.Equals(item, System.StringComparison.OrdinalIgnoreCase));
+            var status = extension?.Status;
             extension?.Start();
-            return Ok(extension?.Status);
+            return Ok(new { result = status != extension?.Status, status = extension?.Status });
         }
     }
 }
