@@ -1,4 +1,6 @@
 using CoreXF.Abstractions.Builder;
+using CoreXF.Eventing;
+using CoreXF.Eventing.Abstractions;
 using CoreXF.Framework.Registry;
 using CoreXF.WebApiHost;
 
@@ -23,6 +25,7 @@ namespace HostApp5.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IEventAggregator, EventAggregator>();
             services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
 
             // Register the Swagger generator, defining 1 or more Swagger documents

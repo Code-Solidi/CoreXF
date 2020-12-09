@@ -18,7 +18,7 @@
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>2.0.0-alpha-2</Version>
+        <Version>2.0.0-alpha-3</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,7 +30,7 @@
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>
-        <None Include="CoreXF.png">
+        <None Include="..\..\Common\CoreXF.png">
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>

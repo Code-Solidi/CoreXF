@@ -55,7 +55,22 @@ namespace CoreXF.WebApiHost
                 {
                     var route = $"/{x.AttributeRouteInfo?.Template}";
                     var extension = this.registry.Extensions.SingleOrDefault(x => Path.GetFileName(x.Location) == extensionAssemblyFileName);
-                    this.routes.Add(route, extension);
+
+                    /*
+                     * There might be duplicates because of same roots but different verbs (GET, POST, PUT, DELETE)
+                     */
+                    if (this.routes.ContainsKey(route) == false)
+                    {
+                        this.routes.Add(route, extension);
+                    }
+                    else
+                    {
+                        var existingExtension = this.routes[route];
+                        if (existingExtension != extension)
+                        {
+                            throw new InvalidOperationException($"Route '{route}' is handled by more than on extension.");
+                        }
+                    }
                 }
 
                 return true;
