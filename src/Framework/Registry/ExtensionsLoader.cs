@@ -17,7 +17,7 @@ using System.Runtime.Loader;
 
 namespace CoreXF.Framework.Registry
 {
-    internal class ExtensionsLoader
+    internal sealed class ExtensionsLoader
     {
         private readonly ILogger logger;
         private readonly IExtensionsRegistry registry;
@@ -102,7 +102,7 @@ namespace CoreXF.Framework.Registry
             }
             catch (Exception x)
             {
-                //logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
+                logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
                 return null;
             }
         }

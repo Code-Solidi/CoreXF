@@ -1,8 +1,4 @@
-﻿<!--
-  Copyright (c) 2016-2020 Code Solidi Ltd. All rights reserved.
-  Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
--->
-@addTagHelper *, CoreXF.WebApiHost
+﻿@addTagHelper *, CoreXF.WebApiHost
 
 @model IEnumerable<MicroserviceModel>
 
@@ -48,6 +44,7 @@
                 </td>
                 <td>
                     <status current="@item.Status" item="@item.Name" />
+                    @*<component type="typeof(ExtensionStatus)" render-mode="ServerPrerendered" param-Extension="item.Extension" />*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Version)
@@ -64,60 +61,66 @@
 </table>
 
 @section Styles {
-    <link href="lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <style>
+        .btn:focus, .btn.focus {
+            box-shadow: none;
+        }
+    </style>
+    @*<link href="lib/font-awesome/css/all.min.css" rel="stylesheet" />*@
 }
 
 @section Scripts {
-<script>
-    $(function () {
-        var getItemName = function (e) {
-            e.preventDefault();
-            var item = e.currentTarget;
-            var itemName = $(item).attr('data-item-name');
-            return itemName;
-        }
+    <script>
+        $(function () {
+            var getItemName = function (e) {
+                e.preventDefault();
+                var item = e.currentTarget;
+                var itemName = $(item).attr('data-item-name');
+                return itemName;
+            }
 
-        var onclickPlay = function (e) {
-            var name = getItemName(e);
-            $.post('microservices/play', { item: name }, function (data) {
-                if (data.result) {
-                    var parent = $(e.currentTarget).parent();
+            var onclickPlay = function (e) {
+                var name = getItemName(e);
+                $.post('microservices/play', { item: name }, function (data) {
+                    if (data.result) {
+                        var parent = $(e.currentTarget).parent();
 
-                    var play = $('.play', parent);
-                    $(play).attr('disabled', '');
-                    $(play).removeClass('text-success');
-                    $(play).addClass('text-muted');
+                        var play = $('.play', parent);
+                        $(play).attr('disabled', '');
+                        //$(play).attr('title', '');
+                        $(play).removeClass('text-success');
+                        $(play).addClass('text-muted');
 
-                    var pause = $('.pause', parent);
-                    $(pause).removeAttr('disabled');
-                    $(pause).removeClass('text-muted');
-                    $(pause).addClass('text-danger');
-                }
-            });
-        };
+                        var pause = $('.pause', parent);
+                        $(pause).removeAttr('disabled');
+                        $(pause).removeClass('text-muted');
+                        $(pause).addClass('text-danger');
+                    }
+                });
+            };
 
-        $('.play').on('click', onclickPlay);
+            $('.play').on('click', onclickPlay);
 
-        var onclickPause = function (e) {
-            var name = getItemName(e);
-            $.post('microservices/pause', { item: name }, function (data) {
-                if (data.result) {
-                    var parent = $(e.currentTarget).parent();
+            var onclickPause = function (e) {
+                var name = getItemName(e);
+                $.post('microservices/pause', { item: name }, function (data) {
+                    if (data.result) {
+                        var parent = $(e.currentTarget).parent();
 
-                    var play = $('.play', parent);
-                    $(play).removeAttr('disabled');
-                    $(play).removeClass('text-muted');
-                    $(play).addClass('text-success');
+                        var play = $('.play', parent);
+                        $(play).removeAttr('disabled');
+                        $(play).removeClass('text-muted');
+                        $(play).addClass('text-success');
 
-                    var pause = $('.pause', parent);
-                    $(pause).attr('disabled', '');
-                    $(pause).removeClass('text-danger');
-                    $(pause).addClass('text-muted');
-                }
-            });
-        };
+                        var pause = $('.pause', parent);
+                        $(pause).attr('disabled', '');
+                        $(pause).removeClass('text-danger');
+                        $(pause).addClass('text-muted');
+                    }
+                });
+            };
 
-        $('.pause').on('click', onclickPause);
-    });
-</script>
+            $('.pause').on('click', onclickPause);
+        });
+    </script>
 }

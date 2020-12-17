@@ -22,6 +22,7 @@ namespace CoreXF.WebApiHost.Controllers
             this.extensionsRegistry = extensionsRegistry;
         }
 
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public IActionResult Index()
         {
             var model = new List<MicroserviceModel>();
@@ -35,7 +36,8 @@ namespace CoreXF.WebApiHost.Controllers
                     Version = extension.Version,
                     Url = extension.Url,
                     Authors = extension.Authors,
-                    Location = extension.Location
+                    Location = extension.Location,
+                    Extension = extension
                 };
 
                 model.Add(viewModel);
@@ -49,7 +51,6 @@ namespace CoreXF.WebApiHost.Controllers
             var extension = this.extensionsRegistry.Extensions.SingleOrDefault(x => x.Name.Equals(item, System.StringComparison.OrdinalIgnoreCase));
             var status = extension?.Status;
             extension?.Stop();
-            //return Ok(status != extension?.Status);
             return Ok(new { result = status != extension?.Status, status = extension?.Status });
         }
 

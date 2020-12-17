@@ -26,14 +26,14 @@ namespace CoreXF.WebApiHost
                 {
                     case ExtensionStatus.Running:
                         builder
-                            .Append($"<button type='button' class='play btn btn-sm btn-light text-muted' disabled data-item-name='{item}' title='Stopped, press to run.'><i class='fas fa-play'></i></button>&nbsp;")
-                            .Append($"<button type='button' class='pause btn btn-sm btn-light text-danger' data-item-name='{item}' title='Running, press to stop.'><i class='fas fa-stop'></i></button>");
+                            .Append($"<button type='button' class='play btn btn-sm text-muted' disabled data-item-name='{item}' title='Stopped, press to run.'><i class='fas fa-play'></i></button>&nbsp;")
+                            .Append($"<button type='button' class='pause btn btn-sm text-danger' data-item-name='{item}' title='Running, press to stop.'><i class='fas fa-stop'></i></button>");
                         break;
 
                     case ExtensionStatus.Stopped:
                         builder
-                            .Append($"<button type='button' class='play btn btn-sm btn-light text-success' data-item-name='{item}' title='Stopped, press to run.'><i class='fas fa-play'></i></button>&nbsp;")
-                            .Append($"<button type='button' class='pause btn btn-sm btn-light text-muted' disabled data-item-name='{item}' title='Running, press to stop.'><i class='fas fa-stop'></i></button>");
+                            .Append($"<button type='button' class='play btn btn-sm text-success' data-item-name='{item}' title='Stopped, press to run.'><i class='fas fa-play'></i></button>&nbsp;")
+                            .Append($"<button type='button' class='pause btn btn-sm text-muted' disabled data-item-name='{item}' title='Running, press to stop.'><i class='fas fa-stop'></i></button>");
                         break;
                 }
             }

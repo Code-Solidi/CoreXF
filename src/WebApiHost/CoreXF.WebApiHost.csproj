@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup Label="Globals">
         <SccProjectName>SAK</SccProjectName>
@@ -24,17 +24,25 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>2.0.0-alpha-3</Version>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <Version>2.0.0-alpha-4</Version>
         <IsPackable>true</IsPackable>
         <OutputType>Library</OutputType>
 
         <!-- IMPORTANT, DO NOT REMOVE! -->
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+        <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     </PropertyGroup>
     
     <ItemGroup>
         <EmbeddedResource Include="wwwroot\**\*" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Remove="Components\**" />
+      <Content Remove="Components\**" />
+      <EmbeddedResource Remove="Components\**" />
+      <None Remove="Components\**" />
     </ItemGroup>
     
     <ItemGroup>
@@ -50,6 +58,6 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
+      <PackageReference Include="CoreXF.Framework" Version="2.0.0-alpha-4" />
     </ItemGroup>
 </Project>

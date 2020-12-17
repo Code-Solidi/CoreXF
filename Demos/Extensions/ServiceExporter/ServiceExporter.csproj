@@ -10,7 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
+    <PackageReference Include="CoreXF.Abstractions" Version="2.0.0-alpha-4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\DateTimeService\DateTimeService.csproj" />
   </ItemGroup>
 

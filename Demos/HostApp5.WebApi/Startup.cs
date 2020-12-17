@@ -73,7 +73,6 @@ namespace HostApp5.WebApi
             });
 
             app.Populate(original.UseCoreXF());
-            //app.UseCoreXFHost(env);
         }
     }
 }

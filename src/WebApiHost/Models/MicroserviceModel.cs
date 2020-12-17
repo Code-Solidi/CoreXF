@@ -3,6 +3,8 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
+using CoreXF.Abstractions.Base;
+
 using static CoreXF.Abstractions.Base.IExtension;
 
 namespace CoreXF.WebApiHost.Models
@@ -22,5 +24,7 @@ namespace CoreXF.WebApiHost.Models
         public string Authors { get; set; }
 
         public string Location { get; set; }
+
+        public IExtension Extension { get; set; }
     }
 }
