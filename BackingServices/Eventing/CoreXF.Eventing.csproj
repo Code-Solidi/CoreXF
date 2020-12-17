@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CoreXF.Eventing.Abstractions" Version="2.0.0-alpha-4" />
+      <ProjectReference Include="..\Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Development)'=='true'">
