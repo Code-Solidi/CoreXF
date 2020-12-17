@@ -1,0 +1,34 @@
+﻿[*.cs]
+
+# IDE0002: Simplify Member Access
+dotnet_diagnostic.IDE0002.severity = none
+
+# PropertyDocumentationHeader: The property must have a documentation header.
+dotnet_diagnostic.PropertyDocumentationHeader.severity = none
+
+# MethodDocumentationHeader: The method must have a documentation header.
+dotnet_diagnostic.MethodDocumentationHeader.severity = none
+
+# ClassDocumentationHeader: The class must have a documentation header.
+dotnet_diagnostic.ClassDocumentationHeader.severity = none
+
+# ConstructorDocumentationHeader: The constructor must have a documentation header.
+dotnet_diagnostic.ConstructorDocumentationHeader.severity = none
+
+# CC0091: Use static method
+dotnet_diagnostic.CC0091.severity = none
+
+# CC0049: Simplify expression
+dotnet_diagnostic.CC0049.severity = none
+
+# RCS1049: Simplify boolean comparison.
+dotnet_diagnostic.RCS1049.severity = none
+
+# IDE0003: Remove qualification
+dotnet_diagnostic.IDE0003.severity = none
+
+# EnumDocumentationHeader: The enum must have a documentation header.
+dotnet_diagnostic.EnumDocumentationHeader.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none

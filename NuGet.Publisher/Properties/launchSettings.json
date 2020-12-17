@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NuGet.Publisher": {
+      "commandName": "Project",
+      "commandLineArgs": "--nuget-version:2.0.0-alpha-4 --solution:CoreXF"
+    }
+  }
+}
