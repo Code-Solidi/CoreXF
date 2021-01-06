@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IFireAndForgetMessage">
+    <Position X="9" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messages\IFireAndForgetMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IMessage">
+    <Position X="12.25" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAQAAAAABAAQAAQAAAAAAAAA=</HashCode>
+      <FileName>Messages\IMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IPublishSubscribeMessage">
+    <Position X="12.5" Y="5" Width="2" />
+    <InheritanceLine Type="CoreXF.Messaging.Abstractions.Messages.IMessage" FixedToPoint="true">
+      <Path>
+        <Point X="13.5" Y="3.632" />
+        <Point X="13.5" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Messages\IPublishSubscribeMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IRequestResponseMessage">
+    <Position X="15.75" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Messages\IRequestResponseMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

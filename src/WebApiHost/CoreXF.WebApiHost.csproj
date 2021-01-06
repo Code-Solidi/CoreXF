@@ -58,6 +58,6 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
+      <PackageReference Include="CoreXF.Framework" Version="2.0.0-alpha-4" />
     </ItemGroup>
 </Project>

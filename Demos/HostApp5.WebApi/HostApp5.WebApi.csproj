@@ -11,9 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\BackingServices\Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
-      <ProjectReference Include="..\..\BackingServices\Eventing\CoreXF.Eventing.csproj" />
       <ProjectReference Include="..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
+      <ProjectReference Include="..\..\src\BackingServices\Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
+      <ProjectReference Include="..\..\src\BackingServices\Eventing\CoreXF.Eventing.csproj" />
       <ProjectReference Include="..\..\src\Framework\CoreXF.Framework.csproj" />
       <ProjectReference Include="..\..\src\WebApiHost\CoreXF.WebApiHost.csproj" />
     </ItemGroup>

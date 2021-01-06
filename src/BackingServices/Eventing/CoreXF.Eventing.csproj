@@ -17,7 +17,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Version>2.0.0-alpha-4</Version>
         <PackageId>CoreXF.Eventing</PackageId>
         <PackageReleaseNotes>Tempoprary release.</PackageReleaseNotes>
@@ -29,7 +29,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\..\.editorconfig" Link=".editorconfig" />
         <None Include="..\Eventing.Abstractions\LICENSE.txt">
           <Pack>True</Pack>
           <PackagePath></PackagePath>
@@ -42,7 +41,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
+      <PackageReference Include="CoreXF.Eventing.Abstractions" Version="2.0.0-alpha-4" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Development)'=='true'">

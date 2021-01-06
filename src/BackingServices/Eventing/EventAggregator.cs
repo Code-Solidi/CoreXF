@@ -46,14 +46,12 @@ namespace CoreXF.Eventing
         {
             var messageType = typeof(TMessage);
             var subscription = new Subscription(this, recipient, messageType);
-            if (this.subscriptions.ContainsKey(messageType))
+            if (this.subscriptions.ContainsKey(messageType) == false)
             {
-                this.subscriptions[messageType].Add(subscription);
+                this.subscriptions.Add(messageType, new List<Subscription>());
             }
-            else
-            {
-                this.subscriptions.Add(messageType, new List<Subscription> { subscription });
-            }
+
+            this.subscriptions[messageType].Add(subscription);
         }
 
         public void UnSubscribe<TMessage>(IRecipient recipient) where TMessage : IMessage
