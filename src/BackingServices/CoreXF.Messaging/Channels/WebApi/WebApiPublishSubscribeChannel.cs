@@ -1,4 +1,5 @@
-﻿using CoreXF.Messaging.Abstractions.Channels;
+﻿using CoreXF.Messaging.Abstractions;
+using CoreXF.Messaging.Abstractions.Channels;
 using CoreXF.Messaging.Abstractions.Messages;
 
 using Microsoft.Extensions.Logging;

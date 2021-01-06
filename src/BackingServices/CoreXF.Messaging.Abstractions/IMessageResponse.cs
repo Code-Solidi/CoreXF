@@ -6,8 +6,6 @@ namespace CoreXF.Messaging.Abstractions
     {
         object Content { get; }
 
-        //HttpResponseMessage Response { get; set; }
-
         StatusCode StatusCode { get; }
 
         IRecipient Recipient { get; }

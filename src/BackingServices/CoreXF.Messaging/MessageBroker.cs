@@ -1,7 +1,6 @@
 ﻿using CoreXF.Messaging.Abstractions;
 using CoreXF.Messaging.Abstractions.Channels;
 using CoreXF.Messaging.Abstractions.Messages;
-using CoreXF.Messaging.Channels;
 using CoreXF.Messaging.Messages;
 
 using Microsoft.Extensions.Logging;
@@ -41,6 +40,8 @@ namespace CoreXF.Messaging
 
         public event RequestEvent OnRequest;
 
+        #region Fire And Forget
+
         public bool IsRegistered(string messageType)
         {
             lock (this.locker)
@@ -57,12 +58,6 @@ namespace CoreXF.Messaging
             this.OnFire?.Invoke(message);
         }
 
-        public IEnumerable<ISubscriber> GetSubscribers(string messageType)
-        {
-            // let it throw if key (message type) not found
-            return this.subscribers[messageType];
-        }
-
         public IEnumerable<IFireAndForgetMessage> Peek(string messageType)
         {
             var result = this.fireForgetChannel.Peek(messageType);
@@ -75,93 +70,18 @@ namespace CoreXF.Messaging
             this.OnPublish?.Invoke(message);
         }
 
-        public void Register(string messageType)
-        {
-            lock (this.locker)
-            {
-                if (this.subscribers.ContainsKey(messageType) == false)
-                {
-                    this.subscribers.Add(messageType, new List<ISubscriber>());
-                }
-            }
-        }
+        #endregion Fire And Forget
 
-        public void Unregister(string messageType)
-        {
-            lock (this.locker)
-            {
-                if (this.subscribers.ContainsKey(messageType) == false)
-                {
-                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered.");
-                }
-
-                if (this.subscribers[messageType].Count != 0)
-                {
-                    throw new InvalidOperationException($"Subscriber list for message type '{messageType}' is not empty.");
-                }
-
-                this.subscribers.Remove(messageType);
-            }
-        }
+        #region Request/Response
 
         public IMessageResponse Request(IRequestResponseMessage message)
         {
+            _ = message ?? throw new ArgumentNullException(nameof(message));
             this.logger.LogInformation($"Requesting: {message.Id} ({message.Type}).");
             var response = this.requestResponseChannel.Request(message);
             this.OnRequest?.Invoke(message, response);
             this.logger.LogInformation($"Response for: {message.Id} ({message.Type}) => '{response.Content}'.");
             return response;
-        }
-
-        public void Subscribe(ISubscriber subscriber, string messageType)
-        {
-            lock (this.locker)
-            {
-                if (this.subscribers.ContainsKey(messageType) == false)
-                {
-                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered. Please, register it before making a subscription.");
-                }
-
-                if (this.subscribers[messageType].Contains(subscriber))
-                {
-                    throw new InvalidOperationException($"Already subscribed for message type '{messageType}'.");
-                }
-
-                this.subscribers[messageType].Add(subscriber);
-            }
-        }
-
-        public bool IsSubscribed(Subscriber subscriber, string messageType)
-        {
-            lock (this.locker)
-            {
-                return this.subscribers.ContainsKey(messageType);
-            }
-        }
-
-        public ISubscriber Unsubscribe(string identity, string messageType)
-        {
-            lock (this.locker)
-            {
-                if (this.subscribers.ContainsKey(messageType) == false)
-                {
-                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered.");
-                }
-
-                var subscriber = this.subscribers[messageType].SingleOrDefault(s => s.Identity == identity);
-                if (subscriber == null)
-                {
-                    throw new InvalidOperationException($"Cannot unsubscribe, has not been subscribed to '{messageType}'.");
-                }
-
-                this.subscribers[messageType].Remove(subscriber);
-                if (this.subscribers[messageType].Count == 0)
-                {
-                    this.Unregister(messageType);
-                }
-
-                return subscriber;
-            }
         }
 
         public void AddRecipient(string messageType, IRecipient recipient)
@@ -209,5 +129,107 @@ namespace CoreXF.Messaging
 
             return recipient;
         }
+
+        #endregion Request/Response
+
+        #region Publish/Subscribe
+
+        public void Subscribe(ISubscriber subscriber, string messageType)
+        {
+            _ = subscriber ?? throw new ArgumentNullException(nameof(subscriber));
+            if (string.IsNullOrWhiteSpace(messageType))
+            {
+                throw new ArgumentException($"Message type cannot be null or empty", nameof(subscriber));
+            }
+
+            lock (this.locker)
+            {
+                if (this.subscribers.ContainsKey(messageType) == false)
+                {
+                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered. Please, register it before making a subscription.");
+                }
+
+                var messageTypeSubscribers = this.subscribers[messageType];
+                if (messageTypeSubscribers.Count(x => x.Identity == subscriber.Identity) != 0)
+                {
+                    throw new InvalidOperationException($"A subscription for message type '{messageType}' already made.");
+                }
+
+                this.subscribers[messageType].Add(subscriber);
+            }
+        }
+
+        public bool IsSubscribed(Subscriber subscriber, string messageType)
+        {
+            lock (this.locker)
+            {
+                if (this.subscribers.ContainsKey(messageType))
+                {
+                    var subscribers = this.subscribers[messageType];
+                    return subscribers.Find(x => x.Identity == subscriber.Identity) != default;
+                }
+
+                throw new InvalidOperationException($"Message type '{messageType}' has not been registered.");
+            }
+        }
+
+        public void Unsubscribe(string identity, string messageType)
+        {
+            lock (this.locker)
+            {
+                if (this.subscribers.ContainsKey(messageType))
+                {
+                    var subscriber = this.subscribers[messageType].SingleOrDefault(s => s.Identity == identity) ??
+                        throw new InvalidOperationException($"Cannot unsubscribe, has not been subscribed to '{messageType}'.");
+
+                    this.subscribers[messageType].Remove(subscriber);
+                    return;
+                }
+
+                throw new InvalidOperationException($"Message type '{messageType}' has not been registered.");
+            }
+        }
+
+        /// <summary>
+        /// NB: do we need this?
+        /// </summary>
+        /// <param name="messageType"></param>
+        /// <returns></returns>
+        public IEnumerable<ISubscriber> GetSubscribers(string messageType)
+        {
+            // let it throw if key (message type) not found
+            return this.subscribers[messageType];
+        }
+
+        public void Register(string messageType)
+        {
+            lock (this.locker)
+            {
+                if (this.subscribers.ContainsKey(messageType) == false)
+                {
+                    this.subscribers.Add(messageType, new List<ISubscriber>());
+                }
+            }
+        }
+
+        public void Unregister(string messageType)
+        {
+            lock (this.locker)
+            {
+                if (this.subscribers.ContainsKey(messageType) == false)
+                {
+                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered.");
+                }
+
+                if (this.subscribers[messageType].Count != 0)
+                {
+                    throw new InvalidOperationException($"Subscriber list for message type '{messageType}' is not empty.");
+                }
+
+                this.subscribers.Remove(messageType);
+            }
+        }
+
+        #endregion Publish/Subscribe
     }
 }

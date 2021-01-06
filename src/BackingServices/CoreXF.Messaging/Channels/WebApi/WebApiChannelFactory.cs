@@ -24,17 +24,17 @@ namespace CoreXF.Messaging.Channels.WebApi
             this.eventBusUri = ConfigurationManager.AppSettings["eventBusUri"];// todo: make it constant
         }
 
-        internal override IFireAndForgetChannel CreateFireAndForgetChannel(IMessageBroker broker)
+        protected override IFireAndForgetChannel CreateFireAndForgetChannel(IMessageBroker broker)
         {
             return new WebApiFireAndForgetChannel(this, this.Logger);
         }
 
-        internal override IPublishSubscribeChannel CreatePublishSubscribeChannel(IMessageBroker broker)
+        protected override IPublishSubscribeChannel CreatePublishSubscribeChannel(IMessageBroker broker)
         {
             return new WebApiPublishSubscribeChannel(this, this.Logger);
         }
 
-        internal override IRequestResponseChannel CreateRequestResponseChannel(IMessageBroker broker)
+        protected override IRequestResponseChannel CreateRequestResponseChannel(IMessageBroker broker)
         {
             return new WebApiRequestResponseChannel(this, this.Logger);
         }

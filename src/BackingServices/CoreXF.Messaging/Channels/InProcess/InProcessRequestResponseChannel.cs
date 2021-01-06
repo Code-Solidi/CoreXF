@@ -15,7 +15,7 @@ namespace CoreXF.Messaging.Channels.InProcess
         private readonly IMessageBroker broker;
         private readonly ILogger logger;
 
-        public InProcessRequestResponseChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)
+        internal InProcessRequestResponseChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)
             : base(factory, logger)
         {
             this.broker = broker;

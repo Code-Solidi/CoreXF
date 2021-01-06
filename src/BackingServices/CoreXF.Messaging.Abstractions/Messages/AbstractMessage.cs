@@ -1,9 +1,7 @@
-﻿using CoreXF.Messaging.Abstractions.Messages;
-
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
-namespace CoreXF.Messaging.Messages
+namespace CoreXF.Messaging.Abstractions.Messages
 {
     public abstract class AbstractMessage : IMessage
     {
@@ -12,9 +10,8 @@ namespace CoreXF.Messaging.Messages
             this.Type = string.IsNullOrWhiteSpace(messageType) ? throw new ArgumentException("Message type cannot be null or empty") : messageType;
         }
 
-        protected AbstractMessage(string messageType, object payload)
+        protected AbstractMessage(string messageType, object payload) : this(messageType)
         {
-            this.Type = string.IsNullOrWhiteSpace(messageType) ? throw new ArgumentException("Message type cannot be null or empty") : messageType;
             this.Payload = payload;
         }
 
@@ -24,7 +21,7 @@ namespace CoreXF.Messaging.Messages
 
         public object Payload { get; private set; }
 
-        public DateTime DateTime { get; protected set; } = DateTime.UtcNow;
+        public DateTime DateTime { get; } = DateTime.UtcNow;
 
         public T GetPayload<T>()
         {
@@ -44,11 +41,6 @@ namespace CoreXF.Messaging.Messages
         public async Task<T> GetPayloadAsync<T>()
         {
             return await Task.Run(() => this.GetPayload<T>()).ConfigureAwait(false);
-        }
-
-        protected void SetPayload(IMessage message)
-        {
-            this.Payload = ((message as AbstractMessage).Payload);
         }
     }
 }

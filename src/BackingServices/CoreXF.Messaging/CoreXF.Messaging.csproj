@@ -5,6 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Channels\WebApi\WebApiChannelBase.cs" />
+    <Compile Remove="Channels\WebApi\WebApiChannelFactory.cs" />
+    <Compile Remove="Channels\WebApi\WebApiFireAndForgetChannel.cs" />
+    <Compile Remove="Channels\WebApi\WebApiPublishSubscribeChannel.cs" />
+    <Compile Remove="Channels\WebApi\WebApiRequestResponseChannel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Channels\WebApi\WebApiChannelBase.cs" />
+    <None Include="Channels\WebApi\WebApiChannelFactory.cs" />
+    <None Include="Channels\WebApi\WebApiFireAndForgetChannel.cs" />
+    <None Include="Channels\WebApi\WebApiPublishSubscribeChannel.cs" />
+    <None Include="Channels\WebApi\WebApiRequestResponseChannel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
   </ItemGroup>

@@ -6,9 +6,12 @@ namespace CoreXF.Messaging
 {
     public class Recipient : IRecipient
     {
-        public string Identity { get; set; }
+        public string Identity { get; }
 
-        public string Base64Identity => this.Identity.ToBase64();
+        public Recipient(string identity)
+        {
+            this.Identity = identity;
+        }
 
         public virtual IMessageResponse Recieve(IRequestResponseMessage message)
         {

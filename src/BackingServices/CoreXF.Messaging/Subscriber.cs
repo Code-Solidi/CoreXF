@@ -13,8 +13,6 @@ namespace CoreXF.Messaging
     {
         public string Identity { get; }
 
-        public string Base64Identity => this.Identity.ToBase64();
-
         //public event RecieveEvent OnRecieve;
 
         public Subscriber(string identity)

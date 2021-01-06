@@ -29,6 +29,6 @@ namespace CoreXF.Messaging.Abstractions
 
         void Subscribe(ISubscriber subscriber, string messageType);
 
-        ISubscriber Unsubscribe(string identity, string messageType);
+        void Unsubscribe(string identity, string messageType);
     }
 }

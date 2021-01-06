@@ -4,7 +4,7 @@ namespace CoreXF.Messaging.Abstractions
 {
     public interface IRecipient
     {
-        string Identity { get; set; }
+        string Identity { get; }
 
         IMessageResponse Recieve(IRequestResponseMessage message);
     }

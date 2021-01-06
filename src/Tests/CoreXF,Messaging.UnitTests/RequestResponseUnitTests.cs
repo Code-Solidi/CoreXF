@@ -8,9 +8,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace CoreXF_Messaging.UnitTests
 {
@@ -26,7 +23,7 @@ namespace CoreXF_Messaging.UnitTests
             var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = Guid.NewGuid().ToString() });
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
 
             // Assert
             Assert.IsTrue(true);
@@ -39,8 +36,8 @@ namespace CoreXF_Messaging.UnitTests
             var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = Guid.NewGuid().ToString() });
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = Guid.NewGuid().ToString() });
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
 
             // Assert
         }
@@ -53,8 +50,8 @@ namespace CoreXF_Messaging.UnitTests
             var identity = Guid.NewGuid().ToString();
 
             // Act
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = identity });
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = identity });
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
 
             // Assert
         }
@@ -65,7 +62,7 @@ namespace CoreXF_Messaging.UnitTests
             // Arrange
             var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             var identity = Guid.NewGuid().ToString();
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = identity });
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(identity));
 
             // Act
             messageBroker.RemoveRecipient(InProcessChannelFactoryUnitTests.messageType);
@@ -93,7 +90,7 @@ namespace CoreXF_Messaging.UnitTests
             // Arrange
             var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             var identity = Guid.NewGuid().ToString();
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient { Identity = identity });
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(identity));
 
             // Act
             var found = messageBroker.FindRecipient(InProcessChannelFactoryUnitTests.messageType);
@@ -109,10 +106,10 @@ namespace CoreXF_Messaging.UnitTests
             var payload = new Payload { x = 2, y = 3 };
             var identity = Guid.NewGuid().ToString();
             var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new TestRecipient { Identity = identity });
+            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new TestRecipient(identity));
 
             // Act
-            var response = messageBroker.Request(new RequestResponseMessage(identity, InProcessChannelFactoryUnitTests.messageType, payload));
+            var response = messageBroker.Request(new RequestResponseMessage(InProcessChannelFactoryUnitTests.messageType, payload));
 
             // Assert
             Assert.IsNotNull(response);
@@ -150,6 +147,10 @@ namespace CoreXF_Messaging.UnitTests
 
         public class TestRecipient : Recipient
         {
+            public TestRecipient(string identity) : base(identity)
+            {
+            }
+
             public override IMessageResponse Recieve(IRequestResponseMessage message)
             {
                 var response = base.Recieve(message);

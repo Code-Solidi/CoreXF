@@ -6,7 +6,7 @@ namespace CoreXF.Messaging.Abstractions.Channels
 {
     public interface IChannel
     {
-        IEnumerable<IMessage> Peek(string messageType);
+        IEnumerable<AbstractMessage> Peek(string messageType);
 
         IEnumerable<string> MessageTypes { get; }
     }

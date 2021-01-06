@@ -53,6 +53,55 @@ namespace CoreXF_Messaging.UnitTests
             Assert.IsTrue(messageBroker.IsSubscribed(subscriber2, PublishSubscribeUnitTests.messageType));
         }
 
+        [TestMethod, ExpectedException(typeof(InvalidOperationException))]
+        public void SubscribeSameSubscriberMultipleToMessageTypeTest()
+        {
+            // Arrange
+            var identity = Guid.NewGuid().ToString();
+            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+            messageBroker.Register(PublishSubscribeUnitTests.messageType);
+            var subscriber = new Subscriber(identity);
+
+            // Act
+            messageBroker.Subscribe(subscriber, PublishSubscribeUnitTests.messageType);
+            messageBroker.Subscribe(subscriber, PublishSubscribeUnitTests.messageType);
+
+            // Assert
+        }
+
+        [TestMethod, ExpectedException(typeof(InvalidOperationException))]
+        public void SubscribeSameSubscriberIdentityMultipleToMessageTypeTest()
+        {
+            // Arrange
+            var identity = Guid.NewGuid().ToString();
+            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+            messageBroker.Register(PublishSubscribeUnitTests.messageType);
+
+            // Act
+            messageBroker.Subscribe(new Subscriber(identity), PublishSubscribeUnitTests.messageType);
+            messageBroker.Subscribe(new Subscriber(identity), PublishSubscribeUnitTests.messageType);
+
+            // Assert
+        }
+
+
+        [TestMethod]
+        public void UnsubscribeFromMessageTypeTest()
+        {
+            // Arrange
+            var subscriber = new Subscriber(Guid.NewGuid().ToString());
+            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+            messageBroker.Register(PublishSubscribeUnitTests.messageType);
+            messageBroker.Subscribe(subscriber, PublishSubscribeUnitTests.messageType);
+
+            // Act
+            messageBroker.Unsubscribe(subscriber.Identity, PublishSubscribeUnitTests.messageType);
+
+            // Assert
+            var isSubscribed = messageBroker.IsSubscribed(subscriber, PublishSubscribeUnitTests.messageType);
+            Assert.IsFalse(isSubscribed);
+        }
+
         [TestMethod]
         public void RegisterMessageTypeTest()
         {
@@ -73,6 +122,36 @@ namespace CoreXF_Messaging.UnitTests
             // Arrange
             var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             messageBroker.Register(PublishSubscribeUnitTests.messageType);
+
+            // Act
+            messageBroker.Unregister(PublishSubscribeUnitTests.messageType);
+
+            // Assert
+            var isRegistered = messageBroker.IsRegistered(PublishSubscribeUnitTests.messageType);
+            Assert.IsFalse(isRegistered);
+        }
+
+        [TestMethod, ExpectedException(typeof(InvalidOperationException))]
+        public void UnRegisterNonRegisteredMessageTypeTest()
+        {
+            // Arrange
+            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+
+            // Act
+            messageBroker.Unregister(PublishSubscribeUnitTests.messageType);
+
+            // Assert
+            var isRegistered = messageBroker.IsRegistered(PublishSubscribeUnitTests.messageType);
+            Assert.IsFalse(isRegistered);
+        }
+
+        [TestMethod, ExpectedException(typeof(InvalidOperationException))]
+        public void UnRegisterMessageWithSubscriptionsTest()
+        {
+            // Arrange
+            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+            messageBroker.Register(PublishSubscribeUnitTests.messageType);
+            messageBroker.Subscribe(new Subscriber(Guid.NewGuid().ToString()), PublishSubscribeUnitTests.messageType);
 
             // Act
             messageBroker.Unregister(PublishSubscribeUnitTests.messageType);

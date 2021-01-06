@@ -33,19 +33,19 @@ namespace CoreXF.Messaging.Channels.InProcess.Tests
             // Assert
         }
 
-        [TestMethod]
-        public void GetAllMessagesTest()
-        {
-            // Arrange
-            var factory = new InProcessChannelFactory(new LoggerFactory());
-            var messageBroker = new MessageBroker(factory);
+        //[TestMethod]
+        //public void GetAllMessagesTest()
+        //{
+        //    // Arrange
+        //    var factory = new InProcessChannelFactory(new LoggerFactory());
+        //    var messageBroker = new MessageBroker(factory);
 
-            // Act
-            messageBroker.Fire(new FireAndForgetMessage("Test"));
-            var count = factory.GetAllMessages().Count();
+        //    // Act
+        //    messageBroker.Fire(new FireAndForgetMessage("Test"));
+        //    var count = factory.GetAllMessages().Count();
 
-            // Assert
-            Assert.AreEqual(1, count);
-        }
+        //    // Assert
+        //    Assert.AreEqual(1, count);
+        //}
     }
 }

@@ -13,7 +13,7 @@ namespace CoreXF.Messaging.Channels.InProcess
     {
         private readonly IMessageBroker broker;
 
-        public InProcessPublishSubscriberChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)
+        internal InProcessPublishSubscriberChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)
             : base(factory, logger)
         {
             this.broker = broker;
