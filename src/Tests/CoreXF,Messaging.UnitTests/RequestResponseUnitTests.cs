@@ -15,15 +15,45 @@ namespace CoreXF_Messaging.UnitTests
     public class InProcessChannelFactoryUnitTests
     {
         private const string messageType = "New Message Type";
+        private IMessageBroker messageBroker;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            this.messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+        }
 
         [TestMethod, TestCategory("RequestResponse")]
         public void AddRecipientTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentNullException)), TestCategory("RequestResponse")]
+        public void AddInvalidRecipientTest()
+        {
+            // Arrange
+
+            // Act
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, null);
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException)), TestCategory("RequestResponse")]
+        public void AddInvalidMessageTypeTest()
+        {
+            // Arrange
+
+            // Act
+            this.messageBroker.AddRecipient(null, new Recipient(Guid.NewGuid().ToString()));
 
             // Assert
             Assert.IsTrue(true);
@@ -33,11 +63,10 @@ namespace CoreXF_Messaging.UnitTests
         public void AddRecipientMiltipleTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
 
             // Assert
         }
@@ -46,12 +75,11 @@ namespace CoreXF_Messaging.UnitTests
         public void AddRecipientSameIdentityMiltipleTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             var identity = Guid.NewGuid().ToString();
 
             // Act
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(Guid.NewGuid().ToString()));
 
             // Assert
         }
@@ -60,26 +88,35 @@ namespace CoreXF_Messaging.UnitTests
         public void RemoveRecipientTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             var identity = Guid.NewGuid().ToString();
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(identity));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(identity));
 
             // Act
-            messageBroker.RemoveRecipient(InProcessChannelFactoryUnitTests.messageType);
+            this.messageBroker.RemoveRecipient(InProcessChannelFactoryUnitTests.messageType);
 
             // Assert
-            Assert.IsFalse(messageBroker.FindRecipient(InProcessChannelFactoryUnitTests.messageType));
+            Assert.IsFalse(this.messageBroker.FindRecipient(InProcessChannelFactoryUnitTests.messageType));
         }
 
-        [TestMethod, TestCategory("RequestResponse"), ExpectedException(typeof(InvalidOperationException))]
+        [TestMethod, ExpectedException(typeof(ArgumentException)), TestCategory("RequestResponse")]
+        public void RemoveInvalidRecipientTest()
+        {
+            // Arrange
+
+            // Act
+            this.messageBroker.RemoveRecipient(null);
+
+            // Assert
+        }
+
+        [TestMethod, ExpectedException(typeof(InvalidOperationException)), TestCategory("RequestResponse")]
         public void RemoveNotAddedRecipientTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             var identity = Guid.NewGuid().ToString();
 
             // Act
-            messageBroker.RemoveRecipient(identity);
+            this.messageBroker.RemoveRecipient(identity);
 
             // Assert
         }
@@ -88,15 +125,25 @@ namespace CoreXF_Messaging.UnitTests
         public void FindRecipientTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
             var identity = Guid.NewGuid().ToString();
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(identity));
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new Recipient(identity));
 
             // Act
-            var found = messageBroker.FindRecipient(InProcessChannelFactoryUnitTests.messageType);
+            var found = this.messageBroker.FindRecipient(InProcessChannelFactoryUnitTests.messageType);
 
             // Assert
             Assert.IsTrue(found);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException)), TestCategory("RequestResponse")]
+        public void FindNullRecipientTest()
+        {
+            // Arrange
+
+            // Act
+            var found = this.messageBroker.FindRecipient(null);
+
+            // Assert
         }
 
         [TestMethod, TestCategory("RequestResponse")]
@@ -105,19 +152,90 @@ namespace CoreXF_Messaging.UnitTests
             // Arrange
             var payload = new Payload { x = 2, y = 3 };
             var identity = Guid.NewGuid().ToString();
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
-            messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new TestRecipient(identity));
+            var recipient = new TestRecipient(identity);
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, recipient);
 
             // Act
-            var response = messageBroker.Request(new RequestResponseMessage(InProcessChannelFactoryUnitTests.messageType, payload));
+            var response = this.messageBroker.Request(new RequestMessage(InProcessChannelFactoryUnitTests.messageType, payload));
 
             // Assert
+            Assert.IsNotNull(response);
+            Assert.IsNotNull(response.Content);
+            Assert.AreEqual(StatusCode.Success, response.StatusCode);
+            Assert.AreEqual(recipient, response.Recipient);
+            Assert.IsNull(response.ReasonPhrase);
+
+            var content = (Payload)response.Content;
+            Assert.AreEqual(payload.x * 10, content.x);
+            Assert.AreEqual(payload.y * 100, content.y);
+        }
+
+        [TestMethod, TestCategory("RequestResponse")]
+        public void RequestResponseOnResponseTest()
+        {
+            // Arrange
+            var payload = new Payload { x = 2, y = 3 };
+            var identity = Guid.NewGuid().ToString();
+            this.messageBroker.AddRecipient(InProcessChannelFactoryUnitTests.messageType, new TestRecipient(identity));
+            this.messageBroker.OnResponse += this.MessageBroker_OnResponse;
+
+            // Act
+            var response = this.messageBroker.Request(new RequestMessage(InProcessChannelFactoryUnitTests.messageType, payload));
+
+            // Assert
+            //Assert.IsNotNull(response);
+            //Assert.IsNotNull(response.Content);
+            //var content = (Payload)response.Content;
+            //Assert.AreEqual(payload.x * 10, content.x);
+            //Assert.AreEqual(payload.y * 100, content.y);
+        }
+
+        private void MessageBroker_OnResponse(IRequestMessage message, IMessageResponse response)
+        {
+            var payload = message.GetPayload<Payload>();
             Assert.IsNotNull(response);
             Assert.IsNotNull(response.Content);
             var content = (Payload)response.Content;
             Assert.AreEqual(payload.x * 10, content.x);
             Assert.AreEqual(payload.y * 100, content.y);
         }
+
+        [TestMethod, ExpectedException(typeof(InvalidOperationException)), TestCategory("RequestResponse")]
+        public void RequestNonRegisteredMessageTypeResponseTest()
+        {
+            // Arrange
+            var payload = new Payload { x = 2, y = 3 };
+
+            // Act
+            this.messageBroker.Request(new RequestMessage(InProcessChannelFactoryUnitTests.messageType, payload));
+
+            // Assert
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException)), TestCategory("RequestResponse")]
+        public void RequestInvalidMessageTypeResponseTest()
+        {
+            // Arrange
+            var payload = new Payload { x = 2, y = 3 };
+            var identity = Guid.NewGuid().ToString();
+
+            // Act
+            this.messageBroker.Request(new RequestMessage(null, payload));
+
+            // Assert
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentNullException)), TestCategory("RequestResponse")]
+        public void RequestInvalidMessageResponseTest()
+        {
+            // Arrange
+
+            // Act
+            this.messageBroker.Request(null);
+
+            // Assert
+        }
+
 
         private struct Payload
         {
@@ -151,13 +269,14 @@ namespace CoreXF_Messaging.UnitTests
             {
             }
 
-            public override IMessageResponse Recieve(IRequestResponseMessage message)
+            public override IMessageResponse Recieve(IRequestMessage message)
             {
                 var response = base.Recieve(message);
                 var content = message.GetPayload<Payload>();
                 content.x *= 10;
                 content.y *= 100;
-                response.SetContent(content);
+                (response as MessageResponse).SetContent(content);
+                (response as MessageResponse).SetRecipient(this);
                 return response;
             }
         }

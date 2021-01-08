@@ -20,12 +20,11 @@ namespace CoreXF.Messaging
             this.Identity = identity;
         }
 
-        public virtual IMessageResponse Recieve(IPublishSubscribeMessage message)
+        public virtual void Recieve(IPublishedMessage message)
         {
             //var response = MessageResponse.Default;
             //var uriPatched = new PublishSubscribeMessage(message);
             //this.OnRecieve?.Invoke(uriPatched, out response);
-            return MessageResponse.Default;
         }
     }
 }

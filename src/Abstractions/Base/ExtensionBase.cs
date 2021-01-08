@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using System;
+using System.Reflection;
 
 using static CoreXF.Abstractions.Base.IExtension;
 
@@ -36,6 +37,11 @@ namespace CoreXF.Abstractions.Base
         /// The assembly location (folder) from which the extension is discovered and loaded
         /// </summary>
         public string Location { get; set; }
+
+        public Assembly GetAssembly()
+        {
+            return this.GetType().Assembly;
+        }
 
         public ExtensionStatus Status { get; private set; } = ExtensionStatus.Running;
 

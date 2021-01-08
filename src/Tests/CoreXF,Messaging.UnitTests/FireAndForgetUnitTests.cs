@@ -18,19 +18,25 @@ namespace CoreXF_Messaging.UnitTests
     public class FireAndForgetUnitTests
     {
         private const string messageType = "New Message Type";
+        private IMessageBroker messageBroker;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            this.messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
+        }
 
         [TestMethod, TestCategory("FireAndForget")]
         public void FireThenPeekTest()
         {
             // Arrange
             var payload = new Payload { x = 2, y = 3 };
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
-            messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType, payload));
+            this.messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType, payload));
 
             // Assert
-            var messages = messageBroker.Peek(FireAndForgetUnitTests.messageType);
+            var messages = this.messageBroker.Peek(FireAndForgetUnitTests.messageType);
             Assert.IsTrue(messages.Count() == 1);
             var message = messages.First();
             Assert.IsTrue(message.GetPayload<Payload>() == payload);
@@ -41,14 +47,13 @@ namespace CoreXF_Messaging.UnitTests
         {
             // Arrange
             var payload = new Payload { x = 2, y = 3 };
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
-            messageBroker.OnFire += this.MessageBroker_OnFire;
+            this.messageBroker.OnFire += this.MessageBroker_OnFire;
 
             // Act
-            messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType, payload));
+            this.messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType, payload));
 
             // Assert
-            var messages = messageBroker.Peek(FireAndForgetUnitTests.messageType);
+            var messages = this.messageBroker.Peek(FireAndForgetUnitTests.messageType);
             Assert.IsTrue(messages.Count() == 1);
             var message = messages.First();
             var messagePayload = message.GetPayload<object>();
@@ -59,10 +64,9 @@ namespace CoreXF_Messaging.UnitTests
         public void FireShortLivingMessageTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory(), 500));
 
             // Act
-            messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType) { TimeToLive = new TimeSpan(0, 0, 1) });
+            this.messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType) { TimeToLive = new TimeSpan(0, 0, 1) });
             Thread.Sleep(2000);
 
             // Assert
@@ -74,16 +78,15 @@ namespace CoreXF_Messaging.UnitTests
         public void FireThenPeekThenKillMessageTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory(), 500));
 
             // Act
-            messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType));
-            var message = messageBroker.Peek(FireAndForgetUnitTests.messageType).First();
+            this.messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType));
+            var message = this.messageBroker.Peek(FireAndForgetUnitTests.messageType).First();
             message.TimeToLive = new TimeSpan(0, 0, 1);
             Thread.Sleep(2000);
 
             // Assert
-            var messages = messageBroker.Peek(FireAndForgetUnitTests.messageType);
+            var messages = this.messageBroker.Peek(FireAndForgetUnitTests.messageType);
             Assert.AreEqual(0, messages.Count());
         }
 
@@ -93,25 +96,23 @@ namespace CoreXF_Messaging.UnitTests
             // Arrange
             const string nonExistingMessageType = "Non Existing Message Type";
             var payload = new Payload { x = 2, y = 3 };
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
-            messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType, payload));
+            this.messageBroker.Fire(new FireAndForgetMessage(FireAndForgetUnitTests.messageType, payload));
 
             // Assert
-            var messages = messageBroker.Peek(nonExistingMessageType);
+            var messages = this.messageBroker.Peek(nonExistingMessageType);
         }
 
         [TestMethod, ExpectedException(typeof(KeyNotFoundException)), TestCategory("FireAndForget")]
         public void PeekNonFiredMessageTest()
         {
             // Arrange
-            var messageBroker = new MessageBroker(new InProcessChannelFactory(new LoggerFactory()));
 
             // Act
+            var messages = this.messageBroker.Peek(FireAndForgetUnitTests.messageType);
 
             // Assert
-            var messages = messageBroker.Peek(FireAndForgetUnitTests.messageType);
         }
 
         private void MessageBroker_OnFire(IFireAndForgetMessage message)

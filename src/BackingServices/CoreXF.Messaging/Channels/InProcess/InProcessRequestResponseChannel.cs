@@ -5,6 +5,7 @@ using CoreXF.Messaging.Messages;
 
 using Microsoft.Extensions.Logging;
 
+using System;
 using System.Net;
 using System.Net.Http;
 
@@ -22,11 +23,15 @@ namespace CoreXF.Messaging.Channels.InProcess
             this.logger = logger;
         }
 
-        public IMessageResponse Request(IRequestResponseMessage message)
+        public IMessageResponse Request(IRequestMessage message)
         {
             var recipient = (this.broker as MessageBroker).GetRecipient(message.Type);
-            var response = recipient?.Recieve(message);
-            return response ?? new MessageResponse(recipient, StatusCode.Failed, "No response, is the recipient non-null entity? Or, did the recipient supply message handler?");
+            if (recipient == default)
+            {
+                throw new InvalidOperationException("No response, is the recipient non-null entity? Or, did the recipient supply message handler?");
+            }
+
+            return recipient.Recieve(message);
         }
     }
 }

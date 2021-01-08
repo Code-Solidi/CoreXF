@@ -36,9 +36,9 @@ namespace CoreXF.Messaging
 
         public event FireEvent OnFire;
 
-        public event PublishEvent OnPublish;
+        //public event PublishEvent OnPublish;
 
-        public event RequestEvent OnRequest;
+        public event ResponseEvent OnResponse;
 
         #region Fire And Forget
 
@@ -64,29 +64,30 @@ namespace CoreXF.Messaging
             return result.Cast<FireAndForgetMessage>();
         }
 
-        public void Publish(IPublishSubscribeMessage message)
+        public void Publish(IPublishedMessage message)
         {
             this.publishSubscribeChannel.Publish(message);
-            this.OnPublish?.Invoke(message);
         }
 
         #endregion Fire And Forget
 
         #region Request/Response
 
-        public IMessageResponse Request(IRequestResponseMessage message)
+        public IMessageResponse Request(IRequestMessage message)
         {
             _ = message ?? throw new ArgumentNullException(nameof(message));
+            
             this.logger.LogInformation($"Requesting: {message.Id} ({message.Type}).");
             var response = this.requestResponseChannel.Request(message);
-            this.OnRequest?.Invoke(message, response);
+            this.OnResponse?.Invoke(message, response);
             this.logger.LogInformation($"Response for: {message.Id} ({message.Type}) => '{response.Content}'.");
+            
             return response;
         }
 
         public void AddRecipient(string messageType, IRecipient recipient)
         {
-            _ = messageType ?? throw new ArgumentNullException(nameof(messageType));
+            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
             _ = recipient ?? throw new ArgumentNullException(nameof(recipient));
 
             lock (this.locker)
@@ -103,13 +104,14 @@ namespace CoreXF.Messaging
 
         public bool FindRecipient(string messageType)
         {
-            _ = messageType ?? throw new ArgumentNullException(nameof(messageType));
+            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
+
             return this.recipients.ContainsKey(messageType);
         }
 
         public void RemoveRecipient(string messageType)
         {
-            _ = messageType ?? throw new ArgumentNullException(nameof(messageType));
+            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
 
             if (this.recipients.ContainsKey(messageType) == false)
             {
@@ -159,7 +161,7 @@ namespace CoreXF.Messaging
             }
         }
 
-        public bool IsSubscribed(Subscriber subscriber, string messageType)
+        public bool IsSubscribed(ISubscriber subscriber, string messageType)
         {
             lock (this.locker)
             {
@@ -190,17 +192,6 @@ namespace CoreXF.Messaging
             }
         }
 
-        /// <summary>
-        /// NB: do we need this?
-        /// </summary>
-        /// <param name="messageType"></param>
-        /// <returns></returns>
-        public IEnumerable<ISubscriber> GetSubscribers(string messageType)
-        {
-            // let it throw if key (message type) not found
-            return this.subscribers[messageType];
-        }
-
         public void Register(string messageType)
         {
             lock (this.locker)
@@ -227,6 +218,14 @@ namespace CoreXF.Messaging
                 }
 
                 this.subscribers.Remove(messageType);
+            }
+        }
+
+        internal IEnumerable<ISubscriber> GetSubscribers(string messageType)
+        {
+            lock (this.locker)
+            {
+                return this.subscribers.ContainsKey(messageType) ? this.subscribers[messageType] : new List<ISubscriber>();
             }
         }
 

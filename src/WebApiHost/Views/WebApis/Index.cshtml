@@ -3,7 +3,7 @@
 @model IEnumerable<MicroserviceModel>
 
 @{
-    this.ViewData["Title"] = "Microservices";
+    this.ViewData["Title"] = "Web APIs";
 }
 
 <h1 class="mt-4">@this.ViewData["Title"]</h1>
@@ -66,7 +66,6 @@
             box-shadow: none;
         }
     </style>
-    @*<link href="lib/font-awesome/css/all.min.css" rel="stylesheet" />*@
 }
 
 @section Scripts {
@@ -81,13 +80,12 @@
 
             var onclickPlay = function (e) {
                 var name = getItemName(e);
-                $.post('microservices/play', { item: name }, function (data) {
+                $.post('webapis/play', { item: name }, function (data) {
                     if (data.result) {
                         var parent = $(e.currentTarget).parent();
 
                         var play = $('.play', parent);
                         $(play).attr('disabled', '');
-                        //$(play).attr('title', '');
                         $(play).removeClass('text-success');
                         $(play).addClass('text-muted');
 
@@ -103,7 +101,7 @@
 
             var onclickPause = function (e) {
                 var name = getItemName(e);
-                $.post('microservices/pause', { item: name }, function (data) {
+                $.post('webapis/pause', { item: name }, function (data) {
                     if (data.result) {
                         var parent = $(e.currentTarget).parent();
 

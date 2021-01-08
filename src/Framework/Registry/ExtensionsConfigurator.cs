@@ -10,6 +10,8 @@ using CoreXF.Framework.Builder;
 using CoreXF.Framework.Providers;
 using CoreXF.Framework.Settings;
 
+using MediatR;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
@@ -123,6 +125,9 @@ namespace CoreXF.Framework.Registry
             var options = provider.GetRequiredService<IOptionsMonitor<CoreXfOptions>>().CurrentValue;
             var registry = AddRegistry(services, options.Location);
             AddApplicationParts(builder, registry, services, configuration, loggerFactory);
+
+            var assemblies = registry.Extensions.Select(x => ((ExtensionBase)x).GetAssembly()).ToArray();
+            services.AddMediatR(assemblies);
 
             // NB: what options were to do doesn't work! No time to explore details.
             if (options.UseViewComponents) { ReplaceViewComponentFeatureProvider(services, loggerFactory); }

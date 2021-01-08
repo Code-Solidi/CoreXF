@@ -13,11 +13,11 @@ using System.Linq;
 
 namespace CoreXF.WebApiHost.Controllers
 {
-    public class MicroservicesController : Controller
+    public class WebApisController : Controller
     {
         private readonly IExtensionsRegistry extensionsRegistry;
 
-        public MicroservicesController(IExtensionsRegistry extensionsRegistry)
+        public WebApisController(IExtensionsRegistry extensionsRegistry)
         {
             this.extensionsRegistry = extensionsRegistry;
         }

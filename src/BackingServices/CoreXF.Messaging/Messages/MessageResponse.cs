@@ -1,7 +1,5 @@
 ﻿using CoreXF.Messaging.Abstractions;
 
-using System.Net.Http;
-
 namespace CoreXF.Messaging.Messages
 {
     public class MessageResponse : IMessageResponse
@@ -10,7 +8,7 @@ namespace CoreXF.Messaging.Messages
 
         public StatusCode StatusCode { get; private set; }
 
-        public IRecipient Recipient { get; }
+        public IRecipient Recipient { get; private set; }
 
         public string ReasonPhrase { get; private set; }
 
@@ -23,13 +21,14 @@ namespace CoreXF.Messaging.Messages
             this.ReasonPhrase = reasonPhrase;
         }
 
-        public MessageResponse(HttpResponseMessage result)
-        {
-        }
-
         public void SetContent(object content)
         {
             this.Content = content;
+        }
+
+        public void SetRecipient(IRecipient recipient)
+        {
+            this.Recipient = recipient;
         }
     }
 }

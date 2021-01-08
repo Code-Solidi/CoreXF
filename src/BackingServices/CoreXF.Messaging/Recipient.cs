@@ -2,6 +2,8 @@
 using CoreXF.Messaging.Abstractions.Messages;
 using CoreXF.Messaging.Messages;
 
+using System;
+
 namespace CoreXF.Messaging
 {
     public class Recipient : IRecipient
@@ -13,8 +15,9 @@ namespace CoreXF.Messaging
             this.Identity = identity;
         }
 
-        public virtual IMessageResponse Recieve(IRequestResponseMessage message)
+        public virtual IMessageResponse Recieve(IRequestMessage message)
         {
+            _ = message ?? throw new ArgumentNullException(nameof(message));
             return MessageResponse.Default;
         }
     }

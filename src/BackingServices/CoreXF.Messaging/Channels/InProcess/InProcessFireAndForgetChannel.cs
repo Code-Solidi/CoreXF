@@ -44,16 +44,16 @@ namespace CoreXF.Messaging.Channels.InProcess
             this.AddMessage(message as AbstractMessage);
         }
 
-        public IEnumerable<IMessage> GetAllMessages()
-        {
-            var list = new List<IMessage>();
-            foreach (var item in this.MessageQueue.Values)
-            {
-                list.AddRange(item);
-            }
+        //public IEnumerable<IMessage> GetAllMessages()
+        //{
+        //    var list = new List<IMessage>();
+        //    foreach (var item in this.MessageQueue.Values)
+        //    {
+        //        list.AddRange(item);
+        //    }
 
-            return list;
-        }
+        //    return list;
+        //}
 
         /// <summary>
         /// Peeks the specified message type.
@@ -68,11 +68,11 @@ namespace CoreXF.Messaging.Channels.InProcess
             }
         }
 
-        /// <summary>
-        /// Gets the message types.
-        /// </summary>
-        /// <returns></returns>
-        public virtual IEnumerable<string> MessageTypes => this.MessageQueue.Keys;
+        ///// <summary>
+        ///// Gets the message types.
+        ///// </summary>
+        ///// <returns></returns>
+        //public virtual IEnumerable<string> MessageTypes => this.MessageQueue.Keys;
 
         internal void AddMessage(AbstractMessage message)
         {

@@ -47,10 +47,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\..\Common\CoreXF.png">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
         <None Include="..\Framework\LICENSE.txt">
             <Pack>True</Pack>
             <PackagePath></PackagePath>

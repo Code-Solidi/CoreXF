@@ -1526,3 +1526,25 @@
 [07:44:33 INF] 
 [07:44:34 INF]   Determining projects to restore...
 [07:44:35 INF]   All projects are up-to-date for restore.
+[07:48:56 INF] --------------------
+[07:48:56 INF] NEW SESSION STARTED.
+[07:48:56 INF] --------------------
+[07:48:56 INF] Publishing projects in 'CoreXF.sln' v2.0.0-alpha-4 to https://api.nuget.org/v3/index.json.
+[07:48:56 INF] 
+[07:48:56 INF] Dependency Graph:
+[07:48:56 INF] -----------------
+[07:48:56 INF] CoreXF.Abstractions (0): 
+[07:48:56 INF] 
+[07:48:56 INF] CoreXF.Framework (1): 
+[07:48:56 INF]     CoreXF.Abstractions v2.0.0-alpha-4
+[07:48:56 INF] 
+[07:48:56 INF] CoreXF.WebApiHost (1): 
+[07:48:56 INF]     CoreXF.Framework v2.0.0-alpha-4
+[07:48:56 INF] 
+[07:48:56 INF] CoreXF.Eventing.Abstractions (0): 
+[07:48:56 INF] 
+[07:48:56 INF] CoreXF.Eventing (1): 
+[07:48:56 INF]     CoreXF.Eventing.Abstractions v2.0.0-alpha-4
+[07:48:56 INF] 
+[07:48:56 INF] Packing 'CoreXF.Abstractions'
+[07:48:56 INF] -----------------------------

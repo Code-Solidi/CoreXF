@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace CoreXF.Messaging.Abstractions
+﻿namespace CoreXF.Messaging.Abstractions
 {
     public interface IMessageResponse
     {
@@ -12,7 +10,9 @@ namespace CoreXF.Messaging.Abstractions
 
         string ReasonPhrase { get; }
 
-        void SetContent(object content);
+        //void SetContent(object content);
+
+        //void SetRecipient(IRecipient recipient);
     }
 
     public enum StatusCode

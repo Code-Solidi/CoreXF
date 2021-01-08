@@ -6,6 +6,6 @@ namespace CoreXF.Messaging.Abstractions
     {
         string Identity { get; }
 
-        IMessageResponse Recieve(IRequestResponseMessage message);
+        IMessageResponse Recieve(IRequestMessage message);
     }
 }

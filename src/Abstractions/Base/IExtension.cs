@@ -46,7 +46,5 @@ namespace CoreXF.Abstractions.Base
         void Start();
 
         void Stop();
-
-        //bool CanServe(string uri);
     }
 }

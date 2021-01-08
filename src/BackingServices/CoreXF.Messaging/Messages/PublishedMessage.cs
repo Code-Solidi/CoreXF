@@ -4,11 +4,11 @@ using System;
 
 namespace CoreXF.Messaging.Messages
 {
-    public class PublishSubscribeMessage : AbstractMessage, IPublishSubscribeMessage
+    public class PublishedMessage : AbstractMessage, IPublishedMessage
     {
-        public PublishSubscribeMessage(string messageType) : base(messageType)
-        {
-        }
+        //public PublishSubscribeMessage(string messageType) : base(messageType)
+        //{
+        //}
 
         //public PublishSubscribeMessage(IPublishSubscribeMessage message) : base(message.Type)
         //{
@@ -18,7 +18,7 @@ namespace CoreXF.Messaging.Messages
         //    this.SetPayload(message);
         //}
 
-        public PublishSubscribeMessage(string messageType, object payload) : base(messageType, payload)
+        public PublishedMessage(string messageType, object payload) : base(messageType, payload)
         {
         }
     }

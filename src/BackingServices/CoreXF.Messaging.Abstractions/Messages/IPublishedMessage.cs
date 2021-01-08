@@ -1,6 +1,6 @@
 ﻿namespace CoreXF.Messaging.Abstractions.Messages
 {
-    public interface IRequestResponseMessage : IMessage
+    public interface IPublishedMessage : IMessage
     {
     }
 }
