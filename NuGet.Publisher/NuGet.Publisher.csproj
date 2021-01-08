@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Logs\**" />
-        <EmbeddedResource Remove="Logs\**" />
-        <None Remove="Logs\**" />
+      <Compile Remove="Logs\**" />
+      <EmbeddedResource Remove="Logs\**" />
+      <None Remove="Logs\**" />
     </ItemGroup>
 
     <ItemGroup>

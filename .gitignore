@@ -346,3 +346,5 @@ healthchecksdb
 /Demos/HostApp5/LogFiles
 /NuGet API key.txt
 /NuGet.Publisher/NuGet API key.txt
+/NuGet.Publisher/Logs/*
+
