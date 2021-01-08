@@ -1548,3 +1548,285 @@
 [07:48:56 INF] 
 [07:48:56 INF] Packing 'CoreXF.Abstractions'
 [07:48:56 INF] -----------------------------
+[06:29:01 INF] --------------------
+[06:29:01 INF] NEW SESSION STARTED.
+[06:29:01 INF] --------------------
+[06:29:01 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-1 to http://baget.local/v3/index.json.
+[06:29:02 INF] 
+[06:29:02 INF] Dependency Graph:
+[06:29:02 INF] -----------------
+[06:29:02 INF] CoreXF.Abstractions (0): 
+[06:29:02 INF] 
+[06:29:02 INF] CoreXF.Framework (0): 
+[06:29:02 INF] 
+[06:29:02 INF] CoreXF.WebApiHost (0): 
+[06:29:02 INF] 
+[06:29:02 INF] Packing 'CoreXF.Abstractions'
+[06:29:02 INF] -----------------------------
+[06:29:04 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:29:04 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:29:04 INF] 
+[06:29:05 INF]   Determining projects to restore...
+[06:29:06 INF]   All projects are up-to-date for restore.
+[06:29:10 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[06:29:10 ERR] C:\Program Files\dotnet\sdk\5.0.101\Sdks\NuGet.Build.Tasks.Pack\build\NuGet.Build.Tasks.Pack.targets(207,5): error NU5046: The icon file 'CoreXF.png' does not exist in the package. [D:\Github\CoreXF\src\Abstractions\CoreXF.Abstractions.csproj]
+[06:29:10 ERR] Error packing 'CoreXF.Abstractions'.
+[06:29:10 INF] 
+[06:39:06 INF] --------------------
+[06:39:06 INF] NEW SESSION STARTED.
+[06:39:06 INF] --------------------
+[06:39:06 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-1 to http://baget.local/v3/index.json.
+[06:39:06 INF] 
+[06:39:06 INF] Dependency Graph:
+[06:39:06 INF] -----------------
+[06:39:06 INF] CoreXF.Abstractions (0): 
+[06:39:06 INF] 
+[06:39:06 INF] CoreXF.Framework (0): 
+[06:39:06 INF] 
+[06:39:06 INF] CoreXF.WebApiHost (0): 
+[06:39:06 INF] 
+[06:39:06 INF] Packing 'CoreXF.Abstractions'
+[06:39:06 INF] -----------------------------
+[06:39:08 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:39:08 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:39:08 INF] 
+[06:39:09 INF]   Determining projects to restore...
+[06:39:10 INF]   All projects are up-to-date for restore.
+[06:39:13 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[06:39:13 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Abstractions.2.0.0-beta-1.nupkg'.
+[06:39:13 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Abstractions.2.0.0-beta-1.snupkg'.
+[06:39:13 INF] 
+[06:39:13 INF] Pushing 'CoreXF.Abstractions'
+[06:39:13 INF] -----------------------------
+[06:39:15 INF] Pushing CoreXF.Abstractions.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:39:15 INF]   PUT http://baget.local/api/v2/package/
+[06:39:16 INF]   Created http://baget.local/api/v2/package/ 1110ms
+[06:39:16 INF] Your package was pushed.
+[06:39:16 INF] Pushing CoreXF.Abstractions.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:39:16 INF]   PUT http://baget.local/api/v2/symbol/
+[06:39:16 INF]   Created http://baget.local/api/v2/symbol/ 195ms
+[06:39:16 INF] Your package was pushed.
+[06:39:16 INF] 
+[06:39:16 INF] Packing 'CoreXF.Framework'
+[06:39:16 INF] --------------------------
+[06:39:17 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:39:17 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:39:17 INF] 
+[06:39:18 INF]   Determining projects to restore...
+[06:39:20 INF]   Restored D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 1.47 sec).
+[06:39:20 INF]   Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded, but the build result will not be impacted.
+[06:39:22 INF]   CoreXF.Framework -> D:\Github\CoreXF\src\Framework\bin\Debug\net5.0\CoreXF.Framework.dll
+[06:39:22 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Framework.2.0.0-beta-1.nupkg'.
+[06:39:22 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Framework.2.0.0-beta-1.snupkg'.
+[06:39:22 INF] 
+[06:39:22 INF] Pushing 'CoreXF.Framework'
+[06:39:22 INF] --------------------------
+[06:39:23 INF] Pushing CoreXF.Framework.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:39:23 INF]   PUT http://baget.local/api/v2/package/
+[06:39:23 INF]   Created http://baget.local/api/v2/package/ 294ms
+[06:39:23 INF] Your package was pushed.
+[06:39:23 INF] Pushing CoreXF.Framework.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:39:23 INF]   PUT http://baget.local/api/v2/symbol/
+[06:39:23 INF]   Created http://baget.local/api/v2/symbol/ 26ms
+[06:39:23 INF] Your package was pushed.
+[06:39:24 INF] 
+[06:39:24 INF] Packing 'CoreXF.WebApiHost'
+[06:39:24 INF] ---------------------------
+[06:39:24 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:39:24 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:39:24 INF] 
+[06:39:25 INF]   Determining projects to restore...
+[06:39:27 INF]   Restored D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj (in 1.37 sec).
+[06:39:31 WRN] CSC : warning CS8034: Unable to load Analyzer assembly C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.analyzers\2.2.0\analyzers\dotnet\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll : Assembly with same name is already loaded [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:39:32 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.dll
+[06:39:32 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.Views.dll
+[06:39:33 WRN] C:\Program Files\dotnet\sdk\5.0.101\Sdks\NuGet.Build.Tasks.Pack\build\NuGet.Build.Tasks.Pack.targets(207,5): warning NU5118: File 'D:\Github\CoreXF\src\WebApiHost\LICENSE.txt' is not added because the package already contains file 'LICENSE.txt' [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:39:33 ERR] C:\Program Files\dotnet\sdk\5.0.101\Sdks\NuGet.Build.Tasks.Pack\build\NuGet.Build.Tasks.Pack.targets(207,5): error NU5019: File not found: 'D:\Github\CoreXF\Packaging\LICENSE.txt'. [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:39:33 ERR] Error packing 'CoreXF.WebApiHost'.
+[06:39:33 INF] 
+[06:39:33 INF] 
+[06:39:33 INF] Rolling back changes to 'CoreXF.Framework'.
+[06:39:34 INF] CoreXF.Framework 2.0.0-beta-1 will be deleted from the 'http://baget.local/api/v2/package'. Would you like to continue? (y/N) 
+[06:39:34 INF] warn : Deleting CoreXF.Framework 2.0.0-beta-1 from the 'http://baget.local/api/v2/package'.
+[06:39:34 INF]   DELETE http://baget.local/api/v2/package/CoreXF.Framework/2.0.0-beta-1
+[06:39:35 INF]   NoContent http://baget.local/api/v2/package/CoreXF.Framework/2.0.0-beta-1 519ms
+[06:39:35 INF] CoreXF.Framework 2.0.0-beta-1 was deleted successfully.
+[06:39:35 INF] Reverting 'D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj.bak' back to 'D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj'.
+[06:39:35 INF] 
+[06:39:35 INF] Rolling back changes to 'CoreXF.Abstractions'.
+[06:39:36 INF] CoreXF.Abstractions 2.0.0-beta-1 will be deleted from the 'http://baget.local/api/v2/package'. Would you like to continue? (y/N) 
+[06:39:36 INF] warn : Deleting CoreXF.Abstractions 2.0.0-beta-1 from the 'http://baget.local/api/v2/package'.
+[06:39:36 INF]   DELETE http://baget.local/api/v2/package/CoreXF.Abstractions/2.0.0-beta-1
+[06:39:36 INF]   NoContent http://baget.local/api/v2/package/CoreXF.Abstractions/2.0.0-beta-1 278ms
+[06:39:36 INF] CoreXF.Abstractions 2.0.0-beta-1 was deleted successfully.
+[06:39:36 INF] Reverting 'D:\Github\CoreXF\src\Abstractions\CoreXF.Abstractions.csproj.bak' back to 'D:\Github\CoreXF\src\Abstractions\CoreXF.Abstractions.csproj'.
+[06:42:04 INF] --------------------
+[06:42:04 INF] NEW SESSION STARTED.
+[06:42:04 INF] --------------------
+[06:42:04 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-1 to http://baget.local/v3/index.json.
+[06:42:04 INF] 
+[06:42:04 INF] Dependency Graph:
+[06:42:04 INF] -----------------
+[06:42:04 INF] CoreXF.Abstractions (0): 
+[06:42:04 INF] 
+[06:42:04 INF] CoreXF.Framework (0): 
+[06:42:04 INF] 
+[06:42:04 INF] CoreXF.WebApiHost (0): 
+[06:42:04 INF] 
+[06:42:04 INF] Packing 'CoreXF.Abstractions'
+[06:42:04 INF] -----------------------------
+[06:42:07 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:42:07 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:42:07 INF] 
+[06:42:08 INF]   Determining projects to restore...
+[06:42:08 INF]   All projects are up-to-date for restore.
+[06:42:11 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[06:42:11 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Abstractions.2.0.0-beta-1.nupkg'.
+[06:42:11 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Abstractions.2.0.0-beta-1.snupkg'.
+[06:42:11 INF] 
+[06:42:11 INF] Pushing 'CoreXF.Abstractions'
+[06:42:11 INF] -----------------------------
+[06:42:13 INF] Pushing CoreXF.Abstractions.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:42:13 INF]   PUT http://baget.local/api/v2/package/
+[06:42:13 INF]   Created http://baget.local/api/v2/package/ 309ms
+[06:42:13 INF] Your package was pushed.
+[06:42:13 INF] Pushing CoreXF.Abstractions.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:42:13 INF]   PUT http://baget.local/api/v2/symbol/
+[06:42:13 INF]   Created http://baget.local/api/v2/symbol/ 19ms
+[06:42:13 INF] Your package was pushed.
+[06:42:13 INF] 
+[06:42:13 INF] Packing 'CoreXF.Framework'
+[06:42:13 INF] --------------------------
+[06:42:14 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:42:14 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:42:14 INF] 
+[06:42:15 INF]   Determining projects to restore...
+[06:42:16 INF]   Restored D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 936 ms).
+[06:42:17 INF]   Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded, but the build result will not be impacted.
+[06:42:18 INF]   CoreXF.Framework -> D:\Github\CoreXF\src\Framework\bin\Debug\net5.0\CoreXF.Framework.dll
+[06:42:19 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Framework.2.0.0-beta-1.nupkg'.
+[06:42:19 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Framework.2.0.0-beta-1.snupkg'.
+[06:42:19 INF] 
+[06:42:19 INF] Pushing 'CoreXF.Framework'
+[06:42:19 INF] --------------------------
+[06:42:20 INF] Pushing CoreXF.Framework.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:42:20 INF]   PUT http://baget.local/api/v2/package/
+[06:42:20 INF]   Created http://baget.local/api/v2/package/ 288ms
+[06:42:20 INF] Your package was pushed.
+[06:42:20 INF] Pushing CoreXF.Framework.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:42:20 INF]   PUT http://baget.local/api/v2/symbol/
+[06:42:20 INF]   Created http://baget.local/api/v2/symbol/ 23ms
+[06:42:20 INF] Your package was pushed.
+[06:42:20 INF] 
+[06:42:20 INF] Packing 'CoreXF.WebApiHost'
+[06:42:20 INF] ---------------------------
+[06:42:21 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:42:21 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:42:21 INF] 
+[06:42:22 INF]   Determining projects to restore...
+[06:42:23 INF]   Restored D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj (in 718 ms).
+[06:42:27 WRN] CSC : warning CS8034: Unable to load Analyzer assembly C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.analyzers\2.2.0\analyzers\dotnet\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll : Assembly with same name is already loaded [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:42:28 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.dll
+[06:42:28 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.Views.dll
+[06:42:29 WRN] C:\Program Files\dotnet\sdk\5.0.101\Sdks\NuGet.Build.Tasks.Pack\build\NuGet.Build.Tasks.Pack.targets(207,5): warning NU5118: File 'D:\Github\CoreXF\src\WebApiHost\LICENSE.txt' is not added because the package already contains file 'LICENSE.txt' [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:42:29 ERR] C:\Program Files\dotnet\sdk\5.0.101\Sdks\NuGet.Build.Tasks.Pack\build\NuGet.Build.Tasks.Pack.targets(207,5): error NU5019: File not found: 'D:\Github\CoreXF\Packaging\LICENSE.txt'. [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:42:29 ERR] Error packing 'CoreXF.WebApiHost'.
+[06:42:29 INF] 
+[06:42:29 INF] 
+[06:42:29 INF] Rolling back changes to 'CoreXF.Framework'.
+[06:42:30 INF] CoreXF.Framework 2.0.0-beta-1 will be deleted from the 'http://baget.local/api/v2/package'. Would you like to continue? (y/N) 
+[06:42:30 INF] warn : Deleting CoreXF.Framework 2.0.0-beta-1 from the 'http://baget.local/api/v2/package'.
+[06:42:30 INF]   DELETE http://baget.local/api/v2/package/CoreXF.Framework/2.0.0-beta-1
+[06:42:30 INF]   NoContent http://baget.local/api/v2/package/CoreXF.Framework/2.0.0-beta-1 346ms
+[06:42:30 INF] CoreXF.Framework 2.0.0-beta-1 was deleted successfully.
+[06:42:31 INF] Reverting 'D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj.bak' back to 'D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj'.
+[06:42:31 INF] 
+[06:42:31 INF] Rolling back changes to 'CoreXF.Abstractions'.
+[06:42:32 INF] CoreXF.Abstractions 2.0.0-beta-1 will be deleted from the 'http://baget.local/api/v2/package'. Would you like to continue? (y/N) 
+[06:42:32 INF] warn : Deleting CoreXF.Abstractions 2.0.0-beta-1 from the 'http://baget.local/api/v2/package'.
+[06:42:32 INF]   DELETE http://baget.local/api/v2/package/CoreXF.Abstractions/2.0.0-beta-1
+[06:42:32 INF]   NoContent http://baget.local/api/v2/package/CoreXF.Abstractions/2.0.0-beta-1 245ms
+[06:42:32 INF] CoreXF.Abstractions 2.0.0-beta-1 was deleted successfully.
+[06:42:32 INF] Reverting 'D:\Github\CoreXF\src\Abstractions\CoreXF.Abstractions.csproj.bak' back to 'D:\Github\CoreXF\src\Abstractions\CoreXF.Abstractions.csproj'.
+[06:44:54 INF] --------------------
+[06:44:54 INF] NEW SESSION STARTED.
+[06:44:54 INF] --------------------
+[06:44:54 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-1 to http://baget.local/v3/index.json.
+[06:44:55 INF] 
+[06:44:55 INF] Dependency Graph:
+[06:44:55 INF] -----------------
+[06:44:55 INF] CoreXF.Abstractions (0): 
+[06:44:55 INF] 
+[06:44:55 INF] CoreXF.Framework (0): 
+[06:44:55 INF] 
+[06:44:55 INF] CoreXF.WebApiHost (0): 
+[06:44:55 INF] 
+[06:44:55 INF] Packing 'CoreXF.Abstractions'
+[06:44:55 INF] -----------------------------
+[06:44:56 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:44:56 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:44:56 INF] 
+[06:44:58 INF]   Determining projects to restore...
+[06:44:58 INF]   All projects are up-to-date for restore.
+[06:45:02 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[06:45:02 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Abstractions.2.0.0-beta-1.nupkg'.
+[06:45:02 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Abstractions.2.0.0-beta-1.snupkg'.
+[06:45:02 INF] 
+[06:45:02 INF] Pushing 'CoreXF.Abstractions'
+[06:45:02 INF] -----------------------------
+[06:45:03 INF] Pushing CoreXF.Abstractions.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:45:03 INF]   PUT http://baget.local/api/v2/package/
+[06:45:03 INF]   Created http://baget.local/api/v2/package/ 253ms
+[06:45:03 INF] Your package was pushed.
+[06:45:03 INF] Pushing CoreXF.Abstractions.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:45:03 INF]   PUT http://baget.local/api/v2/symbol/
+[06:45:03 INF]   Created http://baget.local/api/v2/symbol/ 39ms
+[06:45:03 INF] Your package was pushed.
+[06:45:04 INF] 
+[06:45:04 INF] Packing 'CoreXF.Framework'
+[06:45:04 INF] --------------------------
+[06:45:05 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:45:05 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:45:05 INF] 
+[06:45:05 INF]   Determining projects to restore...
+[06:45:07 INF]   Restored D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 935 ms).
+[06:45:07 INF]   Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded, but the build result will not be impacted.
+[06:45:09 INF]   CoreXF.Framework -> D:\Github\CoreXF\src\Framework\bin\Debug\net5.0\CoreXF.Framework.dll
+[06:45:09 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Framework.2.0.0-beta-1.nupkg'.
+[06:45:09 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.Framework.2.0.0-beta-1.snupkg'.
+[06:45:09 INF] 
+[06:45:09 INF] Pushing 'CoreXF.Framework'
+[06:45:09 INF] --------------------------
+[06:45:10 INF] Pushing CoreXF.Framework.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:45:10 INF]   PUT http://baget.local/api/v2/package/
+[06:45:11 INF]   Created http://baget.local/api/v2/package/ 274ms
+[06:45:11 INF] Your package was pushed.
+[06:45:11 INF] Pushing CoreXF.Framework.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:45:11 INF]   PUT http://baget.local/api/v2/symbol/
+[06:45:11 INF]   Created http://baget.local/api/v2/symbol/ 18ms
+[06:45:11 INF] Your package was pushed.
+[06:45:11 INF] 
+[06:45:11 INF] Packing 'CoreXF.WebApiHost'
+[06:45:11 INF] ---------------------------
+[06:45:12 INF] Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+[06:45:12 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[06:45:12 INF] 
+[06:45:12 INF]   Determining projects to restore...
+[06:45:13 INF]   Restored D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj (in 731 ms).
+[06:45:17 WRN] CSC : warning CS8034: Unable to load Analyzer assembly C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.analyzers\2.2.0\analyzers\dotnet\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll : Assembly with same name is already loaded [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[06:45:19 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.dll
+[06:45:19 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.Views.dll
+[06:45:19 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.WebApiHost.2.0.0-beta-1.nupkg'.
+[06:45:19 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-1\CoreXF.WebApiHost.2.0.0-beta-1.snupkg'.
+[06:45:20 INF] 
+[06:45:20 INF] Pushing 'CoreXF.WebApiHost'
+[06:45:20 INF] ---------------------------
+[06:45:20 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-1.nupkg to 'http://baget.local/api/v2/package'...
+[06:45:20 INF]   PUT http://baget.local/api/v2/package/
+[06:45:21 INF]   Created http://baget.local/api/v2/package/ 320ms
+[06:45:21 INF] Your package was pushed.
+[06:45:21 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-1.snupkg to 'http://baget.local/api/v2/symbol'...
+[06:45:21 INF]   PUT http://baget.local/api/v2/symbol/
+[06:45:21 INF]   Created http://baget.local/api/v2/symbol/ 30ms
+[06:45:21 INF] Your package was pushed.
+[06:45:21 INF] 

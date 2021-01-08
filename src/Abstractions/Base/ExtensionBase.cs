@@ -38,11 +38,6 @@ namespace CoreXF.Abstractions.Base
         /// </summary>
         public string Location { get; set; }
 
-        public Assembly GetAssembly()
-        {
-            return this.GetType().Assembly;
-        }
-
         public ExtensionStatus Status { get; private set; } = ExtensionStatus.Running;
 
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
