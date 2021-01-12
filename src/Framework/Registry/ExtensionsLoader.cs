@@ -96,6 +96,8 @@ namespace CoreXF.Framework.Registry
         {
             try
             {
+                logger.LogDebug($"Loading assembly '{assemblyPath}'.");
+
                 // load dependent assemblies:
                 // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
                 return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
