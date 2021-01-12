@@ -2,7 +2,7 @@
   "profiles": {
     "NuGet.Publisher": {
       "commandName": "Project",
-      "commandLineArgs": "--nuget-version:2.0.0-beta-1 --solution:ChameleonXF"
+      "commandLineArgs": "--nuget-version:2.0.0-beta-2 --solution:ChameleonXF"
     }
   }
 }

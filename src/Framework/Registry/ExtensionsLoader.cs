@@ -100,9 +100,19 @@ namespace CoreXF.Framework.Registry
                 // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
                 return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
             }
-            catch (Exception x)
+            catch (FileLoadException x)
             {
                 logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
+                return null;
+            }
+            catch (FileNotFoundException x)
+            {
+                logger.Log(LogLevel.Error, x, $"'{assemblyPath}' not found.");
+                return null;
+            }
+            catch (BadImageFormatException x)
+            {
+                logger.Log(LogLevel.Error, x, $"Bad image format in '{assemblyPath}'.");
                 return null;
             }
         }
