@@ -96,7 +96,7 @@ namespace CoreXF.Framework.Registry
         {
             try
             {
-                logger.LogDebug($"Loading assembly '{assemblyPath}'.");
+                //logger.LogDebug($"Loading assembly '{assemblyPath}'.");
 
                 // load dependent assemblies:
                 // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
@@ -121,9 +121,11 @@ namespace CoreXF.Framework.Registry
 
         private List<Assembly> LoadAssemblies(string[] files)
         {
+            this.logger.LogDebug("Loading assemblies...");
             var assemblyList = new List<Assembly>();
             foreach (var path in files)
             {
+                this.logger.LogDebug($"Loading assembly: '{path}'.");
                 var assembly = ExtensionsLoader.LoadAssembly(path, this.logger);
                 if (assembly != default)
                 {
