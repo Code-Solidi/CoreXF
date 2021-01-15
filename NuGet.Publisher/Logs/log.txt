@@ -2193,3 +2193,214 @@
 [12:36:18 ERR] warning: LF will be replaced by CRLF in src/Framework/Registry/ExtensionsRegistry.cs.
 [12:36:18 ERR] The file will have its original line endings in your working directory
 [12:36:18 ERR] Error committing changes.
+[13:03:08 INF] --------------------
+[13:03:08 INF] NEW SESSION STARTED.
+[13:03:08 INF] --------------------
+[13:03:08 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-4 to https://api.nuget.org/v3/index.json.
+[13:03:08 INF] 
+[13:03:08 INF] Dependency Graph:
+[13:03:08 INF] -----------------
+[13:03:08 INF] CoreXF.Framework (0): 
+[13:03:08 INF] 
+[13:03:08 INF] CoreXF.WebApiHost (0): 
+[13:03:08 INF] 
+[13:03:08 INF] CoreXF.Abstractions (0): 
+[13:03:08 INF] 
+[13:03:08 INF] Packing 'CoreXF.Framework'
+[13:03:08 INF] --------------------------
+[13:03:11 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[13:03:11 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[13:03:11 INF] 
+[13:03:12 INF]   Determining projects to restore...
+[13:03:14 INF]   Restored D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 1.27 sec).
+[13:03:17 INF]   CoreXF.Framework -> D:\Github\CoreXF\src\Framework\bin\Debug\net5.0\CoreXF.Framework.dll
+[13:03:18 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Framework.2.0.0-beta-4.nupkg'.
+[13:03:18 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Framework.2.0.0-beta-4.snupkg'.
+[13:03:18 INF] 
+[13:03:18 INF] Pushing 'CoreXF.Framework'
+[13:03:18 INF] --------------------------
+[13:03:20 INF] Pushing CoreXF.Framework.2.0.0-beta-4.nupkg to 'https://www.nuget.org/api/v2/package'...
+[13:03:20 INF]   PUT https://www.nuget.org/api/v2/package/
+[13:03:21 INF]   Forbidden https://www.nuget.org/api/v2/package/ 809ms
+[13:03:21 INF] error: Response status code does not indicate success: 403 (The specified API key is invalid, has expired, or does not have permission to access the specified package.).
+[13:03:21 INF] 
+[13:03:21 INF] 
+[13:03:21 INF] Usage: dotnet nuget push [arguments] [options]
+[13:03:21 INF] 
+[13:03:21 INF] Arguments:
+[13:03:21 INF]   [root]  Specify the path to the package and your API key to push the package to the server.
+[13:03:21 INF] 
+[13:03:21 INF] Options:
+[13:03:21 INF]   -h|--help                      Show help information
+[13:03:21 INF]   --force-english-output         Forces the application to run using an invariant, English-based culture.
+[13:03:21 INF]   -s|--source <source>           Package source (URL, UNC/folder path or package source name) to use. Defaults to DefaultPushSource if specified in NuGet.Config.
+[13:03:21 INF]   -ss|--symbol-source <source>   Symbol server URL to use.
+[13:03:21 INF]   -t|--timeout <timeout>         Timeout for pushing to a server in seconds. Defaults to 300 seconds (5 minutes).
+[13:03:21 INF]   -k|--api-key <apiKey>          The API key for the server.
+[13:03:21 INF]   -sk|--symbol-api-key <apiKey>  The API key for the symbol server.
+[13:03:21 INF]   -d|--disable-buffering         Disable buffering when pushing to an HTTP(S) server to decrease memory usage.
+[13:03:21 INF]   -n|--no-symbols                If a symbols package exists, it will not be pushed to a symbols server.
+[13:03:21 INF]   --no-service-endpoint          Does not append "api/v2/package" to the source URL.
+[13:03:21 INF]   --interactive                  Allow the command to block and require manual action for operations like authentication.
+[13:03:21 INF]   --skip-duplicate               If a package and version already exists, skip it and continue with the next package in the push, if any.
+[13:03:21 INF] 
+[13:03:21 INF] Packing 'CoreXF.WebApiHost'
+[13:03:21 INF] ---------------------------
+[13:03:23 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[13:03:23 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[13:03:23 INF] 
+[13:03:24 INF]   Determining projects to restore...
+[13:03:25 INF]   Restored D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj (in 763 ms).
+[13:03:31 WRN] CSC : warning CS8034: Unable to load Analyzer assembly C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.analyzers\2.2.0\analyzers\dotnet\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll : Assembly with same name is already loaded [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[13:03:32 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.dll
+[13:03:32 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.Views.dll
+[13:03:33 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.WebApiHost.2.0.0-beta-4.nupkg'.
+[13:03:33 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.WebApiHost.2.0.0-beta-4.snupkg'.
+[13:03:33 INF] 
+[13:03:33 INF] Pushing 'CoreXF.WebApiHost'
+[13:03:33 INF] ---------------------------
+[13:03:35 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-4.nupkg to 'https://www.nuget.org/api/v2/package'...
+[13:03:36 INF]   PUT https://www.nuget.org/api/v2/package/
+[13:03:38 INF]   Forbidden https://www.nuget.org/api/v2/package/ 2548ms
+[13:03:38 INF] error: Response status code does not indicate success: 403 (The specified API key is invalid, has expired, or does not have permission to access the specified package.).
+[13:03:38 INF] 
+[13:03:38 INF] 
+[13:03:38 INF] Usage: dotnet nuget push [arguments] [options]
+[13:03:38 INF] 
+[13:03:38 INF] Arguments:
+[13:03:38 INF]   [root]  Specify the path to the package and your API key to push the package to the server.
+[13:03:38 INF] 
+[13:03:38 INF] Options:
+[13:03:38 INF]   -h|--help                      Show help information
+[13:03:38 INF]   --force-english-output         Forces the application to run using an invariant, English-based culture.
+[13:03:38 INF]   -s|--source <source>           Package source (URL, UNC/folder path or package source name) to use. Defaults to DefaultPushSource if specified in NuGet.Config.
+[13:03:38 INF]   -ss|--symbol-source <source>   Symbol server URL to use.
+[13:03:38 INF]   -t|--timeout <timeout>         Timeout for pushing to a server in seconds. Defaults to 300 seconds (5 minutes).
+[13:03:38 INF]   -k|--api-key <apiKey>          The API key for the server.
+[13:03:38 INF]   -sk|--symbol-api-key <apiKey>  The API key for the symbol server.
+[13:03:38 INF]   -d|--disable-buffering         Disable buffering when pushing to an HTTP(S) server to decrease memory usage.
+[13:03:38 INF]   -n|--no-symbols                If a symbols package exists, it will not be pushed to a symbols server.
+[13:03:38 INF]   --no-service-endpoint          Does not append "api/v2/package" to the source URL.
+[13:03:38 INF]   --interactive                  Allow the command to block and require manual action for operations like authentication.
+[13:03:38 INF]   --skip-duplicate               If a package and version already exists, skip it and continue with the next package in the push, if any.
+[13:03:38 INF] 
+[13:03:38 INF] Packing 'CoreXF.Abstractions'
+[13:03:38 INF] -----------------------------
+[13:03:40 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[13:03:40 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[13:03:40 INF] 
+[13:03:41 INF]   Determining projects to restore...
+[13:03:41 INF]   All projects are up-to-date for restore.
+[13:03:43 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[13:03:44 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Abstractions.2.0.0-beta-4.nupkg'.
+[13:03:44 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Abstractions.2.0.0-beta-4.snupkg'.
+[13:03:44 INF] 
+[13:03:44 INF] Pushing 'CoreXF.Abstractions'
+[13:03:44 INF] -----------------------------
+[13:03:45 INF] Pushing CoreXF.Abstractions.2.0.0-beta-4.nupkg to 'https://www.nuget.org/api/v2/package'...
+[13:03:45 INF]   PUT https://www.nuget.org/api/v2/package/
+[13:03:46 INF]   Forbidden https://www.nuget.org/api/v2/package/ 998ms
+[13:03:46 INF] error: Response status code does not indicate success: 403 (The specified API key is invalid, has expired, or does not have permission to access the specified package.).
+[13:03:47 INF] 
+[13:03:47 INF] 
+[13:03:47 INF] Usage: dotnet nuget push [arguments] [options]
+[13:03:47 INF] 
+[13:03:47 INF] Arguments:
+[13:03:47 INF]   [root]  Specify the path to the package and your API key to push the package to the server.
+[13:03:47 INF] 
+[13:03:47 INF] Options:
+[13:03:47 INF]   -h|--help                      Show help information
+[13:03:47 INF]   --force-english-output         Forces the application to run using an invariant, English-based culture.
+[13:03:47 INF]   -s|--source <source>           Package source (URL, UNC/folder path or package source name) to use. Defaults to DefaultPushSource if specified in NuGet.Config.
+[13:03:47 INF]   -ss|--symbol-source <source>   Symbol server URL to use.
+[13:03:47 INF]   -t|--timeout <timeout>         Timeout for pushing to a server in seconds. Defaults to 300 seconds (5 minutes).
+[13:03:47 INF]   -k|--api-key <apiKey>          The API key for the server.
+[13:03:47 INF]   -sk|--symbol-api-key <apiKey>  The API key for the symbol server.
+[13:03:47 INF]   -d|--disable-buffering         Disable buffering when pushing to an HTTP(S) server to decrease memory usage.
+[13:03:47 INF]   -n|--no-symbols                If a symbols package exists, it will not be pushed to a symbols server.
+[13:03:47 INF]   --no-service-endpoint          Does not append "api/v2/package" to the source URL.
+[13:03:47 INF]   --interactive                  Allow the command to block and require manual action for operations like authentication.
+[13:03:47 INF]   --skip-duplicate               If a package and version already exists, skip it and continue with the next package in the push, if any.
+[13:03:47 INF] 
+[13:06:17 INF] --------------------
+[13:06:17 INF] NEW SESSION STARTED.
+[13:06:17 INF] --------------------
+[13:06:17 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-4 to https://api.nuget.org/v3/index.json.
+[13:06:17 INF] 
+[13:06:17 INF] Dependency Graph:
+[13:06:17 INF] -----------------
+[13:06:17 INF] CoreXF.Framework (0): 
+[13:06:17 INF] 
+[13:06:17 INF] CoreXF.WebApiHost (0): 
+[13:06:17 INF] 
+[13:06:17 INF] CoreXF.Abstractions (0): 
+[13:06:17 INF] 
+[13:06:17 INF] Packing 'CoreXF.Framework'
+[13:06:17 INF] --------------------------
+[13:06:19 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[13:06:19 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[13:06:19 INF] 
+[13:06:20 INF]   Determining projects to restore...
+[13:06:21 INF]   Restored D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 714 ms).
+[13:06:23 INF]   CoreXF.Framework -> D:\Github\CoreXF\src\Framework\bin\Debug\net5.0\CoreXF.Framework.dll
+[13:06:23 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Framework.2.0.0-beta-4.nupkg'.
+[13:06:23 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Framework.2.0.0-beta-4.snupkg'.
+[13:06:23 INF] 
+[13:06:23 INF] Pushing 'CoreXF.Framework'
+[13:06:23 INF] --------------------------
+[13:06:25 INF] Pushing CoreXF.Framework.2.0.0-beta-4.nupkg to 'https://www.nuget.org/api/v2/package'...
+[13:06:25 INF]   PUT https://www.nuget.org/api/v2/package/
+[13:06:26 INF]   Created https://www.nuget.org/api/v2/package/ 1385ms
+[13:06:26 INF] Your package was pushed.
+[13:06:26 INF] Pushing CoreXF.Framework.2.0.0-beta-4.snupkg to 'https://www.nuget.org/api/v2/symbolpackage'...
+[13:06:26 INF]   PUT https://www.nuget.org/api/v2/symbolpackage/
+[13:06:27 INF]   Created https://www.nuget.org/api/v2/symbolpackage/ 417ms
+[13:06:27 INF] Your package was pushed.
+[13:06:27 INF] 
+[13:06:27 INF] Packing 'CoreXF.WebApiHost'
+[13:06:27 INF] ---------------------------
+[13:06:29 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[13:06:29 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[13:06:29 INF] 
+[13:06:29 INF]   Determining projects to restore...
+[13:06:30 INF]   Restored D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj (in 751 ms).
+[13:06:31 INF]   Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded, but the build result will not be impacted.
+[13:06:35 WRN] CSC : warning CS8034: Unable to load Analyzer assembly C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.analyzers\2.2.0\analyzers\dotnet\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll : Assembly with same name is already loaded [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[13:06:36 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.dll
+[13:06:36 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.Views.dll
+[13:06:37 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.WebApiHost.2.0.0-beta-4.nupkg'.
+[13:06:37 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.WebApiHost.2.0.0-beta-4.snupkg'.
+[13:06:37 INF] 
+[13:06:37 INF] Pushing 'CoreXF.WebApiHost'
+[13:06:37 INF] ---------------------------
+[13:06:39 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-4.nupkg to 'https://www.nuget.org/api/v2/package'...
+[13:06:39 INF]   PUT https://www.nuget.org/api/v2/package/
+[13:06:42 INF]   Created https://www.nuget.org/api/v2/package/ 3171ms
+[13:06:42 INF] Your package was pushed.
+[13:06:42 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-4.snupkg to 'https://www.nuget.org/api/v2/symbolpackage'...
+[13:06:42 INF]   PUT https://www.nuget.org/api/v2/symbolpackage/
+[13:06:42 INF]   Created https://www.nuget.org/api/v2/symbolpackage/ 418ms
+[13:06:42 INF] Your package was pushed.
+[13:06:42 INF] 
+[13:06:42 INF] Packing 'CoreXF.Abstractions'
+[13:06:42 INF] -----------------------------
+[13:06:44 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[13:06:44 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[13:06:44 INF] 
+[13:06:45 INF]   Determining projects to restore...
+[13:06:45 INF]   All projects are up-to-date for restore.
+[13:06:48 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[13:06:48 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Abstractions.2.0.0-beta-4.nupkg'.
+[13:06:48 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Abstractions.2.0.0-beta-4.snupkg'.
+[13:06:48 INF] 
+[13:06:48 INF] Pushing 'CoreXF.Abstractions'
+[13:06:48 INF] -----------------------------
+[13:06:50 INF] Pushing CoreXF.Abstractions.2.0.0-beta-4.nupkg to 'https://www.nuget.org/api/v2/package'...
+[13:06:50 INF]   PUT https://www.nuget.org/api/v2/package/
+[13:06:51 INF]   Created https://www.nuget.org/api/v2/package/ 1118ms
+[13:06:51 INF] Your package was pushed.
+[13:06:51 INF] Pushing CoreXF.Abstractions.2.0.0-beta-4.snupkg to 'https://www.nuget.org/api/v2/symbolpackage'...
+[13:06:51 INF]   PUT https://www.nuget.org/api/v2/symbolpackage/
+[13:06:51 INF]   Created https://www.nuget.org/api/v2/symbolpackage/ 393ms
+[13:06:51 INF] Your package was pushed.
+[13:06:51 INF] 
