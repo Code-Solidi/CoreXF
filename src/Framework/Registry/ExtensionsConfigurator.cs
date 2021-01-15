@@ -70,12 +70,13 @@ namespace CoreXF.Framework.Registry
                 }
             }
 
-            static void ReplaceControllerFeatureProvider(IServiceCollection services, ILoggerFactory loggerFactory)
+            static void ReplaceControllerFeatureProvider(IServiceCollection services, IExtensionsRegistry registry, ILoggerFactory loggerFactory)
             {
-                var partManager = services.BuildServiceProvider().GetRequiredService<ApplicationPartManager>();
+                var provider = services.BuildServiceProvider();
+                var partManager = provider.GetRequiredService<ApplicationPartManager>();
                 var controllerFeatureProvider = partManager.FeatureProviders.SingleOrDefault(p => p is ControllerFeatureProvider);
                 partManager.FeatureProviders.Remove(controllerFeatureProvider);
-                partManager.FeatureProviders.Add(new ExtensionsControllerFeatureProvider(loggerFactory));
+                partManager.FeatureProviders.Add(new ExtensionsControllerFeatureProvider(registry, loggerFactory));
             }
 
             static void ReplaceViewComponentFeatureProvider(IServiceCollection services, ILoggerFactory loggerFactory)
@@ -117,11 +118,13 @@ namespace CoreXF.Framework.Registry
 
             services.AddSingleton<IExtensionsApplicationBuilderFactory, ExtensionsApplicationBuilderFactory>();
 
-            ReplaceControllerFeatureProvider(services, loggerFactory);
+            //ReplaceControllerFeatureProvider(services, loggerFactory);
 
             var provider = services.BuildServiceProvider();
             var options = provider.GetRequiredService<IOptionsMonitor<CoreXfOptions>>().CurrentValue;
             var registry = AddRegistry(services, options.Location);
+
+            ReplaceControllerFeatureProvider(services, registry, loggerFactory);
             AddApplicationParts(builder, registry, services, configuration, loggerFactory);
 
             // NB: what options were to do doesn't work! No time to explore details.

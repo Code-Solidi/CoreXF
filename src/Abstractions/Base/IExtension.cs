@@ -8,6 +8,8 @@ using CoreXF.Abstractions.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using System.Reflection;
+
 namespace CoreXF.Abstractions.Base
 {
     /// <summary>
@@ -46,5 +48,7 @@ namespace CoreXF.Abstractions.Base
         void Start();
 
         void Stop();
+
+        void AddController(TypeInfo type);
     }
 }

@@ -4,6 +4,7 @@
  */
 
 using CoreXF.Abstractions.Attributes;
+using CoreXF.Abstractions.Registry;
 using CoreXF.Framework.Settings;
 
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
@@ -20,10 +21,12 @@ namespace CoreXF.Framework.Providers
     public class ExtensionsControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
     {
         private readonly ILogger<ExtensionsControllerFeatureProvider> logger;
+        private readonly IExtensionsRegistry registry;
 
-        public ExtensionsControllerFeatureProvider(ILoggerFactory loggerFactory)
+        public ExtensionsControllerFeatureProvider(IExtensionsRegistry registry, ILoggerFactory loggerFactory)
         {
             this.logger = loggerFactory.CreateLogger<ExtensionsControllerFeatureProvider>();
+            this.registry = registry;
         }
 
         public IDictionary<string, IList<TypeInfo>> Areas { get; } = new Dictionary<string, IList<TypeInfo>>();
@@ -52,7 +55,11 @@ namespace CoreXF.Framework.Providers
                             }
 
                             this.Areas[area].Add(type);
+
                             feature.Controllers.Add(type);
+
+                            this.registry.GetExtension(((AssemblyPart)part).Assembly).AddController(type);
+
                             this.logger.LogInformation($"Controller '{type.AsType().FullName}' has been registered and is accessible.");
                         }
                         else

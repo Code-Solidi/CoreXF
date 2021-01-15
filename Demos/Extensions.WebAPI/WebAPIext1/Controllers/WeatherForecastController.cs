@@ -1,5 +1,6 @@
 ﻿using CoreXF.Abstractions.Attributes;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,9 +10,7 @@ using System.Linq;
 
 namespace WebApiExt1.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    [Export]
+    [ApiController, Route("[controller]"), Export, Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

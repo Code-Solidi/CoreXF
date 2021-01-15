@@ -6,6 +6,7 @@
 using CoreXF.Abstractions.Base;
 
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace CoreXF.Abstractions.Registry
 {
@@ -16,5 +17,7 @@ namespace CoreXF.Abstractions.Registry
         T GetExtension<T>() where T : IExtension;
 
         IExtension GetExtension(string name);
+
+        IExtension GetExtension(Assembly assembly);
     }
 }

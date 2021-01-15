@@ -3,13 +3,14 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
-using System.Collections.Generic;
-using System.Linq;
-
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
 using Microsoft.Extensions.Logging;
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace CoreXF.Framework.Registry
 {
@@ -27,8 +28,7 @@ namespace CoreXF.Framework.Registry
 
         public T GetExtension<T>() where T : IExtension
         {
-            var found = this.extensions.SingleOrDefault(x => x is T);
-            return (T)found;
+            return (T)this.extensions.SingleOrDefault(x => x is T); ;
         }
 
         public void Register(IExtension extension)
@@ -44,9 +44,10 @@ namespace CoreXF.Framework.Registry
             }
         }
 
-        public IExtension GetExtension(string name)
-        {
-            return this.extensions.SingleOrDefault(x => x.Name == name);
-        }
+        public IExtension GetExtension(string name) 
+            => this.extensions.SingleOrDefault(x => x.Name == name);
+
+        public IExtension GetExtension(Assembly assembly)
+            => this.Extensions.SingleOrDefault(x => x.GetType().Assembly.GetName().FullName == assembly.GetName().FullName);
     }
 }

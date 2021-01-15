@@ -5,6 +5,7 @@
 
 using CoreXF.WebApiHost.Models;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,6 +13,7 @@ using System.Diagnostics;
 
 namespace CoreXF.WebApiHost.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;
@@ -22,11 +24,6 @@ namespace CoreXF.WebApiHost.Controllers
         }
 
         public IActionResult Index()
-        {
-            return this.View();
-        }
-
-        public IActionResult Privacy()
         {
             return this.View();
         }

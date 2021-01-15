@@ -5,7 +5,9 @@
 
 using CoreXF.Abstractions.Registry;
 using CoreXF.WebApiHost.Models;
+using CoreXF.WebApiHost.Swagger;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using System.Collections.Generic;
@@ -13,13 +15,16 @@ using System.Linq;
 
 namespace CoreXF.WebApiHost.Controllers
 {
+    [Authorize]
     public class WebApisController : Controller
     {
         private readonly IExtensionsRegistry extensionsRegistry;
+        private readonly SwaggerSelector selectorService;
 
-        public WebApisController(IExtensionsRegistry extensionsRegistry)
+        public WebApisController(IExtensionsRegistry extensionsRegistry, SwaggerSelector selectorService)
         {
             this.extensionsRegistry = extensionsRegistry;
+            this.selectorService = selectorService;
         }
 
         [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
@@ -60,6 +65,12 @@ namespace CoreXF.WebApiHost.Controllers
             var status = extension?.Status;
             extension?.Start();
             return Ok(new { result = status != extension?.Status, status = extension?.Status });
+        }
+
+        public IActionResult Swagger(string extension)
+        {
+            this.selectorService.SetExtension(this.HttpContext.User, extension);
+            return this.Accepted();
         }
     }
 }

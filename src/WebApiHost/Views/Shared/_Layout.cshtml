@@ -23,7 +23,7 @@
 
     <title>CoreXF Admin Panel</title>
 
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -46,12 +46,12 @@
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="userDropdown" href=@this.UserProfile title=@this.Username role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" href="#">Activity Log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href=@this.Logout>Logout</a>
                 </div>
             </li>
         </ul>
@@ -122,19 +122,19 @@
                             </div>*@
                         @*** May be useful, do not remove! ***@
                         @*<div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-puzzle-piece"></i></div>
-                            CoreXF
-                        </a>
-                        <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user-cog"></i></div>
-                            Admin Panel
-                        </a>*@
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-puzzle-piece"></i></div>
+                                CoreXF
+                            </a>
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-cog"></i></div>
+                                Admin Panel
+                            </a>*@
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    CoreXF Administrator
+                    @this.Username
                 </div>
             </nav>
         </div>
@@ -147,11 +147,23 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; CoreXF Demo Panel, 2020</div>
+                        <div class="text-muted">CoreXF Admin Panel, Copyright &copy; Code Solidi Ltd. 2020 - 2021</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            @if (string.IsNullOrWhiteSpace(this.Privacy) == false)
+                            {
+                                <a href=@this.Privacy>Privacy Policy</a>
+                                @if (string.IsNullOrWhiteSpace(this.TermsAndConditions) == false)
+                                {
+                                    <text>
+                                        &middot;
+                                    </text>
+                                }
+                            }
+
+                            @if (string.IsNullOrWhiteSpace(this.TermsAndConditions) == false)
+                            {
+                                <a href=@this.TermsAndConditions>Terms &amp; Conditions</a>
+                            }
                         </div>
                     </div>
                 </div>
@@ -165,5 +177,40 @@
 </body>
 </html>
 
+@using Microsoft.Extensions.Configuration
+@using System.IO
 
+@functions {
+    private IConfiguration configuration;
+
+    private IConfiguration Configuration
+    {
+        get
+        {
+            if (this.configuration == default)
+            {
+                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile($"appsettings.json", true, true)
+                    .AddJsonFile($"appsettings.{env}.json", true, true)
+                    .AddEnvironmentVariables();
+
+                this.configuration = builder.Build();
+            }
+
+            return this.configuration;
+        }
+    }
+
+    public string Logout => this.Configuration["CoreXF:Admin:Logout"];
+
+    public string Privacy => this.Configuration["CoreXF:Admin:Privacy"];
+
+    public string TermsAndConditions => this.Configuration["CoreXF:Admin:TermsAndConditions"];
+
+    public string Username => this.Context.User?.Identity?.Name;
+
+    public string UserProfile => this.Configuration["CoreXF:Admin:UserProfile"];
+}
 

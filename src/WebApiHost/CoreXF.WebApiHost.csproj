@@ -25,7 +25,7 @@
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <Version>2.0.0-beta-3</Version>
+        <Version>2.0.0-beta-4</Version>
         <IsPackable>true</IsPackable>
         <OutputType>Library</OutputType>
 
@@ -33,31 +33,35 @@
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <EmbeddedResource Include="wwwroot\**\*" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <Compile Remove="Components\**" />
-      <Content Remove="Components\**" />
-      <EmbeddedResource Remove="Components\**" />
-      <None Remove="Components\**" />
-      <None Include="..\..\Packaging\CoreXF.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
-      <None Include="..\..\Packaging\GNU-GPL.txt">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
+        <Compile Remove="Components\**" />
+        <Content Remove="Components\**" />
+        <EmbeddedResource Remove="Components\**" />
+        <None Remove="Components\**" />
+        <None Include="..\..\Packaging\CoreXF.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\Packaging\GNU-GPL.txt">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
-    
+
     <ItemGroup>
-      <None Remove="Components.zip" />
+        <None Remove="Components.zip" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
     </ItemGroup>
 </Project>

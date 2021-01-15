@@ -2080,3 +2080,110 @@
 [15:46:35 INF]   Created http://baget.local/api/v2/symbol/ 31ms
 [15:46:35 INF] Your package was pushed.
 [15:46:35 INF] 
+[15:46:45 INF] [master 9959675] Committed new NuGet package version 2.0.0-beta-3.
+[15:46:45 INF]  6 files changed, 91 insertions(+), 5 deletions(-)
+[12:35:28 INF] --------------------
+[12:35:28 INF] NEW SESSION STARTED.
+[12:35:28 INF] --------------------
+[12:35:28 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-4 to http://baget.local/v3/index.json.
+[12:35:28 INF] 
+[12:35:28 INF] Dependency Graph:
+[12:35:28 INF] -----------------
+[12:35:28 INF] CoreXF.Abstractions (0): 
+[12:35:28 INF] 
+[12:35:28 INF] CoreXF.Framework (0): 
+[12:35:28 INF] 
+[12:35:28 INF] CoreXF.WebApiHost (0): 
+[12:35:28 INF] 
+[12:35:28 INF] Packing 'CoreXF.Abstractions'
+[12:35:28 INF] -----------------------------
+[12:35:31 INF] 
+[12:35:31 INF] Welcome to .NET 5.0!
+[12:35:31 INF] ---------------------
+[12:35:31 INF] SDK Version: 5.0.102
+[12:35:31 INF] 
+[12:35:31 INF] Telemetry
+[12:35:31 INF] ---------
+[12:35:31 INF] The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+[12:35:31 INF] 
+[12:35:31 INF] Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
+[12:35:31 INF] 
+[12:35:31 INF] ----------------
+[12:35:31 INF] Installed an ASP.NET Core HTTPS development certificate.
+[12:35:31 INF] To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only).
+[12:35:31 INF] Learn about HTTPS: https://aka.ms/dotnet-https
+[12:35:31 INF] ----------------
+[12:35:31 INF] Write your first app: https://aka.ms/dotnet-hello-world
+[12:35:31 INF] Find out what's new: https://aka.ms/dotnet-whats-new
+[12:35:31 INF] Explore documentation: https://aka.ms/dotnet-docs
+[12:35:31 INF] Report issues and find source on GitHub: https://github.com/dotnet/core
+[12:35:31 INF] Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+[12:35:31 INF] --------------------------------------------------------------------------------------
+[12:35:32 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[12:35:32 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[12:35:32 INF] 
+[12:35:33 INF]   Determining projects to restore...
+[12:35:34 INF]   Restored D:\Github\CoreXF\src\Abstractions\CoreXF.Abstractions.csproj (in 321 ms).
+[12:35:39 INF]   CoreXF.Abstractions -> D:\Github\CoreXF\src\Abstractions\bin\Debug\net5.0\CoreXF.Abstractions.dll
+[12:35:40 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Abstractions.2.0.0-beta-4.nupkg'.
+[12:35:40 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Abstractions.2.0.0-beta-4.snupkg'.
+[12:35:40 INF] 
+[12:35:40 INF] Pushing 'CoreXF.Abstractions'
+[12:35:40 INF] -----------------------------
+[12:35:44 INF] Pushing CoreXF.Abstractions.2.0.0-beta-4.nupkg to 'http://baget.local/api/v2/package'...
+[12:35:44 INF]   PUT http://baget.local/api/v2/package/
+[12:35:46 INF]   Created http://baget.local/api/v2/package/ 1917ms
+[12:35:46 INF] Your package was pushed.
+[12:35:46 INF] Pushing CoreXF.Abstractions.2.0.0-beta-4.snupkg to 'http://baget.local/api/v2/symbol'...
+[12:35:46 INF]   PUT http://baget.local/api/v2/symbol/
+[12:35:46 INF]   Created http://baget.local/api/v2/symbol/ 353ms
+[12:35:46 INF] Your package was pushed.
+[12:35:46 INF] 
+[12:35:46 INF] Packing 'CoreXF.Framework'
+[12:35:46 INF] --------------------------
+[12:35:48 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[12:35:48 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[12:35:48 INF] 
+[12:35:49 INF]   Determining projects to restore...
+[12:35:52 INF]   Restored D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 2.7 sec).
+[12:35:52 INF]   Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded, but the build result will not be impacted.
+[12:35:54 INF]   CoreXF.Framework -> D:\Github\CoreXF\src\Framework\bin\Debug\net5.0\CoreXF.Framework.dll
+[12:35:54 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Framework.2.0.0-beta-4.nupkg'.
+[12:35:54 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.Framework.2.0.0-beta-4.snupkg'.
+[12:35:54 INF] 
+[12:35:54 INF] Pushing 'CoreXF.Framework'
+[12:35:54 INF] --------------------------
+[12:35:56 INF] Pushing CoreXF.Framework.2.0.0-beta-4.nupkg to 'http://baget.local/api/v2/package'...
+[12:35:56 INF]   PUT http://baget.local/api/v2/package/
+[12:35:57 INF]   Created http://baget.local/api/v2/package/ 290ms
+[12:35:57 INF] Your package was pushed.
+[12:35:57 INF] Pushing CoreXF.Framework.2.0.0-beta-4.snupkg to 'http://baget.local/api/v2/symbol'...
+[12:35:57 INF]   PUT http://baget.local/api/v2/symbol/
+[12:35:57 INF]   Created http://baget.local/api/v2/symbol/ 97ms
+[12:35:57 INF] Your package was pushed.
+[12:35:57 INF] 
+[12:35:57 INF] Packing 'CoreXF.WebApiHost'
+[12:35:57 INF] ---------------------------
+[12:35:59 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[12:35:59 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[12:35:59 INF] 
+[12:35:59 INF]   Determining projects to restore...
+[12:36:01 INF]   Restored D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj (in 1.39 sec).
+[12:36:02 INF]   Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded, but the build result will not be impacted.
+[12:36:06 WRN] CSC : warning CS8034: Unable to load Analyzer assembly C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.analyzers\2.2.0\analyzers\dotnet\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll : Assembly with same name is already loaded [D:\Github\CoreXF\src\WebApiHost\CoreXF.WebApiHost.csproj]
+[12:36:07 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.dll
+[12:36:07 INF]   CoreXF.WebApiHost -> D:\Github\CoreXF\src\WebApiHost\bin\Debug\net5.0\CoreXF.WebApiHost.Views.dll
+[12:36:09 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.WebApiHost.2.0.0-beta-4.nupkg'.
+[12:36:09 INF]   Successfully created package 'D:\Github\CoreXF\NuGet.Publisher\bin\Debug\net5.0\v2.0.0-beta-4\CoreXF.WebApiHost.2.0.0-beta-4.snupkg'.
+[12:36:09 INF] 
+[12:36:09 INF] Pushing 'CoreXF.WebApiHost'
+[12:36:09 INF] ---------------------------
+[12:36:11 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-4.nupkg to 'http://baget.local/api/v2/package'...
+[12:36:11 INF]   PUT http://baget.local/api/v2/package/
+[12:36:11 INF]   Created http://baget.local/api/v2/package/ 342ms
+[12:36:11 INF] Your package was pushed.
+[12:36:11 INF] Pushing CoreXF.WebApiHost.2.0.0-beta-4.snupkg to 'http://baget.local/api/v2/symbol'...
+[12:36:11 INF]   PUT http://baget.local/api/v2/symbol/
+[12:36:11 INF]   Created http://baget.local/api/v2/symbol/ 48ms
+[12:36:11 INF] Your package was pushed.
+[12:36:11 INF] 

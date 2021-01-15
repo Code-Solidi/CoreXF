@@ -37,14 +37,13 @@
         {
             <tr>
                 <td>
-                    <a href="/swagger">@Html.DisplayFor(modelItem => item.Name)</a>
+                    <a id="@item.UrlEncodedName" href="/swagger">@Html.DisplayFor(modelItem => item.Name)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
                     <status current="@item.Status" item="@item.Name" />
-                    @*<component type="typeof(ExtensionStatus)" render-mode="ServerPrerendered" param-Extension="item.Extension" />*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Version)
@@ -71,6 +70,14 @@
 @section Scripts {
     <script>
         $(function () {
+            $('a').on('click', function (e) {
+                var href = e.target.href;
+                e.preventDefault();
+                $.post('webapis/swagger', { extension: e.target.id }, function () {
+                    location.href = href;
+                });
+            })
+
             var getItemName = function (e) {
                 e.preventDefault();
                 var item = e.currentTarget;

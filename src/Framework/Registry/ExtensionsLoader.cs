@@ -39,12 +39,12 @@ namespace CoreXF.Framework.Registry
                 Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
             };
 
-            //var location = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            _ = new ExtensionsLoader(factory, registry).Discover(location, excludes);
+            new ExtensionsLoader(factory, registry).Discover(location, excludes);
+
             return registry;
         }
 
-        private ExtensionsLoader Discover(string location, string[] excludes)
+        private void Discover(string location, string[] excludes)
         {
             var files = Array.Empty<string>();
             try
@@ -56,7 +56,7 @@ namespace CoreXF.Framework.Registry
             catch (Exception x)
             {
                 this.logger.LogError(x.Message);
-                throw;
+                return;
             }
 
             foreach (var assembly in this.LoadAssemblies(files))
@@ -88,16 +88,12 @@ namespace CoreXF.Framework.Registry
                     }
                 }
             }
-
-            return this;
         }
 
         internal static Assembly LoadAssembly(string assemblyPath, ILogger logger)
         {
             try
             {
-                //logger.LogDebug($"Loading assembly '{assemblyPath}'.");
-
                 // load dependent assemblies:
                 // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
                 return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!

@@ -5,6 +5,8 @@
 
 using CoreXF.Abstractions.Base;
 
+using System.Web;
+
 using static CoreXF.Abstractions.Base.IExtension;
 
 namespace CoreXF.WebApiHost.Models
@@ -12,6 +14,8 @@ namespace CoreXF.WebApiHost.Models
     public class MicroserviceModel
     {
         public string Name { get; set; }
+
+        public string UrlEncodedName => HttpUtility.UrlEncode(this.Name);
 
         public string Description { get; set; }
 

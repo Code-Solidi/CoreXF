@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 using static CoreXF.Abstractions.Base.IExtension;
@@ -40,6 +41,13 @@ namespace CoreXF.Abstractions.Base
 
         public ExtensionStatus Status { get; private set; } = ExtensionStatus.Running;
 
+        public IEnumerable<TypeInfo> Controllers { get; } = new List<TypeInfo>();
+
+        public void AddController(TypeInfo controller)
+        {
+            ((ICollection<TypeInfo>)this.Controllers).Add(controller);
+        }
+
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
         {
         }
@@ -56,14 +64,8 @@ namespace CoreXF.Abstractions.Base
             }
         }
 
-        public void Start()
-        {
-            this.Status = ExtensionStatus.Running;
-        }
+        public void Start() => this.Status = ExtensionStatus.Running;
 
-        public void Stop()
-        {
-            this.Status = ExtensionStatus.Stopped;
-        }
+        public void Stop() => this.Status = ExtensionStatus.Stopped;
     }
 }
