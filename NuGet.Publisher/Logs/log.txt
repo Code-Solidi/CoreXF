@@ -2187,3 +2187,9 @@
 [12:36:11 INF]   Created http://baget.local/api/v2/symbol/ 48ms
 [12:36:11 INF] Your package was pushed.
 [12:36:11 INF] 
+[12:36:18 INF] [master 7000f95] Committed new NuGet package version 2.0.0-beta-4.
+[12:36:18 INF]  24 files changed, 388 insertions(+), 106 deletions(-)
+[12:36:18 INF]  delete mode 100644 src/WebApiHost/Views/Home/Privacy.cshtml
+[12:36:18 ERR] warning: LF will be replaced by CRLF in src/Framework/Registry/ExtensionsRegistry.cs.
+[12:36:18 ERR] The file will have its original line endings in your working directory
+[12:36:18 ERR] Error committing changes.

@@ -27,7 +27,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
         <ProjectReference Include="..\..\src\WebApiHost\CoreXF.WebApiHost.csproj" />
     </ItemGroup>
 

@@ -43,6 +43,7 @@
         <Content Remove="Components\**" />
         <EmbeddedResource Remove="Components\**" />
         <None Remove="Components\**" />
+        <None Include="..\..\ChameleonXF.sln.licenseheader" Link="ChameleonXF.sln.licenseheader" />
         <None Include="..\..\Packaging\CoreXF.png">
             <Pack>True</Pack>
             <PackagePath></PackagePath>

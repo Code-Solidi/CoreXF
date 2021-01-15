@@ -47,6 +47,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="..\..\ChameleonXF.sln.licenseheader" Link="ChameleonXF.sln.licenseheader" />
       <None Include="..\..\Packaging\CoreXF.png">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
