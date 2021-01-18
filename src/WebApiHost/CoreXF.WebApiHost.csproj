@@ -25,7 +25,7 @@
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <Version>2.0.0-beta-4</Version>
+        <Version>2.0.0-beta-5</Version>
         <IsPackable>true</IsPackable>
         <OutputType>Library</OutputType>
 
@@ -63,6 +63,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
+      <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
     </ItemGroup>
 </Project>

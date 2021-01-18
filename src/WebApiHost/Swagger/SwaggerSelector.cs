@@ -3,46 +3,37 @@
  * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
  */
 
+using CoreXF.Abstractions.Base;
+using CoreXF.Framework.Settings;
+
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Controllers;
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 
 namespace CoreXF.WebApiHost.Swagger
 {
-    /// <summary>
-    /// NB: Subject to change - dictionary should be locked and unlocked on every op!!
-    /// </summary>
     public class SwaggerSelector
     {
         private static SwaggerSelector instance;
-        private Dictionary<string, string> extensions;
         private string extension;
-
-        private SwaggerSelector()
-        {
-            this.extensions = new Dictionary<string, string>();
-        }
 
         public static SwaggerSelector Service => SwaggerSelector.instance ?? (SwaggerSelector.instance = new SwaggerSelector());
 
-        internal void SetExtension(ClaimsPrincipal user, string extension)
+        internal void SetExtension(string extension)
         {
-            // swagger rewrites everything in the request, even the logged in user!!
-            //var username = user?.Identity?.Name ?? "Anonymous";
-            //this.extensions[user?.Identity?.Name] = extension;
-
             this.extension = extension;
         }
 
-        public bool IncludeDocument(ClaimsPrincipal user, ApiDescription x)
+        public bool IncludeDocument(ApiDescription x)
         {
-            // swagger rewrites everything in the request, even the logged in user!!
-            //var username = user?.Identity?.Name ?? "Anonymous";
-            //return this.extensions.ContainsKey(username) ? x.RelativePath == this.extensions[username] : true;
-
-            return this.extension != null ? x.RelativePath == this.extension : true; 
+            var assembly = ((ControllerActionDescriptor)x.ActionDescriptor)?.ControllerTypeInfo.Assembly;
+            var type = assembly?.GetTypes().SingleOrDefault(t => typeof(IExtension).IsAssignableFrom(t));
+            var extension = type != null ? (IExtension)Activator.CreateInstance(type) : null;
+            return this.extension != null ? this.extension == extension?.Name : true;
         }
     }
 }

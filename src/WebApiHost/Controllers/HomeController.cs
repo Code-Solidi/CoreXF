@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace CoreXF.WebApiHost.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;

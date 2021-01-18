@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace CoreXF.WebApiHost.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class WebApisController : Controller
     {
         private readonly IExtensionsRegistry extensionsRegistry;
@@ -69,7 +69,7 @@ namespace CoreXF.WebApiHost.Controllers
 
         public IActionResult Swagger(string extension)
         {
-            this.selectorService.SetExtension(this.HttpContext.User, extension);
+            this.selectorService.SetExtension(extension);
             return this.Accepted();
         }
     }

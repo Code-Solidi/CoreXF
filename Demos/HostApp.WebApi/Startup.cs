@@ -29,7 +29,7 @@ namespace HostApp.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options 
+            services.AddDbContext<ApplicationDbContext>(options
                 => options.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDefaultIdentity<IdentityUser>(options =>
@@ -57,7 +57,7 @@ namespace HostApp.WebApi
                     var provider = services.BuildServiceProvider();
                     var selector = provider.GetRequiredService<SwaggerSelector>();
                     var httpContext = provider.GetService<IHttpContextAccessor>();
-                    return selector.IncludeDocument(httpContext.HttpContext.User, x);
+                    return selector.IncludeDocument(x);
                 });
 
                 setup.SwaggerDoc(name: "v3", new OpenApiInfo
@@ -84,7 +84,7 @@ namespace HostApp.WebApi
                                 Id = "Bearer"
                             }
                         },
-                        new string[] { }
+                        System.Array.Empty<string>()
                     }
                 });
             });

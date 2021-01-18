@@ -6,6 +6,8 @@
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
+using Microsoft.Extensions.DependencyModel;
+using Microsoft.Extensions.DependencyModel.Resolution;
 using Microsoft.Extensions.Logging;
 
 using System;
@@ -90,31 +92,6 @@ namespace CoreXF.Framework.Registry
             }
         }
 
-        internal static Assembly LoadAssembly(string assemblyPath, ILogger logger)
-        {
-            try
-            {
-                // load dependent assemblies:
-                // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
-                return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
-            }
-            catch (FileLoadException x)
-            {
-                logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
-                return null;
-            }
-            catch (FileNotFoundException x)
-            {
-                logger.Log(LogLevel.Error, x, $"'{assemblyPath}' not found.");
-                return null;
-            }
-            catch (BadImageFormatException x)
-            {
-                logger.Log(LogLevel.Error, x, $"Bad image format in '{assemblyPath}'.");
-                return null;
-            }
-        }
-
         private List<Assembly> LoadAssemblies(string[] files)
         {
             this.logger.LogDebug("Loading assemblies...");
@@ -131,5 +108,98 @@ namespace CoreXF.Framework.Registry
 
             return assemblyList;
         }
+
+        internal static Assembly LoadAssembly(string assemblyPath, ILogger logger)
+        {
+            if (assemblyPath.Contains("Extensions\\Identity"))
+            {
+                System.Diagnostics.Debugger.Launch();
+            }
+
+            try
+            {
+                // load dependent assemblies:
+                // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
+                return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
+                //return new AssemblyResolver(assemblyPath).Assembly;
+            }
+            catch (FileLoadException x)
+            {
+                logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
+            }
+            catch (FileNotFoundException x)
+            {
+                logger.Log(LogLevel.Error, x, $"'{assemblyPath}' not found.");
+            }
+            catch (BadImageFormatException x)
+            {
+                logger.Log(LogLevel.Error, x, $"Bad image format in '{assemblyPath}'.");
+            }
+            catch (Exception x)
+            {
+                logger.Log(LogLevel.Error, x, $"Generic exception thrown: '{assemblyPath}'.");
+            }
+
+            return null;
+        }
+
+        //private sealed class AssemblyResolver : IDisposable
+        //{
+        //    private readonly ICompilationAssemblyResolver assemblyResolver;
+        //    private readonly DependencyContext dependencyContext;
+        //    private readonly AssemblyLoadContext loadContext;
+
+        //    public AssemblyResolver(string path)
+        //    {
+        //        this.Assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
+        //        this.dependencyContext = DependencyContext.Load(this.Assembly);
+
+        //        this.assemblyResolver = new CompositeCompilationAssemblyResolver(new ICompilationAssemblyResolver[]
+        //        {
+        //            new AppBaseCompilationAssemblyResolver(Path.GetDirectoryName(path)),
+        //            new ReferenceAssemblyPathResolver(),
+        //            new PackageCompilationAssemblyResolver()
+        //        });
+
+        //        this.loadContext = AssemblyLoadContext.GetLoadContext(this.Assembly);
+        //        this.loadContext.Resolving += OnResolving;
+        //    }
+
+        //    public Assembly Assembly { get; }
+
+        //    public void Dispose()
+        //    {
+        //        this.loadContext.Resolving -= this.OnResolving;
+        //    }
+
+        //    private Assembly OnResolving(AssemblyLoadContext context, AssemblyName name)
+        //    {
+        //        bool NamesMatch(RuntimeLibrary runtime)
+        //        {
+        //            return string.Equals(runtime.Name, name.Name, StringComparison.OrdinalIgnoreCase);
+        //        }
+
+        //        var library = this.dependencyContext.RuntimeLibraries.FirstOrDefault(NamesMatch);
+        //        if (library != null)
+        //        {
+        //            var wrapper = new CompilationLibrary(library.Type
+        //                , library.Name
+        //                , library.Version
+        //                , library.Hash
+        //                , library.RuntimeAssemblyGroups.SelectMany(g => g.AssetPaths)
+        //                , library.Dependencies
+        //                , library.Serviceable);
+
+        //            var assemblies = new List<string>();
+        //            this.assemblyResolver.TryResolveAssemblyPaths(wrapper, assemblies);
+        //            if (assemblies.Count > 0)
+        //            {
+        //                return this.loadContext.LoadFromAssemblyPath(assemblies[0]);
+        //            }
+        //        }
+
+        //        return null;
+        //    }
+        //}
     }
 }

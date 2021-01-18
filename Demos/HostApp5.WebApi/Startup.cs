@@ -74,7 +74,7 @@ namespace HostApp5.WebApi
                     var provider = services.BuildServiceProvider();
                     var selector = provider.GetRequiredService<SwaggerSelector>();
                     var httpContext = provider.GetService<IHttpContextAccessor>();
-                    return selector.IncludeDocument(httpContext.HttpContext.User, x);
+                    return selector.IncludeDocument(x);
                 });
 
                 setup.SwaggerDoc(name: "v3", new OpenApiInfo

@@ -2406,3 +2406,84 @@
 [13:06:51 INF] 
 [13:06:56 INF] [master df550fc] Committed new NuGet package version 2.0.0-beta-4.
 [13:06:56 INF]  2 files changed, 215 insertions(+), 4 deletions(-)
+[14:22:50 INF] --------------------
+[14:22:50 INF] NEW SESSION STARTED.
+[14:22:50 INF] --------------------
+[14:22:50 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-5 to http://baget.local/v3/index.json.
+[14:22:50 INF] 
+[14:22:50 INF] Dependency Graph:
+[14:22:50 INF] -----------------
+[14:22:50 INF] CoreXF.Framework (0): 
+[14:22:50 INF] 
+[14:22:50 INF] CoreXF.WebApiHost (0): 
+[14:22:50 INF] 
+[14:22:50 INF] CoreXF.Abstractions (0): 
+[14:22:50 INF] 
+[14:22:50 INF] Packing 'CoreXF.Framework'
+[14:22:50 INF] --------------------------
+[14:22:52 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[14:22:52 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[14:22:52 INF] 
+[14:22:53 INF]   Determining projects to restore...
+[14:22:56 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102: Unable to find package CoreXF.Abstractions with version (>= 2.0.0-beta-5)
+[14:22:56 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 10 version(s) in nuget.org [ Nearest version: 2.0.0-beta-4 ]
+[14:22:56 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 4 version(s) in BaGet.local [ Nearest version: 2.0.0-beta-4 ]
+[14:22:56 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 0 version(s) in Microsoft Visual Studio Offline Packages
+[14:22:56 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 0 version(s) in Sumo-Soft
+[14:22:56 INF]   Failed to restore D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 3.16 sec).
+[14:22:56 ERR] Error packing 'CoreXF.Framework'.
+[14:22:56 INF] 
+[14:24:33 INF] --------------------
+[14:24:33 INF] NEW SESSION STARTED.
+[14:24:33 INF] --------------------
+[14:24:33 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-5 to http://baget.local/v3/index.json.
+[14:24:33 INF] 
+[14:24:33 INF] Dependency Graph:
+[14:24:33 INF] -----------------
+[14:24:33 INF] CoreXF.Framework (0): 
+[14:24:33 INF] 
+[14:24:33 INF] CoreXF.WebApiHost (0): 
+[14:24:33 INF] 
+[14:24:33 INF] CoreXF.Abstractions (0): 
+[14:24:33 INF] 
+[14:24:33 INF] Packing 'CoreXF.Framework'
+[14:24:33 INF] --------------------------
+[14:24:34 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[14:24:34 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[14:24:34 INF] 
+[14:24:35 INF]   Determining projects to restore...
+[14:24:37 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102: Unable to find package CoreXF.Abstractions with version (>= 2.0.0-beta-5)
+[14:24:37 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 10 version(s) in nuget.org [ Nearest version: 2.0.0-beta-4 ]
+[14:24:37 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 4 version(s) in BaGet.local [ Nearest version: 2.0.0-beta-4 ]
+[14:24:37 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 0 version(s) in Microsoft Visual Studio Offline Packages
+[14:24:37 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 0 version(s) in Sumo-Soft
+[14:24:37 INF]   Failed to restore D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 1.96 sec).
+[14:24:37 ERR] Error packing 'CoreXF.Framework'.
+[14:24:37 INF] 
+[14:27:03 INF] --------------------
+[14:27:04 INF] NEW SESSION STARTED.
+[14:27:04 INF] --------------------
+[14:27:04 INF] Publishing projects in 'ChameleonXF.sln' v2.0.0-beta-5 to http://baget.local/v3/index.json.
+[14:27:04 INF] 
+[14:27:04 INF] Dependency Graph:
+[14:27:04 INF] -----------------
+[14:27:04 INF] CoreXF.Framework (0): 
+[14:27:04 INF] 
+[14:27:04 INF] CoreXF.WebApiHost (0): 
+[14:27:04 INF] 
+[14:27:04 INF] CoreXF.Abstractions (0): 
+[14:27:04 INF] 
+[14:27:04 INF] Packing 'CoreXF.Framework'
+[14:27:04 INF] --------------------------
+[14:27:05 INF] Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+[14:27:05 INF] Copyright (C) Microsoft Corporation. All rights reserved.
+[14:27:05 INF] 
+[14:27:06 INF]   Determining projects to restore...
+[14:27:08 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102: Unable to find package CoreXF.Abstractions with version (>= 2.0.0-beta-5)
+[14:27:08 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 10 version(s) in nuget.org [ Nearest version: 2.0.0-beta-4 ]
+[14:27:08 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 4 version(s) in BaGet.local [ Nearest version: 2.0.0-beta-4 ]
+[14:27:08 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 0 version(s) in Microsoft Visual Studio Offline Packages
+[14:27:08 ERR] D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj : error NU1102:   - Found 0 version(s) in Sumo-Soft
+[14:27:08 INF]   Failed to restore D:\Github\CoreXF\src\Framework\CoreXF.Framework.csproj (in 1.94 sec).
+[14:27:08 ERR] Error packing 'CoreXF.Framework'.
+[14:27:08 INF] 
