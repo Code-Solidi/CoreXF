@@ -36,7 +36,7 @@ namespace CoreXF.Framework.Registry
             var found = this.extensions.SingleOrDefault(x => x.Name == extension.Name);
             if (found != null)
             {
-                this.logger.LogError($"Extension {extension.Name}, v{extension.Version} has already been registered.");
+                this.logger.LogWarning($"Extension {extension.Name}, v{extension.Version} has already been registered.");
             }
             else
             {

@@ -111,10 +111,10 @@ namespace CoreXF.Framework.Registry
 
         internal static Assembly LoadAssembly(string assemblyPath, ILogger logger)
         {
-            if (assemblyPath.Contains("Extensions\\Identity"))
-            {
-                System.Diagnostics.Debugger.Launch();
-            }
+            //if (assemblyPath.Contains("Extensions\\Identity"))
+            //{
+            //    System.Diagnostics.Debugger.Launch();
+            //}
 
             try
             {
