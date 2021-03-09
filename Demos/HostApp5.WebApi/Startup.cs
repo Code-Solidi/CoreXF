@@ -15,11 +15,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 
-using System;
-using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace HostApp5.WebApi
@@ -33,9 +31,11 @@ namespace HostApp5.WebApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+
+        [SuppressMessage("Design", "ASP0000:Do not call 'IServiceCollection.BuildServiceProvider' in 'ConfigureServices'", Justification = "<Pending>")]
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddServerSideBlazor();
             services.AddControllersWithViews().AddCoreXF(services, this.Configuration);
 
             services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -53,12 +53,12 @@ namespace HostApp5.WebApi
                 {
                     options.SaveToken = true;
                     options.RequireHttpsMetadata = false;
-                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidAudience = "https://sumo-soft.com",    // hiro?
-                        ValidIssuer = "https://www.sumo-soft.com",
+                        ValidAudience = "https://codesolidi.com",
+                        ValidIssuer = "https://www.codesolidi.com",
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("7S79jvOkEdwoRqHx"))
                     };
                 });
@@ -73,7 +73,6 @@ namespace HostApp5.WebApi
                 {
                     var provider = services.BuildServiceProvider();
                     var selector = provider.GetRequiredService<SwaggerSelector>();
-                    var httpContext = provider.GetService<IHttpContextAccessor>();
                     return selector.IncludeDocument(x);
                 });
 
@@ -143,6 +142,7 @@ namespace HostApp5.WebApi
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapBlazorHub();
             });
 
             app.Populate(original.UseCoreXF());

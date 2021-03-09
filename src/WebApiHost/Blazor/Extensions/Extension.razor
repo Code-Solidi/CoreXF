@@ -1,0 +1,27 @@
+﻿@using Models
+
+<tr>
+    <td>
+        <a id="@this.Entry.UrlEncodedName" href="/swagger">@this.Entry.Name</a>
+    </td>
+    <td>
+        @this.Entry.Description
+    </td>
+    <td>
+        <Status Name="@this.Entry.Name" />
+    </td>
+    <td>
+        @this.Entry.Version
+    </td>
+    <td>
+        <a href="@this.Entry.Url">@this.Entry.Url</a>
+    </td>
+    <td>
+        @this.Entry.Authors
+    </td>
+</tr>
+
+@code {
+    [Parameter] public MicroserviceModel Entry { get; set; }
+}
+

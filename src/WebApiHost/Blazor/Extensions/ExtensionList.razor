@@ -1,0 +1,58 @@
+﻿@using Models
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @nameof(MicroserviceModel.Name)
+            </th>
+            <th>
+                @nameof(MicroserviceModel.Description)
+            </th>
+            <th>
+                @nameof(MicroserviceModel.Status)
+            </th>
+            <th>
+                @nameof(MicroserviceModel.Version)
+            </th>
+            <th>
+                @nameof(MicroserviceModel.Url)
+            </th>
+            <th>
+                @nameof(MicroserviceModel.Authors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in this.Extensions)
+        {
+            <Extension Entry=@item />
+
+            @*<tr>
+                <td>
+                    <a id="@item.UrlEncodedName" href="/swagger">@item.Name</a>
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    <status current="@item.Status" item="@item.Name" />
+                </td>
+                <td>
+                    @item.Version
+                </td>
+                <td>
+                    @item.Url
+                </td>
+                <td>
+                    @item.Authors
+                </td>
+            </tr>*@
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter] public IEnumerable<MicroserviceModel> Extensions { get; set; }
+}

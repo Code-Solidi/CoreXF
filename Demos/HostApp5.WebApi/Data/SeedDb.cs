@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace HostApp5.WebApi.Data
 {
-    public class SeedDb
+    public static class SeedDb
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
@@ -15,7 +15,7 @@ namespace HostApp5.WebApi.Data
             context.Database.EnsureCreated();
             if (!context.Users.Any())
             {
-                var user = new IdentityUser()
+                var user = new IdentityUser
                 {
                     Email = "test@gmail.com",
                     UserName = "test",

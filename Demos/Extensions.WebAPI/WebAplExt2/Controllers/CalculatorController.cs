@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WebAplExt2.Controllers
 {
-    [ApiController, Route("[controller]"), Export, Authorize]
+    [ApiController, Route("[controller]"), Export/*, Authorize*/]
     public class CalculatorController : ControllerBase
     {
         private readonly ILogger<CalculatorController> _logger;

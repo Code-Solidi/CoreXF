@@ -1,0 +1,64 @@
+﻿@using Models
+@using CoreXF.Abstractions.Registry;
+@using CoreXF.Abstractions.Base;
+@using static CoreXF.Abstractions.Base.IExtension
+
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+
+<style>
+    .btn:focus, .btn.focus {
+        box-shadow: none;
+    }
+    .btn {
+        padding: 4px;
+    }
+    div.buttons {
+        min-width: 50px;
+    }
+</style>
+
+<div class="buttons">
+    @switch (this.extension?.Status)
+    {
+        case ExtensionStatus.Running:
+            <button type='button' class='play btn btn-sm text-muted' disabled data-item-name='@this.Name' title='Stopped, press to run.' @onclick=@(_ => this.Toggle())><i class='fas fa-play'></i></button>
+            <button type='button' class='pause btn btn-sm text-danger' data-item-name='@this.Name' title='Running, press to stop.' @onclick=@(_ => this.Toggle())><i class='fas fa-stop'></i></button>
+            break;
+        case ExtensionStatus.Stopped:
+            <button type='button' class='play btn btn-sm text-success' data-item-name='@this.Name' title='Stopped, press to run.' @onclick=@(_ => this.Toggle())><i class='fas fa-play'></i></button>
+            <button type='button' class='pause btn btn-sm text-muted' disabled data-item-name='@this.Name' title='Running, press to stop.' @onclick=@(_ => this.Toggle())><i class='fas fa-stop'></i></button>
+            break;
+    }
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; }
+
+    [Inject]
+    private IExtensionsRegistry extensionsRegistry { get; set; }
+
+    private IExtension extension;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        this.extension = this.extensionsRegistry.Extensions.SingleOrDefault(x => x.Name.Equals(this.Name, System.StringComparison.OrdinalIgnoreCase));
+    }
+
+    private void Toggle()
+    {
+        switch (this.extension?.Status)
+        {
+            case ExtensionStatus.Running:
+                extension?.Stop();
+                break;
+
+            case ExtensionStatus.Stopped:
+                extension?.Start();
+                break;
+        }
+
+        this.StateHasChanged();
+    }
+}
