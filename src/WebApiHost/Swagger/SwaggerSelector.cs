@@ -21,6 +21,9 @@ namespace CoreXF.WebApiHost.Swagger
         private static SwaggerSelector instance;
         private string extension;
 
+        /// <summary>
+        /// Real singleton!
+        /// </summary>
         public static SwaggerSelector Service => SwaggerSelector.instance ?? (SwaggerSelector.instance = new SwaggerSelector());
 
         internal void SetExtension(string extension)

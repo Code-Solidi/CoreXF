@@ -1,8 +1,9 @@
 ﻿@using Models
+@using Swagger
 
 <tr>
     <td>
-        <a id="@this.Entry.UrlEncodedName" href="/swagger">@this.Entry.Name</a>
+        <NavLink href="/swagger" @onclick=@(_ => this.SelectExtension())>@this.Entry.Name</NavLink>
     </td>
     <td>
         @this.Entry.Description
@@ -14,7 +15,7 @@
         @this.Entry.Version
     </td>
     <td>
-        <a href="@this.Entry.Url">@this.Entry.Url</a>
+        <a href="@this.Entry.Url" target="_blank">@this.Entry.Url</a>
     </td>
     <td>
         @this.Entry.Authors
@@ -23,5 +24,14 @@
 
 @code {
     [Parameter] public MicroserviceModel Entry { get; set; }
+
+    [Inject] private SwaggerSelector selectorService { get; set; }
+    [Inject] private NavigationManager navigationManager { get; set; }
+
+    private void SelectExtension()
+    {
+        this.selectorService.SetExtension(this.Entry.Name);
+        this.navigationManager.NavigateTo("/swagger");
+    }
 }
 
