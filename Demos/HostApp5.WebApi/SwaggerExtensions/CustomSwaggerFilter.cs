@@ -14,7 +14,7 @@ namespace HostApp5.WebApi.SwaggerExtensions
         private readonly IHttpContextAccessor contextAccessor;
         private readonly IExtensionsRegistry registry;
 
-        public CustomSwaggerFilter(IHttpContextAccessor contextAccessor, IExtensionsRegistry registry, int v)
+        public CustomSwaggerFilter(IHttpContextAccessor contextAccessor, IExtensionsRegistry registry)
         {
             this.contextAccessor = contextAccessor;
             this.registry = registry;

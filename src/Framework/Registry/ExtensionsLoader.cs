@@ -6,8 +6,6 @@
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
-using Microsoft.Extensions.DependencyModel;
-using Microsoft.Extensions.DependencyModel.Resolution;
 using Microsoft.Extensions.Logging;
 
 using System;

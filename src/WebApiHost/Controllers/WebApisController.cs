@@ -49,10 +49,10 @@ namespace CoreXF.WebApiHost.Controllers
             return View(model);
         }
 
-        public IActionResult Swagger(string extension)
-        {
-            this.selectorService.SetExtension(extension);
-            return this.Accepted();
-        }
+        //public IActionResult Swagger(string extension)
+        //{
+        //    this.selectorService.SetExtension(extension);
+        //    return this.Accepted();
+        //}
     }
 }

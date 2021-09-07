@@ -1,0 +1,2 @@
+﻿# Readme #
+This is a project being a ASP.NET Core MVC extension, it contain controllers not loaded by the CoreXF.Framework.Registry.ExtensionsLoader. Of course, they are accessible the old way, but by making them part of an extension simulates adding a NuGet package to the host.

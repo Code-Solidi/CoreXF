@@ -43,6 +43,7 @@
         <Content Remove="Components\**" />
         <EmbeddedResource Remove="Components\**" />
         <None Remove="Components\**" />
+        <Compile Remove="ExtensionStatusTagHelper.cs" />
         <None Include="..\..\ChameleonXF.sln.licenseheader" Link="ChameleonXF.sln.licenseheader" />
         <None Include="..\..\Packaging\CoreXF.png">
             <Pack>True</Pack>
@@ -52,6 +53,7 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
+        <None Include="ExtensionStatusTagHelper.cs" />
     </ItemGroup>
 
     <ItemGroup>

@@ -11,7 +11,6 @@ using CoreXF.WebApiHost.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.FileProviders;
 
@@ -24,6 +23,9 @@ using System.Threading.Tasks;
 
 namespace CoreXF.WebApiHost
 {
+    /// <summary>
+    /// Filters out requests to "stopped" extensions.
+    /// </summary>
     public static class HostExtensions
     {
         public static IExtensionsApplicationBuilder UseCoreXFHost(this IExtensionsApplicationBuilder app, IWebHostEnvironment env)
@@ -37,7 +39,7 @@ namespace CoreXF.WebApiHost
     }
 
     /// <summary>
-    /// Should be called right before dispatching to any of the controllers/actions
+    /// NB: Should be called right before dispatching to any of the controllers/actions
     /// </summary>
     public class RequestMiddleware
     {
@@ -45,6 +47,7 @@ namespace CoreXF.WebApiHost
         private readonly IExtensionsRegistry registry;
         private readonly Dictionary<string, IExtension> routes;
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public RequestMiddleware(RequestDelegate next, IExtensionsRegistry registry, IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
         {
             this.next = next;
@@ -52,7 +55,8 @@ namespace CoreXF.WebApiHost
 
             this.routes = new Dictionary<string, IExtension>();
             var extAssemblyNames = this.registry.Extensions.Select(t => Path.GetFileName(t.Location));
-            var extensionControllers = actionDescriptorCollectionProvider.ActionDescriptors.Items.Where(x =>
+            /*var extensionControllers = */
+            _ = actionDescriptorCollectionProvider.ActionDescriptors.Items.Where(x =>
             {
                 var parts = x.DisplayName.Split('.');
                 var extensionAssemblyFileName = parts.Length > 0 ? parts[0] : string.Empty;
@@ -73,13 +77,13 @@ namespace CoreXF.WebApiHost
                         var existingExtension = this.routes[route];
                         if (existingExtension != extension)
                         {
-                            throw new InvalidOperationException($"Route '{route}' is handled by more than on extension.");
+                            throw new InvalidOperationException($"Route '{route}' is handled by more than one extension.");
                         }
                     }
                 }
 
                 return true;
-            }).ToArray();
+            });
         }
 
         public async Task InvokeAsync(HttpContext context)

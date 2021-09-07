@@ -4,6 +4,7 @@ using CoreXF.WebApiHost;
 using CoreXF.WebApiHost.Swagger;
 
 using HostApp5.WebApi.Data;
+using HostApp5.WebApi.SwaggerExtensions;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -18,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 
 namespace HostApp5.WebApi
@@ -90,7 +92,8 @@ namespace HostApp5.WebApi
                     Type = SecuritySchemeType.ApiKey
                 });
 
-                setup.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                setup.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
                     {
                         new OpenApiSecurityScheme
                         {
@@ -103,6 +106,9 @@ namespace HostApp5.WebApi
                         new string[] { }
                     }
                 });
+
+                setup.DocumentFilter<CustomSwaggerFilter>();
+                setup.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());    // why this?
             });
 
             SeedDb.Initialize(services.BuildServiceProvider());
