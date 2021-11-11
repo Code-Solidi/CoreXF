@@ -1,6 +1,6 @@
 ﻿/*
  * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
- * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
 using CoreXF.Abstractions.Base;
@@ -22,6 +22,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 
@@ -36,6 +37,8 @@ namespace CoreXF.Framework.Registry
         /// <param name="services">The services.</param>
         /// <param name="configuration">The configuration.</param>
         /// <returns></returns>
+        [SuppressMessage("Design", "CC0021:Use nameof", Justification = "<Pending>")]
+        [SuppressMessage("Info Code Smell", "S1135:Track uses of \"TODO\" tags", Justification = "<Pending>")]
         public static IMvcBuilder AddCoreXF(this IMvcBuilder builder, IServiceCollection services, IConfiguration configuration)
         {
             // add registry as a service
@@ -58,7 +61,7 @@ namespace CoreXF.Framework.Registry
 
                     if (extension is IExtensionWithViews)
                     {
-                        // load compiled views 
+                        // load compiled views
                         var directory = extension.Location;
                         var viewsAssemblyName = (extension as IExtensionWithViews).Views;
                         var logger = loggerFactory.CreateLogger(nameof(ExtensionsConfigurator));
@@ -117,8 +120,6 @@ namespace CoreXF.Framework.Registry
             var loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
 
             services.AddSingleton<IExtensionsApplicationBuilderFactory, ExtensionsApplicationBuilderFactory>();
-
-            //ReplaceControllerFeatureProvider(services, loggerFactory);
 
             var provider = services.BuildServiceProvider();
             var options = provider.GetRequiredService<IOptionsMonitor<CoreXfOptions>>().CurrentValue;

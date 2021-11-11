@@ -15,4 +15,8 @@
     <Exec Command="md &quot;$(SolutionDir)Demos\HostApp5\Extensions\$(ProjectName)&quot;&#xD;&#xA;copy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)Demos\HostApp5\Extensions\$(ProjectName)&quot;" />
   </Target>
 
+  <ItemGroup>
+    <None Include="..\..\..\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+  </ItemGroup>
+
 </Project>

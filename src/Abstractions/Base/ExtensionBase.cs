@@ -1,6 +1,6 @@
 ﻿/*
  * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
- * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
 using CoreXF.Abstractions.Builder;
@@ -17,7 +17,7 @@ using static CoreXF.Abstractions.Base.IExtension;
 namespace CoreXF.Abstractions.Base
 {
     /// <summary>A default implementation of <see cref="IExtension">IExtension</see>.</summary>
-    public class ExtensionBase : IExtension, IBackingService
+    public class ExtensionBase : IBackingService
     {
         /// <summary>The name of the extension. As a convention use the name of the assembly.</summary>
         public virtual string Name => nameof(ExtensionBase);
@@ -43,9 +43,9 @@ namespace CoreXF.Abstractions.Base
 
         public IEnumerable<TypeInfo> Controllers { get; } = new List<TypeInfo>();
 
-        public void AddController(TypeInfo controller)
+        public void AddController(TypeInfo type)
         {
-            ((ICollection<TypeInfo>)this.Controllers).Add(controller);
+            ((ICollection<TypeInfo>)this.Controllers).Add(type);
         }
 
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)

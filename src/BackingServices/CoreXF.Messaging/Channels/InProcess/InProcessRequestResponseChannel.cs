@@ -1,19 +1,22 @@
-﻿using CoreXF.Messaging.Abstractions;
+﻿/*
+ * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
+ */
+
+using CoreXF.Messaging.Abstractions;
 using CoreXF.Messaging.Abstractions.Channels;
 using CoreXF.Messaging.Abstractions.Messages;
-using CoreXF.Messaging.Messages;
 
 using Microsoft.Extensions.Logging;
 
 using System;
-using System.Net;
-using System.Net.Http;
 
 namespace CoreXF.Messaging.Channels.InProcess
 {
     public class InProcessRequestResponseChannel : AbstractChannel, IRequestResponseChannel
     {
         private readonly IMessageBroker broker;
+
         private readonly ILogger logger;
 
         internal InProcessRequestResponseChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)

@@ -1,4 +1,9 @@
-﻿using CoreXF.Messaging.Abstractions;
+﻿/*
+ * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
+ */
+
+using CoreXF.Messaging.Abstractions;
 
 namespace CoreXF.Messaging.Messages
 {
@@ -12,7 +17,7 @@ namespace CoreXF.Messaging.Messages
 
         public string ReasonPhrase { get; private set; }
 
-        public static IMessageResponse Default = new MessageResponse(default, StatusCode.Success);
+        public static IMessageResponse Default => new MessageResponse(default, StatusCode.Success);
 
         public MessageResponse(IRecipient recipient, StatusCode statusCode, string reasonPhrase = default)
         {

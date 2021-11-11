@@ -1,6 +1,6 @@
 ﻿/*
  * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
- * Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
 using CoreXF.Abstractions.Base;
@@ -16,7 +16,8 @@ namespace CoreXF.Framework.Registry
 {
     internal class ExtensionsRegistry : IExtensionsRegistry
     {
-        private readonly List<IExtension> extensions = new();
+        private readonly List<IExtension> extensions = new List<IExtension>();
+
         private readonly ILogger logger;
 
         public IEnumerable<IExtension> Extensions => this.extensions;
@@ -24,11 +25,6 @@ namespace CoreXF.Framework.Registry
         public ExtensionsRegistry(ILoggerFactory factory)
         {
             this.logger = factory.CreateLogger<ExtensionsRegistry>();
-        }
-
-        public T GetExtension<T>() where T : IExtension
-        {
-            return (T)this.extensions.SingleOrDefault(x => x is T); ;
         }
 
         public void Register(IExtension extension)
@@ -44,7 +40,9 @@ namespace CoreXF.Framework.Registry
             }
         }
 
-        public IExtension GetExtension(string name) 
+        public T GetExtension<T>() where T : IExtension => (T)this.extensions.SingleOrDefault(x => x is T);
+
+        public IExtension GetExtension(string name)
             => this.extensions.SingleOrDefault(x => x.Name == name);
 
         public IExtension GetExtension(Assembly assembly)

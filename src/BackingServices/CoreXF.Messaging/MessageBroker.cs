@@ -1,4 +1,9 @@
-﻿using CoreXF.Messaging.Abstractions;
+﻿/*
+ * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
+ */
+
+using CoreXF.Messaging.Abstractions;
 using CoreXF.Messaging.Abstractions.Channels;
 using CoreXF.Messaging.Abstractions.Messages;
 using CoreXF.Messaging.Messages;
@@ -7,6 +12,7 @@ using Microsoft.Extensions.Logging;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace CoreXF.Messaging
@@ -14,11 +20,17 @@ namespace CoreXF.Messaging
     public class MessageBroker : IMessageBroker
     {
         private readonly IFireAndForgetChannel fireForgetChannel;
+
         private readonly ILogger logger;
+
         private readonly IPublishSubscribeChannel publishSubscribeChannel;
+
         private readonly IRequestResponseChannel requestResponseChannel;
+
         private readonly IDictionary<string, List<ISubscriber>> subscribers;
+
         private readonly IDictionary<string, IRecipient> recipients;
+
         private readonly object locker = new object();
 
         public MessageBroker(AbstractChannelFactory factory)
@@ -31,12 +43,10 @@ namespace CoreXF.Messaging
             this.publishSubscribeChannel = factory.CreatePublishSubscribeChannel(this);
             this.requestResponseChannel = factory.CreateRequestResponseChannel(this);
 
-            this.logger = (factory as AbstractChannelFactory).Logger;
+            this.logger = factory.Logger;
         }
 
         public event FireEvent OnFire;
-
-        //public event PublishEvent OnPublish;
 
         public event ResponseEvent OnResponse;
 
@@ -76,12 +86,12 @@ namespace CoreXF.Messaging
         public IMessageResponse Request(IRequestMessage message)
         {
             _ = message ?? throw new ArgumentNullException(nameof(message));
-            
+
             this.logger.LogInformation($"Requesting: {message.Id} ({message.Type}).");
             var response = this.requestResponseChannel.Request(message);
             this.OnResponse?.Invoke(message, response);
             this.logger.LogInformation($"Response for: {message.Id} ({message.Type}) => '{response.Content}'.");
-            
+
             return response;
         }
 
@@ -109,6 +119,7 @@ namespace CoreXF.Messaging
             return this.recipients.ContainsKey(messageType);
         }
 
+        [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void RemoveRecipient(string messageType)
         {
             if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
@@ -136,6 +147,7 @@ namespace CoreXF.Messaging
 
         #region Publish/Subscribe
 
+        [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Subscribe(ISubscriber subscriber, string messageType)
         {
             _ = subscriber ?? throw new ArgumentNullException(nameof(subscriber));
@@ -152,7 +164,7 @@ namespace CoreXF.Messaging
                 }
 
                 var messageTypeSubscribers = this.subscribers[messageType];
-                if (messageTypeSubscribers.Count(x => x.Identity == subscriber.Identity) != 0)
+                if (messageTypeSubscribers.Any(x => x.Identity == subscriber.Identity))
                 {
                     throw new InvalidOperationException($"A subscription for message type '{messageType}' already made.");
                 }
@@ -167,8 +179,7 @@ namespace CoreXF.Messaging
             {
                 if (this.subscribers.ContainsKey(messageType))
                 {
-                    var subscribers = this.subscribers[messageType];
-                    return subscribers.Find(x => x.Identity == subscriber.Identity) != default;
+                    return this.subscribers[messageType].Find(x => x.Identity == subscriber.Identity) != default;
                 }
 
                 throw new InvalidOperationException($"Message type '{messageType}' has not been registered.");
@@ -192,6 +203,7 @@ namespace CoreXF.Messaging
             }
         }
 
+        [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Register(string messageType)
         {
             lock (this.locker)
@@ -203,6 +215,7 @@ namespace CoreXF.Messaging
             }
         }
 
+        [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Unregister(string messageType)
         {
             lock (this.locker)

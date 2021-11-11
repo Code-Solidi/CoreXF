@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup Label="Globals">
         <SccProjectName>SAK</SccProjectName>
@@ -8,7 +8,8 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <!--<TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>-->
+        <TargetFramework>netcoreapp3.1</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Authors>Code Solidi Ltd.</Authors>
@@ -16,7 +17,7 @@
         <Copyright>Copyright (c) Code Solidi Ltd. 2016-2021.</Copyright>
         <Product>CoreXF</Product>
         <PackageIcon>CoreXF.png</PackageIcon>
-        <PackageLicenseFile>GNU-GPL.txt</PackageLicenseFile>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <IncludeSymbols>true</IncludeSymbols>
@@ -25,13 +26,14 @@
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <Version>2.0.0-beta-5</Version>
         <IsPackable>true</IsPackable>
         <OutputType>Library</OutputType>
 
         <!-- IMPORTANT, DO NOT REMOVE! -->
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+
+        <Version>2.0.1-beta-5</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -44,14 +46,13 @@
         <EmbeddedResource Remove="Components\**" />
         <None Remove="Components\**" />
         <Compile Remove="ExtensionStatusTagHelper.cs" />
-        <None Include="..\..\ChameleonXF.sln.licenseheader" Link="ChameleonXF.sln.licenseheader" />
         <None Include="..\..\Packaging\CoreXF.png">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-        <None Include="..\..\Packaging\GNU-GPL.txt">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
+        <None Include="..\..\Packaging\LICENSE.txt">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
         </None>
         <None Include="ExtensionStatusTagHelper.cs" />
     </ItemGroup>
@@ -61,11 +62,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="..\..\Packaging\LICENSE.txt" Link="LICENSE.txt" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TarggetFramework)' == 'net5.0'">
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
         <!--<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.2" />-->
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Framework\CoreXF.Framework.csproj" />
+      <PackageReference Include="CoreXF.Abstractions" Version="2.0.1-beta-5" />
+      <PackageReference Include="CoreXF.Framework" Version="2.0.1-beta-5" />
     </ItemGroup>
 </Project>

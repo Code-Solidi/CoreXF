@@ -1,11 +1,11 @@
-﻿using CoreXF.Messaging.Abstractions.Channels;
-using CoreXF.Messaging.Abstractions.Messages;
+﻿/*
+ * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
+ */
+
+using CoreXF.Messaging.Abstractions.Channels;
 
 using Microsoft.Extensions.Logging;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace CoreXF.Messaging.Abstractions
 {
@@ -36,7 +36,7 @@ namespace CoreXF.Messaging.Abstractions
         protected AbstractChannelFactory(ILogger logger)
         {
             this.logger = logger;
-        //    this.MessageQueue = new Dictionary<string, ICollection<AbstractMessage>>();
+            //    this.MessageQueue = new Dictionary<string, ICollection<AbstractMessage>>();
         }
 
         public abstract IFireAndForgetChannel CreateFireAndForgetChannel(IMessageBroker broker);

@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Authors>Code Solidi Ltd.</Authors>
@@ -16,7 +16,7 @@
         <Copyright>Copyright (c) Code Solidi Ltd. 2016-2021.</Copyright>
         <Product>CoreXF</Product>
         <PackageIcon>CoreXF.png</PackageIcon>
-        <PackageLicenseFile>GNU-GPL.txt</PackageLicenseFile>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <IncludeSymbols>true</IncludeSymbols>
@@ -25,10 +25,15 @@
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <Version>2.0.0-beta-5</Version>
+        <Version>2.0.1-beta-5</Version>
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Include="..\..\Packaging\LICENSE.txt" Link="LICENSE.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CoreXF.Abstractions" Version="2.0.1-beta-5" />
         <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
         <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.3" />
@@ -48,19 +53,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="..\..\ChameleonXF.sln.licenseheader" Link="ChameleonXF.sln.licenseheader" />
       <None Include="..\..\Packaging\CoreXF.png">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
-      <None Include="..\..\Packaging\GNU-GPL.txt">
+      <None Include="..\..\Packaging\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+      <None Include="..\..\Packaging\LICENSE.txt">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Abstractions\CoreXF.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

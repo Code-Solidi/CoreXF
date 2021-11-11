@@ -9,6 +9,10 @@
     </Target>
 
     <ItemGroup>
+      <None Include="..\..\..\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="CoreXF.Abstractions" Version="2.0.0-alpha-4" />
     </ItemGroup>
 

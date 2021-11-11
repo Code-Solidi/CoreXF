@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <Authors>Code Solidi Ltd.</Authors>
+        <Description>CoreXF is a ASP.NET Core eXtensibility Framework. It defines interfaces and classes required to convert .NET Core MVC applications as well as .NET Core class libraries into .NET Core MVC extensions.</Description>
+        <Copyright>Copyright (c) Code Solidi Ltd. 2016-2021.</Copyright>
+        <Product>CoreXF</Product>
+        <PackageIcon>CoreXF.png</PackageIcon>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageIconUrl />
+        <PackageLicenseExpression></PackageLicenseExpression>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <Version>2.0.1-alpha-5</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\..\..\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+      <None Include="..\..\..\Packaging\CoreXF.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+      <None Include="LICENSE.txt">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
+
+</Project>
