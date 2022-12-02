@@ -37,39 +37,49 @@ namespace CoreXF.Framework.Registry
         /// <param name="services">The services.</param>
         /// <param name="configuration">The configuration.</param>
         /// <returns></returns>
+        /// 
+#if NETCOREAPP3_1
         [SuppressMessage("Design", "CC0021:Use nameof", Justification = "<Pending>")]
         [SuppressMessage("Info Code Smell", "S1135:Track uses of \"TODO\" tags", Justification = "<Pending>")]
         public static IMvcBuilder AddCoreXF(this IMvcBuilder builder, IServiceCollection services, IConfiguration configuration)
         {
+#endif
+#if NET6_0
+        public static IMvcBuilder AddCoreXF(this IMvcBuilder builder, IServiceCollection services)
+        {
+            var configuration = services.BuildServiceProvider().GetRequiredService<IConfiguration>();
+#endif
+
             // add registry as a service
             static IExtensionsRegistry AddRegistry(IServiceCollection services, string location)
             {
                 var provider = services.BuildServiceProvider();
                 var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
-                var registry = ExtensionsLoader.DiscoverExtensions(loggerFactory, location);
+                var registry = ExtensionsLoader.DiscoverExtensions(services, loggerFactory, location);
                 services.AddSingleton(registry);
                 return registry;
             }
 
             // make extensions available to MVC application, configures extensions and configures extension services (SRP, split?)
-            static void AddApplicationParts(IMvcBuilder mvcBuilder, IExtensionsRegistry registry, IServiceCollection services, IConfiguration configuration, ILoggerFactory loggerFactory)
+            static void AddApplicationParts(IMvcBuilder mvcBuilder, IExtensionsRegistry registry, IServiceCollection services, ILoggerFactory loggerFactory)
             {
                 foreach (var extension in (registry as ExtensionsRegistry)?.Extensions)
                 {
                     var assembly = extension.GetType().Assembly;
                     mvcBuilder.AddApplicationPart(assembly);
 
-                    if (extension is IExtensionWithViews)
+#if NETCOREAPP3_1
+                    if (extension is IExtensionMvc)
                     {
                         // load compiled views
                         var directory = extension.Location;
-                        var viewsAssemblyName = (extension as IExtensionWithViews).Views;
+                        var viewsAssemblyName = (extension as IExtensionMvc).Views;
                         var logger = loggerFactory.CreateLogger(nameof(ExtensionsConfigurator));
                         var viewsAssembly = ExtensionsLoader.LoadAssembly(Path.Combine(directory, viewsAssemblyName), logger);
                         mvcBuilder.AddApplicationPart(viewsAssembly);
                     }
-
-                    extension.ConfigureServices(services, configuration);
+#endif
+                    //extension.ConfigureServices(services); -- called during registration!! 
                 }
             }
 
@@ -126,7 +136,7 @@ namespace CoreXF.Framework.Registry
             var registry = AddRegistry(services, options.Location);
 
             ReplaceControllerFeatureProvider(services, registry, loggerFactory);
-            AddApplicationParts(builder, registry, services, configuration, loggerFactory);
+            AddApplicationParts(builder, registry, services, loggerFactory);
 
             // NB: what options were to do doesn't work! No time to explore details.
             if (options.UseViewComponents) { ReplaceViewComponentFeatureProvider(services, loggerFactory); }

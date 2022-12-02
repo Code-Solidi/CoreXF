@@ -3,7 +3,7 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Attributes;
+using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 using CoreXF.Framework.Settings;
 
@@ -34,19 +34,16 @@ namespace CoreXF.Framework.Providers
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
         {
             _ = feature ?? throw new ArgumentNullException(nameof(feature));
-
             var appParts = parts?.OfType<IApplicationPartTypeProvider>() ?? throw new ArgumentNullException(nameof(parts));
 
             // inspect all but those parts coming from CoreXF.Framework (fails with an ReflectionTypeLoadException)
             foreach (var part in appParts.Where(x => (x as ApplicationPart)?.Name != Assembly.GetAssembly(typeof(Registry.ExtensionsLoader)).GetName().Name))
             {
-                foreach (var type in part.Types.Where(t => ExtensionsHelper.IsController(t) && feature.Controllers.Contains(t) == false))
+                foreach (var type in part.Types.Where(t => ExtensionsHelper.IsController(t) && !feature.Controllers.Contains(t)))
                 {
                     if (ExtensionsHelper.IsExtension(type.Assembly, this.logger))
                     {
-                        // should be one or more, First/OrDefault() doesn't work instead
-                        var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is ExportAttribute);
-                        if (extensionAttribute != null)
+                        if (!ExtensionsHelper.IsTypeIgnored(type))
                         {
                             var area = type.Assembly.GetName().Name;
                             if (this.Areas.ContainsKey(area) == false)
@@ -55,20 +52,17 @@ namespace CoreXF.Framework.Providers
                             }
 
                             this.Areas[area].Add(type);
-
                             feature.Controllers.Add(type);
 
-                            this.registry.GetExtension(((AssemblyPart)part).Assembly).AddController(type);
+                            var extension = this.registry.GetExtension(((AssemblyPart)part).Assembly) as ExtensionBase;
+                            ((ICollection<TypeInfo>)extension.Controllers).Add(type);
 
                             this.logger.LogInformation($"Controller '{type.AsType().FullName}' has been registered and is accessible.");
-                        }
-                        else
-                        {
-                            this.logger.LogWarning($"Controller '{type.AsType().FullName}' is inaccessible. Decorate it with '{nameof(ExportAttribute)}' if you want to access it.");
                         }
                     }
                     else
                     {
+                        // this is the "usual" case; host app controllers and the like 
                         feature.Controllers.Add(type);
                     }
                 }

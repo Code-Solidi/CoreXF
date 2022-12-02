@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+using CoreXF.Abstractions.Attributes;
 using CoreXF.Abstractions.Base;
 
 using Microsoft.AspNetCore.Builder;
@@ -111,6 +112,12 @@ namespace CoreXF.Framework.Settings
                 logger?.LogError(x.InnerException?.Message ?? x.Message);
                 return false;
             }
+        }
+
+        internal static bool IsTypeIgnored(Type type)
+        {
+            var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is CoreXFIgnoreAttribute);
+            return extensionAttribute != default;
         }
     }
 }

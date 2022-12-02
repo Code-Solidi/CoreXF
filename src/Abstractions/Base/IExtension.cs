@@ -5,10 +5,7 @@
 
 using CoreXF.Abstractions.Builder;
 
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
-using System.Reflection;
 
 namespace CoreXF.Abstractions.Base
 {
@@ -41,14 +38,12 @@ namespace CoreXF.Abstractions.Base
 
         ExtensionStatus Status { get; }
 
-        void ConfigureServices(IServiceCollection services, IConfiguration configuration);
+        void ConfigureServices(IServiceCollection services);
 
         void ConfigureMiddleware(IExtensionsApplicationBuilder app);
 
         void Start();
 
         void Stop();
-
-        void AddController(TypeInfo type);
     }
 }

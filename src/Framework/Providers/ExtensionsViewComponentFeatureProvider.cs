@@ -42,8 +42,8 @@ namespace CoreXF.Framework.Providers
                     if (ExtensionsHelper.IsExtension(type.Assembly, this.logger))
                     {
                         // should be one or more, First/OrDefault() doesn't work instead
-                        var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is ExportAttribute);
-                        if (extensionAttribute != null)
+                        var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is CoreXFIgnoreAttribute);
+                        if (extensionAttribute == default)
                         {
                             var area = type.Assembly.GetName().Name;
                             if (this.Areas.ContainsKey(area) == false)
@@ -54,10 +54,6 @@ namespace CoreXF.Framework.Providers
                             this.Areas[area].Add(type);
                             feature.ViewComponents.Add(type);
                             this.logger.LogInformation($"View Component '{type.AsType().FullName}' has been registered and is accessible.");
-                        }
-                        else
-                        {
-                            this.logger.LogWarning($"View Component '{type.AsType().FullName}' is inaccessible. Decorate it with '{nameof(ExportAttribute)}' if you want to access it.");
                         }
                     }
                     else

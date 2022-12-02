@@ -6,6 +6,8 @@
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using System;
@@ -30,7 +32,7 @@ namespace CoreXF.Framework.Registry
             this.registry = registry;
         }
 
-        public static IExtensionsRegistry DiscoverExtensions(ILoggerFactory factory, string location)
+        public static IExtensionsRegistry DiscoverExtensions(IServiceCollection services, ILoggerFactory factory, string location)
         {
             var registry = new ExtensionsRegistry(factory);
             var excludes = new[]
@@ -39,12 +41,12 @@ namespace CoreXF.Framework.Registry
                 Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
             };
 
-            new ExtensionsLoader(factory, registry).Discover(location, excludes);
+            new ExtensionsLoader(factory, registry).Discover(services, location, excludes);
 
             return registry;
         }
 
-        private void Discover(string location, string[] excludes)
+        private void Discover(IServiceCollection services, string location, string[] excludes)
         {
             var files = Array.Empty<string>();
             try
@@ -62,7 +64,7 @@ namespace CoreXF.Framework.Registry
             foreach (var assembly in this.LoadAssemblies(files))
             {
                 this.logger.LogDebug($"Inspecting {assembly.Location}.");
-                if (excludes.Any(x => x == assembly?.FullName) == false)
+                if (!excludes.Any(x => x == assembly?.FullName))
                 {
                     try
                     {
@@ -73,6 +75,7 @@ namespace CoreXF.Framework.Registry
                             try
                             {
                                 var instance = Activator.CreateInstance(type) as IExtension;
+                                instance.ConfigureServices(services);
                                 instance.Location = Path.GetDirectoryName(assembly.Location);
                                 (this.registry as ExtensionsRegistry)?.Register(instance);
                             }

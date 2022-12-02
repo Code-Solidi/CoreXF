@@ -3,9 +3,9 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-using System.Collections.Generic;
-
 using Microsoft.AspNetCore.Builder;
+
+using System.Collections.Generic;
 
 namespace CoreXF.Abstractions.Builder
 {

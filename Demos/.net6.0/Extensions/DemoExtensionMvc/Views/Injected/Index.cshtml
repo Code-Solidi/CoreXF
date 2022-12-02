@@ -1,0 +1,28 @@
+﻿@using DemoExtensionMvc.Controllers
+@model GreetingsModel
+
+@{
+    ViewData["Title"] = "Injected";
+}
+
+<h1>Greetings!</h1>
+<p>The <code>DateTime value</code> is injected in the ctor of <code>@nameof(InjectedController)</code> controller. This demonstrates DI in CoreXF extensions. Override the <code>ConfigureServices</code> method to register required functionality with the built-in ASP.NET Core DI container.</p>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Greetings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Greetings)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateTime), or just <code>DateTime.UtcNow</code>.
+        </dd>
+    </dl>
+</div>
+
+<p>In this particular case the both the definition and the implementation of the <code>DateTime service</code> reside in two different projects (<code>DateTimeService</code> &ndash; the definition of the service and <code>ServiceExporter</code> &ndash; the implementation of the service respectively) which demonstrates the correct behaviour of the CoreXF extensions loading mechanism.</p>

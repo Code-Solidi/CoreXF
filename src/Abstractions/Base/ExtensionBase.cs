@@ -5,10 +5,8 @@
 
 using CoreXF.Abstractions.Builder;
 
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -20,19 +18,19 @@ namespace CoreXF.Abstractions.Base
     public class ExtensionBase : IBackingService
     {
         /// <summary>The name of the extension. As a convention use the name of the assembly.</summary>
-        public virtual string Name => nameof(ExtensionBase);
+        public string Name { get; set; } = nameof(ExtensionBase);
 
         /// <summary>The description of the extension.</summary>
-        public virtual string Description => "Base extension class, inherit to extend functionality.";
+        public string Description { get; set; } = "Base extension class, inherit to extend functionality.";
 
         /// <summary>The URL of the site related to the extension.</summary>
-        public virtual string Url => "www.codesolidi.com";
+        public string Url { get; set; } = "www.codesolidi.com";
 
         /// <summary>The extension's version.</summary>
-        public virtual string Version => "1.0.0";
+        public string Version { get; set; } = "1.0.0";
 
         /// <summary>The authors of the extension, comma separated.</summary>
-        public virtual string Authors => "Code Solidi Ltd.";
+        public string Authors { get; set; } = "Code Solidi Ltd.";
 
         /// <summary>
         /// The assembly location (folder) from which the extension is discovered and loaded
@@ -43,25 +41,12 @@ namespace CoreXF.Abstractions.Base
 
         public IEnumerable<TypeInfo> Controllers { get; } = new List<TypeInfo>();
 
-        public void AddController(TypeInfo type)
-        {
-            ((ICollection<TypeInfo>)this.Controllers).Add(type);
-        }
-
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
         {
         }
 
-        public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
-            var assembly = this.GetType().Assembly;
-            var startUpName = $"{assembly.GetName().Name}.Startup";
-            var startup = assembly.GetType(startUpName);
-            if (startup != null)
-            {
-                dynamic instance = Activator.CreateInstance(startup, configuration);
-                instance.ConfigureServices(services);
-            }
         }
 
         public void Start() => this.Status = ExtensionStatus.Running;
