@@ -597,10 +597,7 @@
       },
       "ServiceExporter/1.0.0": {
         "dependencies": {
-          "CoreXF.Abstractions": "2.0.1-beta-5",
-          "DateTimeService": "1.0.0",
-          "Microsoft.Extensions.Configuration.Abstractions": "3.1.31",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.31"
+          "DateTimeService": "1.0.0"
         },
         "runtime": {
           "ServiceExporter.dll": {}

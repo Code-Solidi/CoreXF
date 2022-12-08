@@ -3,15 +3,12 @@
  * Licensed under the GNU GENERAL PUBLIC LICENSE Version 2. See GNU-GPL.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Attributes;
-
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace WebAplExt2.Controllers
 {
-    [ApiController, Route("[controller]"), Export/*, Authorize*/]
+    [ApiController, Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
         private readonly ILogger<CalculatorController> _logger;
