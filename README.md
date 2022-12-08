@@ -1,5 +1,9 @@
 # CoreXF
 
+**NB: built with .NET 6.0: demos changed, ExtensionBase simplified (the I in SOLID), documentation is out of date, will be updated ASAP (sorry for the inconvenience), however still usable.**
+
+**Please, begin with the demos. CoreXF.Abstractions and CoreXF.Framework are directly linked to demos, so you'll need the full source to build and run them. (Later on Abstractions and Framework will be publihsed in nuget.org.)**
+
 ### Description
 CoreXF is a ASP.NET **Core** e**X**tensibility **F**ramework. 
 
