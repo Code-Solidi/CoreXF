@@ -7,9 +7,6 @@ using CoreXF.Abstractions.Builder;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using System.Collections.Generic;
-using System.Reflection;
-
 using static CoreXF.Abstractions.Base.IExtension;
 
 namespace CoreXF.Abstractions.Base
@@ -38,8 +35,6 @@ namespace CoreXF.Abstractions.Base
         public string Location { get; set; }
 
         public ExtensionStatus Status { get; private set; } = ExtensionStatus.Running;
-
-        public IEnumerable<TypeInfo> Controllers { get; } = new List<TypeInfo>();
 
         public virtual void ConfigureMiddleware(IExtensionsApplicationBuilder app)
         {
