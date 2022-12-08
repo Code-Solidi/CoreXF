@@ -8,8 +8,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <!--<TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>-->
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Authors>Code Solidi Ltd.</Authors>
@@ -33,32 +32,6 @@
       <Compile Remove="Attributes\ExportAttribute.cs" />
     </ItemGroup>
 
-    <!--<ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-        <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="3.1.2" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>-->
-
-    <!--<ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="7.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>-->
-    
     <ItemGroup>
         <None Include="..\..\Packaging\CoreXF.png">
             <Pack>True</Pack>
@@ -71,11 +44,20 @@
         </None>
         <None Include="Attributes\ExportAttribute.cs" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.31" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.31" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.31" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.31" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.31" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.31" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'"  />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
     </ItemGroup>
 </Project>
