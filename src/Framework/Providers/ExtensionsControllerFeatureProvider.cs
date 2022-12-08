@@ -54,9 +54,6 @@ namespace CoreXF.Framework.Providers
                             this.Areas[area].Add(type);
                             feature.Controllers.Add(type);
 
-                            var extension = this.registry.GetExtension(((AssemblyPart)part).Assembly) as ExtensionBase;
-                            ((ICollection<TypeInfo>)extension.Controllers).Add(type);
-
                             this.logger.LogInformation($"Controller '{type.AsType().FullName}' has been registered and is accessible.");
                         }
                     }
