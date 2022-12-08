@@ -1,5 +1,5 @@
-﻿@using DemoExtensionMvc.Controllers;
-@model DemoExtensionMvc.Models.GreetingsModel
+﻿@using DemoExtensionMvc.Controllers
+@model GreetingsModel
 
 @{
     ViewData["Title"] = "Injected";
@@ -20,7 +20,7 @@
             @Html.DisplayNameFor(model => model.DateTime)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateTime), or just <code>DateTime.UtcNow</code>.
+            @Html.DisplayFor(model => model.DateTime), or <code>DateTime.UtcNow</code>.
         </dd>
     </dl>
 </div>

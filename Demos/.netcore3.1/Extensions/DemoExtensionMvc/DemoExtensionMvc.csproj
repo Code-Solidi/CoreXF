@@ -18,4 +18,15 @@
     <ProjectReference Include="..\ServiceExporter\ServiceExporter.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Demo\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Injected\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

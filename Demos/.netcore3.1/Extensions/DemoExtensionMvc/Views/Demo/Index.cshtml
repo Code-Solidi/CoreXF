@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Demo";
     var extension = new DemoExtension();
+    var version = Environment.Version;
 }
 
 <div class="text-center">
@@ -9,12 +10,13 @@
 <p>This is a demo of CoreXF (.NET Core eXtensibility Framework). This demo references <code>CoreXF.Abstractions</code> and exposes its functionality through the <code>DemoExtension</code> class.</p>
 <h5>Basic description of the demo:</h5>
 <ul>
-    <li>There are two controllers: <code>HomeController</code> and <code>DemoController</code>. In order to avoid name clashes <code>HomeController</code> is decorated with <code>CoreXFIgnore</code> attribute. This effectively "cloaks" it from host app.</li>
+    <li>There are three controllers: <code>HomeController</code>, <code>DemoController</code>, and <code>InjectedController</code>. In order to avoid name clashes <code>HomeController</code> is decorated with <code>CoreXFIgnore</code> attribute. This effectively "cloaks" it from host app.</li>
     <li>The DemoMvc app can be run as usual (it is a "normal" ASP.NET Core app). It can be "deployed" to the Extensions folder in the host app and run as an extension.</li>
     <li>The Post-Build events help in deploying the extension to its host app (HostApp), take a look: right-click on the project -> Properties -> Build -> Events -> Post-Build Events. (Or you can just copy the output dir to an Extensions sub-folder, usually named after extension name.)</li>
 </ul>
 
 <h5>Here are the extension properties:</h5>
+
 <dl class="row">
     <dt class="col-2">
         @nameof(extension.Name)
@@ -22,12 +24,15 @@
     <dd class="col-10">
         @extension.Name
     </dd>
-    <dt class="col-2">
-        @nameof(extension.Views)
-    </dt>
-    <dd class="col-10">
-        @extension.Views
-    </dd>
+    @if (version < new Version(6, 0))
+    {
+        <dt class="col-2">
+            @nameof(extension.Views)
+        </dt>
+        <dd class="col-10">
+            @extension.Views
+        </dd>
+    }
     <dt class="col-2">
         @nameof(extension.Version)
     </dt>
@@ -53,11 +58,9 @@
         <a href="https://@extension.Url">@extension.Url</a>
     </dd>
 </dl>
+
 <p>For a full explanation of each of the properties read the <a target="_blank" href="https://code-solidi.github.io/CoreXF/">CoreXF documentation</a>.</p>
 <h5>Other functionality:</h5>
 <p>For a ctor dependency injection (DI) visit the <a asp-controller="Injected">Injected</a> controller.</p>
-<p>For a demo of scoped CSS visit the <a asp-controller="ScopedCss">ScopedCSS</a> controller.</p>
-@section Styles {
-    <style>
-    </style>
-}
+
+
