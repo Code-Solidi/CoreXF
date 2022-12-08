@@ -62,9 +62,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimeService", "Demos\.n
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoExtensionMvc", "Demos\.net6.0\Extensions\MVC\DemoExtensionMvc\DemoExtensionMvc.csproj", "{CAB2B4D8-FA25-4EF7-A9EB-E294BC56DD07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiExt1", "Demos\.net6.0\Extensions\WebAPI\WebApiExt1\WebApiExt1.csproj", "{F461947A-D0A9-40E9-96E2-20805F6ED56A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiExt1", "Demos\.net6.0\Extensions\WebAPI\WebApiExt1\WebApiExt1.csproj", "{F461947A-D0A9-40E9-96E2-20805F6ED56A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiExt2", "WebApiExt2\WebApiExt2.csproj", "{777B575B-582E-414C-98B8-6A17B7EF38FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiExt2", "WebApiExt2\WebApiExt2.csproj", "{777B575B-582E-414C-98B8-6A17B7EF38FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

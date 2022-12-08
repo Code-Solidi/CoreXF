@@ -14,4 +14,8 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Framework\CoreXF.Framework.csproj" />
+  </ItemGroup>
+
 </Project>
