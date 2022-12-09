@@ -7,6 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Include="..\..\..\..\..\Packaging\LICENSE.txt" Link="LICENSE.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\..\..\..\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.11" />
     </ItemGroup>
 

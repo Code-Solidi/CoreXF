@@ -1,4 +1,9 @@
-﻿using CoreXF.Abstractions;
+﻿/*
+ * Copyright (c) 2016-2022 Code Solidi Ltd. All rights reserved.
+ * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
+ */
+
+using CoreXF.Abstractions;
 
 using DateTimeService;
 
@@ -11,7 +16,7 @@ namespace DemoExtensionMvc
         public DemoExtension()
         {
             this.Name = nameof(DemoExtension).Replace("Extension", string.Empty);
-            this.Copyright = "© Code Solidi Ltd. 2019-2022";
+            this.Copyright = "© Code Solidi Ltd. 2016-2022";
         }
 
         public override void ConfigureServices(IServiceCollection services)
