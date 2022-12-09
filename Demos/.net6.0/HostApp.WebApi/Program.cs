@@ -26,8 +26,10 @@ namespace HostApp.WebApi
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
-            app.MapControllers();
+
             app.UseCoreXF();
+            app.MapControllers();
+
             app.Run();
         }
     }

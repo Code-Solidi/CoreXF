@@ -3,9 +3,9 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-using CoreXF.Abstractions.Builder;
-
 using Microsoft.Extensions.DependencyInjection;
+
+using System.Reflection;
 
 namespace CoreXF.Abstractions.Base
 {
@@ -14,36 +14,54 @@ namespace CoreXF.Abstractions.Base
     /// </summary>
     public interface IExtension
     {
-        public enum ExtensionStatus { Stopped, Running }
-
-        /// <summary>The name of the extension. As a convention use the name of the assembly.</summary>
+        /// <summary>
+        /// The name of the extension. As a convention use the name of the assembly.
+        /// </summary>
         string Name { get; }
 
-        /// <summary>The description of the extension.</summary>
+        /// <summary>
+        /// The description of the extension.
+        /// </summary>
         string Description { get; }
 
-        /// <summary>The URL of the site related to the extension.</summary>
+        /// <summary>
+        /// The URL of the site related to the extension.
+        /// </summary>
         string Url { get; }
 
-        /// <summary>The extension's version.</summary>
+        /// <summary>
+        /// The extension's version.
+        /// </summary>
         string Version { get; }
 
-        /// <summary>The authors of the extension, comma separated.</summary>
+        /// <summary>
+        /// The authors of the extension, comma separated.
+        /// </summary>
         string Authors { get; }
+
+        /// <summary>
+        /// The copyright information about the extension.
+        /// </summary>
+        string Copyright { get; }
 
         /// <summary>
         /// The deployment location of the extension, usually a dedicated folder in the "Extensions" folder in host app
         /// </summary>
-        string Location { get; set; }
+        string Location { get; }
 
-        ExtensionStatus Status { get; }
-
+        /// <summary>
+        /// Configures extension's DI.
+        /// </summary>
+        /// <param name="services"></param>
         void ConfigureServices(IServiceCollection services);
 
-        void ConfigureMiddleware(IExtensionsApplicationBuilder app);
+        /// <summary>
+        /// Configures the extension from containing assembly.
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
+        void Configure(Assembly assembly);
 
-        void Start();
-
-        void Stop();
+        //void ConfigureMiddleware(IExtensionsApplicationBuilder app);
     }
 }

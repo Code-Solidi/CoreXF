@@ -11,6 +11,10 @@ using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Framework.Registry
 {
+    /// <summary>
+    /// A base class intended for overriding in extensions. Used as a starting point for middleware exposed by the extension. 
+    /// (NB: not used for now, see the readme.md in Builder folder.) 
+    /// </summary>
     public class ExtensionsMiddleware
     {
         private readonly RequestDelegate next;

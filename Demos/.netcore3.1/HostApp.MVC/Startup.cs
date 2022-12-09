@@ -30,9 +30,8 @@ namespace HostApp.MVC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder original, IExtensionsApplicationBuilderFactory factory, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var app = factory.CreateBuilder(original);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -48,14 +47,13 @@ namespace HostApp.MVC
 
             app.UseAuthorization();
 
+            app.UseCoreXF();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.Populate(original.UseCoreXF());
         }
     }
 }

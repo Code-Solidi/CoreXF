@@ -69,11 +69,11 @@ namespace CoreXF.Framework.Registry
                     mvcBuilder.AddApplicationPart(assembly);
 
 #if NETCOREAPP3_1
-                    if (extension is IExtensionMvc)
+                    if (extension is IMvcExtension)
                     {
                         // load compiled views
                         var directory = extension.Location;
-                        var viewsAssemblyName = (extension as IExtensionMvc).Views;
+                        var viewsAssemblyName = (extension as IMvcExtension).Views;
                         var logger = loggerFactory.CreateLogger(nameof(ExtensionsConfigurator));
                         var viewsAssembly = ExtensionsLoader.LoadAssembly(Path.Combine(directory, viewsAssemblyName), logger);
                         mvcBuilder.AddApplicationPart(viewsAssembly);
@@ -150,6 +150,7 @@ namespace CoreXF.Framework.Registry
 
         public static IApplicationBuilder UseCoreXF(this IApplicationBuilder builder)
         {
+#if V20
             var services = builder.ApplicationServices;
 
             var registry = services.GetRequiredService<IExtensionsRegistry>();
@@ -160,6 +161,9 @@ namespace CoreXF.Framework.Registry
                 extension.ConfigureMiddleware(app);
             }
 
+#else
+
+#endif
             return builder;
         }
     }

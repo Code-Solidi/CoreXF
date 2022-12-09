@@ -52,9 +52,8 @@ namespace HostApp.WebAPI
             app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => endpoints.MapControllers());
-
             app.UseCoreXF();
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

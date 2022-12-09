@@ -6,7 +6,6 @@
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -37,7 +36,7 @@ namespace CoreXF.Framework.Registry
             var registry = new ExtensionsRegistry(factory);
             var excludes = new[]
             {
-                Assembly.GetAssembly(typeof(ExtensionBase)).FullName,       // CoreXF.Abstractions
+                Assembly.GetAssembly(typeof(AbstractExtension)).FullName,       // CoreXF.Abstractions
                 Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
             };
 
@@ -74,10 +73,14 @@ namespace CoreXF.Framework.Registry
                         {
                             try
                             {
-                                var instance = Activator.CreateInstance(type) as IExtension;
-                                instance.ConfigureServices(services);
-                                instance.Location = Path.GetDirectoryName(assembly.Location);
-                                (this.registry as ExtensionsRegistry)?.Register(instance);
+                                var instance = Activator.CreateInstance(type);
+                                var extension = instance as IExtension;
+                                if (instance != default)
+                                {
+                                    extension.ConfigureServices(services);
+                                    extension.Configure(assembly);
+                                    (this.registry as ExtensionsRegistry)?.Register(extension);
+                                }
                             }
                             catch (Exception x)
                             {

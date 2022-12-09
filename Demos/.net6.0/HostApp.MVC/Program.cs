@@ -28,12 +28,12 @@ namespace HostApp.MVC
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCoreXF();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.UseCoreXF();
             app.Run();
         }
     }

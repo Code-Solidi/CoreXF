@@ -8,7 +8,7 @@ namespace CoreXF.Abstractions.Base
     /// <summary>
     /// The extension with views.
     /// </summary>
-    public interface IExtensionMvc : IExtension
+    public interface IMvcExtension : IExtension
     {
         /// <summary>
         /// Views assembly name, usually assembly-name.Views.dll

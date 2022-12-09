@@ -3,19 +3,23 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-namespace CoreXF.Abstractions.Base
+using CoreXF.Abstractions.Base;
+
+namespace CoreXF.Abstractions
 {
-    /// <summary>A default implementation of <see cref="IExtensionMvc">IExtensionMvc</see>.</summary>
-    public class ExtensionBaseMvc : ExtensionBase, IExtensionMvc
+    /// <summary>A default implementation of <see cref="IMvcExtension">IMvcExtension</see>.</summary>
+    public class MvcExtension : AbstractExtension, IMvcExtension
     {
         /// <summary>
         /// The name of the compiled views assembly
         /// </summary>
-        public string Views { get; set; }
+        public string Views { get; }
 
-        protected ExtensionBaseMvc()
+        protected MvcExtension()
         {
+#if !NET6_0
             this.Views = $"{this.GetType().Assembly.GetName().Name}.Views.dll";
+#endif
         }
     }
 }

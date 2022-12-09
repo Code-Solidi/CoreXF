@@ -30,6 +30,7 @@
 
     <ItemGroup>
       <Compile Remove="Attributes\ExportAttribute.cs" />
+      <Compile Remove="Base\IBackingService.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -43,6 +44,7 @@
             <PackagePath></PackagePath>
         </None>
         <None Include="Attributes\ExportAttribute.cs" />
+        <None Include="Base\IBackingService.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -57,7 +59,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'"  />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" Condition="'$(TargetFramework)' == 'net6.0'" />
     </ItemGroup>
 </Project>
