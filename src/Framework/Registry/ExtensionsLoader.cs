@@ -125,11 +125,20 @@ namespace CoreXF.Framework.Registry
                 // load dependent assemblies:
                 // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
                 return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
-                //return new AssemblyResolver(assemblyPath).Assembly;
             }
             catch (FileLoadException x)
             {
-                logger.Log(LogLevel.Error, x, $"Error loading '{assemblyPath}'.");
+                var assemblies = AssemblyLoadContext.Default.Assemblies.OrderBy(x => x.GetName().Name).ToDictionary(x => x.GetName().Name, x => x);
+                var asmName = Path.GetFileNameWithoutExtension(assemblyPath);
+                var loaded = assemblies.SingleOrDefault(x => x.Key == asmName);
+                if (!string.IsNullOrEmpty(loaded.Key))
+                {
+                    logger.LogWarning($"Cannot load '{assemblyPath}', '{loaded.Value.FullName}' already loaded. ");
+                }
+                else
+                {
+                    logger.LogError(x, $"Cannot load '{assemblyPath}'");
+                }
             }
             catch (FileNotFoundException x)
             {

@@ -3,8 +3,7 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-using CoreXF.Framework.Registry;
-
+using CoreXF.Framework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -58,7 +57,15 @@ namespace HostApp.WebAPI
             app.UseRouting();
 
             app.UseCoreXF();
-            app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            //app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

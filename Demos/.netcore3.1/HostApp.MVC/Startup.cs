@@ -4,7 +4,7 @@
  */
 
 using CoreXF.Abstractions.Builder;
-using CoreXF.Framework.Registry;
+using CoreXF.Framework;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

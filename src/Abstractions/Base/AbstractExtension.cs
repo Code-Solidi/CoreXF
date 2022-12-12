@@ -45,21 +45,21 @@ namespace CoreXF.Abstractions.Base
         public virtual void Configure(Assembly assembly)
         {
             var title = this.Get<AssemblyTitleAttribute>(assembly);
-            this.Name = title?.Title ?? string.Empty;
+            this.Name ??= title?.Title ?? string.Empty;
 
             var copyright = this.Get<AssemblyCopyrightAttribute>(assembly);
-            this.Copyright = copyright?.Copyright ?? string.Empty;
+            this.Copyright ??= copyright?.Copyright ?? string.Empty;
 
             var description = this.Get<AssemblyDescriptionAttribute>(assembly);
-            this.Description = description?.Description ?? string.Empty;
+            this.Description ??= description?.Description ?? string.Empty;
 
             var company = this.Get<AssemblyCompanyAttribute>(assembly);
-            this.Authors = company?.Company ?? string.Empty;
+            this.Authors ??= company?.Company ?? string.Empty;
 
             var version = this.Get<AssemblyVersionAttribute>(assembly);
-            this.Version = version?.Version ?? string.Empty;
+            this.Version ??= version?.Version ?? string.Empty;
 
-            this.Location = Path.GetDirectoryName(assembly.Location);
+            this.Location ??= Path.GetDirectoryName(assembly.Location);
         }
 
         private T Get<T>(Assembly assembly) where T : Attribute => (T)assembly.GetCustomAttribute(typeof(T));

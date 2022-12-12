@@ -3,7 +3,7 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-using CoreXF.Framework.Registry;
+using CoreXF.Framework;
 
 namespace HostApp.MVC
 {

@@ -1,0 +1,53 @@
+﻿@*
+  Copyright (c) 2016-2022 Code Solidi Ltd. All rights reserved.
+  Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
+*@
+
+@model ExtensionsModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var extension in this.Model.Extensions)
+        {
+            <tr>
+                <td>@extension.Name</td>
+                <td>@extension.Description</td>
+                <td>@extension.Location</td>
+                <td>
+                    @if (extension.Status == CoreXF.Abstractions.Base.IWebApiExtension.ExtensionStatus.Stopped)
+                    {
+                        <form asp-action="Start">
+                            <input name="Name" type="hidden" value="@extension.Name">
+                            <button type="submit" class="btn btn-success">Start</button>
+                        </form>
+                    }
+                    @if (extension.Status == CoreXF.Abstractions.Base.IWebApiExtension.ExtensionStatus.Running)
+                    {
+                        <form asp-action="Stop">
+                            <input name="Name" type="hidden" value="@extension.Name">
+                            <button type="submit" class="btn btn-danger">Stop</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
