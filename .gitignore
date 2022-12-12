@@ -341,6 +341,7 @@ healthchecksdb
 /Demos/HostApp/LogFiles
 /Docs/Docs.zip
 *.zip
+*/Demos/**/Extensions
 /NuGet/Annotation 2020-04-27 104526.jpg
 /Docs/StarButton.png
 /Demos/HostApp5/LogFiles
@@ -348,3 +349,18 @@ healthchecksdb
 /NuGet.Publisher/NuGet API key.txt
 /NuGet.Publisher/Logs/*
 
+/CoreXF.Spikes.sln
+/Spikes/WebApplication2/*
+/Spikes/WebApplication1/*
+/Spikes/ClassLibrary1/*
+/Demos/.net6.0/HostApp.MVC/Extensions/DemoExtensionMvc
+/Demos/.net6.0/HostApp.WebApi/Extensions/WebApiExt1
+/Demos/.net6.0/HostApp.WebApi/Extensions/WebApiExt2
+/Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc
+/Demos/.netcore3.1/HostApp.WebApi/Extensions/WebApiExt1
+/Demos/.netcore3.1/HostApp.WebApi/Extensions/WebApiExt2
+/Demos/.net6.0/HostApp.WebApi/Extensions/WebAplExt2/CoreXF.Abstractions.dll
+/Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/ServiceExporter.dll
+/Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/DemoExtensionMvc.Views.dll
+/Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/DemoExtensionMvc.dll
+/Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/CoreXF.Abstractions.dll
