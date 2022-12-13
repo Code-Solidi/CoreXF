@@ -7,10 +7,21 @@ using CoreXF.Messaging.Abstractions.Messages;
 
 namespace CoreXF.Messaging.Abstractions
 {
+    /// <summary>
+    /// The recipient interface. Implementors participate in Request/Response channels.
+    /// </summary>
     public interface IRecipient
     {
+        /// <summary>
+        /// Gets the identity.
+        /// </summary>
         string Identity { get; }
 
-        IMessageResponse Recieve(IRequestMessage message);
+        /// <summary>
+        /// Receive the <see cref="IMessageResponse"/>.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <returns>An IMessageResponse.</returns>
+        IMessageResponse Receive(IRequestMessage message);
     }
 }

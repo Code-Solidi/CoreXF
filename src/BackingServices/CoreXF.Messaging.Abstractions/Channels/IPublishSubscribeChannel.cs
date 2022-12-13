@@ -7,8 +7,15 @@ using CoreXF.Messaging.Abstractions.Messages;
 
 namespace CoreXF.Messaging.Abstractions.Channels
 {
-    public interface IPublishSubscribeChannel //: IChannel
+    /// <summary>
+    /// The publish subscribe channel interface.
+    /// </summary>
+    public interface IPublishSubscribeChannel
     {
+        /// <summary>
+        /// Publish the message.
+        /// </summary>
+        /// <param name="message">The message.</param>
         void Publish(IPublishedMessage message);
     }
 }

@@ -8,41 +8,72 @@ using System.Threading.Tasks;
 
 namespace CoreXF.Messaging.Abstractions.Messages
 {
+    /// <summary>
+    /// The abstract message.
+    /// </summary>
     public abstract class AbstractMessage : IMessage
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbstractMessage"/> class.
+        /// </summary>
+        /// <param name="messageType">The message type.</param>
         protected AbstractMessage(string messageType)
         {
             this.Type = string.IsNullOrWhiteSpace(messageType) ? throw new ArgumentException("Message type cannot be null or empty") : messageType;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbstractMessage"/> class.
+        /// </summary>
+        /// <param name="messageType">The message type.</param>
+        /// <param name="payload">The payload.</param>
         protected AbstractMessage(string messageType, object payload) : this(messageType)
         {
             this.Payload = payload;
         }
 
+        /// <summary>
+        /// Gets the id.
+        /// </summary>
         public Guid Id { get; } = Guid.NewGuid();
 
+        /// <summary>
+        /// Gets or Sets the type.
+        /// </summary>
         public string Type { get; set; }
 
+        /// <summary>
+        /// Gets the payload.
+        /// </summary>
         public object Payload { get; private set; }
 
+        /// <summary>
+        /// Gets the date time.
+        /// </summary>
         public DateTime DateTime { get; } = DateTime.UtcNow;
 
+        /// <summary>
+        /// Gets the payload.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns>A <typeparamref name="T"></typeparamref></returns>
         public T GetPayload<T>()
         {
-            var result = default(T);
             try
             {
-                result = (T)this.Payload;
+                return (T)this.Payload;
             }
             catch (InvalidCastException)
             {
-                result = (T)Convert.ChangeType(this.Payload, typeof(T));
+                return (T)Convert.ChangeType(this.Payload, typeof(T));
             }
-
-            return result;
         }
 
+        /// <summary>
+        /// Gets the payload.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns><![CDATA[Task<T>]]></returns>
         public async Task<T> GetPayloadAsync<T>()
         {
             return await Task.Run(() => this.GetPayload<T>()).ConfigureAwait(false);

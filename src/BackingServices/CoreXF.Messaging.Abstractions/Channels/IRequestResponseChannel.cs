@@ -7,8 +7,16 @@ using CoreXF.Messaging.Abstractions.Messages;
 
 namespace CoreXF.Messaging.Abstractions.Channels
 {
+    /// <summary>
+    /// The request response channel interface.
+    /// </summary>
     public interface IRequestResponseChannel //: IChannel
     {
+        /// <summary>
+        /// Sends a <see cref="IRequestMessage"/> to the registered recipient.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <returns>An <see cref="IMessageResponse"/>.</returns>
         IMessageResponse Request(IRequestMessage message);
     }
 }

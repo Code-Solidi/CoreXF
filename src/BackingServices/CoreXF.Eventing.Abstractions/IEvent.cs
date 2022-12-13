@@ -5,7 +5,7 @@
 
 namespace CoreXF.Eventing.Abstractions
 {
-    public interface IMessage
+    public interface IEvent
     {
         object Payload { get; }
     }

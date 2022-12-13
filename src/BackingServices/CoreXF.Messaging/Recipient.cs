@@ -11,19 +11,31 @@ using System;
 
 namespace CoreXF.Messaging
 {
-    public class Recipient : IRecipient
+    /// <summary>
+    /// The recipient.
+    /// </summary>
+    public abstract class Recipient : IRecipient
     {
+        /// <summary>
+        /// Gets the identity.
+        /// </summary>
         public string Identity { get; }
 
-        public Recipient(string identity)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Recipient"/> class.
+        /// </summary>
+        /// <param name="identity">The identity.</param>
+        protected Recipient(string identity)
         {
             this.Identity = identity;
         }
 
-        public virtual IMessageResponse Recieve(IRequestMessage message)
-        {
-            _ = message ?? throw new ArgumentNullException(nameof(message));
-            return MessageResponse.Default;
-        }
+        /// <summary>
+        /// Receives the <see cref="IMessageResponse"/>.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns>An IMessageResponse.</returns>
+        public abstract IMessageResponse Receive(IRequestMessage message);
     }
 }

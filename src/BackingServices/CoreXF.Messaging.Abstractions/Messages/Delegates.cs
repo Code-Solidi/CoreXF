@@ -3,12 +3,8 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
-using CoreXF.Messaging.Abstractions.Messages;
-
-namespace CoreXF.Messaging.Abstractions
+namespace CoreXF.Messaging.Abstractions.Messages
 {
-    //public delegate IMessageResponse ResponseEvent(IRequestResponseMessage message);
-
     public delegate void RecieveEvent(IPublishedMessage message, out IMessageResponse response);
 
     public delegate void PublishEvent(IPublishedMessage message);

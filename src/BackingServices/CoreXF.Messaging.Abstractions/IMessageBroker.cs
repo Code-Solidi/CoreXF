@@ -9,6 +9,9 @@ using System.Collections.Generic;
 
 namespace CoreXF.Messaging.Abstractions
 {
+    /// <summary>
+    /// The message broker interface.
+    /// </summary>
     public interface IMessageBroker
     {
         #region Fire And Forget (Broadcast)
@@ -75,12 +78,12 @@ namespace CoreXF.Messaging.Abstractions
         /// <remarks>The message type is automatically registered.</remarks>
         void AddRecipient(string messageType, IRecipient recipient);
 
-        /// <summary>Finds the recipient.</summary>
+        /// <summary>Determines if messageType has a recipient.</summary>
         /// <param name="messageType">Type of the message.</param>
         /// <returns>
         ///   <br />
         /// </returns>
-        bool FindRecipient(string messageType);
+        bool HasRecipient(string messageType);
 
         /// <summary>Removes the recipient.</summary>
         /// <param name="messageType">Type of the message.</param>
@@ -98,8 +101,6 @@ namespace CoreXF.Messaging.Abstractions
         #endregion Request/Response (Unicast)
 
         event FireEvent OnFire;
-
-        //event PublishEvent OnPublish;
 
         event ResponseEvent OnResponse;
     }

@@ -6,7 +6,6 @@
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Builder;
 using CoreXF.Abstractions.Registry;
-
 using CoreXF.Framework.Builder;
 using CoreXF.Framework.Providers;
 using CoreXF.Framework.Registry;
@@ -14,8 +13,8 @@ using CoreXF.Framework.Settings;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -31,8 +30,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CoreXF.Framework
 {
@@ -198,7 +195,7 @@ namespace CoreXF.Framework
             var processed = false;
             if (controllerActionDescriptor != null)
             {
-                var suffix = controllerActionDescriptor?.ControllerName.EndsWith("Controller") ?? true ? string.Empty : "Controller"; 
+                var suffix = controllerActionDescriptor?.ControllerName.EndsWith("Controller") ?? true ? string.Empty : "Controller";
                 var controllerName = $"{controllerActionDescriptor?.ControllerName}{suffix}";
                 this.logger?.LogDebug($"Controller: {controllerName}");
                 foreach (var extension in this.extensionsRegistry?.Extensions.Where(x => x is IWebApiExtension))

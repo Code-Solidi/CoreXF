@@ -5,6 +5,9 @@
 
 namespace CoreXF.Messaging.Abstractions.Messages
 {
+    /// <summary>
+    /// The request message interface.
+    /// </summary>
     public interface IRequestMessage : IMessage
     {
     }

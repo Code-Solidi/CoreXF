@@ -3,12 +3,14 @@
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
+using CoreXF.Abstractions.Base;
+
 namespace CoreXF.Eventing.Abstractions
 {
-    public interface IRecipient
+    public interface IRecipient //: IExtension
     {
-        string Name { get; }
+        //string Name { get; }
 
-        void Handle(ISender sender, IMessage message);
+        void Handle(ISender sender, IEvent @event);
     }
 }

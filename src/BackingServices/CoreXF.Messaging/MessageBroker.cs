@@ -17,28 +17,30 @@ using System.Linq;
 
 namespace CoreXF.Messaging
 {
+    /// <summary>
+    /// The message broker.
+    /// </summary>
     public class MessageBroker : IMessageBroker
     {
-        private readonly IFireAndForgetChannel fireForgetChannel;
-
         private readonly ILogger logger;
-
+        private readonly IFireAndForgetChannel fireForgetChannel;
         private readonly IPublishSubscribeChannel publishSubscribeChannel;
-
         private readonly IRequestResponseChannel requestResponseChannel;
-
         private readonly IDictionary<string, List<ISubscriber>> subscribers;
-
         private readonly IDictionary<string, IRecipient> recipients;
-
         private readonly object locker = new object();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MessageBroker"/> class.
+        /// </summary>
+        /// <param name="factory">The factory.</param>
         public MessageBroker(AbstractChannelFactory factory)
         {
             _ = factory ?? throw new ArgumentNullException(nameof(factory));
 
             this.subscribers = new Dictionary<string, List<ISubscriber>>();
             this.recipients = new Dictionary<string, IRecipient>();
+
             this.fireForgetChannel = factory.CreateFireAndForgetChannel(this);
             this.publishSubscribeChannel = factory.CreatePublishSubscribeChannel(this);
             this.requestResponseChannel = factory.CreateRequestResponseChannel(this);
@@ -52,6 +54,7 @@ namespace CoreXF.Messaging
 
         #region Fire And Forget
 
+        /// <inheritdoc/>
         public bool IsRegistered(string messageType)
         {
             lock (this.locker)
@@ -60,6 +63,7 @@ namespace CoreXF.Messaging
             }
         }
 
+        /// <inheritdoc/>
         public void Fire(IFireAndForgetMessage message)
         {
             this.logger.LogInformation($"Firing message: {message.Id} ({message.Type}).");
@@ -68,12 +72,14 @@ namespace CoreXF.Messaging
             this.OnFire?.Invoke(message);
         }
 
+        /// <inheritdoc/>
         public IEnumerable<IFireAndForgetMessage> Peek(string messageType)
         {
             var result = this.fireForgetChannel.Peek(messageType);
             return result.Cast<FireAndForgetMessage>();
         }
 
+        /// <inheritdoc/>
         public void Publish(IPublishedMessage message)
         {
             this.publishSubscribeChannel.Publish(message);
@@ -83,6 +89,7 @@ namespace CoreXF.Messaging
 
         #region Request/Response
 
+        /// <inheritdoc/>
         public IMessageResponse Request(IRequestMessage message)
         {
             _ = message ?? throw new ArgumentNullException(nameof(message));
@@ -95,6 +102,7 @@ namespace CoreXF.Messaging
             return response;
         }
 
+        /// <inheritdoc/>
         public void AddRecipient(string messageType, IRecipient recipient)
         {
             if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
@@ -112,19 +120,20 @@ namespace CoreXF.Messaging
             }
         }
 
-        public bool FindRecipient(string messageType)
+        /// <inheritdoc/>
+        public bool HasRecipient(string messageType)
         {
             if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
 
             return this.recipients.ContainsKey(messageType);
         }
 
-        [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
+        /// <inheritdoc/>
         public void RemoveRecipient(string messageType)
         {
             if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
 
-            if (this.recipients.ContainsKey(messageType) == false)
+            if (!this.recipients.ContainsKey(messageType))
             {
                 throw new InvalidOperationException($"No recipient for message type '{messageType}' has been added.");
             }
@@ -132,47 +141,40 @@ namespace CoreXF.Messaging
             this.recipients.Remove(messageType);
         }
 
-        internal IRecipient GetRecipient(string messageType)
-        {
-            var recipient = default(IRecipient);
-            if (this.FindRecipient(messageType))
-            {
-                recipient = this.recipients[messageType];
-            }
-
-            return recipient;
-        }
+        internal IRecipient GetRecipient(string messageType) => this.HasRecipient(messageType) ? this.recipients[messageType] : default;
 
         #endregion Request/Response
 
         #region Publish/Subscribe
 
+        /// <inheritdoc/>
         [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Subscribe(ISubscriber subscriber, string messageType)
         {
             _ = subscriber ?? throw new ArgumentNullException(nameof(subscriber));
             if (string.IsNullOrWhiteSpace(messageType))
             {
-                throw new ArgumentException($"Message type cannot be null or empty", nameof(subscriber));
+                throw new ArgumentException("Message type cannot be null or empty", nameof(subscriber));
             }
 
             lock (this.locker)
             {
                 if (this.subscribers.ContainsKey(messageType) == false)
                 {
-                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered. Please, register it before making a subscription.");
+                    throw new InvalidOperationException($"Message type '{messageType}' has not been registered. Please, register it before subscribing to it.");
                 }
 
                 var messageTypeSubscribers = this.subscribers[messageType];
                 if (messageTypeSubscribers.Any(x => x.Identity == subscriber.Identity))
                 {
-                    throw new InvalidOperationException($"A subscription for message type '{messageType}' already made.");
+                    throw new InvalidOperationException($"'{subscriber.Identity}' has already been subscribed for message type '{messageType}'.");
                 }
 
                 this.subscribers[messageType].Add(subscriber);
             }
         }
 
+        /// <inheritdoc/>
         public bool IsSubscribed(ISubscriber subscriber, string messageType)
         {
             lock (this.locker)
@@ -186,6 +188,7 @@ namespace CoreXF.Messaging
             }
         }
 
+        /// <inheritdoc/>
         public void Unsubscribe(string identity, string messageType)
         {
             lock (this.locker)
@@ -193,7 +196,7 @@ namespace CoreXF.Messaging
                 if (this.subscribers.ContainsKey(messageType))
                 {
                     var subscriber = this.subscribers[messageType].SingleOrDefault(s => s.Identity == identity) ??
-                        throw new InvalidOperationException($"Cannot unsubscribe, has not been subscribed to '{messageType}'.");
+                        throw new InvalidOperationException($"Cannot unsubscribe, '{identity}' has not been subscribed to '{messageType}'.");
 
                     this.subscribers[messageType].Remove(subscriber);
                     return;
@@ -203,6 +206,7 @@ namespace CoreXF.Messaging
             }
         }
 
+        /// <inheritdoc/>
         [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Register(string messageType)
         {
@@ -215,6 +219,7 @@ namespace CoreXF.Messaging
             }
         }
 
+        /// <inheritdoc/>
         [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Unregister(string messageType)
         {

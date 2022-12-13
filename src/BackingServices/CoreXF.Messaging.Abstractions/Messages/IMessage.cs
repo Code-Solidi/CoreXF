@@ -8,16 +8,38 @@ using System.Threading.Tasks;
 
 namespace CoreXF.Messaging.Abstractions.Messages
 {
+    /// <summary>
+    /// The message interface.
+    /// </summary>
     public interface IMessage
     {
+        /// <summary>
+        /// Gets the id.
+        /// </summary>
         Guid Id { get; }
 
+        /// <summary>
+        /// Gets the date time.
+        /// </summary>
         DateTime DateTime { get; }
 
+        /// <summary>
+        /// Gets or Sets the type.
+        /// </summary>
         string Type { get; set; }
 
+        /// <summary>
+        /// Gets the payload.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns>A <typeparamref name="T"></typeparamref></returns>
         T GetPayload<T>();
 
+        /// <summary>
+        /// Gets the payload.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns><![CDATA[Task<T>]]></returns>
         Task<T> GetPayloadAsync<T>();
     }
 }

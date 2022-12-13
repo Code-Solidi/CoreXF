@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Company>$(Authors)</Company>
         <Authors>Code Solidi Ltd.</Authors>
@@ -22,11 +22,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Channels\IChannel.cs" />
-        <Compile Remove="Channels\IChannelFactory.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="LICENSE.txt" />
       <None Include="LICENSE.txt">
         <Pack>True</Pack>
@@ -40,8 +35,6 @@
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>
-        <None Include="Channels\IChannel.cs" />
-        <None Include="Channels\IChannelFactory.cs" />
     </ItemGroup>
 
     <ItemGroup>

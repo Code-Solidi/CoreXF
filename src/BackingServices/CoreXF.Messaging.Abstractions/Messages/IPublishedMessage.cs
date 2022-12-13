@@ -5,6 +5,9 @@
 
 namespace CoreXF.Messaging.Abstractions.Messages
 {
+    /// <summary>
+    /// The published message interface.
+    /// </summary>
     public interface IPublishedMessage : IMessage
     {
     }

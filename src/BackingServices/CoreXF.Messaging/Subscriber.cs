@@ -9,26 +9,32 @@ using CoreXF.Messaging.Abstractions.Messages;
 namespace CoreXF.Messaging
 {
     /// <summary>
-    /// This class is registered with the event bus' publisher controller. Each microservice which needs to be notified about some event registers a
-    /// subscriber with the messageType (usually typeof(&lt;MessageDescendedn&gt;).FullName) with the event bus. Once the microservice is finished with
+    /// This class is registered with the event bus' publisher controller. Each entity which needs to be notified about some event registers a
+    /// subscriber with the messageType (usually typeof(&lt;MessageDescendedn&gt;).FullName) with the event bus. Once the entity is finished with
     /// these event (Message) types it should unregister itself.
     /// </summary>
-    public class Subscriber : ISubscriber
+    public abstract class Subscriber : ISubscriber
     {
+        /// <summary>
+        /// Gets the identity.
+        /// </summary>
         public string Identity { get; }
 
         //public event RecieveEvent OnRecieve;
 
-        public Subscriber(string identity)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Subscriber"/> class.
+        /// </summary>
+        /// <param name="identity">The identity.</param>
+        protected Subscriber(string identity)
         {
             this.Identity = identity;
         }
 
-        public virtual void Recieve(IPublishedMessage message)
-        {
-            //var response = MessageResponse.Default;
-            //var uriPatched = new PublishSubscribeMessage(message);
-            //this.OnRecieve?.Invoke(uriPatched, out response);
-        }
+        /// <summary>
+        /// Receive the message.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        public abstract void Receive(IPublishedMessage message);
     }
 }
