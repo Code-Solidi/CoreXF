@@ -34,8 +34,4 @@
       </None>
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\Abstractions\CoreXF.Abstractions.csproj" />
-    </ItemGroup>
-
 </Project>

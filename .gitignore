@@ -365,3 +365,4 @@ healthchecksdb
 /Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/DemoExtensionMvc.dll
 /Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/CoreXF.Abstractions.dll
 *.cd
+/Spikes/*
