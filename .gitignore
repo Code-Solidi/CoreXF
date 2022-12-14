@@ -366,3 +366,8 @@ healthchecksdb
 /Demos/.netcore3.1/HostApp.MVC/Extensions/DemoExtensionMvc/CoreXF.Abstractions.dll
 *.cd
 /Spikes/*
+/src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiRequestResponseChannel.cs
+/src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiPublishSubscribeChannel.cs
+/src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiFireAndForgetChannel.cs
+/src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiChannelFactory.cs
+/src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiChannelBase.cs
