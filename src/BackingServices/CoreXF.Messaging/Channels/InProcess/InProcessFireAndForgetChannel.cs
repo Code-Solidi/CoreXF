@@ -28,19 +28,9 @@ namespace CoreXF.Messaging.Channels.InProcess
         private readonly object locker = new object();
 
         /// <summary>
-        /// The factory.
-        /// </summary>
-        private readonly InProcessChannelFactory factory;
-
-        /// <summary>
-        /// The default period.
+        /// The default period to check for "dead" messages.
         /// </summary>
         public const int DefaultPeriod = 1000;
-
-        /// <summary>
-        /// The timer.
-        /// </summary>
-        private readonly Timer timer;
 
         /// <summary>
         /// Gets the message queue.
@@ -50,15 +40,12 @@ namespace CoreXF.Messaging.Channels.InProcess
         /// <summary>
         /// Initializes a new instance of the <see cref="InProcessFireAndForgetChannel"/> class.
         /// </summary>
-        /// <param name="factory">The factory.</param>
         /// <param name="period">The period.</param>
         /// <param name="logger">The logger.</param>
-        internal InProcessFireAndForgetChannel(InProcessChannelFactory factory, int period, ILogger logger)
-            : base(factory, logger)
+        internal InProcessFireAndForgetChannel(int period, ILogger logger) : base(logger)
         {
-            this.factory = factory;
             this.MessageQueue = new Dictionary<string, ICollection<AbstractMessage>>();
-            this.timer = new Timer(this.RemoveDeadMessages, null, period, period);
+            _ = new Timer(this.RemoveDeadMessages, null, period, period);
         }
 
         /// <summary>
@@ -70,7 +57,7 @@ namespace CoreXF.Messaging.Channels.InProcess
         {
             if (message.TimeToLive == default || message.TimeToLive == TimeSpan.MinValue)
             {
-                if (TimeSpan.TryParse(timeToLive, out var ttl) == false)
+                if (!TimeSpan.TryParse(timeToLive, out var ttl))
                 {
                     ttl = FireAndForgetMessage.DefaultTimeToLive;
                 }
@@ -136,7 +123,7 @@ namespace CoreXF.Messaging.Channels.InProcess
                     foreach (var expired in list.Value)
                     {
                         messageList.Remove(expired);
-                        this.Logger.LogInformation($"Message '{expired.Id}' expired ({expired.DateTime}, {((IFireAndForgetMessage)expired).TimeToLive})");
+                        this.Logger?.LogInformation($"Message '{expired.Id}' expired ({expired.DateTime}, {((IFireAndForgetMessage)expired).TimeToLive})");
                     }
                 }
             }

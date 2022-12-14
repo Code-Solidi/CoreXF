@@ -32,31 +32,19 @@ namespace CoreXF.Messaging.Abstractions.Messages
             this.Payload = payload;
         }
 
-        /// <summary>
-        /// Gets the id.
-        /// </summary>
+        /// <inheritdoc/>
         public Guid Id { get; } = Guid.NewGuid();
 
-        /// <summary>
-        /// Gets or Sets the type.
-        /// </summary>
+        /// <inheritdoc/>
         public string Type { get; set; }
 
-        /// <summary>
-        /// Gets the payload.
-        /// </summary>
-        public object Payload { get; private set; }
+        /// <inheritdoc/>
+        public object Payload { get; }
 
-        /// <summary>
-        /// Gets the date time.
-        /// </summary>
+        /// <inheritdoc/>
         public DateTime DateTime { get; } = DateTime.UtcNow;
 
-        /// <summary>
-        /// Gets the payload.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns>A <typeparamref name="T"></typeparamref></returns>
+        /// <inheritdoc/>
         public T GetPayload<T>()
         {
             try
@@ -65,18 +53,33 @@ namespace CoreXF.Messaging.Abstractions.Messages
             }
             catch (InvalidCastException)
             {
-                return (T)Convert.ChangeType(this.Payload, typeof(T));
+                return default;
             }
         }
 
-        /// <summary>
-        /// Gets the payload.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns><![CDATA[Task<T>]]></returns>
+        /// <inheritdoc/>
+        public object GetPayload(Type type)
+        {
+            try
+            {
+                return Convert.ChangeType(this.Payload, type);
+            }
+            catch (InvalidCastException)
+            {
+                return default;
+            }
+        }
+
+        /// <inheritdoc/>
         public async Task<T> GetPayloadAsync<T>()
         {
             return await Task.Run(() => this.GetPayload<T>()).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc/>
+        public async Task<object> GetPayloadAsync(Type type)
+        {
+            return await Task.Run(() => this.GetPayload(type)).ConfigureAwait(false);
         }
     }
 }

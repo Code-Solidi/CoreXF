@@ -7,20 +7,16 @@ using CoreXF.Messaging.Abstractions.Messages;
 
 namespace CoreXF.Messaging.Messages
 {
+    /// <summary>
+    /// The published message.
+    /// </summary>
     public class PublishedMessage : AbstractMessage, IPublishedMessage
     {
-        //public PublishSubscribeMessage(string messageType) : base(messageType)
-        //{
-        //}
-
-        //public PublishSubscribeMessage(IPublishSubscribeMessage message) : base(message.Type)
-        //{
-        //    _ = message as AbstractMessage ?? throw new ArgumentNullException(nameof(message));
-        //    this.DateTime = message.DateTime;
-        //    this.Type = message.Type;
-        //    this.SetPayload(message);
-        //}
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PublishedMessage"/> class.
+        /// </summary>
+        /// <param name="messageType">The message type.</param>
+        /// <param name="payload">The payload.</param>
         public PublishedMessage(string messageType, object payload) : base(messageType, payload)
         {
         }

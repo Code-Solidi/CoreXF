@@ -41,24 +41,24 @@ namespace CoreXF.Messaging.Channels.InProcess
         }
 
         /// <summary>
-        /// Create the fire and forget channel.
+        /// Create the fire-and-forget channel.
         /// </summary>
         /// <param name="broker">The broker.</param>
         /// <returns>An IFireAndForgetChannel.</returns>
-        public override IFireAndForgetChannel CreateFireAndForgetChannel(IMessageBroker broker) => new InProcessFireAndForgetChannel(this, this.period, this.Logger);
+        public override IFireAndForgetChannel CreateFireAndForgetChannel(IMessageBroker broker) => new InProcessFireAndForgetChannel(this.period, this.Logger);
 
         /// <summary>
-        /// Creates the publish subscribe channel.
+        /// Creates the publish-subscribe channel.
         /// </summary>
         /// <param name="broker">The broker.</param>
         /// <returns>An IPublishSubscribeChannel.</returns>
-        public override IPublishSubscribeChannel CreatePublishSubscribeChannel(IMessageBroker broker) => new InProcessPublishSubscriberChannel(this, broker, this.Logger);
+        public override IPublishSubscribeChannel CreatePublishSubscribeChannel(IMessageBroker broker) => new InProcessPublishSubscribeChannel(broker, this.Logger);
 
         /// <summary>
-        /// Create the request response channel.
+        /// Create the request-response channel.
         /// </summary>
         /// <param name="broker">The broker.</param>
         /// <returns>An IRequestResponseChannel.</returns>
-        public override IRequestResponseChannel CreateRequestResponseChannel(IMessageBroker broker) => new InProcessRequestResponseChannel(this, broker, this.Logger);
+        public override IRequestResponseChannel CreateRequestResponseChannel(IMessageBroker broker) => new InProcessRequestResponseChannel(broker, this.Logger);
     }
 }

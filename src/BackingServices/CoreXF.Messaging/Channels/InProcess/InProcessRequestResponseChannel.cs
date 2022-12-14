@@ -25,11 +25,9 @@ namespace CoreXF.Messaging.Channels.InProcess
         /// <summary>
         /// Initializes a new instance of the <see cref="InProcessRequestResponseChannel"/> class.
         /// </summary>
-        /// <param name="factory">The factory.</param>
         /// <param name="broker">The broker.</param>
         /// <param name="logger">The logger.</param>
-        internal InProcessRequestResponseChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)
-            : base(factory, logger)
+        internal InProcessRequestResponseChannel(IMessageBroker broker, ILogger logger) : base(logger)
         {
             this.broker = broker;
             this.logger = logger;

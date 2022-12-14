@@ -55,20 +55,11 @@ namespace CoreXF.Messaging
         #region Fire And Forget
 
         /// <inheritdoc/>
-        public bool IsRegistered(string messageType)
-        {
-            lock (this.locker)
-            {
-                return this.subscribers.ContainsKey(messageType);
-            }
-        }
-
-        /// <inheritdoc/>
         public void Fire(IFireAndForgetMessage message)
         {
-            this.logger.LogInformation($"Firing message: {message.Id} ({message.Type}).");
+            this.logger?.LogInformation($"Firing message: {message.Id} ({message.Type}).");
             this.fireForgetChannel.Fire(message);
-            this.logger.LogInformation($"Message fired: {message.Id}");
+            this.logger?.LogInformation($"Message fired: {message.Id}");
             this.OnFire?.Invoke(message);
         }
 
@@ -79,74 +70,10 @@ namespace CoreXF.Messaging
             return result.Cast<FireAndForgetMessage>();
         }
 
-        /// <inheritdoc/>
-        public void Publish(IPublishedMessage message)
-        {
-            this.publishSubscribeChannel.Publish(message);
-        }
-
         #endregion Fire And Forget
 
-        #region Request/Response
-
-        /// <inheritdoc/>
-        public IMessageResponse Request(IRequestMessage message)
-        {
-            _ = message ?? throw new ArgumentNullException(nameof(message));
-
-            this.logger.LogInformation($"Requesting: {message.Id} ({message.Type}).");
-            var response = this.requestResponseChannel.Request(message);
-            this.OnResponse?.Invoke(message, response);
-            this.logger.LogInformation($"Response for: {message.Id} ({message.Type}) => '{response.Content}'.");
-
-            return response;
-        }
-
-        /// <inheritdoc/>
-        public void AddRecipient(string messageType, IRecipient recipient)
-        {
-            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
-            _ = recipient ?? throw new ArgumentNullException(nameof(recipient));
-
-            lock (this.locker)
-            {
-                if (this.recipients.ContainsKey(messageType))
-                {
-                    throw new InvalidOperationException($"Recipient for '{messageType}' has already been added.");
-                }
-
-                this.recipients[messageType] = recipient;
-                this.logger.LogInformation($"Recipient for '{messageType}' added.");
-            }
-        }
-
-        /// <inheritdoc/>
-        public bool HasRecipient(string messageType)
-        {
-            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
-
-            return this.recipients.ContainsKey(messageType);
-        }
-
-        /// <inheritdoc/>
-        public void RemoveRecipient(string messageType)
-        {
-            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
-
-            if (!this.recipients.ContainsKey(messageType))
-            {
-                throw new InvalidOperationException($"No recipient for message type '{messageType}' has been added.");
-            }
-
-            this.recipients.Remove(messageType);
-        }
-
-        internal IRecipient GetRecipient(string messageType) => this.HasRecipient(messageType) ? this.recipients[messageType] : default;
-
-        #endregion Request/Response
-
         #region Publish/Subscribe
-
+        
         /// <inheritdoc/>
         [SuppressMessage("Minor Code Smell", "S1125:Boolean literals should not be redundant", Justification = "<Pending>")]
         public void Subscribe(ISubscriber subscriber, string messageType)
@@ -239,6 +166,20 @@ namespace CoreXF.Messaging
             }
         }
 
+        /// <inheritdoc/>
+        public bool IsRegistered(string messageType)
+        {
+            lock (this.locker)
+            {
+                return this.subscribers.ContainsKey(messageType);
+            }
+        }
+
+        /// <summary>
+        /// Gets the subscribers.
+        /// </summary>
+        /// <param name="messageType">The message type.</param>
+        /// <returns><![CDATA[IEnumerable<ISubscriber>]]></returns>
         internal IEnumerable<ISubscriber> GetSubscribers(string messageType)
         {
             lock (this.locker)
@@ -247,6 +188,75 @@ namespace CoreXF.Messaging
             }
         }
 
+        /// <inheritdoc/>
+        public void Publish(IPublishedMessage message)
+        {
+            this.publishSubscribeChannel.Publish(message);
+        }
+
         #endregion Publish/Subscribe
+
+        #region Request/Response
+
+        /// <inheritdoc/>
+        public IMessageResponse Request(IRequestMessage message)
+        {
+            _ = message ?? throw new ArgumentNullException(nameof(message));
+
+            this.logger?.LogInformation($"Requesting: {message.Id} ({message.Type}).");
+            var response = this.requestResponseChannel.Request(message);
+            this.OnResponse?.Invoke(message, response);
+            this.logger?.LogInformation($"Response for: {message.Id} ({message.Type}) => '{response.Content}'.");
+
+            return response;
+        }
+
+        /// <inheritdoc/>
+        public void AddRecipient(string messageType, IRecipient recipient)
+        {
+            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
+            _ = recipient ?? throw new ArgumentNullException(nameof(recipient));
+
+            lock (this.locker)
+            {
+                if (this.recipients.ContainsKey(messageType))
+                {
+                    throw new InvalidOperationException($"Recipient for '{messageType}' has already been added.");
+                }
+
+                this.recipients[messageType] = recipient;
+                this.logger?.LogInformation($"Recipient for '{messageType}' added.");
+            }
+        }
+
+        /// <inheritdoc/>
+        public bool HasRecipient(string messageType)
+        {
+            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
+
+            return this.recipients.ContainsKey(messageType);
+        }
+
+        /// <inheritdoc/>
+        public void RemoveRecipient(string messageType)
+        {
+            if (string.IsNullOrWhiteSpace(messageType)) { throw new ArgumentException(nameof(messageType)); }
+
+            if (!this.recipients.ContainsKey(messageType))
+            {
+                throw new InvalidOperationException($"No recipient for message type '{messageType}' has been added.");
+            }
+
+            this.recipients.Remove(messageType);
+        }
+
+        /// <summary>
+        /// Gets the recipient.
+        /// </summary>
+        /// <param name="messageType">The message type.</param>
+        /// <returns>An IRecipient.</returns>
+        internal IRecipient GetRecipient(string messageType) => this.HasRecipient(messageType) ? this.recipients[messageType] : default;
+
+        #endregion Request/Response
     }
 }

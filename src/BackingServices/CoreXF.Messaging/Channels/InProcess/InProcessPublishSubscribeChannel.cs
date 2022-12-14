@@ -17,7 +17,7 @@ namespace CoreXF.Messaging.Channels.InProcess
     /// <summary>
     /// The in process publish subscriber channel.
     /// </summary>
-    public class InProcessPublishSubscriberChannel : AbstractChannel, IPublishSubscribeChannel
+    public class InProcessPublishSubscribeChannel : AbstractChannel, IPublishSubscribeChannel
     {
         /// <summary>
         /// The broker.
@@ -25,13 +25,11 @@ namespace CoreXF.Messaging.Channels.InProcess
         private readonly IMessageBroker broker;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InProcessPublishSubscriberChannel"/> class.
+        /// Initializes a new instance of the <see cref="InProcessPublishSubscribeChannel"/> class.
         /// </summary>
-        /// <param name="factory">The factory.</param>
         /// <param name="broker">The broker.</param>
         /// <param name="logger">The logger.</param>
-        internal InProcessPublishSubscriberChannel(AbstractChannelFactory factory, IMessageBroker broker, ILogger logger)
-            : base(factory, logger)
+        internal InProcessPublishSubscribeChannel(IMessageBroker broker, ILogger logger) : base(logger)
         {
             this.broker = broker;
         }
@@ -42,14 +40,14 @@ namespace CoreXF.Messaging.Channels.InProcess
         /// <param name="message">The message.</param>
         public void Publish(IPublishedMessage message)
         {
-            this.Logger.LogInformation($"Publishing message '{message.Id}' of type '{message.Type}'.");
+            this.Logger?.LogInformation($"Publishing message '{message.Id}' of type '{message.Type}'.");
             var subscribers = (this.broker as MessageBroker)?.GetSubscribers(message.Type) ?? Array.Empty<ISubscriber>();
             foreach (var subscriber in subscribers)
             {
                 subscriber.Receive(message);
             }
 
-            this.Logger.LogInformation($"{subscribers.Count()} subscribers notified.");
+            this.Logger?.LogInformation($"{subscribers.Count()} subscribers notified.");
         }
     }
 }

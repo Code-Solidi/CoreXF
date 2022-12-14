@@ -15,7 +15,7 @@ namespace CoreXF.Messaging.Abstractions
         /// <summary>
         /// The factory.
         /// </summary>
-        private readonly AbstractChannelFactory factory;
+        //private readonly AbstractChannelFactory factory;
 
         /// <summary>
         /// Gets or Sets the logger.
@@ -27,10 +27,10 @@ namespace CoreXF.Messaging.Abstractions
         /// </summary>
         /// <param name="factory">The factory.</param>
         /// <param name="logger">The logger.</param>
-        protected AbstractChannel(AbstractChannelFactory factory, ILogger logger)
+        protected AbstractChannel(/*AbstractChannelFactory factory, */ILogger logger)
         {
             this.Logger = logger;
-            this.factory = factory;
+            //this.factory = factory;
         }
     }
 }
