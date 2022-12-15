@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="CoreXF.Eventing.EventAggregator">
+    <Position X="2.25" Y="1.5" Width="5.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="CoreXF.Eventing.EventAggregator.Subscription">
+        <TypeIdentifier>
+          <NewMemberFileName>EventAggregator.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAACAAQAQAAAAABAAAA=</HashCode>
+      <FileName>EventAggregator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CoreXF.Eventing.EventAggregatorExtensions">
+    <Position X="2" Y="7.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>EventAggregatorExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CoreXF.Eventing.Abstractions.IEvent">
+    <Position X="9.5" Y="1.5" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="CoreXF.Eventing.Abstractions.IEventAggregator">
+    <Position X="9.5" Y="3" Width="3.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="CoreXF.Eventing.Abstractions.IRecipient">
+    <Position X="9.5" Y="5" Width="3" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="CoreXF.Eventing.Abstractions.ISender">
+    <Position X="9.5" Y="6.5" Width="5.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

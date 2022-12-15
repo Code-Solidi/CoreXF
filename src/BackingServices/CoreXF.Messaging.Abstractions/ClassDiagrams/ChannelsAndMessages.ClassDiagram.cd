@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="CoreXF.Messaging.Abstractions.Messages.AbstractMessage">
+    <Position X="7" Y="8.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAQAAAAABAAQAAQAAAAAAAAA=</HashCode>
+      <FileName>Messages\AbstractMessage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CoreXF.Messaging.Abstractions.AbstractChannel">
+    <Position X="0.75" Y="6.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractChannel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoreXF.Messaging.Abstractions.AbstractChannelFactory">
+    <Position X="0.75" Y="8.75" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAQIAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractChannelFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CoreXF.Messaging.Abstractions.Channels.IFireAndForgetChannel">
+    <Position X="0.75" Y="0.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Channels\IFireAndForgetChannel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Channels.IPublishSubscribeChannel">
+    <Position X="0.75" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Channels\IPublishSubscribeChannel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Channels.IRequestResponseChannel">
+    <Position X="0.75" Y="4.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Channels\IRequestResponseChannel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IMessage">
+    <Position X="11.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAQAAAAABAAQAAQAAAAAAAAA=</HashCode>
+      <FileName>Messages\IMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IFireAndForgetMessage">
+    <Position X="7.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messages\IFireAndForgetMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IPublishedMessage">
+    <Position X="7.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messages\IPublishedMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CoreXF.Messaging.Abstractions.Messages.IRequestMessage">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messages\IRequestMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="CoreXF.Messaging.Abstractions.RecieveEvent">
+    <Position X="11.5" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="CoreXF.Messaging.Abstractions.PublishEvent">
+    <Position X="11.5" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="CoreXF.Messaging.Abstractions.FireEvent">
+    <Position X="11.5" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="CoreXF.Messaging.Abstractions.ForgetEvent">
+    <Position X="11.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="CoreXF.Messaging.Abstractions.ResponseEvent">
+    <Position X="11.5" Y="9.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
