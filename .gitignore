@@ -350,9 +350,7 @@ healthchecksdb
 /NuGet.Publisher/Logs/*
 
 /CoreXF.Spikes.sln
-/Spikes/WebApplication2/*
-/Spikes/WebApplication1/*
-/Spikes/ClassLibrary1/*
+/Spikes/*
 /Demos/.net6.0/HostApp.MVC/Extensions/DemoExtensionMvc
 /Demos/.net6.0/HostApp.WebApi/Extensions/WebApiExt1
 /Demos/.net6.0/HostApp.WebApi/Extensions/WebApiExt2
