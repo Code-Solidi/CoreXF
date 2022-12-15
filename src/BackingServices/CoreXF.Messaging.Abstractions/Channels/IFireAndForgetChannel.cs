@@ -20,13 +20,6 @@ namespace CoreXF.Messaging.Abstractions.Channels
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="timeToLive">The time to live.</param>
-        void Fire(IFireAndForgetMessage message, string timeToLive = null);
-
-        /// <summary>
-        /// Fires a message with a specified time to live (TTL)
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="timeToLive">The time to live.</param>
         void Fire(IFireAndForgetMessage message, TimeSpan timeToLive = default);
 
         /// <summary>
