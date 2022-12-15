@@ -15,11 +15,10 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageIconUrl />
-        <PackageLicenseExpression></PackageLicenseExpression>
-        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-        <Version>2.0.1-alpha-5</Version>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <Version>3.0.0-beta-1</Version>
     </PropertyGroup>
 
     <ItemGroup>

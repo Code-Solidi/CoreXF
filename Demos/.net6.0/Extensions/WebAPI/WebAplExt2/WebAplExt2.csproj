@@ -13,15 +13,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CoreXF.Abstractions" Version="3.0.0-beta-1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <Exec Command="md &quot;$(SolutionDir)Demos\.net6.0\HostApp.WebApi\Extensions\$(ProjectName)\&quot;&#xD;&#xA;copy &quot;$(TargetDir)&quot; &quot;$(SolutionDir)Demos\.net6.0\HostApp.WebApi\Extensions\$(ProjectName)\&quot;" />
     </Target>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\..\..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
-    </ItemGroup>
 
 </Project>
