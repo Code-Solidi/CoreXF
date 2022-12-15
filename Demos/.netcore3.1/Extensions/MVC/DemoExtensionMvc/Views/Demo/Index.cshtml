@@ -13,16 +13,14 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to CoreXF</h1>
 </div>
-<p>This is a demo of CoreXF (.NET Core eXtensibility Framework). This demo references <code>CoreXF.Abstractions</code> and exposes its functionality through the <code>DemoExtension</code> class.</p>
-<h5>Basic description of the demo:</h5>
+<p>This is a demo of CoreXF (.NET <strong>Core</strong> e<strong>X</strong>tensibility <strong>F</strong>ramework). This demo references <code>CoreXF.Abstractions</code> and exposes its functionality through the <code>DemoExtension</code> class.</p>
+<h5>Basic description of the demo</h5>
 <ul>
     <li>There are three controllers: <code>HomeController</code>, <code>DemoController</code>, and <code>InjectedController</code>. In order to avoid name clashes <code>HomeController</code> is decorated with <code>CoreXFIgnore</code> attribute. This effectively "cloaks" it from host app.</li>
-    <li>The DemoMvc app can be run as usual (it is a "normal" ASP.NET Core app). It can be "deployed" to the Extensions folder in the host app and run as an extension.</li>
-    <li>The Post-Build events help in deploying the extension to its host app (HostApp), take a look: right-click on the project -> Properties -> Build -> Events -> Post-Build Events. (Or you can just copy the output dir to an Extensions sub-folder, usually named after extension name.)</li>
+    <li>The <code>DemoExtensionMvc</code> app can be run as usual (it is a "normal" ASP.NET Core app). It can also be deployed to the <code>Extensions</code> folder in the host app and run as an extension (why extension otherwise?).</li>
 </ul>
 
-<h5>Here are the extension properties:</h5>
-
+<h5>Here are the extension properties</h5>
 <dl class="row">
     <dt class="col-2">
         @nameof(extension.Name)
@@ -66,7 +64,20 @@
 </dl>
 
 <p>For a full explanation of each of the properties read the <a target="_blank" href="https://code-solidi.github.io/CoreXF/">CoreXF documentation</a>.</p>
-<h5>Other functionality:</h5>
+
+<h5>Deployment</h5>
+<p>Extensions are deployed either by publishing (right-click on the project -> Publish) it to an Extensions sub-folder, usually named after extension name (if there's any reason to change this, please, tell us) or by specifying a Post-Build event (right-click on the project -> Properties -> Build -> Events -> Post-Build Events).</p>
+<p>
+    The first option allows for handling static files in an extension. If you choose it consider the following:
+    <ul>
+        <li>How to organize the static files the extension references &ndash; use either <code>@@section</code>(s) in the host's <code>_Layout.cshtml</code>, or directly reference them; both are OK.</li>
+            <li>Do not change web root folder in the extension, CoreXF relies on <code>wwwroot</code> (should any reason to change the name arise, please let us know).</li>
+        </ul>
+</p>
+
+<h5>Other functionality</h5>
 <p>For a ctor dependency injection (DI) visit the <a asp-controller="Injected">Injected</a> controller.</p>
 
-
+@section Styles {
+    <link rel="stylesheet" href="~/css/demo.css" />
+}

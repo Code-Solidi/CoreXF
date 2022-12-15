@@ -3,7 +3,6 @@
   Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
 *@
 
-
 @using DemoExtensionMvc.Controllers
 @model GreetingsModel
 
@@ -11,7 +10,10 @@
     ViewData["Title"] = "Injected";
 }
 
-<h1>Greetings!</h1>
+<div class="text-center">
+    <h1 class="display-4">Greetings!</h1>
+</div>
+
 <p>The <code>DateTime value</code> is injected in the ctor of <code>@nameof(InjectedController)</code> controller. This demonstrates DI in CoreXF extensions. Override the <code>ConfigureServices</code> method to register required functionality with the built-in ASP.NET Core DI container.</p>
 
 <div>
@@ -31,4 +33,8 @@
     </dl>
 </div>
 
-<p>In this particular case the both the definition and the implementation of the <code>DateTime service</code> reside in two different projects (<code>DateTimeService</code> &ndash; the definition of the service and <code>ServiceExporter</code> &ndash; the implementation of the service respectively) which demonstrates the correct behaviour of the CoreXF extensions loading mechanism.</p>
+<p>In this particular case both the definition and the implementation of the <code>DateTime service</code> reside in two different projects (<code>DateTimeService</code> &ndash; the definition of the service and <code>ServiceExporter</code> &ndash; the implementation of the service respectively) which demonstrates the correct behaviour of the CoreXF extensions loading mechanism.</p>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/demo.css" />
+}

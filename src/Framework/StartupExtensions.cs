@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -33,7 +34,10 @@ using System.Threading.Tasks;
 
 namespace CoreXF.Framework
 {
-    public static class StartuoExtensions
+    /// <summary>
+    /// The startup extensions.
+    /// </summary>
+    public static class StartupExtensions
     {
         /// <summary>
         /// Adds the CoreXF to DI container.
@@ -79,7 +83,7 @@ namespace CoreXF.Framework
                         // load compiled views
                         var directory = extension.Location;
                         var viewsAssemblyName = (extension as IMvcExtension).Views;
-                        var logger = loggerFactory.CreateLogger(nameof(StartuoExtensions));
+                        var logger = loggerFactory.CreateLogger(nameof(StartupExtensions));
                         var viewsAssembly = ExtensionsLoader.LoadAssembly(Path.Combine(directory, viewsAssemblyName), logger);
                         mvcBuilder.AddApplicationPart(viewsAssembly);
                     }
@@ -153,9 +157,14 @@ namespace CoreXF.Framework
             return builder;
         }
 
+        /// <summary>
+        /// Register CoreXF middleware.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>An IApplicationBuilder.</returns>
         public static IApplicationBuilder UseCoreXF(this IApplicationBuilder builder)
         {
-#if V20
+#if V20 // there was a chance to register middlewares in v2.0 -- removed!
             var services = builder.ApplicationServices;
 
             var registry = services.GetRequiredService<IExtensionsRegistry>();
@@ -169,23 +178,64 @@ namespace CoreXF.Framework
 #else
 
 #endif
-            return builder.UseMiddleware<CoreXFMiddlwware>();
+            var options = builder.ApplicationServices.GetRequiredService<IOptionsMonitor<CoreXfOptions>>().CurrentValue;
+            var registry = builder.ApplicationServices.GetRequiredService<IExtensionsRegistry>();
+            foreach (var extension in registry.Extensions)
+            {
+                var path = extension.Location;
+
+                // NB: we rely on wwwroot to locate static files; do not change it!
+                var extensionStaticFilesPath = Path.Combine(extension.Location, "wwwroot");
+                var hasStaticFiles =  Directory.Exists(extensionStaticFilesPath);
+                if (hasStaticFiles)
+                {
+                    builder.UseStaticFiles(new StaticFileOptions
+                    {
+                        FileProvider = new PhysicalFileProvider(extensionStaticFilesPath)
+                    });
+                }
+            }
+
+            return builder.UseMiddleware<CoreXFMiddleware>();
         }
     }
 
-    public class CoreXFMiddlwware
+    /// <summary>
+    /// The core XF middleware.
+    /// </summary>
+    public class CoreXFMiddleware
     {
+        /// <summary>
+        /// The next.
+        /// </summary>
         private readonly RequestDelegate next;
+        /// <summary>
+        /// The logger.
+        /// </summary>
         readonly ILogger logger;
+        /// <summary>
+        /// The extensions registry.
+        /// </summary>
         readonly IExtensionsRegistry extensionsRegistry;
 
-        public CoreXFMiddlwware(RequestDelegate next, IExtensionsRegistry extensionsRegistry, ILoggerFactory loggerFactory)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CoreXFMiddleware"/> class.
+        /// </summary>
+        /// <param name="next">The next.</param>
+        /// <param name="extensionsRegistry">The extensions registry.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
+        public CoreXFMiddleware(RequestDelegate next, IExtensionsRegistry extensionsRegistry, ILoggerFactory loggerFactory)
         {
             this.extensionsRegistry = extensionsRegistry;
             this.logger = loggerFactory.CreateLogger(this.GetType());
             this.next = next;
         }
 
+        /// <summary>
+        /// Invokes the <see cref="Task"/>.
+        /// </summary>
+        /// <param name="httpContext">The HTTP context.</param>
+        /// <returns>A Task.</returns>
         public async Task Invoke(HttpContext httpContext)
         {
             var endPointFeature = httpContext.Features.Get<IEndpointFeature>();
