@@ -366,3 +366,6 @@ healthchecksdb
 .vs/slnx.sqlite-journal
 /.vs/slnx.sqlite-journal
 /.vs/slnx.sqlite
+/Demos/.net6.0/Extensions/MVC/DateTimeService/obj/Debug/net6.0/DateTimeService.assets.cache
+/.vs/CoreXF.Full/DesignTimeBuild/.dtbcache.v2
+/.vs/CoreXF.Full/v17/.suo
