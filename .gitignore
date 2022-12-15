@@ -435,3 +435,7 @@ healthchecksdb
 /.vs/ProjectEvaluation/corexf.metadata.v5.2
 /.vs/ProjectEvaluation/corexf.full.projects.v5.2
 /.vs/ProjectEvaluation/corexf.full.metadata.v5.2
+/Demos/.net6.0/HostApp.WebApi/Extensions/WebApiExt1
+/Demos/.net6.0/HostApp.WebApi/Extensions/WebAplExt2
+/Demos/.netcore3.1/HostApp.WebAPI/Extensions/WebApiExt1
+/Demos/.netcore3.1/HostApp.WebAPI/Extensions/WebApiExt2
