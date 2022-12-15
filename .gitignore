@@ -362,3 +362,7 @@ healthchecksdb
 /src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiFireAndForgetChannel.cs
 /src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiChannelFactory.cs
 /src/BackingServices/CoreXF.Messaging/Channels/WebApi/WebApiChannelBase.cs
+.vs/slnx.sqlite
+.vs/slnx.sqlite-journal
+/.vs/slnx.sqlite-journal
+/.vs/slnx.sqlite
