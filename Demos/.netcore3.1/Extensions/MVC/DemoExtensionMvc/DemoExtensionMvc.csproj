@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="md &quot;$(SolutionDir)Demos\.netcore3.1\HostApp.MVC\Extensions\$(ProjectName)\&quot;&#xD;&#xA;copy &quot;$(TargetDir)&quot; &quot;$(SolutionDir)Demos\.netcore3.1\HostApp.MVC\Extensions\$(ProjectName)\&quot;" />
-  </Target>
+  </Target>-->
 
   <ItemGroup>
     <Content Include="..\..\..\..\..\Packaging\LICENSE.txt" Link="LICENSE.txt" />

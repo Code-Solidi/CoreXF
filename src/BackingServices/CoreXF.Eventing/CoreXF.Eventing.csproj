@@ -1,13 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
         <PackageReleaseNotes />
+        <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
     </PropertyGroup>
-
-    <ItemGroup>
-        <Compile Remove="EventingService.cs" />
-    </ItemGroup>
 
     <ItemGroup>
         <None Include="..\..\..\Packaging\CoreXF.png">
@@ -15,19 +12,14 @@
           <PackagePath></PackagePath>
         </None>
         <None Include="..\..\..\Packaging\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
-        <None Include="EventingService.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="CoreXF.Eventing.Abstractions" Version="2.0.0-alpha-4" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\CoreXF.Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
     </ItemGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Development)'=='true'">
+    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Development)'=='true'">
         <Exec Command="md &quot;$(SolutionDir)Demos\HostApp\Extensions\$(TargetName)&quot;&#xD;&#xA;copy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Demos\HostApp\Extensions\$(TargetName)&quot;" />
-    </Target>
+    </Target>-->
     
 </Project>

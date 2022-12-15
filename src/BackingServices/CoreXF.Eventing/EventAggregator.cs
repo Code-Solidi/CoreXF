@@ -12,54 +12,59 @@ using System.Linq;
 
 namespace CoreXF.Eventing
 {
+    /// <inhheritdoc/>
     public class EventAggregator : IEventAggregator
     {
+        /// <inhheritdoc/>
         private readonly IDictionary<Type, IList> subscriptions = new Dictionary<Type, IList>();
 
-        public void ClearAllSubscriptions(IEnumerable<Type> exceptMessages)
+        /// <inhheritdoc/>
+        public void Clear(IEnumerable<Type> except)
         {
-            foreach (var messageSubscriptions in new Dictionary<Type, IList>(this.subscriptions))
+            foreach (var eventSubscriptions in new Dictionary<Type, IList>(this.subscriptions))
             {
-                if (exceptMessages?.Contains(messageSubscriptions.Key) == false)
+                if (except?.Contains(eventSubscriptions.Key) == false)
                 {
-                    this.subscriptions.Remove(messageSubscriptions);
+                    this.subscriptions.Remove(eventSubscriptions);
                 }
             }
         }
 
-        public void Publish(ISender sender, IMessage message)
+        /// <inhheritdoc/>
+        public void Publish(ISender sender, IEvent @event)
         {
-            _ = message ?? throw new ArgumentNullException(nameof(message));
+            _ = @event ?? throw new ArgumentNullException(nameof(@event));
 
-            var messageType = message.GetType();
-            if (this.subscriptions.ContainsKey(messageType))
+            var eventType = @event.GetType();
+            if (this.subscriptions.ContainsKey(eventType))
             {
-                foreach (var subscription in this.subscriptions[messageType].Cast<Subscription>())
+                foreach (var subscription in this.subscriptions[eventType].Cast<Subscription>())
                 {
-                    var recipient = subscription.Recipient;
-                    recipient.Handle(sender, message);
+                    subscription.Notify(sender, @event);
                 }
             }
         }
 
-        public void Subscribe<TMessage>(IRecipient recipient) where TMessage : IMessage
+        /// <inhheritdoc/>
+        public void Subscribe<TEvent>(IRecipient recipient) where TEvent : IEvent
         {
-            var messageType = typeof(TMessage);
-            var subscription = new Subscription(this, recipient, messageType);
-            if (this.subscriptions.ContainsKey(messageType) == false)
+            var eventType = typeof(TEvent);
+            var subscription = new Subscription(this, recipient, eventType);
+            if (!this.subscriptions.ContainsKey(eventType))
             {
-                this.subscriptions.Add(messageType, new List<Subscription>());
+                this.subscriptions.Add(eventType, new List<Subscription>());
             }
 
-            this.subscriptions[messageType].Add(subscription);
+            this.subscriptions[eventType].Add(subscription);
         }
 
-        public void UnSubscribe<TMessage>(IRecipient recipient) where TMessage : IMessage
+        /// <inhheritdoc/>
+        public void Unsubscribe<TEvent>(IRecipient recipient) where TEvent : IEvent
         {
-            var messageType = typeof(TMessage);
-            if (this.subscriptions.ContainsKey(messageType))
+            var eventType = typeof(TEvent);
+            if (this.subscriptions.ContainsKey(eventType))
             {
-                var subscription = (IList<Subscription>)this.subscriptions[messageType];
+                var subscription = (IList<Subscription>)this.subscriptions[eventType];
                 var entry = subscription.SingleOrDefault(x => x.Recipient == recipient);
                 if (entry != default)
                 {
@@ -68,36 +73,54 @@ namespace CoreXF.Eventing
             }
         }
 
-        private void UnSubscribe(Subscription subscription)
+        /// <inhheritdoc/>
+        private void Unsubscribe(Subscription subscription)
         {
-            var messageType = this.subscriptions.SingleOrDefault(p => p.Value == subscription).Key;
-            if (messageType != default)
+            var eventType = this.subscriptions.SingleOrDefault(p => p.Value == subscription).Key;
+            if (eventType != default && this.subscriptions.ContainsKey(eventType))
             {
-                if (this.subscriptions.ContainsKey(messageType))
-                {
-                    this.subscriptions[messageType].Remove(subscription);
-                }
+                this.subscriptions[eventType].Remove(subscription);
             }
         }
 
         private class Subscription : IDisposable
         {
+            /// <summary>
+            /// Gets the event aggregator.
+            /// </summary>
             public IEventAggregator EventAggregator { get; }
 
+            /// <summary>
+            /// Gets the recipient.
+            /// </summary>
             public IRecipient Recipient { get; }
 
-            public Type MessageType { get; }
+            /// <summary>
+            /// Gets the event type.
+            /// </summary>
+            public Type EventType { get; }
 
-            public Subscription(IEventAggregator eventAggregator, IRecipient recipient, Type messageType)
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Subscription"/> class.
+            /// </summary>
+            /// <param name="eventAggregator">The event aggregator.</param>
+            /// <param name="recipient">The recipient.</param>
+            /// <param name="eventType">The event type.</param>
+            public Subscription(IEventAggregator eventAggregator, IRecipient recipient, Type eventType)
             {
                 this.EventAggregator = eventAggregator ?? throw new ArgumentNullException(nameof(eventAggregator));
-                this.MessageType = messageType ?? throw new ArgumentNullException(nameof(messageType)); ;
+                this.EventType = eventType ?? throw new ArgumentNullException(nameof(eventType)); 
                 this.Recipient = recipient ?? throw new ArgumentNullException(nameof(recipient));
             }
 
-            public void Notify<TSender>(TSender sender, IMessage message)
+            /// <summary>
+            /// Notifies this.Recipient about event.
+            /// </summary>
+            /// <param name="sender">The sender.</param>
+            /// <param name="event">The event.</param>
+            public void Notify(ISender sender, IEvent @event) 
             {
-                throw new NotImplementedException();
+                this.Recipient.Handle(sender, @event);
             }
 
             public void Dispose()
@@ -110,7 +133,7 @@ namespace CoreXF.Eventing
             {
                 if (disposing)
                 {
-                    ((EventAggregator)this.EventAggregator).UnSubscribe(this);
+                    ((EventAggregator)this.EventAggregator).Unsubscribe(this);
                 }
             }
         }

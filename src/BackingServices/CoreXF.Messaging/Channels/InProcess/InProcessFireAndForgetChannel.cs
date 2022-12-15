@@ -17,31 +17,47 @@ using System.Threading;
 
 namespace CoreXF.Messaging.Channels.InProcess
 {
+    /// <summary>
+    /// The in process fire and forget channel.
+    /// </summary>
     public class InProcessFireAndForgetChannel : AbstractChannel, IFireAndForgetChannel
     {
+        /// <summary>
+        /// The locker.
+        /// </summary>
         private readonly object locker = new object();
 
-        private readonly InProcessChannelFactory factory;
-
+        /// <summary>
+        /// The default period to check for "dead" messages.
+        /// </summary>
         public const int DefaultPeriod = 1000;
 
-        private readonly Timer timer;
-
+        /// <summary>
+        /// Gets the message queue.
+        /// </summary>
         public IDictionary<string, ICollection<AbstractMessage>> MessageQueue { get; private set; }
 
-        internal InProcessFireAndForgetChannel(InProcessChannelFactory factory, int period, ILogger logger)
-            : base(factory, logger)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InProcessFireAndForgetChannel"/> class.
+        /// </summary>
+        /// <param name="period">The period.</param>
+        /// <param name="logger">The logger.</param>
+        internal InProcessFireAndForgetChannel(int period, ILogger logger) : base(logger)
         {
-            this.factory = factory;
             this.MessageQueue = new Dictionary<string, ICollection<AbstractMessage>>();
-            this.timer = new Timer(this.RemoveDeadMessages, null, period, period);
+            _ = new Timer(this.RemoveDeadMessages, null, period, period);
         }
 
+        /// <summary>
+        /// Fire a message with a time to live before collected and destroyed.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="timeToLive">The time to live.</param>
         public void Fire(IFireAndForgetMessage message, string timeToLive = null)
         {
             if (message.TimeToLive == default || message.TimeToLive == TimeSpan.MinValue)
             {
-                if (TimeSpan.TryParse(timeToLive, out var ttl) == false)
+                if (!TimeSpan.TryParse(timeToLive, out var ttl))
                 {
                     ttl = FireAndForgetMessage.DefaultTimeToLive;
                 }
@@ -51,17 +67,6 @@ namespace CoreXF.Messaging.Channels.InProcess
 
             this.AddMessage(message as AbstractMessage);
         }
-
-        //public IEnumerable<IMessage> GetAllMessages()
-        //{
-        //    var list = new List<IMessage>();
-        //    foreach (var item in this.MessageQueue.Values)
-        //    {
-        //        list.AddRange(item);
-        //    }
-
-        //    return list;
-        //}
 
         /// <summary>
         /// Peeks the specified message type.
@@ -76,12 +81,10 @@ namespace CoreXF.Messaging.Channels.InProcess
             }
         }
 
-        ///// <summary>
-        ///// Gets the message types.
-        ///// </summary>
-        ///// <returns></returns>
-        //public virtual IEnumerable<string> MessageTypes => this.MessageQueue.Keys;
-
+        /// <summary>
+        /// Add message.
+        /// </summary>
+        /// <param name="message">The message.</param>
         internal void AddMessage(AbstractMessage message)
         {
             lock (this.locker)
@@ -96,6 +99,10 @@ namespace CoreXF.Messaging.Channels.InProcess
             }
         }
 
+        /// <summary>
+        /// Remove dead messages.
+        /// </summary>
+        /// <param name="state">The state.</param>
         protected virtual void RemoveDeadMessages(object state)
         {
             var lists = new Dictionary<string, List<AbstractMessage>>();
@@ -116,7 +123,7 @@ namespace CoreXF.Messaging.Channels.InProcess
                     foreach (var expired in list.Value)
                     {
                         messageList.Remove(expired);
-                        this.Logger.LogInformation($"Message '{expired.Id}' expired ({expired.DateTime}, {((IFireAndForgetMessage)expired).TimeToLive})");
+                        this.Logger?.LogInformation($"Message '{expired.Id}' expired ({expired.DateTime}, {((IFireAndForgetMessage)expired).TimeToLive})");
                     }
                 }
             }

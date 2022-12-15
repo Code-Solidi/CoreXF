@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
+        <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Channels\WebApi\WebApiChannelBase.cs" />
-        <Compile Remove="Channels\WebApi\WebApiChannelFactory.cs" />
-        <Compile Remove="Channels\WebApi\WebApiFireAndForgetChannel.cs" />
-        <Compile Remove="Channels\WebApi\WebApiPublishSubscribeChannel.cs" />
-        <Compile Remove="Channels\WebApi\WebApiRequestResponseChannel.cs" />
+      <Compile Remove="Channels\WebApi\WebApiChannelBase.cs" />
+      <Compile Remove="Channels\WebApi\WebApiChannelFactory.cs" />
+      <Compile Remove="Channels\WebApi\WebApiFireAndForgetChannel.cs" />
+      <Compile Remove="Channels\WebApi\WebApiPublishSubscribeChannel.cs" />
+      <Compile Remove="Channels\WebApi\WebApiRequestResponseChannel.cs" />
     </ItemGroup>
 
     <ItemGroup>

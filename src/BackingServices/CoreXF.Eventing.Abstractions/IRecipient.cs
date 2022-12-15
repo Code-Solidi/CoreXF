@@ -5,10 +5,18 @@
 
 namespace CoreXF.Eventing.Abstractions
 {
-    public interface IRecipient
+    /// <summary>
+    /// The recipient interface.
+    /// </summary>
+    public interface IRecipient 
     {
-        string Name { get; }
+        //string Name { get; }
 
-        void Handle(ISender sender, IMessage message);
+        /// <summary>
+        /// TODO: Add Summary
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="event">The event.</param>
+        void Handle(ISender sender, IEvent @event);
     }
 }

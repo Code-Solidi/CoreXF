@@ -7,16 +7,30 @@ using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Messaging.Abstractions
 {
-    public abstract class AbstractChannel //: IChannel
+    /// <summary>
+    /// The abstract channel.
+    /// </summary>
+    public abstract class AbstractChannel 
     {
-        private readonly AbstractChannelFactory factory;
+        /// <summary>
+        /// The factory.
+        /// </summary>
+        //private readonly AbstractChannelFactory factory;
 
+        /// <summary>
+        /// Gets or Sets the logger.
+        /// </summary>
         protected internal ILogger Logger { get; set; }
 
-        protected AbstractChannel(AbstractChannelFactory factory, ILogger logger)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbstractChannel"/> class.
+        /// </summary>
+        /// <param name="factory">The factory.</param>
+        /// <param name="logger">The logger.</param>
+        protected AbstractChannel(/*AbstractChannelFactory factory, */ILogger logger)
         {
             this.Logger = logger;
-            this.factory = factory;
+            //this.factory = factory;
         }
     }
 }

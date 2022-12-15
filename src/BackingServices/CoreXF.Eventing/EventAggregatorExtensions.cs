@@ -7,21 +7,43 @@ using CoreXF.Eventing.Abstractions;
 
 namespace CoreXF.Eventing
 {
+    /// <summary>
+    /// The event aggregator extensions.
+    /// </summary>
     public static class EventAggregatorExtensions
     {
-        public static void Subscribe<TMessage>(this IRecipient recipient, IEventAggregator eventAggregator) where TMessage : IMessage
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TEvent"></typeparam>
+        /// <param name="recipient">The recipient.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        public static void Subscribe<TEvent>(this IRecipient recipient, IEventAggregator eventAggregator) where TEvent : IEvent
         {
-            eventAggregator.Subscribe<TMessage>(recipient);
+            eventAggregator.Subscribe<TEvent>(recipient);
         }
 
-        public static void Unsubscribe<TMessage>(this IRecipient recipient, IEventAggregator eventAggregator) where TMessage : IMessage
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TEvent"></typeparam>
+        /// <param name="recipient">The recipient.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        public static void Unsubscribe<TEvent>(this IRecipient recipient, IEventAggregator eventAggregator) where TEvent : IEvent
         {
-            eventAggregator.UnSubscribe<TMessage>(recipient);
+            eventAggregator.Unsubscribe<TEvent>(recipient);
         }
 
-        public static void Publish<TMessage>(this ISender sender, TMessage message, IEventAggregator eventAggregator) where TMessage : IMessage
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TEvent"></typeparam>
+        /// <param name="sender">The sender.</param>
+        /// <param name="event">The event.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        public static void Publish<TEvent>(this ISender sender, TEvent @event, IEventAggregator eventAggregator) where TEvent : IEvent
         {
-            eventAggregator.Publish(sender, message);
+            eventAggregator.Publish(sender, @event);
         }
     }
 }

@@ -5,10 +5,19 @@
 
 namespace CoreXF.Eventing.Abstractions
 {
-    public interface ISender
+    /// <summary>
+    /// The sender interface.
+    /// </summary>
+    public interface ISender //: IExtension
     {
-        string Name { get; }
+        //string Name { get; }
 
-        void Publish<TMessage>(TMessage message, IEventAggregator eventAggregator) where TMessage : IMessage;
+        /// <summary>
+        /// TODO: Add Summary
+        /// </summary>
+        /// <typeparam name="TEvent"></typeparam>
+        /// <param name="event">The event.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        void Publish<TEvent>(TEvent @event, IEventAggregator eventAggregator) where TEvent : IEvent;
     }
 }

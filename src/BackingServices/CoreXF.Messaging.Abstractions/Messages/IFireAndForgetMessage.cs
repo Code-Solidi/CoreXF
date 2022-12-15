@@ -7,8 +7,14 @@ using System;
 
 namespace CoreXF.Messaging.Abstractions.Messages
 {
+    /// <summary>
+    /// The fire and forget message interface.
+    /// </summary>
     public interface IFireAndForgetMessage : IMessage
     {
+        /// <summary>
+        /// Gets or Sets the time to live.
+        /// </summary>
         TimeSpan TimeToLive { get; set; }
     }
 }
