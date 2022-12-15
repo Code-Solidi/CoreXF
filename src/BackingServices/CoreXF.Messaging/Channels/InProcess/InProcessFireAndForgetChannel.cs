@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2016-2022 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
@@ -23,7 +23,7 @@ namespace CoreXF.Messaging.Channels.InProcess
     public class InProcessFireAndForgetChannel : AbstractChannel, IFireAndForgetChannel
     {
         /// <summary>
-        /// The locker.
+        /// The locker object.
         /// </summary>
         private readonly object locker = new object();
 
@@ -32,9 +32,7 @@ namespace CoreXF.Messaging.Channels.InProcess
         /// </summary>
         public const int DefaultPeriod = 1000;
 
-        /// <summary>
-        /// Gets the message queue.
-        /// </summary>
+        /// <inheritdoc/>
         public IDictionary<string, ICollection<AbstractMessage>> MessageQueue { get; private set; }
 
         /// <summary>
@@ -48,11 +46,7 @@ namespace CoreXF.Messaging.Channels.InProcess
             _ = new Timer(this.RemoveDeadMessages, null, period, period);
         }
 
-        /// <summary>
-        /// Fire a message with a time to live before collected and destroyed.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="timeToLive">The time to live.</param>
+        /// <inheritdoc/>
         public void Fire(IFireAndForgetMessage message, string timeToLive = null)
         {
             if (message.TimeToLive == default || message.TimeToLive == TimeSpan.MinValue)
@@ -68,11 +62,18 @@ namespace CoreXF.Messaging.Channels.InProcess
             this.AddMessage(message as AbstractMessage);
         }
 
-        /// <summary>
-        /// Peeks the specified message type.
-        /// </summary>
-        /// <param name="messageType">Type of the message.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        public void Fire(IFireAndForgetMessage message, TimeSpan timeToLive)
+        {
+            if (message.TimeToLive == default || message.TimeToLive == TimeSpan.MinValue)
+            {
+                message.TimeToLive = timeToLive != default ? timeToLive : FireAndForgetMessage.DefaultTimeToLive;
+            }
+
+            this.AddMessage(message as AbstractMessage);
+        }
+
+        /// <inheritdoc/>
         public virtual IEnumerable<AbstractMessage> Peek(string messageType)
         {
             lock (this.locker)
@@ -99,10 +100,7 @@ namespace CoreXF.Messaging.Channels.InProcess
             }
         }
 
-        /// <summary>
-        /// Remove dead messages.
-        /// </summary>
-        /// <param name="state">The state.</param>
+        /// <inheritdoc/>
         protected virtual void RemoveDeadMessages(object state)
         {
             var lists = new Dictionary<string, List<AbstractMessage>>();

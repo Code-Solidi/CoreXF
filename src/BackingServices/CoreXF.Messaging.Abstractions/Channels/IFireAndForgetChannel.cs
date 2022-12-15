@@ -1,10 +1,11 @@
 ﻿/*
- * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2016-2022 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
 using CoreXF.Messaging.Abstractions.Messages;
 
+using System;
 using System.Collections.Generic;
 
 namespace CoreXF.Messaging.Abstractions.Channels
@@ -15,11 +16,18 @@ namespace CoreXF.Messaging.Abstractions.Channels
     public interface IFireAndForgetChannel
     {
         /// <summary>
-        /// TODO: Add Summary
+        /// Fires a message with a specified time to live (TTL)
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="timeToLive">The time to live.</param>
         void Fire(IFireAndForgetMessage message, string timeToLive = null);
+
+        /// <summary>
+        /// Fires a message with a specified time to live (TTL)
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="timeToLive">The time to live.</param>
+        void Fire(IFireAndForgetMessage message, TimeSpan timeToLive = default);
 
         /// <summary>
         /// Peeks the list of abstract messages.
