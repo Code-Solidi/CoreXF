@@ -1,0 +1,15 @@
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\ServiceExporter.deps.json
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\ServiceExporter.dll
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\ServiceExporter.pdb
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\CoreXF.Abstractions.dll
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\DateTimeService.dll
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\CoreXF.Abstractions.pdb
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\bin\Debug\netcoreapp3.1\DateTimeService.pdb
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.AssemblyInfo.cs
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.csproj.CopyComplete
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.dll
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\obj\Debug\netcoreapp3.1\ServiceExporter.pdb

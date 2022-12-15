@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = ServiceExporter
+build_property.ProjectDir = E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\ServiceExporter\

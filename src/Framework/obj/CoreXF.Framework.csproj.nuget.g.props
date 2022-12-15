@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\XXXX\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.4.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\XXXX\.nuget\packages\" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == '' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\buildMultiTargeting\Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\buildMultiTargeting\Microsoft.AspNetCore.Razor.Design.props')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == '' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.props')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'net6.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\XXXX\.nuget\packages\microsoft.codeanalysis.analyzers\1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_AspNetCore_Razor_Design Condition=" '$(PkgMicrosoft_AspNetCore_Razor_Design)' == '' ">C:\Users\XXXX\.nuget\packages\microsoft.aspnetcore.razor.design\2.2.0</PkgMicrosoft_AspNetCore_Razor_Design>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\XXXX\.nuget\packages\microsoft.codeanalysis.analyzers\1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_AspNetCore_Razor_Design Condition=" '$(PkgMicrosoft_AspNetCore_Razor_Design)' == '' ">C:\Users\XXXX\.nuget\packages\microsoft.aspnetcore.razor.design\2.2.0</PkgMicrosoft_AspNetCore_Razor_Design>
+  </PropertyGroup>
+</Project>

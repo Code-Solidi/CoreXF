@@ -1,0 +1,12 @@
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\bin\Debug\net6.0\CoreXF.Messaging.Abstractions.deps.json
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\bin\Debug\net6.0\CoreXF.Messaging.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\bin\Debug\net6.0\CoreXF.Messaging.Abstractions.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.AssemblyInfo.cs
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\refint\CoreXF.Messaging.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\CoreXF.Messaging.Abstractions.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\obj\Debug\net6.0\ref\CoreXF.Messaging.Abstractions.dll

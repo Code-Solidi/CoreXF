@@ -1,0 +1,15 @@
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\bin\Debug\net6.0\CoreXF.Eventing.deps.json
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\bin\Debug\net6.0\CoreXF.Eventing.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\bin\Debug\net6.0\CoreXF.Eventing.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\bin\Debug\net6.0\CoreXF.Eventing.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\bin\Debug\net6.0\CoreXF.Eventing.Abstractions.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.AssemblyInfo.cs
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.csproj.CopyComplete
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\refint\CoreXF.Eventing.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\CoreXF.Eventing.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing\obj\Debug\net6.0\ref\CoreXF.Eventing.dll

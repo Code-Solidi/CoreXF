@@ -1,0 +1,13 @@
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\bin\Debug\netcoreapp3.1\CoreXF.Messaging.deps.json
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\bin\Debug\netcoreapp3.1\CoreXF.Messaging.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\bin\Debug\netcoreapp3.1\CoreXF.Messaging.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\bin\Debug\netcoreapp3.1\CoreXF.Messaging.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\bin\Debug\netcoreapp3.1\CoreXF.Messaging.Abstractions.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.AssemblyInfo.cs
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.csproj.CopyComplete
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging\obj\Debug\netcoreapp3.1\CoreXF.Messaging.pdb

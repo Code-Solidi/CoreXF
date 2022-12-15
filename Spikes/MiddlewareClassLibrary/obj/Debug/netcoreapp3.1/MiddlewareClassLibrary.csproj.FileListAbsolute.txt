@@ -1,0 +1,10 @@
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\bin\Debug\netcoreapp3.1\MiddlewareClassLibrary.deps.json
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\bin\Debug\netcoreapp3.1\MiddlewareClassLibrary.dll
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\bin\Debug\netcoreapp3.1\MiddlewareClassLibrary.pdb
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.AssemblyInfo.cs
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.dll
+E:\GitHub\CoreXF\Spikes\MiddlewareClassLibrary\obj\Debug\netcoreapp3.1\MiddlewareClassLibrary.pdb

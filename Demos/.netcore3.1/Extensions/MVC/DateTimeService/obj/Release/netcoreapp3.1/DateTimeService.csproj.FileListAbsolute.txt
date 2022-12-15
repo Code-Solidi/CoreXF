@@ -1,0 +1,10 @@
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\bin\Release\netcoreapp3.1\DateTimeService.deps.json
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\bin\Release\netcoreapp3.1\DateTimeService.dll
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\bin\Release\netcoreapp3.1\DateTimeService.pdb
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.AssemblyInfo.cs
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.dll
+E:\GitHub\CoreXF\Demos\.netcore3.1\Extensions\MVC\DateTimeService\obj\Release\netcoreapp3.1\DateTimeService.pdb

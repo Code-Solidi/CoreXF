@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "apQ/L0gQGcqSfj9m7HdRwzPtFchYRJgqnKf3yl6NUeJZB9JH3ODlIc7q7glDJHp+9Qtk6eL3egWWRT31Z0a0Lg==",
+  "success": true,
+  "projectFilePath": "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Messaging.Abstractions\\CoreXF.Messaging.Abstractions.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\XXXX\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

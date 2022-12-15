@@ -1,0 +1,10 @@
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\bin\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.deps.json
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\bin\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\bin\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.pdb
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.AssemblyInfo.cs
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.dll
+E:\GitHub\CoreXF\src\BackingServices\CoreXF.Eventing.Abstractions\obj\Debug\netcoreapp3.1\CoreXF.Eventing.Abstractions.pdb

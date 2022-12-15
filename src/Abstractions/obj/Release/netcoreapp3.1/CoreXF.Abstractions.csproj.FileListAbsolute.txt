@@ -1,0 +1,10 @@
+E:\GitHub\CoreXF\src\Abstractions\bin\Release\netcoreapp3.1\CoreXF.Abstractions.deps.json
+E:\GitHub\CoreXF\src\Abstractions\bin\Release\netcoreapp3.1\CoreXF.Abstractions.dll
+E:\GitHub\CoreXF\src\Abstractions\bin\Release\netcoreapp3.1\CoreXF.Abstractions.pdb
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.csproj.AssemblyReference.cache
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.AssemblyInfoInputs.cache
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.AssemblyInfo.cs
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.csproj.CoreCompileInputs.cache
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.dll
+E:\GitHub\CoreXF\src\Abstractions\obj\Release\netcoreapp3.1\CoreXF.Abstractions.pdb

@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = HostApp.MVC
+build_property.ProjectDir = E:\GitHub\CoreXF\Demos\.netcore3.1\HostApp.MVC\

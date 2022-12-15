@@ -1,0 +1,137 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/CoreXF.Eventing.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoreXF.Eventing.Abstractions.dll": {}
+        }
+      }
+    },
+    "net6.0": {
+      "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CoreXF.Eventing.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoreXF.Eventing.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+      "type": "project",
+      "path": "../CoreXF.Eventing.Abstractions/CoreXF.Eventing.Abstractions.csproj",
+      "msbuildProject": "../CoreXF.Eventing.Abstractions/CoreXF.Eventing.Abstractions.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "CoreXF.Eventing.Abstractions >= 2.0.1-alpha-5"
+    ],
+    "net6.0": [
+      "CoreXF.Eventing.Abstractions >= 2.0.1-alpha-5"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\XXXX\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing\\CoreXF.Eventing.csproj",
+      "projectName": "CoreXF.Eventing",
+      "projectPath": "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing\\CoreXF.Eventing.csproj",
+      "packagesPath": "C:\\Users\\XXXX\\.nuget\\packages\\",
+      "outputPath": "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing\\obj\\",
+      "projectStyle": "PackageReference",
+      "crossTargeting": true,
+      "configFilePaths": [
+        "C:\\Users\\XXXX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0",
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "E:\\NuGet": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing.Abstractions\\CoreXF.Eventing.Abstractions.csproj": {
+              "projectPath": "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing.Abstractions\\CoreXF.Eventing.Abstractions.csproj"
+            }
+          }
+        },
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing.Abstractions\\CoreXF.Eventing.Abstractions.csproj": {
+              "projectPath": "E:\\GitHub\\CoreXF\\src\\BackingServices\\CoreXF.Eventing.Abstractions\\CoreXF.Eventing.Abstractions.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+      },
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

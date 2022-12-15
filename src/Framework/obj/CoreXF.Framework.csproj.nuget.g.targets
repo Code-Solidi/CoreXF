@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(TargetFramework)' == '' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == '' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\buildMultiTargeting\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'net6.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.targets')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\3.1.31\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.targets')" />
+  </ImportGroup>
+</Project>

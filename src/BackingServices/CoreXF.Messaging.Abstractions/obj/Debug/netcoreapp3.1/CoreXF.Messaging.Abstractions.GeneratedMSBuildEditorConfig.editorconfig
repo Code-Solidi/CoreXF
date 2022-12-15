@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = CoreXF.Messaging.Abstractions
+build_property.ProjectDir = E:\GitHub\CoreXF\src\BackingServices\CoreXF.Messaging.Abstractions\

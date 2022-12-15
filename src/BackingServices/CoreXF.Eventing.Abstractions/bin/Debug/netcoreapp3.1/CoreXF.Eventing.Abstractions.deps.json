@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+        "runtime": {
+          "CoreXF.Eventing.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

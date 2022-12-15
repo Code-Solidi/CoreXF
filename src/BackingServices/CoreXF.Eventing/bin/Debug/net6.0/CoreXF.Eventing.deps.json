@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CoreXF.Eventing/1.0.0": {
+        "dependencies": {
+          "CoreXF.Eventing.Abstractions": "2.0.1-alpha-5"
+        },
+        "runtime": {
+          "CoreXF.Eventing.dll": {}
+        }
+      },
+      "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+        "runtime": {
+          "CoreXF.Eventing.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CoreXF.Eventing/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoreXF.Eventing.Abstractions/2.0.1-alpha-5": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
