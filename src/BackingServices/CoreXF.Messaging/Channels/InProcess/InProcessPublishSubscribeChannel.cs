@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2016-2022 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
@@ -34,10 +34,7 @@ namespace CoreXF.Messaging.Channels.InProcess
             this.broker = broker;
         }
 
-        /// <summary>
-        /// TODO: Add Summary
-        /// </summary>
-        /// <param name="message">The message.</param>
+        /// <inheritdoc/>>
         public void Publish(IPublishedMessage message)
         {
             this.Logger?.LogInformation($"Publishing message '{message.Id}' of type '{message.Type}'.");

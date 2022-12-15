@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2016-2021 Code Solidi Ltd. All rights reserved.
+ * Copyright (c) 2016-2022 Code Solidi Ltd. All rights reserved.
  * Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
  */
 
@@ -33,12 +33,7 @@ namespace CoreXF.Messaging.Channels.InProcess
             this.logger = logger;
         }
 
-        /// <summary>
-        /// Request the <see cref="IMessageResponse"/>.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <exception cref="InvalidOperationException"></exception>
-        /// <returns>An IMessageResponse.</returns>
+        /// <inheritdoc/>>
         public IMessageResponse Request(IRequestMessage message)
         {
             var recipient = (this.broker as MessageBroker)?.GetRecipient(message.Type);
