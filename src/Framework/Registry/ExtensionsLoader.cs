@@ -18,8 +18,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
 
-//using static System.Net.WebRequestMethods;
-
 namespace CoreXF.Framework.Registry
 {
     /// <summary>
@@ -53,18 +51,16 @@ namespace CoreXF.Framework.Registry
         public static IExtensionsRegistry DiscoverExtensions(IServiceCollection services, ILoggerFactory factory, string location)
         {
             var registry = new ExtensionsRegistry(factory);
-            var excludes = new[]
-            {
-                Assembly.GetAssembly(typeof(AbstractExtension)).FullName,       // CoreXF.Abstractions
-                Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
-            };
-
-            //new ExtensionsLoader(factory, registry).Discover(services, location, excludes);
             new ExtensionsLoader(factory, registry).Discover(services, location);
 
             return registry;
         }
 
+        /// <summary>
+        /// Load extension.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        /// <returns>An Assembly.</returns>
         private Assembly LoadExtension(string folder)
         {
             // 1. locate any of <name>.deps.json or <name>.runtimeconfig.json
@@ -105,8 +101,6 @@ namespace CoreXF.Framework.Registry
             try
             {
                 location = Path.Combine(Environment.CurrentDirectory, location.Trim(' ', '\t', '\\', '/'));
-                //files = Directory.GetFiles(location, "*.dll", SearchOption.AllDirectories);
-
                 foreach (var folder in Directory.EnumerateDirectories(location))
                 {
                     var assembly = this.LoadExtension(folder);
@@ -142,7 +136,6 @@ namespace CoreXF.Framework.Registry
             catch (Exception x)
             {
                 this.logger.LogError(x.Message);
-                return;
             }
         }
 
