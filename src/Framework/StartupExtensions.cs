@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -84,7 +85,7 @@ namespace CoreXF.Framework
                         var directory = extension.Location;
                         var viewsAssemblyName = (extension as IMvcExtension).Views;
                         var logger = loggerFactory.CreateLogger(nameof(StartupExtensions));
-                        var viewsAssembly = ExtensionsLoader.LoadAssembly(Path.Combine(directory, viewsAssemblyName), logger);
+                        var viewsAssembly = ExtensionsLoader.LoadAssembly(Path.Combine(directory, viewsAssemblyName), libraries: default, logger);
                         mvcBuilder.AddApplicationPart(viewsAssembly);
                     }
 #endif
