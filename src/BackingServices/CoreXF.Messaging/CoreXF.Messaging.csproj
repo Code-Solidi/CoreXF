@@ -5,7 +5,7 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Authors>Code Solidi Ltd.</Authors>
         <Description>CoreXF is a ASP.NET Core eXtensibility Framework. It defines interfaces and classes required to convert .NET Core MVC applications as well as .NET Core class libraries into .NET Core MVC extensions.</Description>
-        <Copyright>Copyright (c) Code Solidi Ltd. 2016-2021.</Copyright>
+        <Copyright>Copyright (c) Code Solidi Ltd. 2016-2022.</Copyright>
         <Product>CoreXF</Product>
         <PackageIcon>CoreXF.png</PackageIcon>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
