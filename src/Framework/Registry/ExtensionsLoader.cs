@@ -6,7 +6,9 @@
 using CoreXF.Abstractions.Base;
 using CoreXF.Abstractions.Registry;
 
+using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Logging;
 
 using System;
@@ -18,12 +20,20 @@ using System.Runtime.Loader;
 
 namespace CoreXF.Framework.Registry
 {
+    /// <summary>
+    /// The extensions loader.
+    /// </summary>
     internal sealed class ExtensionsLoader
     {
         private readonly ILogger logger;
         private readonly IExtensionsRegistry registry;
         private readonly ILoggerFactory factory;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="ExtensionsLoader"/> class from being created.
+        /// </summary>
+        /// <param name="factory">The factory.</param>
+        /// <param name="registry">The registry.</param>
         private ExtensionsLoader(ILoggerFactory factory, IExtensionsRegistry registry)
         {
             this.factory = factory ?? throw new ArgumentNullException(nameof(factory));
@@ -31,40 +41,69 @@ namespace CoreXF.Framework.Registry
             this.registry = registry;
         }
 
+        /// <summary>
+        /// Discover extensions.
+        /// </summary>
+        /// <param name="services">The services.</param>
+        /// <param name="factory">The factory.</param>
+        /// <param name="location">The location.</param>
+        /// <returns>An IExtensionsRegistry.</returns>
         public static IExtensionsRegistry DiscoverExtensions(IServiceCollection services, ILoggerFactory factory, string location)
         {
             var registry = new ExtensionsRegistry(factory);
-            var excludes = new[]
-            {
-                Assembly.GetAssembly(typeof(AbstractExtension)).FullName,       // CoreXF.Abstractions
-                Assembly.GetAssembly(typeof(ExtensionsLoader)).FullName     // CoreXF.Framework
-            };
-
-            new ExtensionsLoader(factory, registry).Discover(services, location, excludes);
+            new ExtensionsLoader(factory, registry).Discover(services, location);
 
             return registry;
         }
 
-        private void Discover(IServiceCollection services, string location, string[] excludes)
+        /// <summary>
+        /// Load extension.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        /// <returns>An Assembly.</returns>
+        private Assembly LoadExtension(string folder)
+        {
+            // 1. locate any of <name>.deps.json or <name>.runtimeconfig.json
+            var supplementary = Directory.GetFiles(folder, "*.deps.json").SingleOrDefault() ??
+                Directory.GetFiles(folder, "*.runtimeconfig.json").SingleOrDefault();
+
+            // 2. determine extension name
+            var name = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(supplementary));
+
+            // 3. load the assembly
+            var libraries = DependencyContext.Default.CompileLibraries.Cast<Library>().Union(DependencyContext.Default.RuntimeLibraries).Distinct();
+            var extensionPath = Path.ChangeExtension(Path.Combine(folder, name) + ".", ".dll");
+            var assembly = ExtensionsLoader.LoadAssembly(extensionPath, libraries, this.logger);
+
+            // 4. load dependencies
+            var files = Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories);
+            var dependencyContext = DependencyContext.Load(assembly);
+            foreach (var dependency in dependencyContext.RuntimeLibraries.Where(x => x.Name != name).Select(x => x.Name))
+            {
+                var dependencyPath = Path.ChangeExtension(Path.Combine(folder, dependency) + ".", ".dll");
+                if (File.Exists(dependencyPath))
+                {
+                    _ = ExtensionsLoader.LoadAssembly(dependencyPath, libraries, this.logger);
+                }
+            }
+
+            return assembly;
+        }
+
+        /// <summary>
+        /// Discover extensions in 'location'.
+        /// </summary>
+        /// <param name="services">The services.</param>
+        /// <param name="location">The location.</param>
+        private void Discover(IServiceCollection services, string location)
         {
             var files = Array.Empty<string>();
             try
             {
-                location = location.Trim(' ', '\t', '\\', '/');
-                location = Path.Combine(Environment.CurrentDirectory, location);
-                files = Directory.GetFiles(location, "*.dll", SearchOption.AllDirectories);
-            }
-            catch (Exception x)
-            {
-                this.logger.LogError(x.Message);
-                return;
-            }
-
-            foreach (var assembly in this.LoadAssemblies(files))
-            {
-                this.logger.LogDebug($"Inspecting {assembly.Location}.");
-                if (!excludes.Any(x => x == assembly?.FullName))
+                location = Path.Combine(Environment.CurrentDirectory, location.Trim(' ', '\t', '\\', '/'));
+                foreach (var folder in Directory.EnumerateDirectories(location))
                 {
+                    var assembly = this.LoadExtension(folder);
                     try
                     {
                         var types = assembly?.GetTypes();
@@ -94,55 +133,37 @@ namespace CoreXF.Framework.Registry
                     }
                 }
             }
-        }
-
-        private List<Assembly> LoadAssemblies(string[] files)
-        {
-            this.logger.LogDebug("Loading assemblies...");
-            var assemblyList = new List<Assembly>();
-            foreach (var path in files)
+            catch (Exception x)
             {
-                this.logger.LogDebug($"Loading assembly: '{path}'.");
-                var assembly = ExtensionsLoader.LoadAssembly(path, this.logger);
-                if (assembly != default)
-                {
-                    assemblyList.Add(assembly);
-                }
+                this.logger.LogError(x.Message);
             }
-
-            return assemblyList;
         }
 
-        internal static Assembly LoadAssembly(string assemblyPath, ILogger logger)
+        /// <summary>
+        /// Load assembly.
+        /// </summary>
+        /// <param name="assemblyPath">The assembly path.</param>
+        /// <param name="libraries">The libraries.</param>
+        /// <param name="logger">The logger.</param>
+        /// <returns>An Assembly.</returns>
+        internal static Assembly LoadAssembly(string assemblyPath, IEnumerable<Library> libraries, ILogger logger)
         {
             //if (assemblyPath.Contains("Extensions\\Identity"))
             //{
             //    System.Diagnostics.Debugger.Launch();
             //}
 
+            libraries ??= DependencyContext.Default.CompileLibraries.Cast<Library>().Union(DependencyContext.Default.RuntimeLibraries).Distinct();
             try
             {
-                // load dependent assemblies:
-                // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
-                return AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
+                return libraries.Any(x => x.Name.Equals(Path.GetFileNameWithoutExtension(assemblyPath), StringComparison.OrdinalIgnoreCase))
+                    ? default//Assembly.Load(new AssemblyName(fileNameWithOutExtension))
+                    // https://samcragg.wordpress.com/2017/06/30/resolving-assemblies-in-net-core/
+                    : AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);  // WARNING: once loaded it's forever!
             }
             catch (FileLoadException x)
             {
-                var assemblies = AssemblyLoadContext.Default.Assemblies.OrderBy(x => x.GetName().Name).ToDictionary(x => x.GetName().Name, x => x);
-                var asmName = Path.GetFileNameWithoutExtension(assemblyPath);
-                var loaded = assemblies.SingleOrDefault(x => x.Key == asmName);
-                if (!string.IsNullOrEmpty(loaded.Key))
-                {
-                    logger.LogWarning($"Cannot load '{assemblyPath}', '{loaded.Value.FullName}' already loaded. ");
-                }
-                else
-                {
-                    logger.LogError(x, $"Cannot load '{assemblyPath}'");
-                }
-            }
-            catch (FileNotFoundException x)
-            {
-                logger.Log(LogLevel.Error, x, $"'{assemblyPath}' not found.");
+                logger.LogError(x, $"Cannot load '{assemblyPath}'");
             }
             catch (BadImageFormatException x)
             {
@@ -150,69 +171,39 @@ namespace CoreXF.Framework.Registry
             }
             catch (Exception x)
             {
-                logger.Log(LogLevel.Error, x, $"Generic exception thrown: '{assemblyPath}'.");
+                logger.Log(LogLevel.Error, x, $"Exception thrown: '{assemblyPath}'.");
             }
 
-            return null;
+            return default;
         }
 
-        //private sealed class AssemblyResolver : IDisposable
-        //{
-        //    private readonly ICompilationAssemblyResolver assemblyResolver;
-        //    private readonly DependencyContext dependencyContext;
-        //    private readonly AssemblyLoadContext loadContext;
+        /// <summary>
+        /// Source: https://www.michael-whelan.net/replacing-appdomain-in-dotnet-core/
+        /// </summary>
+        /// <param name="assemblyName"></param>
+        /// <param name="dependencyContext"></param>
+        /// <returns></returns>
+        private static IEnumerable<Assembly> GetReferencingAssemblies(string assemblyName, DependencyContext dependencyContext)
+        {
+            var assemblies = new List<Assembly>();
+            foreach (var library in dependencyContext.RuntimeLibraries)
+            {
+                if (ExtensionsLoader.IsCandidateLibrary(library, assemblyName))
+                {
+                    var assembly = Assembly.Load(new AssemblyName(library.Name));
+                    assemblies.Add(assembly);
+                }
+            }
+            return assemblies;
+        }
 
-        //    public AssemblyResolver(string path)
-        //    {
-        //        this.Assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
-        //        this.dependencyContext = DependencyContext.Load(this.Assembly);
-
-        //        this.assemblyResolver = new CompositeCompilationAssemblyResolver(new ICompilationAssemblyResolver[]
-        //        {
-        //            new AppBaseCompilationAssemblyResolver(Path.GetDirectoryName(path)),
-        //            new ReferenceAssemblyPathResolver(),
-        //            new PackageCompilationAssemblyResolver()
-        //        });
-
-        //        this.loadContext = AssemblyLoadContext.GetLoadContext(this.Assembly);
-        //        this.loadContext.Resolving += OnResolving;
-        //    }
-
-        //    public Assembly Assembly { get; }
-
-        //    public void Dispose()
-        //    {
-        //        this.loadContext.Resolving -= this.OnResolving;
-        //    }
-
-        //    private Assembly OnResolving(AssemblyLoadContext context, AssemblyName name)
-        //    {
-        //        bool NamesMatch(RuntimeLibrary runtime)
-        //        {
-        //            return string.Equals(runtime.Name, name.Name, StringComparison.OrdinalIgnoreCase);
-        //        }
-
-        //        var library = this.dependencyContext.RuntimeLibraries.FirstOrDefault(NamesMatch);
-        //        if (library != null)
-        //        {
-        //            var wrapper = new CompilationLibrary(library.Type
-        //                , library.Name
-        //                , library.Version
-        //                , library.Hash
-        //                , library.RuntimeAssemblyGroups.SelectMany(g => g.AssetPaths)
-        //                , library.Dependencies
-        //                , library.Serviceable);
-
-        //            var assemblies = new List<string>();
-        //            this.assemblyResolver.TryResolveAssemblyPaths(wrapper, assemblies);
-        //            if (assemblies.Count > 0)
-        //            {
-        //                return this.loadContext.LoadFromAssemblyPath(assemblies[0]);
-        //            }
-        //        }
-
-        //        return null;
-        //    }
-        //}
+        /// <summary>
+        /// Source: https://www.michael-whelan.net/replacing-appdomain-in-dotnet-core/
+        /// </summary>
+        /// <param name="library"></param>
+        /// <param name="assemblyName"></param>
+        /// <returns></returns>
+        private static bool IsCandidateLibrary(RuntimeLibrary library, string assemblyName)
+            => library.Name == assemblyName || library.Dependencies.Any(d => d.Name.StartsWith(assemblyName));
     }
 }

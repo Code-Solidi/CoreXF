@@ -47,22 +47,6 @@ namespace CoreXF.Messaging.Channels.InProcess
         }
 
         /// <inheritdoc/>
-        public void Fire(IFireAndForgetMessage message, string timeToLive = null)
-        {
-            if (message.TimeToLive == default || message.TimeToLive == TimeSpan.MinValue)
-            {
-                if (!TimeSpan.TryParse(timeToLive, out var ttl))
-                {
-                    ttl = FireAndForgetMessage.DefaultTimeToLive;
-                }
-
-                message.TimeToLive = ttl;
-            }
-
-            this.AddMessage(message as AbstractMessage);
-        }
-
-        /// <inheritdoc/>
         public void Fire(IFireAndForgetMessage message, TimeSpan timeToLive)
         {
             if (message.TimeToLive == default || message.TimeToLive == TimeSpan.MinValue)
