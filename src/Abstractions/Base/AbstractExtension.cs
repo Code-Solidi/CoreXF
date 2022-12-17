@@ -6,14 +6,17 @@
 using Microsoft.Extensions.DependencyInjection;
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
 namespace CoreXF.Abstractions.Base
 {
     /// <summary>A default implementation of <see cref="IExtension">IExtension</see>.</summary>
-    public class AbstractExtension : IExtension
+    public abstract class AbstractExtension : IExtension
     {
+        private readonly IDictionary<string, object> properties;
+
         /// <inheritdoc/>>
         public string Name { get; protected set; }
 
@@ -35,6 +38,14 @@ namespace CoreXF.Abstractions.Base
         /// <inheritdoc/>>
         public string Copyright { get; protected set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbstractExtension"/> class.
+        /// </summary>
+        protected AbstractExtension()
+        {
+            this.properties = new Dictionary<string, object>();
+        }
+
         /// <inheritdoc/>>
         public virtual void ConfigureServices(IServiceCollection services)
         {
@@ -44,24 +55,52 @@ namespace CoreXF.Abstractions.Base
         /// <inheritdoc/>>
         public virtual void Configure(Assembly assembly)
         {
-            var title = this.Get<AssemblyTitleAttribute>(assembly);
-            this.Name ??= title?.Title ?? string.Empty;
+            var titleAttribute = AbstractExtension.GetAttribute<AssemblyTitleAttribute>(assembly);
+            this.Name ??= titleAttribute?.Title ?? string.Empty;
 
-            var copyright = this.Get<AssemblyCopyrightAttribute>(assembly);
-            this.Copyright ??= copyright?.Copyright ?? string.Empty;
+            var copyrightAttribute = AbstractExtension.GetAttribute<AssemblyCopyrightAttribute>(assembly);
+            this.Copyright ??= copyrightAttribute?.Copyright ?? string.Empty;
 
-            var description = this.Get<AssemblyDescriptionAttribute>(assembly);
-            this.Description ??= description?.Description ?? string.Empty;
+            var descriptionAttribute = AbstractExtension.GetAttribute<AssemblyDescriptionAttribute>(assembly);
+            this.Description ??= descriptionAttribute?.Description ?? string.Empty;
 
-            var company = this.Get<AssemblyCompanyAttribute>(assembly);
-            this.Authors ??= company?.Company ?? string.Empty;
+            var companyAttribute = AbstractExtension.GetAttribute<AssemblyCompanyAttribute>(assembly);
+            this.Authors ??= companyAttribute?.Company ?? string.Empty;
 
-            var version = this.Get<AssemblyVersionAttribute>(assembly);
-            this.Version ??= version?.Version ?? string.Empty;
+            var versionAttribute = AbstractExtension.GetAttribute<AssemblyVersionAttribute>(assembly);
+            this.Version ??= versionAttribute?.Version ?? string.Empty;
 
             this.Location ??= Path.GetDirectoryName(assembly.Location);
         }
 
-        private T Get<T>(Assembly assembly) where T : Attribute => (T)assembly.GetCustomAttribute(typeof(T));
+        /// <summary>
+        /// Gets the property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="name">The name.</param>
+        /// <returns>A <typeparamref name="T"></typeparamref></returns>
+        public T Get<T>(string name)
+        {
+            return this.properties.ContainsKey(name) ? (T)this.properties[name] : default;
+        }
+
+        /// <summary>
+        /// Sets the property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        public void Set<T>(string name, T value)
+        {
+            this.properties[name] = value;
+        }
+
+        /// <summary>
+        /// Gets the attribute <typeparamref name="T"></typeparamref>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="assembly">The assembly.</param>
+        /// <returns>A <typeparamref name="T"></typeparamref></returns>
+        private static T GetAttribute<T>(Assembly assembly) where T : Attribute => (T)assembly.GetCustomAttribute(typeof(T));
     }
 }
