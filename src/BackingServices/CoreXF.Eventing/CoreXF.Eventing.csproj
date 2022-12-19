@@ -19,7 +19,9 @@
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageIconUrl />
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-        <Version>3.0.0-beta-2</Version>
+        <Version>3.0.0</Version>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageReleaseNotes>Supports .NET 6.0.</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,10 +30,14 @@
           <PackagePath></PackagePath>
         </None>
         <None Include="..\..\..\Packaging\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+        <None Include="..\..\..\Packaging\readme.md">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CoreXF.Eventing.Abstractions" Version="3.0.0-beta-2" />
+      <PackageReference Include="CoreXF.Eventing.Abstractions" Version="3.0.0" />
     </ItemGroup>
 
     <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Development)'=='true'">

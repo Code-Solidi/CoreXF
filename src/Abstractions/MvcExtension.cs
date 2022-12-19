@@ -10,11 +10,12 @@ namespace CoreXF.Abstractions
     /// <summary>A default implementation of <see cref="IMvcExtension">IMvcExtension</see>.</summary>
     public class MvcExtension : AbstractExtension, IMvcExtension
     {
-        /// <summary>
-        /// The name of the compiled views assembly
-        /// </summary>
+        /// <inheritdoc/>
         public string Views { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MvcExtension"/> class.
+        /// </summary>
         protected MvcExtension()
         {
 #if !NET6_0
