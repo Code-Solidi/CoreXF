@@ -27,7 +27,7 @@ Don't forget to **Enable source server support** and **Enable Source Link suppor
 Steps to follow:
 
 - Create a ASP.NET MVC (or Web API) project and add **[CoreXF.Framework](https://www.nuget.org/packages/CoreXF.Framework/)** NuGet package to it. This is the host application.
-- Create a folder in he host app (usually "Extensions") which will contain the extensions.
+- Create a folder in the host app (default is "Extensions") which will contain the extensions.
 - Create as many extensions as needed. Add **[CoreXF.Abstractions](https://www.nuget.org/packages/CoreXF.Abstractions/)** to every extension and either implement <code>IExtension</code> interface or inherit from <code>MvcExtension</code> class. (The class defines some methods and properties and makes the implementation more convenient.)
 - (For those implementing WebAPI extensions this is the <code>WebApiExtension</code> class.)
 - Either publish the extension (prefered deployment mechanism for MVC extension), or just copy the output (bin folder) to the corresponding extension folder.
