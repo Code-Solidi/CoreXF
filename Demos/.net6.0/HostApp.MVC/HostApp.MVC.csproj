@@ -22,4 +22,8 @@
     <PackageReference Include="CoreXF.Framework" Version="3.0.0-beta-2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Framework\CoreXF.Framework.csproj" />
+  </ItemGroup>
+
 </Project>

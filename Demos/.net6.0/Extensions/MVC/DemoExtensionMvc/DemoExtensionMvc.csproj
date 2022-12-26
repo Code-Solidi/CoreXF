@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
+      <ProjectReference Include="..\DateTimeService\DateTimeService.csproj" />
       <ProjectReference Include="..\ServiceExporter\ServiceExporter.csproj" />
     </ItemGroup>
 

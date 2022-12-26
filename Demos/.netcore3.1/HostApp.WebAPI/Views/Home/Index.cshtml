@@ -31,14 +31,14 @@
                 <td>@extension.Description</td>
                 <td>@extension.Location</td>
                 <td>
-                    @if (extension.Status == CoreXF.Abstractions.Base.IWebApiExtension.ExtensionStatus.Stopped)
+                    @if (extension.Status == CoreXF.Abstractions.Base.ExtensionStatus.Stopped)
                     {
                         <form asp-action="Start">
                             <input name="Name" type="hidden" value="@extension.Name">
                             <button type="submit" class="btn btn-success">Start</button>
                         </form>
                     }
-                    @if (extension.Status == CoreXF.Abstractions.Base.IWebApiExtension.ExtensionStatus.Running)
+                    @if (extension.Status == CoreXF.Abstractions.Base.ExtensionStatus.Running)
                     {
                         <form asp-action="Stop">
                             <input name="Name" type="hidden" value="@extension.Name">
