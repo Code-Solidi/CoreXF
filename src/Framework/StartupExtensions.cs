@@ -253,7 +253,7 @@ namespace CoreXF.Framework
                 {
                     var controller = extension.GetType().Assembly.GetTypes()
                         .SingleOrDefault(x => x.Name.Equals(controllerName, StringComparison.OrdinalIgnoreCase));
-                    if (controller != default && (extension as IWebApiExtension)?.Status == IWebApiExtension.ExtensionStatus.Stopped)
+                    if (controller != default && (extension as IWebApiExtension)?.Status == ExtensionStatus.Stopped)
                     {
                         httpContext.Response.StatusCode = StatusCodes.Status405MethodNotAllowed;  // or other?
                         await Task.CompletedTask;

@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
     <ProjectReference Include="..\ServiceExporter\ServiceExporter.csproj" />
   </ItemGroup>
 
