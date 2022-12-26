@@ -14,6 +14,9 @@ CoreXF is available as two NuGet packages:
 - Static file providers for each extension, which allows prioritization of all static resources: CSS, JavaScript, images, videos, etc.
 - Other minor optimizations
 
+### What's new (v2.0.0)
+- Added support for .NET 5.0 in addition to .NET Core 3.1
+
 ### What's new (v1.1.2)
 
 Debugging packages' source code is **enabled** in latest release (1.1.2.). Just select Tools -> Options -> Debugging -> Symbols in VC2019 and add https://symbols.nuget.org/download/symbols to Symbol file (.pdb) locations.
