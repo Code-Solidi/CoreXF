@@ -36,8 +36,10 @@ The easiest way to get started is to examine the demos.
 ### Documentation
 To get started read the [documentation](https://code-solidi.github.io/CoreXF/).
 
-**NB: v3.0.0 demos replace the old ones and are now hopefully much more helpful, <code>ExtensionBase</code> simplified (user is no longer forced to use/implement methods thet are not in use anymore).
-Documentation is out of date, will be updated ASAP (sorry for the inconvenience), however still usable.**
+NB: v3.0.0 demos replace the old ones and are now hopefully much more helpful, <code>ExtensionBase</code> simplified (user is no longer forced to use/implement methods thet are not in use anymore).
+If you don't want to build the whole framework replace direct references with the NuGet packages mentioned above.
+
+**Documentation is out of date, will be updated ASAP (sorry for the inconvenience), however still usable.**
 
 If you like **CoreXF** please give it a star <g-emoji class="g-emoji" alias="star" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png">⭐</g-emoji>.
 
