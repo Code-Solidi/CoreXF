@@ -37,7 +37,10 @@ The easiest way to get started is to examine the demos.
 To get started read the [documentation](https://code-solidi.github.io/CoreXF/).
 
 NB: v3.0.0 demos replace the old ones and are now hopefully much more helpful, <code>ExtensionBase</code> simplified (user is no longer forced to use/implement methods thet are not in use anymore).
+
 If you don't want to build the whole framework replace direct references with the NuGet packages mentioned above.
+
+Also, change the publish locations for MVC demos (.Net Core 3.1 and .NET 6) according to the path in your local machine.
 
 **Documentation is out of date, will be updated ASAP (sorry for the inconvenience), however still usable.**
 
