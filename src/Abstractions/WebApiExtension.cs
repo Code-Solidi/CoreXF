@@ -5,19 +5,23 @@
 
 using CoreXF.Abstractions.Base;
 
-using static CoreXF.Abstractions.Base.IWebApiExtension;
-
 namespace CoreXF.Abstractions
 {
+    /// <summary>
+    /// The web api extension.
+    /// </summary>
     public class WebApiExtension : AbstractExtension, IWebApiExtension
     {
+        /// <inheritdoc/>>
         public ExtensionStatus Status { get; private set; } = ExtensionStatus.Running;
 
+        /// <inheritdoc/>>
         public virtual void Start()
         {
             this.Status = ExtensionStatus.Running;
         }
 
+        /// <inheritdoc/>>
         public virtual void Stop()
         {
             this.Status = ExtensionStatus.Stopped;

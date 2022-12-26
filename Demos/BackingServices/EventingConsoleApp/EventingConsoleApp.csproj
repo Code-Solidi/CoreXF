@@ -11,8 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\BackingServices\CoreXF.Eventing.Abstractions\CoreXF.Eventing.Abstractions.csproj" />
-    <ProjectReference Include="..\..\..\src\BackingServices\CoreXF.Eventing\CoreXF.Eventing.csproj" />
+    <PackageReference Include="CoreXF.Eventing" Version="3.0.0-beta-2" />
   </ItemGroup>
 
 </Project>

@@ -11,15 +11,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Framework\CoreXF.Framework.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\..\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreXF.Framework" Version="3.0.0-beta-2" />
   </ItemGroup>
 
 </Project>

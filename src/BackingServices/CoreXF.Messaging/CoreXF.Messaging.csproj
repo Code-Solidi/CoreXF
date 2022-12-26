@@ -15,11 +15,12 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageIconUrl />
-        <PackageLicenseExpression></PackageLicenseExpression>
-        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <Version>3.0.0</Version>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageReleaseNotes>Supports .NET 6.0.</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
@@ -36,6 +37,10 @@
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>
+        <None Include="..\..\..\Packaging\readme.md">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+        </None>
         <None Include="Channels\WebApi\WebApiChannelBase.cs" />
         <None Include="Channels\WebApi\WebApiChannelFactory.cs" />
         <None Include="Channels\WebApi\WebApiFireAndForgetChannel.cs" />
@@ -44,12 +49,13 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CoreXF.Messaging.Abstractions" Version="3.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
         <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CoreXF.Messaging.Abstractions\CoreXF.Messaging.Abstractions.csproj" />
+      <ProjectReference Include="..\CoreXF.Messaging.Abstractions\CoreXF.Messaging.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

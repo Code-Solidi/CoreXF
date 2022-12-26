@@ -61,7 +61,5 @@ namespace CoreXF.Abstractions.Base
         /// <param name="assembly"></param>
         /// <returns></returns>
         void Configure(Assembly assembly);
-
-        //void ConfigureMiddleware(IExtensionsApplicationBuilder app);
     }
 }

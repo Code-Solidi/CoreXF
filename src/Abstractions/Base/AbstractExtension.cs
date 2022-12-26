@@ -74,26 +74,20 @@ namespace CoreXF.Abstractions.Base
         }
 
         /// <summary>
-        /// Gets the property.
+        /// Gets the property named "name".
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="name">The name.</param>
         /// <returns>A <typeparamref name="T"></typeparamref></returns>
-        public T Get<T>(string name)
-        {
-            return this.properties.ContainsKey(name) ? (T)this.properties[name] : default;
-        }
+        public T Get<T>(string name) => this.properties.ContainsKey(name) ? (T)this.properties[name] : default;
 
         /// <summary>
-        /// Sets the property.
+        /// Sets the property named "name".
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public void Set<T>(string name, T value)
-        {
-            this.properties[name] = value;
-        }
+        public void Set<T>(string name, T value) => this.properties[name] = value;
 
         /// <summary>
         /// Gets the attribute <typeparamref name="T"></typeparamref>.

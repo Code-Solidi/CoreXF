@@ -5,17 +5,29 @@
 
 namespace CoreXF.Abstractions.Base
 {
+    /// <summary>
+    /// The web api extension interface.
+    /// </summary>
     public interface IWebApiExtension : IExtension
     {
-        public enum ExtensionStatus { Stopped, Running }
-
         /// <summary>
-        /// The extension status.
+        /// Gets the extension status.
         /// </summary>
         ExtensionStatus Status { get; }
 
+        /// <summary>
+        /// Starts the extension.
+        /// </summary>
         void Start();
 
+        /// <summary>
+        /// Stops the extension.
+        /// </summary>
         void Stop();
     }
+
+    /// <summary>
+    /// The extension status.
+    /// </summary>
+    public enum ExtensionStatus { Stopped, Running }
 }

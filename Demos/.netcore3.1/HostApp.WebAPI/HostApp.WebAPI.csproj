@@ -9,6 +9,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CoreXF.Framework" Version="3.0.0-beta-2" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.31" />
     </ItemGroup>
 
@@ -23,10 +24,6 @@
 
     <ItemGroup>
       <None Include="..\..\..\CoreXF.sln.licenseheader" Link="CoreXF.sln.licenseheader" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\src\Framework\CoreXF.Framework.csproj" />
     </ItemGroup>
 
 

@@ -22,16 +22,16 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <RepositoryUrl>https://github.com/Code-Solidi/CoreXF</RepositoryUrl>
         <PackageProjectUrl>https://github.com/Code-Solidi/CoreXF</PackageProjectUrl>
-        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageIconUrl />
-        <PackageLicenseExpression></PackageLicenseExpression>
-        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <Version>3.0.0</Version>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageReleaseNotes>Supports .NET 6.0.</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
       <Compile Remove="Attributes\ExportAttribute.cs" />
-      <Compile Remove="Base\IBackingService.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -44,8 +44,11 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
+        <None Include="..\..\Packaging\readme.md">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+        </None>
         <None Include="Attributes\ExportAttribute.cs" />
-        <None Include="Base\IBackingService.cs" />
     </ItemGroup>
 
     <ItemGroup>

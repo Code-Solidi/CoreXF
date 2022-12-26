@@ -8,12 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CoreXF.Messaging" Version="3.0.0-beta-2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\src\BackingServices\CoreXF.Messaging.Abstractions\CoreXF.Messaging.Abstractions.csproj" />
-    <ProjectReference Include="..\..\..\src\BackingServices\CoreXF.Messaging\CoreXF.Messaging.csproj" />
   </ItemGroup>
 
 </Project>
