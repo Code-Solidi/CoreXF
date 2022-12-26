@@ -9,7 +9,7 @@ CoreXF is available as two NuGet packages:
 ### What's new (v3.0.0)
 - Removed rarely used functions from <code>IExtensioin</code> like <code>ConfigureMiddleware</code>.
 - Optimized extension loader.
-- Extensions can be deployed either using either Visual Studio functionality, or just copying the extension output to a sub-folder in host's extensions folder.
+- Extensions can be deployed either using Visual Studio functionality (deploy to folder), or just by copying the extension output to a sub-folder in host's extensions folder.
 - Support for .NET 5.0 dropped, added support for .NET 6.0. 
 - Static file providers for each extension, which allows prioritization of all static resources: CSS, JavaScript, images, videos, etc.
 - Other minor optimizations
