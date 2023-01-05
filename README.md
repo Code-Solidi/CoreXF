@@ -44,6 +44,8 @@ Also, change the publish locations for MVC demos (.Net Core 3.1 and .NET 6) acco
 
 **Documentation is out of date, will be updated ASAP (sorry for the inconvenience), however still usable.**
 
+### Issues
+If you've encountered and issue, post it here please: [issues](/Code-Solidi/CoreXF/Issues). Thank you!
 If you like **CoreXF** please give it a star <g-emoji class="g-emoji" alias="star" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png">⭐</g-emoji>.
 
 
