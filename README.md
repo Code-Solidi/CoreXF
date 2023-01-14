@@ -1,5 +1,7 @@
 # CoreXF
 
+Live demo [here](https://infostore.codesolidi.com).
+
 ### Description
 CoreXF is a ASP.NET **Core** e**X**tensibility **F**ramework. 
 CoreXF is available as two NuGet packages: 
@@ -34,15 +36,14 @@ Steps to follow:
 The easiest way to get started is to examine the demos. 
 
 ### Documentation
-In preparation, sorry for the inconvenience.
+_In preparation_, sorry for the inconvenience. Use demos and live demo site till ready.
+
+### Demos
+Appart from the demo apps here on GitHub, there's a dedicated live demo [here](https://infostore.codesolidi.com).
 
 NB: v3.0.0 demos replace the old ones and are now hopefully much more helpful, <code>ExtensionBase</code> simplified (user is no longer forced to use/implement methods thet are not in use anymore).
 
-If you don't want to build the whole framework replace direct references with the NuGet packages mentioned above.
-
-Also, change the publish locations for MVC demos (.Net Core 3.1 and .NET 6) according to the path in your local machine.
-
-**Documentation is out of date, will be updated ASAP (sorry for the inconvenience), however still usable.**
+Also, don't forget to change the locations where MVC demos are published (.Net Core 3.1 and .NET 6) according to the path in your local machine.
 
 ### Issues
 If you've encountered an issue, please post it [here](https://github.com/Code-Solidi/CoreXF/issues). Thank you!
