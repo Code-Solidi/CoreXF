@@ -30,11 +30,11 @@ Steps to follow:
 - Create a folder in he host app (usually "Extensions") which will contain the extensions.
 - Create as many extensions as needed. Add **[CoreXF.Abstractions](https://www.nuget.org/packages/CoreXF.Abstractions/)** to every extension and either implement <code>IExtension</code> interface or inherit from <code>MvcExtension</code> class. (The class defines some methods and properties and makes the implementation more convenient.)
 - (For those implementing WebAPI extensions this is the <code>WebApiExtension</code> class.)
-- Either publish the extension (prefered deployment mechanism for MVC extension), or just copy the output (bin folder) to the corresponding extension folder.
+- Either publish the extension (prefered deployment mechanism for MVC extension, esp. if the extension has custom static files - .css, .js, images, etc.), or just copy the output (bin folder) to the corresponding extension folder. The latest is most commonly used for WebAPI extension unless they need to serve something from their web root (usually wwwroot).
 The easiest way to get started is to examine the demos. 
 
 ### Documentation
-To get started read the [documentation](https://code-solidi.github.io/CoreXF/).
+In preparation, sorry for the inconvenience.
 
 NB: v3.0.0 demos replace the old ones and are now hopefully much more helpful, <code>ExtensionBase</code> simplified (user is no longer forced to use/implement methods thet are not in use anymore).
 
