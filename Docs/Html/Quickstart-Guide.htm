@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quickstart Guide - CoreXF</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/theme_colors.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles/vs.css">
+    <link rel="stylesheet" href="css/font-awesome.4.5.0.min.css">
+</head>
+<body role="document">
+    <div class="grid-for-nav">
+        <nav data-toggle="nav-shift" class="nav-side stickynav">
+            <div class="side-nav-search">
+                <a href="index.htm"><i class="fa fa-home"></i> CoreXF</a>
+                <div role="search">
+                    <form id="search-form" class="form" action="Docnet_search.htm" method="get">
+                        <input type="text" name="q" placeholder="Search docs" />
+                    </form>
+                </div>
+            </div>
+            <div class="menu menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+<ul>
+<li class="tocentry"><a href="index.htm">Welcome!</a>
+</li>
+
+<li class="tocentry">
+<ul class="current">
+<li><span class="navigationgroup"><i class="fa fa-caret-down"></i> <a href="Quickstart-Guide.htm">Quickstart Guide</a></span></li>
+
+<li class="tocentry"><a href="Interface-implementation.htm">Interface Implementation</a>
+</li>
+<li class="tocentry"><a href="MVC-application-as-an-extension.htm">MVC application as an extension</a>
+</li>
+<li class="tocentry"><a href="Exporting-ViewComponents.htm">Exporting ViewComponents</a>
+</li>
+<li class="tocentry"><a href="Extending-with-TagHelpers.htm">Extending with TagHelpers</a>
+</li>
+</ul>
+</li>
+<li class="tocentry"><a href="Demo-Projects.htm">Demo Projects</a>
+</li>
+<li class="tocentry"><a href="Architecture-Overview.htm">Architecture Overview</a>
+</li>
+<li class="tocentry"><a href="Advanced-Topics.htm">Advanced Topics</a>
+</li>
+<li class="tocentry"><a href="Roadmap.htm">Roadmap</a>
+</li>
+<li class="tocentry"><a href="Feedback.htm">Feedback</a>
+</li>
+<li class="tocentry"><a href="Known-limitations.htm">Known limitations</a>
+</li>
+</ul>
+				<div class="toc-footer">
+					<span class="text-small">
+						<hr/>
+						<a href="https://github.com/FransBouma/DocNet" target="_blank">Made with <i class="fa fa-github"></i> DocNet</a>
+					</span>
+				</div>	
+			</div>
+            &nbsp;
+        </nav>
+        <section data-toggle="nav-shift" class="nav-content-wrap">
+            <nav class="nav-top" role="navigation" aria-label="top navigation">
+                <i data-toggle="nav-top" class="fa fa-bars"></i>
+                <a href="index.htm">CoreXF</a>
+            </nav>
+            <div class="nav-content">
+                <div role="navigation" aria-label="breadcrumbs navigation">
+                    <div class="breadcrumbs">
+<ul><li><a href="index.htm">Welcome!</a></li> / <li><a href="Quickstart-Guide.htm">Quickstart Guide</a></li></ul>
+					
+                    </div>
+                    <hr />
+                </div>
+                <div role="main">
+                    <div class="section">
+<h2 id="inttroduction">Inttroduction<a class="headerlink" href="#inttroduction" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<ul>
+<li><a href="Interface-implementation.htm">Interface implementation</a></li>
+<li><a href="MVC-application-as-an-extension.htm">MVC application as an extension</a></li>
+<li><a href="Exporting-ViewComponents.htm">Exporting ViewComponents</a></li>
+<li><a href="Extending-with-TagHelpers.htm">Extending with TagHelpers</a></li>
+</ul>
+<p>Two things are necessary in order to use CoreXF: a <code>host</code> application whose functionality is going to be extended by one or more <code>extensions</code>. </p>
+<h2 id="corexf-host-application">CoreXF host application<a class="headerlink" href="#corexf-host-application" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<p>A .NET Core MVC (or Web API) application can easily be turned into a CoreXF host provided it references CoreXF.Framework package. Few changes have to be made in <code>Startup</code> (.net core v3.1), or <code>Program</code> (.net v6.0). </p>
+<p>1.&nbsp;The framework has to be added to the existing services like this:</p>
+<p>.netcore3.1</p>
+<p><code>services.AddControllersWithViews().AddCoreXF(services, this.Configuration);</code></p>
+<p>.net 6.0</p>
+<p><code>builder.Services.AddControllersWithViews().AddCoreXF(builder.Services);</code></p>
+<p>2.&nbsp;There has to be a folder (usually <code>Extensions</code>) right under the project root which will hold the extensions. </p>
+<p>3.&nbsp;The framework has to be <code>used</code> as well.</p>
+<p>.netcore3.1 and .net 6.0</p>
+<p><code>app.UseCoreXF();</code></p>
+<p>Place the above right before <code>app.UseEndpoints(...)</code>.</p>
+<p><em>The demo applications are for your convenience, look how it's done there.</em> </p>
+<h2 id="corexf-extension">CoreXF extension<a class="headerlink" href="#corexf-extension" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<p>Depending on the requirements extensions ca be:
+- plain .NET Core libraries (.DLL), 
+- ASP.NET Core MVC applications,
+- ASP.NET Web API applications.</p>
+<p>What makes such projects extensions is a class implementing <code>IExtension</code>, <code>IMvcExtension</code>, or <code>IWebApiExtension</code> correspondingly. 
+it is easier however to inherit from <code>AbstractExtension</code>, <code>MvcExtension</code>, or <code>WebApiExtension</code> instead. </p>
+<p>Take a look at the interface:</p>
+<pre class="nocode">public interface IExtension
+{
+    string Name { get; }
+
+    string Description { get; }
+
+    string Url { get; }
+
+    string Version { get; }
+
+    string Authors { get; }
+
+    string Copyright { get; }
+
+    string Location { get; }
+
+    void ConfigureServices(IServiceCollection services, IConfiguration configuration);
+
+    void Configure(Assembly assembly);
+}
+</pre><p>and it's simplest possible implementation:</p>
+<pre class="nocode">public class AbstractExtension : IExtension
+{
+    public string Name {get; protected set; }
+
+    public string Description { get; protected set; } = &quot;Base extension class, inherit to extend functionality.&quot;;
+
+    public string Url { get; protected set; } = &quot;www.codesolidi.com&quot;;
+
+    public string Version { get; protected set; } = &quot;1.0.0&quot;;
+
+    public string Authors { get; protected set; } = &quot;Code Solidi Ltd.&quot;;
+
+    public string Location { get; protected set; }
+
+    public string Copyright { get; protected set; }
+
+    public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration) 
+    {
+        // source code omitted for brevity
+    }
+
+    public virtual void Configure(Assembly assembly)
+    {
+        // source code omitted for brevity
+    }
+}
+</pre><p>In addition the class defines two methods:</p>
+<pre class="nocode">   public T Get&lt;T&gt;(string name)
+</pre><p>and</p>
+<pre class="nocode">    public void Set&lt;T&gt;(string name, T value)
+</pre><p>which are responsible for setting/getting named values. Later on these values may be inspected in the host application (see the demos for details).</p>
+<p><em>In the above code all documentation comments are omitted so as to increase readability.</em></p>
+<p>An application or library defining such a class is an extension. 
+It also needs to export some functionality. The functionality may be classified as:</p>
+<ul>
+<li><a href="https://github.com/achristov/CoreXF/wiki/Interface-implementation" target="_blank">implementation of an interface known to both the host and the extension</a>,<br /></li>
+<li><a href="https://github.com/achristov/CoreXF/wiki/MVC-application-as-an-extension" target="_blank">one or more controllers with their models and views</a>,<br /></li>
+<li><a href="https://github.com/achristov/CoreXF/wiki/Exporting-ViewComponents" target="_blank">one or more view components (<code>ViewComponent</code>) with their models and views</a>,<br /></li>
+<li><a href="https://github.com/achristov/CoreXF/wiki/Extending-with-TagHelpers" target="_blank">one or more tag helpers (<code>TagHelper</code>)</a>.<br /></li>
+</ul>
+<h2 id="making-extensions-available-to-host-application">Making extensions available to host application<a class="headerlink" href="#making-extensions-available-to-host-application" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<p>The extensions are deployed to a dedicated folder, say &quot;Extensions&quot; or &quot;Plugins&quot;. This folder must be a subfolder to the main project folder. </p>
+<p>Every extension must have its own subfolder so that the host application can discover, load, register, and use them. 
+A good practice is to name this folder after extension's name.</p>
+<p>The deployment can be done either by copying the extension's compiled output (<code>bin</code> folder), 
+or by <a href="https://learn.microsoft.com/en-us/visualstudio/deployment/deploying-applications-services-and-components-resources?view=vs-2022" target="_blank">publishing</a> it from Visual Studio. </p>
+<p>In the second case static files (CSS, Javascript, fonts, images, videos, etc.) are copied too and the extension is considered <em>self-contained</em>. </p>
+<p>(<em>The web root folder has to retain its original name&mdash;<code>wwwroot</code>. In later versions this may change in order to reflect author's preferences.</em>)</p>
+<p><em>For more information look at the demo projects.</em></p>
+
+                    </div>
+                </div>
+                <footer>
+                    <hr />
+                    <div role="contentinfo">
+<p>CoreXF is maintained by <a href='https://www.codesolidi.com'>Code-Solidi Ltd.</a></p>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/modernizr-2.8.3.min.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/theme.js"></script>
+
+</body>
+</html>

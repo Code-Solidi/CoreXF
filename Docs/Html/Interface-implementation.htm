@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interface Implementation - CoreXF</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/theme_colors.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles/vs.css">
+    <link rel="stylesheet" href="css/font-awesome.4.5.0.min.css">
+</head>
+<body role="document">
+    <div class="grid-for-nav">
+        <nav data-toggle="nav-shift" class="nav-side stickynav">
+            <div class="side-nav-search">
+                <a href="index.htm"><i class="fa fa-home"></i> CoreXF</a>
+                <div role="search">
+                    <form id="search-form" class="form" action="Docnet_search.htm" method="get">
+                        <input type="text" name="q" placeholder="Search docs" />
+                    </form>
+                </div>
+            </div>
+            <div class="menu menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+<ul>
+<li class="tocentry"><a href="index.htm">Welcome!</a>
+</li>
+
+<li class="tocentry">
+<ul>
+<li><span class="navigationgroup"><i class="fa fa-caret-down"></i> <a href="Quickstart-Guide.htm">Quickstart Guide</a></span></li>
+
+<li class="tocentry current"><a class="current" href="Interface-implementation.htm">Interface Implementation</a>
+<ul class="currentrelative">
+<li class="tocentry"><a href="#a-realistic-scenario">A realistic scenario</a></li>
+
+</ul>
+<li class="tocentry"><a href="MVC-application-as-an-extension.htm">MVC application as an extension</a>
+</li>
+<li class="tocentry"><a href="Exporting-ViewComponents.htm">Exporting ViewComponents</a>
+</li>
+<li class="tocentry"><a href="Extending-with-TagHelpers.htm">Extending with TagHelpers</a>
+</li>
+</ul>
+</li>
+<li class="tocentry"><a href="Demo-Projects.htm">Demo Projects</a>
+</li>
+<li class="tocentry"><a href="Architecture-Overview.htm">Architecture Overview</a>
+</li>
+<li class="tocentry"><a href="Advanced-Topics.htm">Advanced Topics</a>
+</li>
+<li class="tocentry"><a href="Roadmap.htm">Roadmap</a>
+</li>
+<li class="tocentry"><a href="Feedback.htm">Feedback</a>
+</li>
+<li class="tocentry"><a href="Known-limitations.htm">Known limitations</a>
+</li>
+</ul>
+				<div class="toc-footer">
+					<span class="text-small">
+						<hr/>
+						<a href="https://github.com/FransBouma/DocNet" target="_blank">Made with <i class="fa fa-github"></i> DocNet</a>
+					</span>
+				</div>	
+			</div>
+            &nbsp;
+        </nav>
+        <section data-toggle="nav-shift" class="nav-content-wrap">
+            <nav class="nav-top" role="navigation" aria-label="top navigation">
+                <i data-toggle="nav-top" class="fa fa-bars"></i>
+                <a href="index.htm">CoreXF</a>
+            </nav>
+            <div class="nav-content">
+                <div role="navigation" aria-label="breadcrumbs navigation">
+                    <div class="breadcrumbs">
+<ul><li><a href="index.htm">Welcome!</a></li> / <li><a href="Quickstart-Guide.htm">Quickstart Guide</a></li> / <li><a href="Interface-implementation.htm">Interface Implementation</a></li></ul>
+					
+                    </div>
+                    <hr />
+                </div>
+                <div role="main">
+                    <div class="section">
+<p>We'll do it the simplest possible way &ndash; the interface would be the well-known <code>IExtension</code> and we'll inherit from <code>ExtensionBase</code> redefining the <code>Name</code>:</p>
+<pre class="nocode">using CoreXF.Abstractions;
+
+namespace Extension1
+{
+    public class TheExtension : ExtensionBase
+    {
+        public override string Name =&gt; &quot;Some name&quot;;
+    }
+}
+</pre><p>That's all &ndash; the simplest possible extension, inheriting from <code>ExtensionBase</code> and overriding one of its properties.</p>
+<p>The <code>IExtensionRegistry</code> is used to retrieve the required extension:</p>
+<pre class="nocode">public IActionResult Index()
+{
+    var extension = this.registry.GetExtension&lt;TheExtension&gt;();
+    this.ViewBag.ExtName = extension?.Name;
+    return this.View();
+}
+</pre><h2 id="a-realistic-scenario">A realistic scenario<a class="headerlink" href="#a-realistic-scenario" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<p>Of course, in a more realistic scenario, the interface should be put in a separate assembly and referenced by the host application.  The extension then can be refactored as many times as needed in order to achieve the required functionality.</p>
+
+                    </div>
+                </div>
+                <footer>
+                    <hr />
+                    <div role="contentinfo">
+<p>CoreXF is maintained by <a href='https://www.codesolidi.com'>Code-Solidi Ltd.</a></p>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/modernizr-2.8.3.min.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/theme.js"></script>
+
+</body>
+</html>

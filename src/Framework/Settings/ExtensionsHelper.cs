@@ -18,6 +18,9 @@ using Microsoft.Extensions.Logging;
 
 namespace CoreXF.Framework.Settings
 {
+    /// <summary>
+    /// The extensions helper.
+    /// </summary>
     public static class ExtensionsHelper
     {
         /// <summary>
@@ -41,6 +44,11 @@ namespace CoreXF.Framework.Settings
             return result;
         }
 
+        /// <summary>
+        /// Is compiled view.
+        /// </summary>
+        /// <param name="typeInfo">The type info.</param>
+        /// <returns>A bool.</returns>
         public static bool IsCompiledView(TypeInfo typeInfo)
         {
             //const string ViewComponentTypeNameSuffix = nameof(ViewComponent);
@@ -55,6 +63,11 @@ namespace CoreXF.Framework.Settings
             return true;
         }
 
+        /// <summary>
+        /// Is view component.
+        /// </summary>
+        /// <param name="typeInfo">The type info.</param>
+        /// <returns>A bool.</returns>
         public static bool IsViewComponent(TypeInfo typeInfo)
         {
             const string ViewComponentTypeNameSuffix = nameof(ViewComponent);
@@ -92,6 +105,11 @@ namespace CoreXF.Framework.Settings
         //    }
         //}
 
+        /// <summary>
+        /// Components the list of funcs of requestdelegates.
+        /// </summary>
+        /// <param name="app">The app.</param>
+        /// <returns><![CDATA[IList<Func<RequestDelegate, RequestDelegate>>]]></returns>
         public static IList<Func<RequestDelegate, RequestDelegate>> Components(this IApplicationBuilder app)
         {
             var type = app.GetType();
@@ -99,6 +117,12 @@ namespace CoreXF.Framework.Settings
             return (IList<Func<RequestDelegate, RequestDelegate>>)field.GetValue(app);
         }
 
+        /// <summary>
+        /// Is extension.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="logger">The logger.</param>
+        /// <returns>A bool.</returns>
         internal static bool IsExtension(Assembly assembly, ILogger logger)
         {
             try
@@ -114,6 +138,11 @@ namespace CoreXF.Framework.Settings
             }
         }
 
+        /// <summary>
+        /// Is type ignored.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>A bool.</returns>
         internal static bool IsTypeIgnored(Type type)
         {
             var extensionAttribute = type.GetCustomAttributes().SingleOrDefault(a => a is CoreXFIgnoreAttribute);

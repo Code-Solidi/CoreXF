@@ -16,11 +16,11 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CoreXF.Abstractions" Version="3.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.11" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
       <ProjectReference Include="..\DateTimeService\DateTimeService.csproj" />
       <ProjectReference Include="..\ServiceExporter\ServiceExporter.csproj" />
     </ItemGroup>
@@ -35,9 +35,5 @@
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </Content>
     </ItemGroup>
-
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="md &quot;$(SolutionDir)Demos\.net6.0\HostApp.MVC\Extensions\$(ProjectName)\&quot;&#xD;&#xA;copy &quot;$(TargetDir)&quot; &quot;$(SolutionDir)Demos\.net6.0\HostApp.MVC\Extensions\$(ProjectName)\&quot;" />
-    </Target>-->
 
 </Project>

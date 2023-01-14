@@ -1,0 +1,64 @@
+{
+  "docs": [
+    {
+      "location": "Interface-implementation.htm",
+      "breadcrumbs": "Welcome! / Quickstart Guide / Interface Implementation",
+      "keywords": "a A Abstractions achieve all and application as assembly be by can class CoreXF course do extension Extension1 ExtensionBase ExtName from functionality GetExtension host IActionResult IExtension IExtensionRegistry in Index inherit inheriting interface is it its known many more name Name namespace ndash needed of Of one order override overriding possible properties public put realistic redefining refactored referenced registry required retrieve return scenario separate should simplest Some string That the The TheExtension then this times to used using var View ViewBag way we We well would",
+      "title": "Interface Implementation"
+    },
+    {
+      "location": "MVC-application-as-an-extension.htm",
+      "breadcrumbs": "Welcome! / Quickstart Guide / MVC application as an extension",
+      "keywords": "_ _are _available _no a A About accessed accessible Accessing action actions after Again all an and Another anything application application_ are area as asp assembly back be because bellow between built but by can capable change class clearly collapse come compiled complain configuration connection Contact controller Controller controllers course cover cshtml csproj css custom decorated Default DefaultController deployed deploying derived developed development difference_ different directly div during efforts else embedded EmbeddedResource etc ever example Export ExportAttribute Exporting extension extension2 ExtensionBase extensions Extra extracted fakes fatter file final fonts form framework from future get growing has have Here Home host host_ how IActionResult IExtension if If ILoggerFactory implementing important imposes in In Include Index instead interface internal internaly into is it ItemGroup its itself larger let li like loaded made main make manageable may might mocks models must MVC names nav navbar NB ndash not note of Of on once one ones only or order ore other otherwise Otherwise override part pictures properties public put real realistic referenced replaced request required requirements requires resources restriction return returned routes Routing say scenario scripts separate services Services serving simpler SkippedController slimmer snippet so some special string styles tending tested testing than that the them there There they this This to together turned ul used version View views Views visible well What when When which while with would wwwroot",
+      "title": "MVC application as an extension"
+    },
+    {
+      "location": "Exporting-ViewComponents.htm",
+      "breadcrumbs": "Welcome! / Quickstart Guide / Exporting ViewComponents",
+      "keywords": "_ _components_ _controller_ 02 07 1 2 2018 a A about Accessing again Again all alone already among an and And any application are articles as As aspnet aspnetcore aspx assembly at attribute be become being bellow bundled but can class code com compiled component components Components configuration consequence contained controllers core could Creating cshtml decorated Default deriving described despite directly docs easy either embedded EmbeddedResource en end especially Export Exporting extension ExtensionBase extensions final for form found from front functional functionality future good have Having here host https IExtension if If implementing in In Include increased informs Introduction invoked is it ItemGroup library like maintain make many may mentioned message microsoft model much must mvc named NB not of one or other out outcome partial pieces places points PriorityList PriorityListViewComponent project projects public realistic referenced regarded related relevant resources respect reusable run s scenario scripts self Services shared Shared so stand staring styles that the their them there therefore they think this This time to too topics true unavailable units Unlike us using value version very Very view ViewComponent ViewComponents views Views visible visualstudiomagazine way web well when will with yet",
+      "title": "Exporting ViewComponents"
+    },
+    {
+      "location": "Extending-with-TagHelpers.htm",
+      "breadcrumbs": "Welcome! / Quickstart Guide / Extending with TagHelpers",
+      "keywords": "_Extension 1 2 a about acn action active an and Another application are as ASP aspnet aspnetcore available be benefits big built but can changing class click code com component components context controller core Core CoreXF do docs easily either en environment exists Exporting ExtensionBase extensions fact feature follow for framework functionality future good having helper helpers here However https IExtension implemented in In inactive inherited initial into intro Introduction invoking is just library made managed Manager_ Many microsoft mouse must mvc MVC ndash need Needless NET No not of off on one or overhead path pieces prior Provided put read Realistic retaining right s scenario single sources such tag TagHelper TagHelpers testing that the them there This thus to too turned us used version view ViewComponent views way well when why will with Yes you",
+      "title": "Extending with TagHelpers"
+    },
+    {
+      "location": "Demo-Projects.htm",
+      "breadcrumbs": "Welcome! / Demo Projects",
+      "keywords": "a A above accessible all and appcliation application are as attribute be Both certain class controller controllers Core CoreXF decorated DefaultControler defines defining demo demonstrate descriptions does EmailTagHelper Export exported extension Extension1 Extension2 Extension3 Extension4 ExtensionBase fact few framework from Here HomeController host HostApp hosts in In inherits is library listed MenuItemViewComponent minimal most MVC need NET not of one point possible PriorityLisViewComponent projects s second short simple SkippedController so the The There they this This thus to two use very view ViewComponent which with",
+      "title": "Demo Projects"
+    },
+    {
+      "location": "Architecture-Overview.htm",
+      "breadcrumbs": "Welcome! / Architecture Overview",
+      "keywords": "_ come to Yet",
+      "title": "Architecture Overview"
+    },
+    {
+      "location": "Advanced-Topics.htm",
+      "breadcrumbs": "Welcome! / Advanced Topics",
+      "keywords": "a account achristov application are be build com container CoreXF created DI elaborate extensions from github have host However https if in into middleware more needs not of Registering required scenario section Shareable Sharing simple Some taken the they this to topics wiki",
+      "title": "Advanced Topics"
+    },
+    {
+      "location": "Roadmap.htm",
+      "breadcrumbs": "Welcome! / Roadmap",
+      "keywords": "a all allowing an And are available be bus by channel Communication communications course different discovery Even expected extension extensions for future Here in inter list lot Message missing now of pausing Running Runtime same should side simple Starting stopping tests the versions what which",
+      "title": "Roadmap"
+    },
+    {
+      "location": "Feedback.htm",
+      "breadcrumbs": "Welcome! / Feedback",
+      "keywords": "_Any be bug codesolidi com comments directed feature reports requests should support to_",
+      "title": "Feedback"
+    },
+    {
+      "location": "Known-limitations.htm",
+      "breadcrumbs": "Welcome! / Known limitations",
+      "keywords": "Controller inheritance is not supported yet",
+      "title": "Known limitations"
+    }
+  ]
+}

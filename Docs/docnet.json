@@ -1,0 +1,34 @@
+{
+	"Name": "CoreXF",
+	"Source": "Markdown",
+	"Destination": "Html",
+	"IncludeSource": "src",
+	//"Theme": "LLBLGenPro",
+	//"ThemeFolder": "themefolder",
+	//"SourceFoldersToCopy": [ "folder1", "foldern" ],
+	"Footer": "<p>CoreXF is maintained by <a href='https://www.codesolidi.com'>Code-Solidi Ltd.</a></p>",
+	"StartingPageName": "Welcome!",
+	"ConvertLocalLinks": "true",
+	"PathSpecification": "Full",
+	"UrlFormatting": "None",
+	"MaxLevelInToC": "3",
+	"StripIndexHtm": "true",
+	"Pages": {
+		"__index": "index.md",
+		"Quickstart Guide": {
+			"__index": "Quickstart-Guide.md",
+			"Interface Implementation": "Interface-implementation.md",
+			"MVC application as an extension": "MVC-application-as-an-extension.md",
+			"Exporting ViewComponents": "Exporting-ViewComponents.md",
+			"Extending with TagHelpers": "Extending-with-TagHelpers.md"
+		},
+		"Demo Projects": "Demo-Projects.md",
+		"Architecture Overview": "Architecture-Overview.md", 
+		"Advanced Topics": "Advanced-Topics.md",
+		"Roadmap": "Roadmap.md",
+		"Feedback": "Feedback.md",
+		"Known limitations": "Known-limitations.md"
+		
+		//"Auto generated": "reference/**"*/
+	}
+}

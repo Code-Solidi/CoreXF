@@ -21,6 +21,12 @@ namespace CoreXF.Framework.Registry
         private readonly ILogger logger;
         private readonly IApplicationLifetime applicationLifetime;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExtensionsMiddleware"/> class.
+        /// </summary>
+        /// <param name="next">The next.</param>
+        /// <param name="applicationLifetime">The application lifetime.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         public ExtensionsMiddleware(RequestDelegate next, IApplicationLifetime applicationLifetime, ILoggerFactory loggerFactory)
         {
             this.next = next;
@@ -28,6 +34,11 @@ namespace CoreXF.Framework.Registry
             this.logger = loggerFactory.CreateLogger(this.GetType());
         }
 
+        /// <summary>
+        /// Invokes the <see cref="Task"/>.
+        /// </summary>
+        /// <param name="httpContext">The http context.</param>
+        /// <returns>A Task.</returns>
         public async Task Invoke(HttpContext httpContext)
         {
             //var requestUrl = httpContext.Request.Host.ToString() + httpContext.Request.Path;

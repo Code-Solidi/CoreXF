@@ -3,6 +3,7 @@
   Licensed under the Apache License Version 2. See LICENSE.txt in the project root for license information.
 *@
 
+@using static CoreXF.Abstractions.Base.IWebApiExtension
 @model ExtensionsModel
 
 @{
@@ -31,14 +32,14 @@
                 <td>@extension.Description</td>
                 <td>@extension.Location</td>
                 <td>
-                    @if (extension.Status == CoreXF.Abstractions.Base.ExtensionStatus.Stopped)
+                    @if (extension.Status == ExtensionStatus.Stopped)
                     {
                         <form asp-action="Start">
                             <input name="Name" type="hidden" value="@extension.Name">
                             <button type="submit" class="btn btn-success">Start</button>
                         </form>
                     }
-                    @if (extension.Status == CoreXF.Abstractions.Base.ExtensionStatus.Running)
+                    @if (extension.Status == ExtensionStatus.Running)
                     {
                         <form asp-action="Stop">
                             <input name="Name" type="hidden" value="@extension.Name">

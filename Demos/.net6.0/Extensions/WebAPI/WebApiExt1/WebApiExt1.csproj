@@ -13,12 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CoreXF.Abstractions" Version="3.0.0-beta-2" />
+        <PackageReference Include="CoreXF.Abstractions" Version="3.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\..\..\src\Abstractions\CoreXF.Abstractions.csproj" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">

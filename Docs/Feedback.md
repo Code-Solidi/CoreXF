@@ -1,1 +1,0 @@
-_Any comments, bug reports, feature requests should be directed to_ achristov@hotmail.com.

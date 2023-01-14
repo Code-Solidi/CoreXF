@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		Packaging\CoreXF.sln.licenseheader = Packaging\CoreXF.sln.licenseheader
+		docnet.json = docnet.json
+		Docs\Readme.md = Docs\Readme.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{E8C5D3D9-594A-45FB-9DFE-28030B77EA56}"
@@ -86,6 +88,28 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventingConsoleApp", "Demos\BackingServices\EventingConsoleApp\EventingConsoleApp.csproj", "{6B2A38E2-DFB0-4084-9EA6-F78C26309AFD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingConsoleApp", "Demos\BackingServices\MessagingConsoleApp\MessagingConsoleApp.csproj", "{E14AAB6A-3ABD-497F-AB25-FA770A6621E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{B333A079-06DA-466E-9DD2-42AE180523D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markdown", "Markdown", "{A6659322-B6B6-46D8-A568-C159CEDCE64F}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Markdown\Advanced-Topics.md = Docs\Markdown\Advanced-Topics.md
+		Docs\Markdown\Architecture-Overview.md = Docs\Markdown\Architecture-Overview.md
+		Docs\Markdown\Demo-Projects.md = Docs\Markdown\Demo-Projects.md
+		Docs\Markdown\Exporting-ViewComponents.md = Docs\Markdown\Exporting-ViewComponents.md
+		Docs\Markdown\Extending-with-TagHelpers.md = Docs\Markdown\Extending-with-TagHelpers.md
+		Docs\Markdown\Feedback.md = Docs\Markdown\Feedback.md
+		Docs\Markdown\Index.md = Docs\Markdown\Index.md
+		Docs\Markdown\Interface-implementation.md = Docs\Markdown\Interface-implementation.md
+		Docs\Markdown\Known-limitations.md = Docs\Markdown\Known-limitations.md
+		Docs\Markdown\MVC-application-as-an-extension.md = Docs\Markdown\MVC-application-as-an-extension.md
+		Docs\Markdown\Quickstart-Guide.md = Docs\Markdown\Quickstart-Guide.md
+		Docs\Markdown\Registering-middleware-from-extensions.md = Docs\Markdown\Registering-middleware-from-extensions.md
+		Docs\Markdown\Roadmap.md = Docs\Markdown\Roadmap.md
+		Docs\Markdown\Sharing-DI-container-from-the-host-application.md = Docs\Markdown\Sharing-DI-container-from-the-host-application.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Html", "Html", "{196F881F-CFB4-4640-B1BC-4E605608B330}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,6 +239,9 @@ Global
 		{D4C870B6-D4D5-4DA3-BD8F-67BDCA755D23} = {E8C5D3D9-594A-45FB-9DFE-28030B77EA56}
 		{6B2A38E2-DFB0-4084-9EA6-F78C26309AFD} = {D4C870B6-D4D5-4DA3-BD8F-67BDCA755D23}
 		{E14AAB6A-3ABD-497F-AB25-FA770A6621E1} = {D4C870B6-D4D5-4DA3-BD8F-67BDCA755D23}
+		{B333A079-06DA-466E-9DD2-42AE180523D1} = {0F86CE13-4C2D-4C4D-B225-4E6E6DC3BE82}
+		{A6659322-B6B6-46D8-A568-C159CEDCE64F} = {B333A079-06DA-466E-9DD2-42AE180523D1}
+		{196F881F-CFB4-4640-B1BC-4E605608B330} = {B333A079-06DA-466E-9DD2-42AE180523D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D088720-A349-41E3-AC67-7203C07EB67E}
