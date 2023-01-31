@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "Spikes\WebApplication1\WebApplication1.csproj", "{AA232234-FF13-4DC5-856D-C9E4B05CBA77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spikes", "Spikes", "{E7E175F0-2419-4621-9F68-414A4BA73708}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreXF.Store", "Store\CoreXF.Store\CoreXF.Store.csproj", "{2DD086E9-DA13-4513-88C9-61CFC84E419C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA232234-FF13-4DC5-856D-C9E4B05CBA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA232234-FF13-4DC5-856D-C9E4B05CBA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA232234-FF13-4DC5-856D-C9E4B05CBA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA232234-FF13-4DC5-856D-C9E4B05CBA77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD086E9-DA13-4513-88C9-61CFC84E419C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD086E9-DA13-4513-88C9-61CFC84E419C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD086E9-DA13-4513-88C9-61CFC84E419C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD086E9-DA13-4513-88C9-61CFC84E419C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA232234-FF13-4DC5-856D-C9E4B05CBA77} = {E7E175F0-2419-4621-9F68-414A4BA73708}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D088720-A349-41E3-AC67-7203C07EB67E}
+	EndGlobalSection
+EndGlobal
