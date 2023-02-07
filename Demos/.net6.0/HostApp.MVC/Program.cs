@@ -15,7 +15,6 @@ namespace HostApp.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews().AddCoreXF(builder.Services);
-            builder.Services.AddServerSideBlazor();
 
             var app = builder.Build();
 
