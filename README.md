@@ -39,7 +39,7 @@ The easiest way to get started is to examine the demos.
 _In preparation_, sorry for the inconvenience. Use demos and live demo site till ready.
 
 ### Demos
-Appart from the demo apps here on GitHub, there's a dedicated live demo [here](https://infostore.codesolidi.com).
+Appart from the demo apps here on GitHub, there's a dedicated live demo [here](https://infostore.codesolidi.com). Source code for the demo can be found [here](https://github.com/Code-Solidi/InfoStore).
 
 NB: v3.0.0 demos replace the old ones and are now hopefully much more helpful, <code>ExtensionBase</code> simplified (user is no longer forced to use/implement methods thet are not in use anymore).
 
